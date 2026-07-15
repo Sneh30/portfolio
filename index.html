@@ -95,6 +95,13 @@
     .timeline-item p { color: var(--text-muted); font-size: .85rem; line-height: 1.6; }
     .edge-line { position: absolute; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--border), transparent); z-index: 0; pointer-events: none; }
     .edge-line.left { left: 32px; } .edge-line.right { right: 32px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+    .skill-cat { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 24px; transition: border-color .3s, transform .3s; }
+    .skill-cat:hover { border-color: rgba(124,58,237,.35); transform: translateY(-2px); }
+    .skill-cat h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--text-muted); margin-bottom: 18px; font-weight: 600; }
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-chip { padding: 6px 14px; border-radius: 6px; font-size: .85rem; background: rgba(124,58,237,.08); color: #a78bfa; border: 1px solid rgba(124,58,237,.15); transition: .2s; }
+    .skill-chip:hover { background: rgba(124,58,237,.18); transform: translateY(-1px); }
     footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: .85rem; border-top: 1px solid var(--border); }
     footer .heart { color: #ef4444; }
     nav {
@@ -173,6 +180,23 @@
     </div>
   </section>
 
+  <div class="section-wrap alt">
+    <div class="edge-line left"></div>
+    <div class="edge-line right"></div>
+    <section id="skills">
+      <div class="container">
+        <div class="reveal"><div class="section-label">// skills</div><h2 class="section-title">Tech &amp; Tools</h2><p class="section-sub">Languages, frameworks, and infrastructure I work with daily.</p></div>
+        <div class="skills-grid">
+          <div class="skill-cat reveal"><h3>Languages</h3><div class="skill-chips"><span class="skill-chip">Python</span><span class="skill-chip">Rust</span><span class="skill-chip">C</span><span class="skill-chip">JavaScript</span><span class="skill-chip">TypeScript</span></div></div>
+          <div class="skill-cat reveal reveal-delay-1"><h3>AI &amp; ML</h3><div class="skill-chips"><span class="skill-chip">LangChain</span><span class="skill-chip">LangGraph</span><span class="skill-chip">OpenAI</span><span class="skill-chip">Anthropic</span><span class="skill-chip">Llama.cpp</span><span class="skill-chip">PyTorch</span><span class="skill-chip">Computer Vision</span></div></div>
+          <div class="skill-cat reveal reveal-delay-2"><h3>Backend &amp; Infra</h3><div class="skill-chips"><span class="skill-chip">FastAPI</span><span class="skill-chip">PostgreSQL</span><span class="skill-chip">Docker</span><span class="skill-chip">Prometheus</span><span class="skill-chip">AWS</span><span class="skill-chip">Linux</span></div></div>
+          <div class="skill-cat reveal"><h3>Embedded &amp; Edge</h3><div class="skill-chips"><span class="skill-chip">ESP32</span><span class="skill-chip">Raspberry Pi</span><span class="skill-chip">Arduino</span><span class="skill-chip">C++</span></div></div>
+          <div class="skill-cat reveal reveal-delay-1"><h3>Tools &amp; Platforms</h3><div class="skill-chips"><span class="skill-chip">Git</span><span class="skill-chip">Docker</span><span class="skill-chip">Kubernetes</span><span class="skill-chip">GitHub Actions</span><span class="skill-chip">SwiftUI</span></div></div>
+          <div class="skill-cat reveal reveal-delay-2"><h3>Currently Exploring</h3><div class="skill-chips"><span class="skill-chip">Multimodal Agents</span><span class="skill-chip">Autonomous Cloud</span><span class="skill-chip">Embedded Vision</span><span class="skill-chip">Distributed Systems</span></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
   <div class="section-wrap alt-2">
     <section id="experience">
       <div class="container">
