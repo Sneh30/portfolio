@@ -83,6 +83,16 @@
     .about-text p { color: var(--text-muted); margin-bottom: 16px; font-size: 1rem; line-height: 1.8; }
     .about-code { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; overflow-x: auto; font-family: var(--font-mono); font-size: .85rem; line-height: 1.9; }
     .about-code .comment { color: #52525b; } .about-code .keyword { color: #c084fc; } .about-code .string { color: #34d399; } .about-code .func { color: #22d3ee; } .about-code .type { color: #fbbf24; }
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--accent-1), var(--accent-2)); }
+    .timeline-item { position: relative; margin-bottom: 40px; padding-left: 24px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot { position: absolute; left: -29px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent-1); z-index: 1; transition: box-shadow .3s; }
+    .timeline-item:hover .timeline-dot { box-shadow: 0 0 20px rgba(124,58,237,.4); }
+    .timeline-date { font-family: var(--font-mono); font-size: .8rem; color: var(--accent-2); margin-bottom: 4px; }
+    .timeline-item h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
+    .timeline-item .role { color: var(--text-muted); font-size: .9rem; margin-bottom: 8px; }
+    .timeline-item p { color: var(--text-muted); font-size: .85rem; line-height: 1.6; }
     .edge-line { position: absolute; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--border), transparent); z-index: 0; pointer-events: none; }
     .edge-line.left { left: 32px; } .edge-line.right { right: 32px; }
     footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: .85rem; border-top: 1px solid var(--border); }
@@ -163,6 +173,30 @@
     </div>
   </section>
 
+  <div class="section-wrap alt-2">
+    <section id="experience">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">// experience</div>
+          <h2 class="section-title">Building in Public</h2>
+          <p class="section-sub">My journey across AI research, infrastructure, and open source.</p>
+        </div>
+        <div class="about-grid">
+          <div class="timeline reveal">
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2026 — Present</div><h3>Team Stratos</h3><div class="role">AI Engineer</div><p>Building multimodal AI agents and autonomous systems at the intersection of computer vision, LLMs, and cloud infrastructure.</p></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 — Present</div><h3>DeepOps</h3><div class="role">Creator &amp; Lead Developer</div><p>AI-powered autonomous cloud operations platform. Natural language infrastructure management, anomaly detection, root cause analysis, auto-remediation.</p></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025</div><h3>Orchestra</h3><div class="role">Creator &amp; Lead Developer</div><p>Production-grade multi-agent research orchestration system with LangGraph, FastAPI, PostgreSQL, and Prometheus monitoring.</p></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025</div><h3>PromptOS</h3><div class="role">Creator &amp; Lead Developer</div><p>macOS desktop app — prompt compiler with multi-pass optimization, WASM plugin system, local LLM inference via Metal GPU, and cloud provider support.</p></div>
+          </div>
+          <div class="timeline reveal reveal-delay-1">
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025</div><h3>ESP32-CAM Vision Suite</h3><div class="role">Embedded Systems Engineer</div><p>Three ESP32-CAM projects: ML dataset capture, real-time color tracking robot, 60 FPS MJPG video streaming server with full camera control.</p></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024 — Present</div><h3>Open Source</h3><div class="role">Contributor</div><p>Active open source contributions. Building tools for the AI and developer community. Focus on infrastructure, developer tooling, and AI frameworks.</p></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024</div><h3>Computer Vision Research</h3><div class="role">Independent Researcher</div><p>Explored edge-CV with ESP32-CAM. Implemented real-time HSV quantization, centroid computation, and pixel-level analysis on constrained hardware.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
   <div class="section-wrap alt">
     <div class="edge-line left"></div>
     <div class="edge-line right"></div>
