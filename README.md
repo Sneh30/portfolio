@@ -1,5 +1,7 @@
 # Portfolio
 
+[![Live Site](https://img.shields.io/badge/Live%20Site-%2307070a?style=for-the-badge&logo=vercel&logoColor=white)](https://sneh30.github.io/portfolio/)
+
 Personal portfolio website for [Sneh Sinha](https://github.com/Sneh30) — AI Engineer building multimodal agents, autonomous cloud infrastructure, and embedded intelligence.
 
 ## Tech Stack
