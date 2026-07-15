@@ -35,7 +35,11 @@
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
+      cursor: none;
     }
+    .cursor-dot { position: fixed; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); pointer-events: none; z-index: 10000; transition: transform .15s, opacity .15s; transform: translate(-50%,-50%); mix-blend-mode: difference; }
+    .cursor-ring { position: fixed; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.15); pointer-events: none; z-index: 9999; transition: width .3s, height .3s, border-color .3s, transform .15s; transform: translate(-50%,-50%); }
+    .cursor-ring.hover { width: 64px; height: 64px; border-color: var(--accent-1); }
     ::selection { background: rgba(124, 58, 237, 0.4); color: #fff; }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
@@ -200,6 +204,8 @@
       .container { padding: 0 20px; }
       section { padding: 72px 0; }
       nav { padding: 0 20px; }
+      body { cursor: auto; }
+      .cursor-dot, .cursor-ring { display: none; }
     }
   </style>
 </head>
@@ -438,6 +444,10 @@
       card.addEventListener('mouseleave', () => { const inner = card.querySelector('.project-card-inner'); inner.style.transform = 'rotateX(0) rotateY(0)'; });
     });
 
+    const dot = document.getElementById('cursorDot'); const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
+    document.querySelectorAll('a, button, .btn-primary, .btn-outline, .project-card, .skill-cat, .ach-card, .blog-card, .nav-cta, .contact-socials a, .form-btn').forEach(el => { el.addEventListener('mouseenter', () => ring.classList.add('hover')); el.addEventListener('mouseleave', () => ring.classList.remove('hover')); });
+
     const progressBar = document.getElementById('scrollProgress');
     window.addEventListener('scroll', () => { const h = document.documentElement; const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100; progressBar.style.width = pct + '%'; });
 
@@ -451,6 +461,8 @@
     toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); });
     links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); }));
   </script>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
   <div class="scroll-progress" id="scrollProgress"></div>
   <a href="#" class="back-top" id="backTop">↑</a>
   <footer>Built with <span class="heart">♥</span> by Sneh Sinha &middot; 2026</footer>
