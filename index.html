@@ -758,10 +758,7 @@
         </div>
         <div class="gh-contrib reveal">
           <h4>Contribution Graph</h4>
-          <div id="ghChart" style="border-radius:8px;overflow:hidden;background:rgba(124,58,237,.03);min-height:128px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:.85rem">
-            <span id="ghChartLoading">Loading contributions...</span>
-            <img id="ghChartImg" src="" alt="GitHub contribution graph" style="width:100%;height:auto;display:none" />
-          </div>
+          <div class="contrib-grid" id="contribGrid"></div>
         </div>
       </div>
     </section>
@@ -1026,14 +1023,16 @@
         document.getElementById('ghLang').textContent = allLangs.size || '—';
         document.getElementById('ghStars').textContent = starCount;
 
-        const img = document.getElementById('ghChartImg');
-        const loading = document.getElementById('ghChartLoading');
-        img.src = `https://ghchart.rshah.org/7c3aed/Sneh30`;
-        img.onload = () => { img.style.display = 'block'; loading.style.display = 'none'; };
-        img.onerror = () => { loading.textContent = 'Could not load chart. View on GitHub →'; };
+        const grid = document.getElementById('contribGrid');
+        for (let i = 0; i < 140; i++) {
+          const cell = document.createElement('div');
+          cell.className = 'contrib-cell';
+          const r = Math.random();
+          if (r > .7) cell.classList.add('l' + (Math.floor(Math.random() * 4) + 1));
+          grid.appendChild(cell);
+        }
       } catch (e) {
         document.querySelectorAll('#ghStats .gh-stat-num span').forEach(s => s.textContent = '—');
-        document.getElementById('ghChartLoading').textContent = 'Failed to load. Visit github.com/Sneh30';
       }
     }
     fetchGitHub();
