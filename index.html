@@ -116,6 +116,15 @@
     .project-links { display: flex; gap: 16px; }
     .project-links a { color: var(--text-muted); text-decoration: none; font-size: .85rem; display: flex; align-items: center; gap: 6px; transition: color .2s; font-weight: 500; }
     .project-links a:hover { color: var(--text); }
+    .ach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
+    .ach-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: border-color .3s, transform .3s; position: relative; overflow: hidden; }
+    .ach-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient); opacity: 0; transition: opacity .3s; }
+    .ach-card:hover { border-color: rgba(124,58,237,.35); transform: translateY(-3px); }
+    .ach-card:hover::before { opacity: 1; }
+    .ach-card .ach-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .ach-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+    .ach-card .ach-event { color: var(--accent-2); font-size: .8rem; font-family: var(--font-mono); margin-bottom: 8px; }
+    .ach-card p { color: var(--text-muted); font-size: .85rem; line-height: 1.5; }
     footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: .85rem; border-top: 1px solid var(--border); }
     footer .heart { color: #ef4444; }
     nav {
@@ -220,6 +229,23 @@
           <div class="project-card reveal reveal-delay-1"><div class="project-card-inner"><div class="project-icon">🔬</div><h3>Orchestra</h3><p>Production-grade AI research orchestration with 5 specialized LangGraph agents producing verified reports with confidence scoring.</p><div class="project-tech"><span>Python</span><span>LangGraph</span><span>FastAPI</span><span>PostgreSQL</span><span>Prometheus</span></div><div class="project-links"><a href="https://github.com/Sneh30/Orchestra" target="_blank">GitHub →</a><a href="https://github.com/Sneh30/Orchestra" target="_blank">README →</a></div></div></div>
           <div class="project-card reveal reveal-delay-2"><div class="project-card-inner"><div class="project-icon">⚡</div><h3>PromptOS</h3><p>macOS app that treats prompts as source code — compiles through multi-pass optimization with WASM plugins and local LLM inference.</p><div class="project-tech"><span>Rust</span><span>Swift</span><span>Llama.cpp</span><span>WASM</span><span>Metal GPU</span></div><div class="project-links"><a href="https://github.com/Sneh30/promptos" target="_blank">GitHub →</a><a href="https://github.com/Sneh30/promptos" target="_blank">README →</a></div></div></div>
           <div class="project-card reveal"><div class="project-card-inner"><div class="project-icon">📷</div><h3>ESP32-CAM Vision Suite</h3><p>Three ESP32-CAM projects: image capture for ML datasets, real-time color tracking robot, and MJPG video streaming at 60 FPS.</p><div class="project-tech"><span>C</span><span>ESP32</span><span>Computer Vision</span><span>HSV</span></div><div class="project-links"><a href="https://github.com/Sneh30/esp32-cam-vision" target="_blank">GitHub →</a><a href="https://github.com/Sneh30/esp32-cam-vision" target="_blank">README →</a></div></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="section-wrap alt">
+    <div class="edge-line left"></div>
+    <div class="edge-line right"></div>
+    <section id="achievements">
+      <div class="container">
+        <div class="reveal"><div class="section-label">// achievements</div><h2 class="section-title">Wins &amp; Milestones</h2><p class="section-sub">Hackathons, research, and things I'm proud of.</p></div>
+        <div class="ach-grid">
+          <div class="ach-card reveal"><div class="ach-icon">🏆</div><h4>AI Agent Hackathon Winner</h4><div class="ach-event">Nasiko Labs · 2026</div><p>Created an OS for solopreneurs to integrate all their apps using Composio. Won Agent Arena Bangalore 2026.</p></div>
+          <div class="ach-card reveal reveal-delay-1"><div class="ach-icon">🔬</div><h4>Research Paper Accepted</h4><div class="ach-event">IC-AISMART 2025, AICTE</div><p>"Cardiocare: AI-Powered Framework for Stress Management" — LSTM-CNN driven real-time stress detection.</p></div>
+          <div class="ach-card reveal reveal-delay-2"><div class="ach-icon">⚡</div><h4>Monad Blitz Winner</h4><div class="ach-event">Monad · 2026</div><p>Deployed & monetized voice agents powered by voice NFTs. Won Monad Blitz v4 — The Agent Economy.</p></div>
+          <div class="ach-card reveal"><div class="ach-icon">🛡</div><h4>Claw Hack Winner</h4><div class="ach-event">HydraDB · 2026</div><p>Clawnet with HydraDB as memory layer. Won Claw Hack, Bangalore.</p></div>
+          <div class="ach-card reveal reveal-delay-1"><div class="ach-icon">💎</div><h4>Stellar Builders Camp</h4><div class="ach-event">McLeodGanj · 2025</div><p>Best AI & User Adoption award. Built Stacy — an AI-powered IDE for Soroban smart contracts.</p></div>
+          <div class="ach-card reveal reveal-delay-2"><div class="ach-icon">🎨</div><h4>Design Head — amBITion'25</h4><div class="ach-event">GDG BIT Bangalore · 2025</div><p>Conducted BIT's flagship 24h national hackathon with 600+ participants.</p></div>
         </div>
       </div>
     </section>
