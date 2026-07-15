@@ -294,25 +294,6 @@
     .project-links a { color: var(--text-muted); text-decoration: none; font-size: .85rem; display: flex; align-items: center; gap: 6px; transition: color .2s; font-weight: 500; }
     .project-links a:hover { color: var(--text); }
 
-    /* ─── Achievements ─── */
-    .ach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
-    .ach-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px;
-      transition: border-color .3s, transform .3s;
-      position: relative; overflow: hidden;
-    }
-    .ach-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--gradient); opacity: 0; transition: opacity .3s;
-    }
-    .ach-card:hover { border-color: rgba(124,58,237,.35); transform: translateY(-3px); }
-    .ach-card:hover::before { opacity: 1; }
-    .ach-card .ach-icon { font-size: 1.5rem; margin-bottom: 12px; }
-    .ach-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
-    .ach-card .ach-event { color: var(--accent-2); font-size: .8rem; font-family: var(--font-mono); margin-bottom: 8px; }
-    .ach-card p { color: var(--text-muted); font-size: .85rem; line-height: 1.5; }
-
     /* ─── GitHub ─── */
     .github-summary {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
@@ -460,7 +441,7 @@
       .contact-form { padding: 0; }
     }
     @media (max-width: 480px) {
-      .skills-grid, .ach-grid, .blog-grid { grid-template-columns: 1fr; }
+      .skills-grid, .blog-grid { grid-template-columns: 1fr; }
       .hero-name { font-size: 2.5rem; }
       .hero-stats { flex-wrap: wrap; gap: 20px; }
       .hero-stat-num { font-size: 1.5rem; }
@@ -759,29 +740,6 @@
     </section>
   </div>
 
-  <!-- ─── Achievements ─── -->
-  <div class="section-wrap alt">
-    <div class="edge-line left"></div>
-    <div class="edge-line right"></div>
-    <section id="achievements">
-      <div class="container">
-        <div class="reveal">
-          <div class="section-label">// achievements</div>
-          <h2 class="section-title">Wins &amp; Milestones</h2>
-          <p class="section-sub">Hackathons, research, and things I'm proud of.</p>
-        </div>
-        <div class="ach-grid">
-          <div class="ach-card reveal"><div class="ach-icon">🏆</div><h4>AI Agent Hackathon Winner</h4><div class="ach-event">Nasiko Labs · 2026</div><p>Created an OS for solopreneurs to integrate all their apps using Composio. Won Agent Arena Bangalore 2026.</p></div>
-          <div class="ach-card reveal reveal-delay-1"><div class="ach-icon">🔬</div><h4>Research Paper Accepted</h4><div class="ach-event">IC-AISMART 2025, AICTE</div><p>"Cardiocare: AI-Powered Framework for Stress Management and Health Monitoring" — LSTM-CNN driven real-time stress detection.</p></div>
-          <div class="ach-card reveal reveal-delay-2"><div class="ach-icon">⚡</div><h4>Monad Blitz Winner</h4><div class="ach-event">Monad · 2026</div><p>Deployed & monetized voice agents powered by voice NFTs. Won Monad Blitz v4 — The Agent Economy.</p></div>
-          <div class="ach-card reveal"><div class="ach-icon">🛡</div><h4>Claw Hack Winner</h4><div class="ach-event">HydraDB · 2026</div><p>Clawnet with HydraDB as memory layer and Anakin for web search. Won Claw Hack, Bangalore.</p></div>
-          <div class="ach-card reveal reveal-delay-1"><div class="ach-icon">💎</div><h4>Stellar Builders Camp</h4><div class="ach-event">McLeodGanj · 2025</div><p>Best AI & User Adoption award. Built Stacy — an AI-powered IDE for writing Soroban smart contracts.</p></div>
-          <div class="ach-card reveal reveal-delay-2"><div class="ach-icon">🎨</div><h4>Design Head — amBITion'25</h4><div class="ach-event">GDG BIT Bangalore · 2025</div><p>Conducted BIT's flagship 24h national hackathon with 600+ participants from across India.</p></div>
-        </div>
-      </div>
-    </section>
-  </div>
-
   <!-- ─── GitHub ─── -->
   <div class="section-wrap alt-2">
     <section id="github">
@@ -913,7 +871,7 @@
       ring.style.left = e.clientX + 'px';
       ring.style.top = e.clientY + 'px';
     });
-    document.querySelectorAll('a, button, .btn-primary, .btn-outline, .project-card, .skill-cat, .ach-card, .blog-card, .nav-cta, .contact-socials a, .form-btn').forEach(el => {
+    document.querySelectorAll('a, button, .btn-primary, .btn-outline, .project-card, .skill-cat, .blog-card, .nav-cta, .contact-socials a, .form-btn').forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('hover'));
       el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
     });
