@@ -162,6 +162,7 @@
     .form-btn { background: var(--gradient); color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 600; font-size: .9rem; cursor: pointer; width: 100%; transition: opacity .2s, transform .2s; font-family: var(--font-sans); }
     .form-btn:hover { opacity: .9; transform: translateY(-1px); }
     .back-top { position: fixed; bottom: 32px; right: 32px; z-index: 50; width: 44px; height: 44px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; opacity: 0; transform: translateY(20px); transition: opacity .3s, transform .3s, border-color .2s; pointer-events: none; }
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; background: var(--gradient); z-index: 200; width: 0%; transition: width .1s linear; }
     .back-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
     .back-top:hover { border-color: var(--accent-1); color: var(--text); }
     footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: .85rem; border-top: 1px solid var(--border); }
@@ -437,6 +438,9 @@
       card.addEventListener('mouseleave', () => { const inner = card.querySelector('.project-card-inner'); inner.style.transform = 'rotateX(0) rotateY(0)'; });
     });
 
+    const progressBar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => { const h = document.documentElement; const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100; progressBar.style.width = pct + '%'; });
+
     const backTop = document.getElementById('backTop');
     window.addEventListener('scroll', () => { backTop.classList.toggle('visible', window.scrollY > 400); });
 
@@ -447,6 +451,7 @@
     toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); });
     links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); }));
   </script>
+  <div class="scroll-progress" id="scrollProgress"></div>
   <a href="#" class="back-top" id="backTop">↑</a>
   <footer>Built with <span class="heart">♥</span> by Sneh Sinha &middot; 2026</footer>
 </body>
