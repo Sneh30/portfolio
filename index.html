@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sneh Sinha — AI Engineer</title>
+  <meta name="description" content="AI engineer building multimodal AI, autonomous cloud infrastructure, and embedded intelligence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #07070a;
+      --bg-alt: #090912;
+      --bg-card: #0c0c18;
+      --bg-elevated: #10101e;
+      --border: #18182a;
+      --text: #e8e8ed;
+      --text-muted: #7a7a94;
+      --accent-1: #7c3aed;
+      --accent-2: #06b6d4;
+      --accent-3: #10b981;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --nav-height: 72px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    ::selection { background: rgba(124, 58, 237, 0.4); color: #fff; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent-1); border-radius: 3px; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+    .section-wrap { width: 100%; position: relative; }
+    .section-wrap.alt { background: var(--bg-alt); }
+    .section-wrap.alt-2 { background: var(--bg); }
+    section { padding: 110px 0; }
+    .section-label { font-family: var(--font-mono); font-size: .85rem; color: var(--accent-2); margin-bottom: 8px; display: flex; align-items: center; gap: 12px; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .section-label.center { justify-content: center; }
+    .section-label.center::after { display: none; }
+    .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 16px; }
+    .section-sub { color: var(--text-muted); font-size: 1.05rem; max-width: 640px; margin-bottom: 56px; }
+    .section-sub.center { margin-left: auto; margin-right: auto; text-align: center; }
+    footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: .85rem; border-top: 1px solid var(--border); }
+    footer .heart { color: #ef4444; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <footer>Built with <span class="heart">♥</span> by Sneh Sinha &middot; 2026</footer>
+</body>
+</html>
