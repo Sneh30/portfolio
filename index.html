@@ -125,6 +125,20 @@
     .ach-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
     .ach-card .ach-event { color: var(--accent-2); font-size: .8rem; font-family: var(--font-mono); margin-bottom: 8px; }
     .ach-card p { color: var(--text-muted); font-size: .85rem; line-height: 1.5; }
+    .github-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 16px; margin-bottom: 32px; }
+    .gh-stat { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; transition: border-color .3s; }
+    .gh-stat:hover { border-color: rgba(124,58,237,.3); }
+    .gh-stat-num { font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .gh-stat-label { font-size: .8rem; color: var(--text-muted); margin-top: 4px; }
+    .gh-contrib { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; overflow-x: auto; }
+    .gh-contrib h4 { font-size: .9rem; font-weight: 600; margin-bottom: 16px; }
+    .contrib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(12px,1fr)); gap: 3px; }
+    .contrib-cell { aspect-ratio: 1; border-radius: 2px; background: rgba(124,58,237,.08); transition: background .2s; }
+    .contrib-cell.l1 { background: rgba(124,58,237,.25); }
+    .contrib-cell.l2 { background: rgba(124,58,237,.45); }
+    .contrib-cell.l3 { background: rgba(124,58,237,.65); }
+    .contrib-cell.l4 { background: rgba(124,58,237,.85); }
+    .contrib-cell:hover { background: var(--accent-1) !important; }
     footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: .85rem; border-top: 1px solid var(--border); }
     footer .heart { color: #ef4444; }
     nav {
@@ -251,6 +265,20 @@
     </section>
   </div>
   <div class="section-wrap alt-2">
+    <section id="github">
+      <div class="container">
+        <div class="reveal"><div class="section-label">// open source</div><h2 class="section-title">GitHub Pulse</h2><p class="section-sub">Code speaks louder than words. Here's my open source footprint.</p></div>
+        <div class="github-summary">
+          <div class="gh-stat reveal"><div class="gh-stat-num" data-count="6">0</div><div class="gh-stat-label">Public Repos</div></div>
+          <div class="gh-stat reveal reveal-delay-1"><div class="gh-stat-num" data-count="800">0</div><div class="gh-stat-label">Contributions+</div></div>
+          <div class="gh-stat reveal reveal-delay-2"><div class="gh-stat-num" data-count="5">0</div><div class="gh-stat-label">Languages</div></div>
+          <div class="gh-stat reveal reveal-delay-3"><div class="gh-stat-num" data-count="3">0</div><div class="gh-stat-label">Followers</div></div>
+        </div>
+        <div class="gh-contrib reveal"><h4>Contribution Activity</h4><div class="contrib-grid" id="contribGrid"></div></div>
+      </div>
+    </section>
+  </div>
+  <div class="section-wrap alt-2">
     <section id="experience">
       <div class="container">
         <div class="reveal">
@@ -353,7 +381,7 @@
     function animateCount(el) {
       const target = parseInt(el.dataset.count); let current = 0;
       const step = Math.ceil(target / 50);
-      const interval = setInterval(() => { current += step; if (current >= target) { current = target; clearInterval(interval); } el.textContent = current + (el.dataset.count === '800' && el.closest('#heroStats') ? '+' : ''); }, 20);
+      const interval = setInterval(() => { current += step; if (current >= target) { current = target; clearInterval(interval); } el.textContent = current + (el.closest('#heroStats') || el.closest('.github-summary') ? '+' : ''); }, 20);
     }
 
     setTimeout(() => { document.querySelectorAll('#heroStats [data-count]').forEach(n => { if (!n.dataset.counted) { n.dataset.counted = '1'; animateCount(n); } }); }, 600);
@@ -362,6 +390,9 @@
       entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); const nums = entry.target.querySelectorAll('[data-count]'); nums.forEach(n => { if (!n.dataset.counted) { n.dataset.counted = '1'; animateCount(n); } }); } });
     }, { threshold: .15, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const grid = document.getElementById('contribGrid');
+    if (grid) { for (let i = 0; i < 140; i++) { const cell = document.createElement('div'); cell.className = 'contrib-cell'; const r = Math.random(); if (r > .7) cell.classList.add('l' + (Math.floor(Math.random() * 4) + 1)); grid.appendChild(cell); } }
 
     document.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('mousemove', e => { const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top; const centerX = rect.width / 2; const centerY = rect.height / 2; const rotateX = (y - centerY) / centerY * -6; const rotateY = (x - centerX) / centerX * 6; const inner = card.querySelector('.project-card-inner'); inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`; });
