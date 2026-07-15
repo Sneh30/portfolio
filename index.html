@@ -139,6 +139,14 @@
     .contrib-cell.l3 { background: rgba(124,58,237,.65); }
     .contrib-cell.l4 { background: rgba(124,58,237,.85); }
     .contrib-cell:hover { background: var(--accent-1) !important; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 20px; }
+    .blog-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; transition: border-color .3s, transform .3s; }
+    .blog-card:hover { border-color: rgba(6,182,212,.3); transform: translateY(-3px); }
+    .blog-card .blog-tag { display: inline-block; font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-2); border: 1px solid rgba(6,182,212,.2); padding: 2px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .blog-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .blog-card p { color: var(--text-muted); font-size: .85rem; line-height: 1.5; margin-bottom: 16px; }
+    .blog-card a { color: var(--text-muted); text-decoration: none; font-size: .85rem; font-weight: 500; transition: color .2s; }
+    .blog-card a:hover { color: var(--accent-2); }
     footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: .85rem; border-top: 1px solid var(--border); }
     footer .heart { color: #ef4444; }
     nav {
@@ -243,6 +251,20 @@
           <div class="project-card reveal reveal-delay-1"><div class="project-card-inner"><div class="project-icon">🔬</div><h3>Orchestra</h3><p>Production-grade AI research orchestration with 5 specialized LangGraph agents producing verified reports with confidence scoring.</p><div class="project-tech"><span>Python</span><span>LangGraph</span><span>FastAPI</span><span>PostgreSQL</span><span>Prometheus</span></div><div class="project-links"><a href="https://github.com/Sneh30/Orchestra" target="_blank">GitHub →</a><a href="https://github.com/Sneh30/Orchestra" target="_blank">README →</a></div></div></div>
           <div class="project-card reveal reveal-delay-2"><div class="project-card-inner"><div class="project-icon">⚡</div><h3>PromptOS</h3><p>macOS app that treats prompts as source code — compiles through multi-pass optimization with WASM plugins and local LLM inference.</p><div class="project-tech"><span>Rust</span><span>Swift</span><span>Llama.cpp</span><span>WASM</span><span>Metal GPU</span></div><div class="project-links"><a href="https://github.com/Sneh30/promptos" target="_blank">GitHub →</a><a href="https://github.com/Sneh30/promptos" target="_blank">README →</a></div></div></div>
           <div class="project-card reveal"><div class="project-card-inner"><div class="project-icon">📷</div><h3>ESP32-CAM Vision Suite</h3><p>Three ESP32-CAM projects: image capture for ML datasets, real-time color tracking robot, and MJPG video streaming at 60 FPS.</p><div class="project-tech"><span>C</span><span>ESP32</span><span>Computer Vision</span><span>HSV</span></div><div class="project-links"><a href="https://github.com/Sneh30/esp32-cam-vision" target="_blank">GitHub →</a><a href="https://github.com/Sneh30/esp32-cam-vision" target="_blank">README →</a></div></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="section-wrap alt">
+    <div class="edge-line left"></div>
+    <div class="edge-line right"></div>
+    <section id="blog">
+      <div class="container">
+        <div class="reveal"><div class="section-label">// writing</div><h2 class="section-title">Thoughts &amp; Ideas</h2><p class="section-sub">Sometimes I write about what I'm building and learning.</p></div>
+        <div class="blog-grid">
+          <div class="blog-card reveal"><div class="blog-tag">AI</div><h4>Building a Multi-Agent Research Pipeline with LangGraph</h4><p>How I built Orchestra — a production-grade research orchestration system with 5 specialized agents working in concert.</p><a href="#">Read more →</a></div>
+          <div class="blog-card reveal reveal-delay-1"><div class="blog-tag">Infrastructure</div><h4>DeepOps: An Autonomous SRE Platform</h4><p>Designing a cloud operations platform that deploys, monitors, and heals itself — inspired by how humans reason about incidents.</p><a href="#">Read more →</a></div>
+          <div class="blog-card reveal reveal-delay-2"><div class="blog-tag">Embedded</div><h4>Computer Vision on ESP32-CAM: A Practical Guide</h4><p>Real-time HSV tracking, MJPG streaming, and ML dataset collection on constrained hardware. What I learned building the Vision Suite.</p><a href="#">Read more →</a></div>
         </div>
       </div>
     </section>
