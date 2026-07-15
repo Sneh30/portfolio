@@ -497,7 +497,7 @@
       <div class="hero-stats" id="heroStats">
         <div class="hero-stat"><div class="hero-stat-num" data-count="6">0</div><div class="hero-stat-label">Projects</div></div>
         <div class="hero-stat"><div class="hero-stat-num" data-count="5">0</div><div class="hero-stat-label">Languages</div></div>
-        <div class="hero-stat"><div class="hero-stat-num" data-count="800">0</div><div class="hero-stat-label">Commits+</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="3">0</div><div class="hero-stat-label">Followers</div></div>
       </div>
     </div>
   </section>
@@ -751,7 +751,7 @@
         </div>
         <div class="github-summary" id="ghStats">
           <div class="gh-stat reveal"><div class="gh-stat-num"><span id="ghRepos">—</span></div><div class="gh-stat-label">Public Repos</div></div>
-          <div class="gh-stat reveal reveal-delay-1"><div class="gh-stat-num"><span id="ghContribs">—</span></div><div class="gh-stat-label">Contributions (year)</div></div>
+          <div class="gh-stat reveal reveal-delay-1"><div class="gh-stat-num"><span id="ghContribs">—</span></div><div class="gh-stat-label">Total Contributions</div></div>
           <div class="gh-stat reveal reveal-delay-2"><div class="gh-stat-num"><span id="ghLang">—</span></div><div class="gh-stat-label">Languages Used</div></div>
           <div class="gh-stat reveal reveal-delay-3"><div class="gh-stat-num"><span id="ghFollowers">—</span></div><div class="gh-stat-label">Followers</div></div>
           <div class="gh-stat reveal"><div class="gh-stat-num"><span id="ghStars">—</span></div><div class="gh-stat-label">Stars Earned</div></div>
@@ -847,7 +847,7 @@
           <p class="section-sub center">
             I'm always open to interesting collaborations, research discussions, or just a good conversation about AI.
           </p>
-          <a href="mailto:sneh@example.com" class="contact-email">sneh@example.com</a>
+          <a href="mailto:snehsinha30@gmail.com" class="contact-email">snehsinha30@gmail.com</a>
           <div class="contact-socials">
             <a href="https://github.com/Sneh30" target="_blank" aria-label="GitHub">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -1031,7 +1031,6 @@
         img.src = `https://ghchart.rshah.org/7c3aed/Sneh30`;
         img.onload = () => { img.style.display = 'block'; loading.style.display = 'none'; };
         img.onerror = () => { loading.textContent = 'Could not load chart. View on GitHub →'; };
-        document.getElementById('ghContribs').textContent = repos.length > 0 ? Math.floor(repos.reduce((a,r) => a + (r.size || 0), 0) / 10) + 'k+' : '—';
       } catch (e) {
         document.querySelectorAll('#ghStats .gh-stat-num span').forEach(s => s.textContent = '—');
         document.getElementById('ghChartLoading').textContent = 'Failed to load. Visit github.com/Sneh30';
@@ -1039,16 +1038,39 @@
     }
     fetchGitHub();
 
-    // ─── LeetCode API ───
+    // ─── GitHub contributions count ───
+    async function fetchContribs() {
+      try {
+        const res = await fetch('https://github.com/users/Sneh30/contributions');
+        const html = await res.text();
+        const match = html.match(/(\d[\d,]*)\s+contributions/);
+        if (match) document.getElementById('ghContribs').textContent = match[1].replace(/,/g, '') + '+';
+      } catch (e) { /* leave as — */ }
+    }
+    fetchContribs();
+
+    // ─── LeetCode API with animation ───
     async function fetchLeetCode() {
       try {
         const res = await fetch('https://leetcode-stats-api.herokuapp.com/Sneh30');
         if (!res.ok) throw new Error('Not found');
         const data = await res.json();
-        document.getElementById('lcSolved').textContent = data.totalSolved || '—';
-        document.getElementById('lcRating').textContent = data.contributionPoints || '—';
-        document.getElementById('lcEasy').textContent = data.easySolved || '—';
-        document.getElementById('lcMed').textContent = data.mediumSolved || '—';
+        const lcEls = [
+          { id: 'lcSolved', val: data.totalSolved || 0 },
+          { id: 'lcRating', val: data.contributionPoints || 0 },
+          { id: 'lcEasy', val: data.easySolved || 0 },
+          { id: 'lcMed', val: data.mediumSolved || 0 },
+        ];
+        lcEls.forEach(({ id, val }) => {
+          const el = document.getElementById(id);
+          let current = 0;
+          const step = Math.ceil(val / 50);
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= val) { current = val; clearInterval(interval); }
+            el.textContent = current;
+          }, 20);
+        });
       } catch (e) {
         document.querySelectorAll('#lcStats [id]').forEach(el => { if (el.id.startsWith('lc')) el.textContent = '—'; });
       }
