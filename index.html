@@ -54,11 +54,67 @@
     .section-sub.center { margin-left: auto; margin-right: auto; text-align: center; }
     footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: .85rem; border-top: 1px solid var(--border); }
     footer .heart { color: #ef4444; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-height); display: flex; align-items: center;
+      justify-content: space-between; padding: 0 32px;
+      transition: background .3s, backdrop-filter .3s, box-shadow .3s;
+    }
+    nav.scrolled {
+      background: rgba(7, 7, 10, .88);
+      backdrop-filter: blur(24px) saturate(1.5);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-logo { font-weight: 800; font-size: 1.25rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: .875rem; font-weight: 500; transition: color .2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gradient); transition: width .3s; border-radius: 1px; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { background: var(--gradient); color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; font-size: .875rem; cursor: pointer; transition: opacity .2s, transform .2s; font-family: var(--font-sans); }
+    .nav-cta:hover { opacity: .9; transform: translateY(-1px); }
+    .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .menu-toggle span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: var(--nav-height); left: 0; right: 0; background: rgba(7,7,10,.96); backdrop-filter: blur(24px); padding: 24px; gap: 20px; border-bottom: 1px solid var(--border); }
+      .menu-toggle { display: flex; }
+      .container { padding: 0 20px; }
+      section { padding: 72px 0; }
+      nav { padding: 0 20px; }
+    }
   </style>
 </head>
 <body>
+  <nav id="navbar">
+    <span class="nav-logo">Sneh.</span>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="https://github.com/Sneh30" target="_blank" class="nav-cta">GitHub</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); });
+    const toggle = document.getElementById('menuToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); }));
+  </script>
   <footer>Built with <span class="heart">♥</span> by Sneh Sinha &middot; 2026</footer>
 </body>
 </html>
