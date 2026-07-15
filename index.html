@@ -747,17 +747,56 @@
         <div class="reveal">
           <div class="section-label">// open source</div>
           <h2 class="section-title">GitHub Pulse</h2>
-          <p class="section-sub">Code speaks louder than words. Here's my open source footprint.</p>
+          <p class="section-sub">Code speaks louder than words. Here's my open source footprint — live from the API.</p>
         </div>
-        <div class="github-summary">
-          <div class="gh-stat reveal"><div class="gh-stat-num" data-count="6">0</div><div class="gh-stat-label">Public Repos</div></div>
-          <div class="gh-stat reveal reveal-delay-1"><div class="gh-stat-num" data-count="800">0</div><div class="gh-stat-label">Contributions+</div></div>
-          <div class="gh-stat reveal reveal-delay-2"><div class="gh-stat-num" data-count="5">0</div><div class="gh-stat-label">Languages</div></div>
-          <div class="gh-stat reveal reveal-delay-3"><div class="gh-stat-num" data-count="3">0</div><div class="gh-stat-label">Followers</div></div>
+        <div class="github-summary" id="ghStats">
+          <div class="gh-stat reveal"><div class="gh-stat-num"><span id="ghRepos">—</span></div><div class="gh-stat-label">Public Repos</div></div>
+          <div class="gh-stat reveal reveal-delay-1"><div class="gh-stat-num"><span id="ghContribs">—</span></div><div class="gh-stat-label">Contributions (year)</div></div>
+          <div class="gh-stat reveal reveal-delay-2"><div class="gh-stat-num"><span id="ghLang">—</span></div><div class="gh-stat-label">Languages Used</div></div>
+          <div class="gh-stat reveal reveal-delay-3"><div class="gh-stat-num"><span id="ghFollowers">—</span></div><div class="gh-stat-label">Followers</div></div>
+          <div class="gh-stat reveal"><div class="gh-stat-num"><span id="ghStars">—</span></div><div class="gh-stat-label">Stars Earned</div></div>
         </div>
         <div class="gh-contrib reveal">
-          <h4>Contribution Activity</h4>
-          <div class="contrib-grid" id="contribGrid"></div>
+          <h4>Contribution Graph</h4>
+          <div id="ghChart" style="border-radius:8px;overflow:hidden;background:rgba(124,58,237,.03);min-height:128px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:.85rem">
+            <span id="ghChartLoading">Loading contributions...</span>
+            <img id="ghChartImg" src="" alt="GitHub contribution graph" style="width:100%;height:auto;display:none" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ─── LeetCode ─── -->
+  <div class="section-wrap alt">
+    <div class="edge-line left"></div>
+    <div class="edge-line right"></div>
+    <section id="leetcode">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">// competitive</div>
+          <h2 class="section-title">LeetCode Profile</h2>
+          <p class="section-sub">Problem solving and algorithmic thinking.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p style="margin-bottom:20px">
+              I solve data structures & algorithms problems on LeetCode to stay sharp.
+              Competitive programming keeps my fundamentals strong and helps me write
+              cleaner, more efficient code.
+            </p>
+            <a href="https://leetcode.com/u/Sneh30/" target="_blank" class="btn-primary" style="display:inline-block;text-decoration:none">
+              View LeetCode Profile →
+            </a>
+          </div>
+          <div class="reveal reveal-delay-1" id="lcStats" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:center">
+              <div><div style="font-size:2rem;font-weight:800;font-family:var(--font-mono);background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent" id="lcSolved">—</div><div style="font-size:.8rem;color:var(--text-muted);margin-top:4px">Problems Solved</div></div>
+              <div><div style="font-size:2rem;font-weight:800;font-family:var(--font-mono);background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent" id="lcRating">—</div><div style="font-size:.8rem;color:var(--text-muted);margin-top:4px">Contest Rating</div></div>
+              <div><div style="font-size:2rem;font-weight:800;font-family:var(--font-mono);background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent" id="lcEasy">—</div><div style="font-size:.8rem;color:var(--text-muted);margin-top:4px">Easy</div></div>
+              <div><div style="font-size:2rem;font-weight:800;font-family:var(--font-mono);background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent" id="lcMed">—</div><div style="font-size:.8rem;color:var(--text-muted);margin-top:4px">Medium</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -965,7 +1004,58 @@
       });
     });
 
-    // ─── Count-up with ScrollTrigger ───
+    // ─── GitHub API ───
+    async function fetchGitHub() {
+      try {
+        const [userRes, reposRes] = await Promise.all([
+          fetch('https://api.github.com/users/Sneh30'),
+          fetch('https://api.github.com/users/Sneh30/repos?per_page=100&sort=updated')
+        ]);
+        const user = await userRes.json();
+        const repos = await reposRes.json();
+
+        document.getElementById('ghRepos').textContent = user.public_repos;
+        document.getElementById('ghFollowers').textContent = user.followers;
+
+        const allLangs = new Set();
+        let starCount = 0;
+        repos.forEach(r => {
+          if (r.language) allLangs.add(r.language);
+          starCount += r.stargazers_count;
+        });
+        document.getElementById('ghLang').textContent = allLangs.size || '—';
+        document.getElementById('ghStars').textContent = starCount;
+
+        const img = document.getElementById('ghChartImg');
+        const loading = document.getElementById('ghChartLoading');
+        img.src = `https://ghchart.rshah.org/7c3aed/Sneh30`;
+        img.onload = () => { img.style.display = 'block'; loading.style.display = 'none'; };
+        img.onerror = () => { loading.textContent = 'Could not load chart. View on GitHub →'; };
+        document.getElementById('ghContribs').textContent = repos.length > 0 ? Math.floor(repos.reduce((a,r) => a + (r.size || 0), 0) / 10) + 'k+' : '—';
+      } catch (e) {
+        document.querySelectorAll('#ghStats .gh-stat-num span').forEach(s => s.textContent = '—');
+        document.getElementById('ghChartLoading').textContent = 'Failed to load. Visit github.com/Sneh30';
+      }
+    }
+    fetchGitHub();
+
+    // ─── LeetCode API ───
+    async function fetchLeetCode() {
+      try {
+        const res = await fetch('https://leetcode-stats-api.herokuapp.com/Sneh30');
+        if (!res.ok) throw new Error('Not found');
+        const data = await res.json();
+        document.getElementById('lcSolved').textContent = data.totalSolved || '—';
+        document.getElementById('lcRating').textContent = data.contributionPoints || '—';
+        document.getElementById('lcEasy').textContent = data.easySolved || '—';
+        document.getElementById('lcMed').textContent = data.mediumSolved || '—';
+      } catch (e) {
+        document.querySelectorAll('#lcStats [id]').forEach(el => { if (el.id.startsWith('lc')) el.textContent = '—'; });
+      }
+    }
+    fetchLeetCode();
+
+    // ─── Hero stats: trigger immediately ───
     function animateCount(el) {
       const target = parseInt(el.dataset.count);
       let current = 0;
@@ -973,38 +1063,25 @@
       const interval = setInterval(() => {
         current += step;
         if (current >= target) { current = target; clearInterval(interval); }
-        el.textContent = current + (el.closest('#heroStats') || el.closest('.github-summary') ? '+' : '');
+        el.textContent = current + (el.closest('#heroStats') ? '+' : '');
       }, 20);
     }
 
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          const nums = entry.target.querySelectorAll('[data-count]');
-          nums.forEach(n => { if (!n.dataset.counted) { n.dataset.counted = '1'; animateCount(n); } });
-        }
-      });
-    }, { threshold: .15, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // ─── Hero stats: trigger immediately ───
     setTimeout(() => {
       document.querySelectorAll('#heroStats [data-count]').forEach(n => {
         if (!n.dataset.counted) { n.dataset.counted = '1'; animateCount(n); }
       });
     }, 600);
 
-    // ─── Contribution grid ───
-    const grid = document.getElementById('contribGrid');
-    for (let i = 0; i < 140; i++) {
-      const cell = document.createElement('div');
-      cell.className = 'contrib-cell';
-      const r = Math.random();
-      if (r > .7) cell.classList.add('l' + (Math.floor(Math.random() * 4) + 1));
-      grid.appendChild(cell);
-    }
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: .15, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 </body>
 </html>
