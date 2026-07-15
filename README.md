@@ -22,13 +22,4 @@ Personal portfolio website for [Sneh Sinha](https://github.com/Sneh30) — AI En
 
 Hero · About · Experience · Skills · Projects · GitHub Pulse · LeetCode · Blog · Contact
 
-## Local Development
-
-```bash
-# Serve locally (any static file server)
-python3 -m http.server 8000
-```
-
-## Deployment
-
-Deployed on Vercel. Push to `main` to auto-deploy.
+Deployed on Vercel.
