@@ -52,6 +52,33 @@
     .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 16px; }
     .section-sub { color: var(--text-muted); font-size: 1.05rem; max-width: 640px; margin-bottom: 56px; }
     .section-sub.center { margin-left: auto; margin-right: auto; text-align: center; }
+    .grid-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(124,58,237,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,.03) 1px, transparent 1px); background-size: 60px 60px; }
+    #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 120px 0 80px; }
+    #hero-canvas { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+    .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; padding: 0 32px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(124,58,237,.12); border: 1px solid rgba(124,58,237,.25); padding: 6px 20px; border-radius: 100px; font-size: .8rem; color: #a78bfa; margin-bottom: 28px; }
+    .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #10b981; animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:.4} }
+    .hero-name { font-size: clamp(3.5rem, 10vw, 6rem); font-weight: 800; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 20px; }
+    .hero-name .gradient { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-title { font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--text-muted); font-weight: 400; margin-bottom: 24px; min-height: 2em; }
+    .hero-title .typing-cursor { animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .hero-desc { color: var(--text-muted); max-width: 620px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--gradient); color: #fff; border: none; padding: 14px 36px; border-radius: 10px; font-weight: 600; font-size: 1rem; cursor: pointer; text-decoration: none; transition: transform .2s, box-shadow .2s; font-family: var(--font-sans); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,58,237,.35); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 14px 36px; border-radius: 10px; font-weight: 500; font-size: 1rem; cursor: pointer; text-decoration: none; transition: border-color .2s, background .2s; font-family: var(--font-sans); }
+    .btn-outline:hover { border-color: var(--accent-1); background: rgba(124,58,237,.08); }
+    .hero-stats { display: flex; gap: 60px; justify-content: center; margin-top: 56px; }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-size: 2rem; font-weight: 800; font-family: var(--font-mono); background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-stat-label { font-size: .8rem; color: var(--text-muted); margin-top: 4px; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: .12; pointer-events: none; z-index: 0; will-change: transform, border-radius; }
+    .blob-1 { width: 600px; height: 600px; background: #7c3aed; top: -20%; left: -15%; animation: morphBlob 18s ease-in-out infinite; }
+    .blob-2 { width: 500px; height: 500px; background: #06b6d4; bottom: -15%; right: -15%; animation: morphBlob 22s ease-in-out infinite reverse; }
+    .blob-3 { width: 400px; height: 400px; background: #10b981; top: 40%; left: 50%; animation: morphBlob 25s ease-in-out infinite; opacity: .06; }
+    @keyframes morphBlob { 0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(0,0) scale(1); } 25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: translate(40px,-30px) scale(1.05); } 50% { border-radius: 40% 50% 60% 30% / 40% 70% 30% 60%; transform: translate(-20px,40px) scale(.95); } 75% { border-radius: 60% 30% 40% 60% / 30% 40% 70% 50%; transform: translate(30px,20px) scale(1.02); } }
     footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: .85rem; border-top: 1px solid var(--border); }
     footer .heart { color: #ef4444; }
     nav {
@@ -107,6 +134,28 @@
       </button>
     </div>
   </nav>
+  <section id="hero">
+    <div class="grid-bg"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span> Open to work &amp; collaborations</div>
+      <h1 class="hero-name">Hi, I'm <span class="gradient">Sneh Sinha</span></h1>
+      <p class="hero-title"><span id="typing"></span><span class="typing-cursor">|</span></p>
+      <p class="hero-desc">AI engineer building multimodal agents, autonomous infrastructure, and embedded intelligence. I build things that see, move, and think.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-stats" id="heroStats">
+        <div class="hero-stat"><div class="hero-stat-num" data-count="6">0</div><div class="hero-stat-label">Projects</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="5">0</div><div class="hero-stat-label">Languages</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="800">0</div><div class="hero-stat-label">Commits+</div></div>
+      </div>
+    </div>
+  </section>
   <script>
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); });
