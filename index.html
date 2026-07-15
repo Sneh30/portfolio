@@ -79,6 +79,12 @@
     .blob-2 { width: 500px; height: 500px; background: #06b6d4; bottom: -15%; right: -15%; animation: morphBlob 22s ease-in-out infinite reverse; }
     .blob-3 { width: 400px; height: 400px; background: #10b981; top: 40%; left: 50%; animation: morphBlob 25s ease-in-out infinite; opacity: .06; }
     @keyframes morphBlob { 0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(0,0) scale(1); } 25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: translate(40px,-30px) scale(1.05); } 50% { border-radius: 40% 50% 60% 30% / 40% 70% 30% 60%; transform: translate(-20px,40px) scale(.95); } 75% { border-radius: 60% 30% 40% 60% / 30% 40% 70% 50%; transform: translate(30px,20px) scale(1.02); } }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .about-text p { color: var(--text-muted); margin-bottom: 16px; font-size: 1rem; line-height: 1.8; }
+    .about-code { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; overflow-x: auto; font-family: var(--font-mono); font-size: .85rem; line-height: 1.9; }
+    .about-code .comment { color: #52525b; } .about-code .keyword { color: #c084fc; } .about-code .string { color: #34d399; } .about-code .func { color: #22d3ee; } .about-code .type { color: #fbbf24; }
+    .edge-line { position: absolute; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--border), transparent); z-index: 0; pointer-events: none; }
+    .edge-line.left { left: 32px; } .edge-line.right { right: 32px; }
     footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: .85rem; border-top: 1px solid var(--border); }
     footer .heart { color: #ef4444; }
     nav {
@@ -156,6 +162,41 @@
       </div>
     </div>
   </section>
+
+  <div class="section-wrap alt">
+    <div class="edge-line left"></div>
+    <div class="edge-line right"></div>
+    <section id="about">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">// about</div>
+          <h2 class="section-title">Who I am</h2>
+          <p class="section-sub">AI engineer experimenting with multimodal agents, computer vision, and self-healing infrastructure.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>I'm an AI engineer from Bangalore who builds systems at the intersection of artificial intelligence, robotics, and cloud infrastructure. I believe the most interesting problems live where software meets the physical world.</p>
+            <p>Currently exploring multimodal AI agents, computer vision on edge hardware, and autonomous cloud operations. I work with Python, Rust, C, and whatever else gets the job done.</p>
+            <p>When I'm not shipping code, you'll find me tinkering with ESP32-CAM modules, optimizing LLM inference pipelines, or reading about distributed systems.</p>
+          </div>
+          <div class="about-code reveal reveal-delay-1">
+            <span class="comment">// profile.ts</span><br>
+            <span class="keyword">interface</span> <span class="type">Engineer</span> {<br>
+            &nbsp;&nbsp;name: <span class="string">"Sneh Sinha"</span>;<br>
+            &nbsp;&nbsp;location: <span class="string">"Bangalore, India"</span>;<br>
+            &nbsp;&nbsp;role: <span class="string">"AI Engineer"</span>;<br>
+            &nbsp;&nbsp;stack: <span class="type">ReadonlyArray</span>&lt;<span class="type">Skill</span>&gt;;<br>
+            &nbsp;&nbsp;vibe: <span class="string">"building"</span>;<br>
+            }<br><br>
+            <span class="keyword">const</span> current = <span class="func">explore</span>&lt;<span class="type">Engineer</span>&gt;({<br>
+            &nbsp;&nbsp;focus: [<span class="string">"multimodal AI"</span>, <span class="string">"agents"</span>, <span class="string">"robotics"</span>],<br>
+            &nbsp;&nbsp;status: <span class="string">"shipping"</span><br>
+            });
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
   <script>
     const words = ['AI Engineer', 'Multimodal Agent Builder', 'Cloud Infrastructure Hacker', 'Embedded Systems Tinkerer', 'Open Source Contributor'];
     let wordIdx = 0, charIdx = 0, isDeleting = false;
