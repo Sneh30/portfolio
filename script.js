@@ -30,6 +30,15 @@ window.onload = () => {
 function initNav() {
   const n = document.getElementById("nav");
 
+  document.querySelectorAll(".nav-links a").forEach(a => {
+    a.addEventListener("click", e => {
+      e.preventDefault();
+      const id = a.getAttribute("href").slice(1);
+      const el = document.getElementById(id);
+      if (el) sm.scrollTo(el, { smooth: true });
+    });
+  });
+
   const add = (sel) => ScrollTrigger.create({
     trigger: sel, start: "top top",
     onEnter: () => n.classList.add("has-bg"),
