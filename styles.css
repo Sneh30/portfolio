@@ -349,48 +349,51 @@ body {
 
 /* ─── CREDITS ─── */
 .credits {
-  padding: 64px 0 24px; background: var(--bg);
+  padding: 120px 0 80px; background: var(--bg);
   border-top: 1px solid var(--border);
 }
 .credits-inner {
-  display: flex; flex-wrap: wrap; gap: 0; justify-content: center;
-  margin-bottom: 18px;
+  display: flex; flex-direction: column; align-items: center; gap: 32px;
+  margin-bottom: 48px;
 }
 .credits-row {
-  display: flex; align-items: center; gap: 8px;
-  padding: 6px 18px; border-right: 1px solid var(--border);
+  display: flex; align-items: center; gap: 20px;
 }
-.credits-row:last-child { border-right: none; }
 .credits-key {
-  font-size: .55rem; text-transform: uppercase; letter-spacing: .1em;
+  font-size: 1rem; text-transform: uppercase; letter-spacing: .15em;
   color: rgba(255,255,255,.2); font-weight: 500;
 }
 .credits-row a {
-  font-size: .75rem; color: rgba(255,255,255,.5);
+  font-size: 1.4rem; color: rgba(255,255,255,.5);
   text-decoration: none; transition: color .2s;
 }
 .credits-row a:hover { color: #d4a373; }
 .credits-status {
-  display: flex; align-items: center; justify-content: center; gap: 40px;
-  margin-bottom: 28px;
+  display: flex; align-items: center; justify-content: center; gap: 32px;
+  margin-bottom: 48px;
 }
 .credits-status span {
-  font-size: 1.8rem; color: rgba(255,255,255,.25);
+  font-size: 1.4rem; color: rgba(255,255,255,.25);
 }
 .credits-badge {
-  font-size: 1.4rem; text-transform: uppercase; letter-spacing: .12em;
+  font-size: 1rem; text-transform: uppercase; letter-spacing: .15em;
   color: #d4a373; border: 1px solid rgba(212,163,115,.15);
   padding: 8px 24px; border-radius: 6px;
 }
 .credits-foot {
-  display: flex; align-items: center; justify-content: center; gap: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 24px;
 }
 .credits-foot span {
-  font-size: .6rem; color: rgba(255,255,255,.15);
+  font-size: .95rem; color: rgba(255,255,255,.15);
 }
 .credits-v {
   font-family: var(--mono); color: rgba(255,255,255,.08);
 }
+
+/* ─── FOOTER ─── */
+.footer { padding: 4px 0 32px; background: var(--bg); }
+.footer-inner { text-align: center; }
+.footer-tagline { font-size: .6rem; color: rgba(255,255,255,.08); max-width: 360px; margin: 0 auto; line-height: 1.5; }
 
 /* ─── FOOTER ─── */
 .footer { padding: 4px 0 32px; background: var(--bg); }
@@ -440,8 +443,10 @@ body {
   .about { padding: 80px 0; }
   .nav-links { display: none; }
   .proj-card { width: 280px; padding: 24px; }
-  .credits-inner { flex-direction: column; align-items: center; }
-  .credits-row { border-right: none; }
+  .credits { padding: 80px 0 48px; }
+  .credits-row a { font-size: 1.1rem; }
+  .credits-status { flex-direction: column; gap: 16px; }
+  .credits-status span, .credits-badge { font-size: 1rem; }
 }
 @media (max-width: 480px) {
   .hero-line { font-size: 2.5rem; }
