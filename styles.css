@@ -349,42 +349,42 @@ body {
 
 /* ─── CREDITS ─── */
 .credits {
-  padding: 120px 0 80px; background: var(--bg);
+  padding: 80px 0 48px; background: var(--bg);
   border-top: 1px solid var(--border);
 }
 .credits-inner {
-  display: flex; flex-direction: column; align-items: center; gap: 32px;
-  margin-bottom: 48px;
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+  margin-bottom: 32px;
 }
 .credits-row {
-  display: flex; align-items: center; gap: 20px;
+  display: flex; align-items: center; gap: 14px;
 }
 .credits-key {
-  font-size: 1rem; text-transform: uppercase; letter-spacing: .15em;
+  font-size: .75rem; text-transform: uppercase; letter-spacing: .12em;
   color: rgba(255,255,255,.2); font-weight: 500;
 }
 .credits-row a {
-  font-size: 1.4rem; color: rgba(255,255,255,.5);
+  font-size: 1rem; color: rgba(255,255,255,.5);
   text-decoration: none; transition: color .2s;
 }
 .credits-row a:hover { color: #d4a373; }
 .credits-status {
-  display: flex; align-items: center; justify-content: center; gap: 32px;
-  margin-bottom: 48px;
+  display: flex; align-items: center; justify-content: center; gap: 24px;
+  margin-bottom: 32px;
 }
 .credits-status span {
-  font-size: 1.4rem; color: rgba(255,255,255,.25);
+  font-size: 1rem; color: rgba(255,255,255,.25);
 }
 .credits-badge {
-  font-size: 1rem; text-transform: uppercase; letter-spacing: .15em;
+  font-size: .75rem; text-transform: uppercase; letter-spacing: .12em;
   color: #d4a373; border: 1px solid rgba(212,163,115,.15);
-  padding: 8px 24px; border-radius: 6px;
+  padding: 6px 18px; border-radius: 5px;
 }
 .credits-foot {
-  display: flex; align-items: center; justify-content: center; gap: 24px;
+  display: flex; align-items: center; justify-content: center; gap: 18px;
 }
 .credits-foot span {
-  font-size: .95rem; color: rgba(255,255,255,.15);
+  font-size: .75rem; color: rgba(255,255,255,.15);
 }
 .credits-v {
   font-family: var(--mono); color: rgba(255,255,255,.08);
@@ -443,10 +443,10 @@ body {
   .about { padding: 80px 0; }
   .nav-links { display: none; }
   .proj-card { width: 280px; padding: 24px; }
-  .credits { padding: 80px 0 48px; }
-  .credits-row a { font-size: 1.1rem; }
-  .credits-status { flex-direction: column; gap: 16px; }
-  .credits-status span, .credits-badge { font-size: 1rem; }
+  .credits { padding: 60px 0 32px; }
+  .credits-row a { font-size: .9rem; }
+  .credits-status { flex-direction: column; gap: 12px; }
+  .credits-status span, .credits-badge { font-size: .85rem; }
 }
 @media (max-width: 480px) {
   .hero-line { font-size: 2.5rem; }
