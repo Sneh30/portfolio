@@ -371,16 +371,16 @@ body {
 }
 .credits-row a:hover { color: #d4a373; }
 .credits-status {
-  display: flex; align-items: center; justify-content: center; gap: 14px;
-  margin-bottom: 18px;
+  display: flex; align-items: center; justify-content: center; gap: 40px;
+  margin-bottom: 28px;
 }
 .credits-status span {
-  font-size: .65rem; color: rgba(255,255,255,.25);
+  font-size: 1.8rem; color: rgba(255,255,255,.25);
 }
 .credits-badge {
-  font-size: .55rem; text-transform: uppercase; letter-spacing: .1em;
+  font-size: 1.4rem; text-transform: uppercase; letter-spacing: .12em;
   color: #d4a373; border: 1px solid rgba(212,163,115,.15);
-  padding: 2px 8px; border-radius: 3px;
+  padding: 8px 24px; border-radius: 6px;
 }
 .credits-foot {
   display: flex; align-items: center; justify-content: center; gap: 14px;
