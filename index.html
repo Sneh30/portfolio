@@ -1,431 +1,484 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sneh Sinha — AI Engineer</title>
   <meta name="description" content="AI engineer building multimodal AI, autonomous cloud infrastructure, and embedded intelligence." />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%237c3aed'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%2307070a'/%3E%3Ctext x='16' y='22.5' font-family='Inter,sans-serif' font-size='20' font-weight='800' fill='url(%23g)' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d4a373'/%3E%3Cstop offset='100%25' stop-color='%237a9eb1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%230a0a0a'/%3E%3Ctext x='16' y='22.5' font-family='Inter,sans-serif' font-size='20' font-weight='800' fill='url(%23g)' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <div class="noise"></div>
-  <div class="scroll-progress" id="scrollProgress"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-  <a href="#" class="back-top" id="backTop">↑</a>
-
-  <!-- ─── Nav ─── -->
-  <nav id="navbar">
-    <span class="nav-logo">Sneh.</span>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div style="display:flex;align-items:center;gap:12px">
-      <a href="https://github.com/Sneh30" target="_blank" class="nav-cta">GitHub</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <span class="nav-logo">S.</span>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <span class="nav-year">2026</span>
     </div>
   </nav>
 
-  <!-- ─── Hero ─── -->
-  <section id="hero">
-    <div class="grid-bg"></div>
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero-content">
-      <div class="hero-badge"><span class="dot"></span> Open to work &amp; collaborations</div>
-      <h1 class="hero-name">Hi, I'm <span class="gradient">Sneh Sinha</span></h1>
-      <p class="hero-title"><span id="typing"></span><span class="typing-cursor">|</span></p>
-      <p class="hero-desc">
-        AI engineer building multimodal agents, autonomous infrastructure,
-        and embedded intelligence. I build things that see, move, and think.
-      </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-outline">Get in Touch</a>
-      </div>
-      <div class="hero-stats" id="heroStats">
-        <div class="hero-stat"><div class="hero-stat-num" data-count="6">0</div><div class="hero-stat-label">Projects</div></div>
-        <div class="hero-stat"><div class="hero-stat-num" data-count="5">0</div><div class="hero-stat-label">Languages</div></div>
-        <div class="hero-stat"><div class="hero-stat-num" data-count="3">0</div><div class="hero-stat-label">Followers</div></div>
+  <main id="wrapper">
+    <div id="content">
+
+      <!-- ─── HERO ─── -->
+      <section class="hero" id="hero">
+        <canvas id="terrain"></canvas>
+        <div class="hero-bg"></div>
+        <div class="hero-inner">
+          <div class="hero-label">AI Engineer — Bangalore, India</div>
+          <div class="hero-title-block">
+            <div class="hero-mask"><h1 class="hero-line">Hi, I'm</h1></div>
+            <div class="hero-mask"><h1 class="hero-line hero-name">Sneh Sinha</h1></div>
+          </div>
+          <div class="hero-tags">
+            <span>Multimodal AI</span>
+            <span>Autonomous Infrastructure</span>
+            <span>Embedded Intelligence</span>
+          </div>
+        </div>
+        <div class="hero-scroll">(scroll)</div>
+      </section>
+
+      <!-- ─── ABOUT ─── -->
+      <section class="about" id="about">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-text">
+              <div class="section-label">■ About</div>
+              <h2>An AI engineer from Bangalore, building at the intersection of intelligence, infrastructure, and the physical world.</h2>
+            </div>
+            <div class="about-code">
+              <span class="cm">// profile.ts</span>
+              <span class="ln"><span class="kw">interface</span> <span class="ty">Engineer</span> {</span>
+              <span class="ln">&nbsp;&nbsp;name: <span class="s">"Sneh Sinha"</span>;</span>
+              <span class="ln">&nbsp;&nbsp;location: <span class="s">"Bangalore, India"</span>;</span>
+              <span class="ln">&nbsp;&nbsp;role: <span class="s">"AI Engineer"</span>;</span>
+              <span class="ln">&nbsp;&nbsp;vibe: <span class="s">"building"</span>;</span>
+              <span class="ln">}</span>
+            </div>
+          </div>
+          <div class="about-body">
+            <p>I'm an AI engineer from Bangalore who builds systems at the intersection of artificial intelligence, robotics, and cloud infrastructure. I believe the most interesting problems live where software meets the physical world.</p>
+            <p>Currently exploring multimodal AI agents, computer vision on edge hardware, and autonomous cloud operations. I work with Python, Rust, C, and whatever else gets the job done.</p>
+            <p>When I'm not shipping code, you'll find me tinkering with ESP32-CAM modules, optimizing LLM inference pipelines, or reading about distributed systems.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── EXPERIENCE ─── -->
+      <section class="section-curtain" id="experience">
+        <div class="curtain-wrap" id="curtainExp">
+          <div class="curtain-panel" style="background:#c17f3a;">
+            <div class="curtain-cards">
+              <div class="c-card"><div class="c-card-inner"><div class="c-card-face" style="background:#d4a373"></div></div></div>
+              <div class="c-card"><div class="c-card-inner"><div class="c-card-face" style="background:#c17f3a"></div></div></div>
+              <div class="c-card"><div class="c-card-inner"><div class="c-card-face" style="background:#b8a08a"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="sec-content">
+          <div class="container">
+            <div class="section-label">■ Experience</div>
+            <div class="sec-title">
+              <h2>Building in</h2>
+              <h2 class="a">Public</h2>
+            </div>
+            <div class="exp-grid">
+              <div class="exp-info">
+                <div class="exp-row"><span class="exp-lbl">Role</span><span class="exp-val">AI Engineer</span></div>
+                <div class="exp-row"><span class="exp-lbl">Focus</span><span class="exp-val">Multimodal AI, Agents, Infra</span></div>
+                <div class="exp-row"><span class="exp-lbl">Status</span><span class="exp-val">Shipping</span></div>
+              </div>
+              <div class="exp-list">
+                <div class="exp-item">
+                  <span class="exp-num">(01)</span>
+                  <div class="exp-body">
+                    <span class="exp-date">2026 — Present</span>
+                    <h3>Team Stratos</h3>
+                    <span class="exp-role">AI Engineer</span>
+                    <p>Building multimodal AI agents and autonomous systems at the intersection of computer vision, LLMs, and cloud infrastructure.</p>
+                  </div>
+                </div>
+                <div class="exp-item">
+                  <span class="exp-num">(02)</span>
+                  <div class="exp-body">
+                    <span class="exp-date">2025 — Present</span>
+                    <h3>DeepOps</h3>
+                    <span class="exp-role">Creator & Lead Developer</span>
+                    <p>AI-powered autonomous cloud operations platform. Natural language infrastructure management, anomaly detection, auto-remediation.</p>
+                  </div>
+                </div>
+                <div class="exp-item">
+                  <span class="exp-num">(03)</span>
+                  <div class="exp-body">
+                    <span class="exp-date">2025</span>
+                    <h3>Orchestra</h3>
+                    <span class="exp-role">Creator & Lead Developer</span>
+                    <p>Production-grade multi-agent research orchestration with LangGraph, FastAPI, PostgreSQL, and Prometheus.</p>
+                  </div>
+                </div>
+                <div class="exp-item">
+                  <span class="exp-num">(04)</span>
+                  <div class="exp-body">
+                    <span class="exp-date">2025</span>
+                    <h3>PromptOS</h3>
+                    <span class="exp-role">Creator & Lead Developer</span>
+                    <p>macOS desktop app — prompt compiler with multi-pass optimization, WASM plugins, local LLM inference via Metal GPU.</p>
+                  </div>
+                </div>
+                <div class="exp-item">
+                  <span class="exp-num">(05)</span>
+                  <div class="exp-body">
+                    <span class="exp-date">2025</span>
+                    <h3>ESP32-CAM Vision Suite</h3>
+                    <span class="exp-role">Embedded Systems Engineer</span>
+                    <p>Three ESP32-CAM projects: ML dataset capture, real-time color tracking robot, 60 FPS MJPG streaming server.</p>
+                  </div>
+                </div>
+                <div class="exp-item">
+                  <span class="exp-num">(06)</span>
+                  <div class="exp-body">
+                    <span class="exp-date">2024 — Present</span>
+                    <h3>Open Source</h3>
+                    <span class="exp-role">Contributor</span>
+                    <p>Active open source contributions. Building tools for the AI and developer community.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="statement">
+              <div class="st-line"><span class="st-num">(01)</span><p>I believe the most interesting problems live where software meets the physical world.</p></div>
+              <div class="st-line"><p>Every project is an experiment in what happens when you ship fast and iterate relentlessly.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── SKILLS ─── -->
+      <section class="section-curtain" id="skills">
+        <div class="curtain-wrap" id="curtainSkills">
+          <div class="curtain-panel" style="background:#5a8aaa;">
+            <div class="curtain-grid">
+              <div class="g-rect"></div>
+              <div class="g-rect"></div>
+              <div class="g-rect"></div>
+              <div class="g-rect"></div>
+              <div class="g-rect g-center"></div>
+              <div class="g-rect"></div>
+              <div class="g-rect"></div>
+              <div class="g-rect"></div>
+              <div class="g-rect"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sec-content">
+          <div class="container">
+            <div class="section-label">■ Skills</div>
+            <div class="sec-title">
+              <h2>Tech &</h2>
+              <h2 class="a">Tools</h2>
+            </div>
+            <div class="skills-layout">
+              <div class="skills-list">
+                <div class="skill-cat">
+                  <h4>Languages</h4>
+                  <div class="skill-tags">
+                    <span>Python</span><span>Rust</span><span>C</span><span>JavaScript</span><span>TypeScript</span>
+                  </div>
+                </div>
+                <div class="skill-cat">
+                  <h4>AI & ML</h4>
+                  <div class="skill-tags">
+                    <span>LangChain</span><span>LangGraph</span><span>OpenAI</span><span>Anthropic</span><span>Llama.cpp</span><span>PyTorch</span><span>Computer Vision</span>
+                  </div>
+                </div>
+                <div class="skill-cat">
+                  <h4>Backend & Infra</h4>
+                  <div class="skill-tags">
+                    <span>FastAPI</span><span>PostgreSQL</span><span>Docker</span><span>Prometheus</span><span>AWS</span><span>Linux</span>
+                  </div>
+                </div>
+                <div class="skill-cat">
+                  <h4>Embedded & Edge</h4>
+                  <div class="skill-tags">
+                    <span>ESP32</span><span>Raspberry Pi</span><span>Arduino</span><span>C++</span>
+                  </div>
+                </div>
+                <div class="skill-cat">
+                  <h4>Tools & Platforms</h4>
+                  <div class="skill-tags">
+                    <span>Git</span><span>Docker</span><span>Kubernetes</span><span>GitHub Actions</span><span>SwiftUI</span>
+                  </div>
+                </div>
+              </div>
+              <div class="skills-info">
+                <div class="exp-row"><span class="exp-lbl">Languages</span><span class="exp-val">5+</span></div>
+                <div class="exp-row"><span class="exp-lbl">Frameworks</span><span class="exp-val">12+</span></div>
+                <div class="exp-row"><span class="exp-lbl">Exploring</span><span class="exp-val">Multimodal Agents, Cloud, Edge</span></div>
+              </div>
+            </div>
+            <div class="statement">
+              <div class="st-line"><span class="st-num">(02)</span><p>Full-stack AI engineer comfortable from embedded firmware to cloud orchestration.</p></div>
+              <div class="st-line"><p>The best tools are the ones that get out of your way when you're in flow.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── PROJECTS ─── -->
+      <section class="section-curtain dark" id="projects">
+        <div class="sec-content">
+          <div class="container">
+            <div class="section-label">■ Projects</div>
+            <div class="sec-title">
+              <h2>What I've</h2>
+              <h2 class="a">Built</h2>
+            </div>
+          </div>
+          <div class="proj-track-wrap">
+            <div class="proj-track" id="projTrack">
+              <div class="proj-card">
+                <span class="proj-num">(01)</span>
+                <span class="proj-icon">☁</span>
+                <h3>DeepOps</h3>
+                <p>AI-powered autonomous cloud operations platform that behaves like an experienced SRE team. Deploys, monitors, detects anomalies, and repairs services automatically.</p>
+                <div class="proj-tags"><span>Python</span><span>LangGraph</span><span>FastAPI</span></div>
+                <a href="https://github.com/Sneh30/deepops" target="_blank">GitHub →</a>
+              </div>
+              <div class="proj-card">
+                <span class="proj-num">(02)</span>
+                <span class="proj-icon">🔬</span>
+                <h3>Orchestra</h3>
+                <p>Production-grade AI research orchestration with 5 specialized LangGraph agents — search, extract, verify, synthesize, critique — producing verified reports with confidence scoring.</p>
+                <div class="proj-tags"><span>Python</span><span>LangGraph</span><span>FastAPI</span><span>PostgreSQL</span><span>Prometheus</span></div>
+                <a href="https://github.com/Sneh30/Orchestra" target="_blank">GitHub →</a>
+              </div>
+              <div class="proj-card">
+                <span class="proj-num">(03)</span>
+                <span class="proj-icon">⚡</span>
+                <h3>PromptOS</h3>
+                <p>macOS desktop app that treats prompts as source code — compiles through a multi-pass optimization pipeline with WASM plugins, local LLM inference, and cloud provider support.</p>
+                <div class="proj-tags"><span>Rust</span><span>Swift</span><span>Llama.cpp</span><span>WASM</span><span>Metal GPU</span></div>
+                <a href="https://github.com/Sneh30/promptos" target="_blank">GitHub →</a>
+              </div>
+              <div class="proj-card">
+                <span class="proj-num">(04)</span>
+                <span class="proj-icon">📷</span>
+                <h3>ESP32-CAM Vision Suite</h3>
+                <p>Three ESP32-CAM projects: web-based image capture for ML datasets, real-time color tracking robot, and full-featured MJPG video streaming server at 60 FPS.</p>
+                <div class="proj-tags"><span>C</span><span>ESP32</span><span>Computer Vision</span><span>HSV</span></div>
+                <a href="https://github.com/Sneh30/esp32-cam-vision" target="_blank">GitHub →</a>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="statement">
+              <div class="st-line"><span class="st-num">(03)</span><p>Every project is open source. Code speaks louder than words.</p></div>
+              <div class="st-line"><p>Building in public means shipping fast, breaking things, and learning out loud.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── GITHUB ─── -->
+      <section class="section-curtain" id="github">
+        <div class="sec-content">
+          <div class="container">
+            <div class="section-label">■ Open Source</div>
+            <div class="sec-title">
+              <h2>GitHub</h2>
+              <h2 class="a">Pulse</h2>
+            </div>
+            <div class="stats-grid" id="ghStats">
+              <div class="stat"><div class="stat-num"><span id="ghRepos">—</span></div><div class="stat-lbl">Repos</div></div>
+              <div class="stat"><div class="stat-num"><span id="ghContribs">—</span></div><div class="stat-lbl">Contributions</div></div>
+              <div class="stat"><div class="stat-num"><span id="ghLang">—</span></div><div class="stat-lbl">Languages</div></div>
+              <div class="stat"><div class="stat-num"><span id="ghFollowers">—</span></div><div class="stat-lbl">Followers</div></div>
+              <div class="stat"><div class="stat-num"><span id="ghStars">—</span></div><div class="stat-lbl">Stars</div></div>
+            </div>
+            <div class="gh-contrib">
+              <div class="gh-contrib-label">Contribution Graph</div>
+              <div class="gh-grid" id="ghGrid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── LEETCODE ─── -->
+      <section class="section-curtain" id="leetcode">
+        <div class="sec-content">
+          <div class="container">
+            <div class="section-label">■ Competitive</div>
+            <div class="sec-title">
+              <h2>LeetCode</h2>
+              <h2 class="a">Profile</h2>
+            </div>
+            <div class="lc-layout">
+              <div class="stats-compact" id="lcStats">
+                <div class="stat"><div class="stat-num"><span id="lcSolved">—</span></div><div class="stat-lbl">Total Solved</div></div>
+                <div class="stat"><div class="stat-num"><span id="lcRating">—</span></div><div class="stat-lbl">Global Rank</div></div>
+              </div>
+              <div class="lc-bars">
+                <div class="lc-bar-row">
+                  <span class="lc-bar-lbl">Easy</span>
+                  <div class="lc-bar-track"><div class="lc-bar-fill" id="lcEasyBar" style="width:0%"></div></div>
+                  <span class="lc-bar-num" id="lcEasy">—</span>
+                </div>
+                <div class="lc-bar-row">
+                  <span class="lc-bar-lbl">Medium</span>
+                  <div class="lc-bar-track"><div class="lc-bar-fill med" id="lcMedBar" style="width:0%"></div></div>
+                  <span class="lc-bar-num" id="lcMed">—</span>
+                </div>
+                <div class="lc-bar-row">
+                  <span class="lc-bar-lbl">Hard</span>
+                  <div class="lc-bar-track"><div class="lc-bar-fill hard" id="lcHardBar" style="width:0%"></div></div>
+                  <span class="lc-bar-num" id="lcHard">—</span>
+                </div>
+              </div>
+            </div>
+            <div class="statement">
+              <div class="st-line"><span class="st-num">(01)</span><p>Competitive programming keeps my fundamentals strong. I solve DSA problems to stay sharp.</p></div>
+              <div class="st-line"><a href="https://leetcode.com/u/sneh_sinha3/" target="_blank" class="st-link">View LeetCode Profile →</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── BLOG ─── -->
+      <section class="section-curtain" id="blog">
+        <div class="sec-content">
+          <div class="container">
+            <div class="section-label">■ Writing</div>
+            <div class="sec-title">
+              <h2>Thoughts &</h2>
+              <h2 class="a">Ideas</h2>
+            </div>
+            <div class="blog-grid">
+              <article class="blog-card">
+                <span class="blog-tag">AI</span>
+                <h4>Building a Multi-Agent Research Pipeline with LangGraph</h4>
+                <p>How I built Orchestra — a production-grade research orchestration system with 5 specialized agents working in concert.</p>
+                <a href="#">Read more →</a>
+              </article>
+              <article class="blog-card">
+                <span class="blog-tag">Infrastructure</span>
+                <h4>DeepOps: An Autonomous SRE Platform</h4>
+                <p>Designing a cloud operations platform that deploys, monitors, and heals itself — inspired by how humans reason about incidents.</p>
+                <a href="#">Read more →</a>
+              </article>
+              <article class="blog-card">
+                <span class="blog-tag">Embedded</span>
+                <h4>Computer Vision on ESP32-CAM: A Practical Guide</h4>
+                <p>Real-time HSV tracking, MJPG streaming, and ML dataset collection on constrained hardware. What I learned building the Vision Suite.</p>
+                <a href="#">Read more →</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── CONTACT ─── -->
+      <section class="section-curtain" id="contact">
+        <div class="sec-content">
+          <div class="container">
+            <div class="section-label">■ Contact</div>
+            <div class="sec-title">
+              <h2>Get in</h2>
+              <h2 class="a">Touch</h2>
+            </div>
+            <div class="contact-layout">
+              <div class="contact-info">
+                <div class="contact-row">
+                  <span class="contact-lbl">Email</span>
+                  <a href="mailto:snehsinha30@gmail.com">snehsinha30@gmail.com</a>
+                </div>
+                <div class="contact-row">
+                  <span class="contact-lbl">GitHub</span>
+                  <a href="https://github.com/Sneh30" target="_blank">Sneh30</a>
+                </div>
+                <div class="contact-row">
+                  <span class="contact-lbl">LinkedIn</span>
+                  <a href="https://linkedin.com/in/sneh-not-sneha" target="_blank">sneh-not-sneha</a>
+                </div>
+                <div class="contact-row">
+                  <span class="contact-lbl">X</span>
+                  <a href="https://x.com/Sneh30" target="_blank">@Sneh30</a>
+                </div>
+                <div class="contact-row">
+                  <span class="contact-lbl">Location</span>
+                  <span>Bangalore, India</span>
+                </div>
+              </div>
+              <div class="contact-status">
+                <span class="contact-badge">Open to work</span>
+                <p>Available for freelance, contract, and full-time roles in AI engineering, agentic systems, and infrastructure.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ─── CURSOR ─── -->
+  <div class="cursor-overlay" id="cursorOverlay">
+    <div class="cl-h" id="clH"></div>
+    <div class="cl-v" id="clV"></div>
+    <div class="cl-dot" id="clDot"></div>
+    <canvas class="cl-trail" id="clTrail" width="100" height="100"></canvas>
+    <div class="cl-coords" id="clCoords">0000, 0000</div>
+    <div class="cl-click" id="clClick">0000</div>
+  </div>
+
+  <!-- ─── ANNOTATIONS ─── -->
+  <div class="annotations" aria-hidden="true">
+    <span class="ann-item" style="left:5%;top:54%"><span class="ann-key">PCH</span><span class="ann-dot">..</span><span class="ann-val" id="annPCH">   0°</span></span>
+    <span class="ann-item" style="left:5%;bottom:3%"><span class="ann-key">AMP</span><span class="ann-dot">..</span><span class="ann-val" id="annAMP">    0</span></span>
+    <span class="ann-item" style="left:42%;bottom:12%"><span class="ann-key">GRD</span><span class="ann-dot">..</span><span class="ann-val" id="annGRD">120x80</span></span>
+    <span class="ann-item" style="left:5%;top:28%"><span class="ann-key">RIP</span><span class="ann-dot">..</span><span class="ann-val" id="annRIP">    0</span></span>
+  </div>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-c">
+          <span class="footer-lbl">Contact</span>
+          <a href="mailto:snehsinha30@gmail.com" class="footer-email">snehsinha30@gmail.com</a>
+        </div>
+        <div class="footer-c">
+          <span class="footer-lbl">Social</span>
+          <a href="https://github.com/Sneh30" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/sneh-not-sneha" target="_blank">LinkedIn</a>
+          <a href="https://x.com/Sneh30" target="_blank">X</a>
+        </div>
+        <div class="footer-c">
+          <span class="footer-lbl">Location</span>
+          <span>Bangalore, India</span>
+        </div>
+        <div class="footer-c">
+          <span class="footer-lbl">Status</span>
+          <span>Open to work</span>
+          <span class="footer-copy">© 2026 Sneh Sinha</span>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- ─── About ─── -->
-  <div class="section-wrap alt">
-    <div class="edge-line left"></div>
-    <div class="edge-line right"></div>
-    <section id="about">
-      <div class="container">
-        <div class="reveal">
-          <div class="section-label">// about</div>
-          <h2 class="section-title">Who I am</h2>
-          <p class="section-sub">AI engineer experimenting with multimodal agents, computer vision, and self-healing infrastructure.</p>
-        </div>
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <p>
-              I'm an AI engineer from Bangalore who builds systems at the intersection of
-              artificial intelligence, robotics, and cloud infrastructure. I believe the
-              most interesting problems live where software meets the physical world.
-            </p>
-            <p>
-              Currently exploring multimodal AI agents, computer vision on edge hardware,
-              and autonomous cloud operations. I work with Python, Rust, C, and whatever
-              else gets the job done.
-            </p>
-            <p>
-              When I'm not shipping code, you'll find me tinkering with ESP32-CAM modules,
-              optimizing LLM inference pipelines, or reading about distributed systems.
-            </p>
-          </div>
-          <div class="about-code reveal reveal-delay-1">
-            <span class="comment">// profile.ts</span><br>
-            <span class="keyword">interface</span> <span class="type">Engineer</span> {<br>
-            &nbsp;&nbsp;name: <span class="string">"Sneh Sinha"</span>;<br>
-            &nbsp;&nbsp;location: <span class="string">"Bangalore, India"</span>;<br>
-            &nbsp;&nbsp;role: <span class="string">"AI Engineer"</span>;<br>
-            &nbsp;&nbsp;stack: <span class="type">ReadonlyArray</span>&lt;<span class="type">Skill</span>&gt;;<br>
-            &nbsp;&nbsp;vibe: <span class="string">"building"</span>;<br>
-            }<br><br>
-            <span class="keyword">const</span> current = <span class="func">explore</span>&lt;<span class="type">Engineer</span>&gt;({<br>
-            &nbsp;&nbsp;focus: [<span class="string">"multimodal AI"</span>, <span class="string">"agents"</span>, <span class="string">"robotics"</span>],<br>
-            &nbsp;&nbsp;status: <span class="string">"shipping"</span><br>
-            });
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ─── Experience ─── -->
-  <div class="section-wrap alt-2">
-    <section id="experience">
-      <div class="container">
-        <div class="reveal">
-          <div class="section-label">// experience</div>
-          <h2 class="section-title">Building in Public</h2>
-          <p class="section-sub">My journey across AI research, infrastructure, and open source.</p>
-        </div>
-        <div class="about-grid">
-          <div class="timeline reveal">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2026 — Present</div>
-              <h3>Team Stratos</h3>
-              <div class="role">AI Engineer</div>
-              <p>Building multimodal AI agents and autonomous systems. Working at the intersection of computer vision, LLMs, and cloud infrastructure.</p>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2025 — Present</div>
-              <h3>DeepOps</h3>
-              <div class="role">Creator &amp; Lead Developer</div>
-              <p>AI-powered autonomous cloud operations platform. Natural language infrastructure management, anomaly detection, root cause analysis, auto-remediation.</p>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2025</div>
-              <h3>Orchestra</h3>
-              <div class="role">Creator &amp; Lead Developer</div>
-              <p>Production-grade multi-agent research orchestration system with LangGraph, FastAPI, PostgreSQL, and Prometheus monitoring.</p>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2025</div>
-              <h3>PromptOS</h3>
-              <div class="role">Creator &amp; Lead Developer</div>
-              <p>macOS desktop app — prompt compiler with multi-pass optimization, WASM plugin system, local LLM inference via Metal GPU, and cloud provider support.</p>
-            </div>
-          </div>
-          <div class="timeline reveal reveal-delay-1">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2025</div>
-              <h3>ESP32-CAM Vision Suite</h3>
-              <div class="role">Embedded Systems Engineer</div>
-              <p>Three ESP32-CAM projects: ML dataset capture, real-time color tracking robot, 60 FPS MJPG video streaming server with full camera control.</p>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2024 — Present</div>
-              <h3>Open Source</h3>
-              <div class="role">Contributor</div>
-              <p>Active open source contributions. Building tools for the AI and developer community. Focus on infrastructure, developer tooling, and AI frameworks.</p>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2024</div>
-              <h3>Computer Vision Research</h3>
-              <div class="role">Independent Researcher</div>
-              <p>Explored edge-computer vision with ESP32-CAM modules. Implemented real-time HSV color quantization, centroid computation, and pixel-level statistical analysis on constrained hardware.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ─── Skills ─── -->
-  <div class="section-wrap alt">
-    <div class="edge-line left"></div>
-    <div class="edge-line right"></div>
-    <section id="skills">
-      <div class="container">
-        <div class="reveal">
-          <div class="section-label">// skills</div>
-          <h2 class="section-title">Tech &amp; Tools</h2>
-          <p class="section-sub">Languages, frameworks, and infrastructure I work with daily.</p>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-cat reveal"><h3>Languages</h3>
-            <div class="skill-chips">
-              <span class="skill-chip">Python</span><span class="skill-chip">Rust</span>
-              <span class="skill-chip">C</span><span class="skill-chip">JavaScript</span>
-              <span class="skill-chip">TypeScript</span>
-            </div>
-          </div>
-          <div class="skill-cat reveal reveal-delay-1"><h3>AI &amp; ML</h3>
-            <div class="skill-chips">
-              <span class="skill-chip">LangChain</span><span class="skill-chip">LangGraph</span>
-              <span class="skill-chip">OpenAI</span><span class="skill-chip">Anthropic</span>
-              <span class="skill-chip">Llama.cpp</span><span class="skill-chip">PyTorch</span>
-              <span class="skill-chip">Computer Vision</span>
-            </div>
-          </div>
-          <div class="skill-cat reveal reveal-delay-2"><h3>Backend &amp; Infra</h3>
-            <div class="skill-chips">
-              <span class="skill-chip">FastAPI</span><span class="skill-chip">PostgreSQL</span>
-              <span class="skill-chip">Docker</span><span class="skill-chip">Prometheus</span>
-              <span class="skill-chip">AWS</span><span class="skill-chip">Linux</span>
-            </div>
-          </div>
-          <div class="skill-cat reveal"><h3>Embedded &amp; Edge</h3>
-            <div class="skill-chips">
-              <span class="skill-chip">ESP32</span><span class="skill-chip">Raspberry Pi</span>
-              <span class="skill-chip">Arduino</span><span class="skill-chip">C++</span>
-            </div>
-          </div>
-          <div class="skill-cat reveal reveal-delay-1"><h3>Tools &amp; Platforms</h3>
-            <div class="skill-chips">
-              <span class="skill-chip">Git</span><span class="skill-chip">Docker</span>
-              <span class="skill-chip">Kubernetes</span><span class="skill-chip">GitHub Actions</span>
-              <span class="skill-chip">SwiftUI</span>
-            </div>
-          </div>
-          <div class="skill-cat reveal reveal-delay-2"><h3>Currently Exploring</h3>
-            <div class="skill-chips">
-              <span class="skill-chip">Multimodal Agents</span>
-              <span class="skill-chip">Autonomous Cloud</span>
-              <span class="skill-chip">Embedded Vision</span>
-              <span class="skill-chip">Distributed Systems</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ─── Projects ─── -->
-  <div class="section-wrap alt-2">
-    <section id="projects">
-      <div class="container">
-        <div class="reveal">
-          <div class="section-label">// projects</div>
-          <h2 class="section-title">What I've Built</h2>
-          <p class="section-sub">Open-source projects spanning AI infrastructure, developer tools, and embedded systems.</p>
-        </div>
-        <div class="projects-grid">
-          <div class="project-card reveal">
-            <div class="project-card-inner">
-              <div class="project-icon">☁</div>
-              <h3>DeepOps</h3>
-              <p>AI-powered autonomous cloud operations platform that behaves like an experienced SRE team. Deploys, monitors, detects anomalies, and repairs services automatically.</p>
-              <div class="project-tech"><span>Python</span><span>LangGraph</span><span>FastAPI</span></div>
-              <div class="project-links">
-                <a href="https://github.com/Sneh30/deepops" target="_blank">GitHub →</a>
-                <a href="https://github.com/Sneh30/deepops" target="_blank">README →</a>
-              </div>
-            </div>
-          </div>
-          <div class="project-card reveal reveal-delay-1">
-            <div class="project-card-inner">
-              <div class="project-icon">🔬</div>
-              <h3>Orchestra</h3>
-              <p>Production-grade AI research orchestration with 5 specialized LangGraph agents — search, extract, verify, synthesize, critique — producing verified reports with confidence scoring.</p>
-              <div class="project-tech"><span>Python</span><span>LangGraph</span><span>FastAPI</span><span>PostgreSQL</span><span>Prometheus</span></div>
-              <div class="project-links">
-                <a href="https://github.com/Sneh30/Orchestra" target="_blank">GitHub →</a>
-                <a href="https://github.com/Sneh30/Orchestra" target="_blank">README →</a>
-              </div>
-            </div>
-          </div>
-          <div class="project-card reveal reveal-delay-2">
-            <div class="project-card-inner">
-              <div class="project-icon">⚡</div>
-              <h3>PromptOS</h3>
-              <p>macOS desktop app that treats prompts as source code — compiles them through a multi-pass optimization pipeline with WASM plugins, local LLM inference, and cloud provider support.</p>
-              <div class="project-tech"><span>Rust</span><span>Swift</span><span>Llama.cpp</span><span>WASM</span><span>Metal GPU</span></div>
-              <div class="project-links">
-                <a href="https://github.com/Sneh30/promptos" target="_blank">GitHub →</a>
-                <a href="https://github.com/Sneh30/promptos" target="_blank">README →</a>
-              </div>
-            </div>
-          </div>
-          <div class="project-card reveal">
-            <div class="project-card-inner">
-              <div class="project-icon">📷</div>
-              <h3>ESP32-CAM Vision Suite</h3>
-              <p>Three ESP32-CAM projects: web-based image capture for ML datasets, real-time color tracking robot, and full-featured MJPG video streaming server at 60 FPS.</p>
-              <div class="project-tech"><span>C</span><span>ESP32</span><span>Computer Vision</span><span>HSV</span></div>
-              <div class="project-links">
-                <a href="https://github.com/Sneh30/esp32-cam-vision" target="_blank">GitHub →</a>
-                <a href="https://github.com/Sneh30/esp32-cam-vision" target="_blank">README →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ─── GitHub ─── -->
-  <div class="section-wrap alt-2">
-    <section id="github">
-      <div class="container">
-        <div class="reveal">
-          <div class="section-label">// open source</div>
-          <h2 class="section-title">GitHub Pulse</h2>
-          <p class="section-sub">Code speaks louder than words. Here's my open source footprint — live from the API.</p>
-        </div>
-        <div class="github-summary" id="ghStats">
-          <div class="gh-stat reveal"><div class="gh-stat-num"><span id="ghRepos">—</span></div><div class="gh-stat-label">Public Repos</div></div>
-          <div class="gh-stat reveal reveal-delay-1"><div class="gh-stat-num"><span id="ghContribs">—</span></div><div class="gh-stat-label">Total Contributions</div></div>
-          <div class="gh-stat reveal reveal-delay-2"><div class="gh-stat-num"><span id="ghLang">—</span></div><div class="gh-stat-label">Languages Used</div></div>
-          <div class="gh-stat reveal reveal-delay-3"><div class="gh-stat-num"><span id="ghFollowers">—</span></div><div class="gh-stat-label">Followers</div></div>
-          <div class="gh-stat reveal"><div class="gh-stat-num"><span id="ghStars">—</span></div><div class="gh-stat-label">Stars Earned</div></div>
-        </div>
-        <div class="gh-contrib reveal">
-          <h4>Contribution Graph</h4>
-          <div class="contrib-grid" id="contribGrid"></div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ─── LeetCode ─── -->
-  <div class="section-wrap alt">
-    <div class="edge-line left"></div>
-    <div class="edge-line right"></div>
-    <section id="leetcode">
-      <div class="container">
-        <div class="reveal">
-          <div class="section-label">// competitive</div>
-          <h2 class="section-title">LeetCode Profile</h2>
-          <p class="section-sub">Problem solving and algorithmic thinking.</p>
-        </div>
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <p style="margin-bottom:20px">
-              I solve data structures & algorithms problems on LeetCode to stay sharp.
-              Competitive programming keeps my fundamentals strong and helps me write
-              cleaner, more efficient code.
-            </p>
-            <a href="https://leetcode.com/u/sneh_sinha3/" target="_blank" class="btn-primary" style="display:inline-block;text-decoration:none">
-              View LeetCode Profile →
-            </a>
-          </div>
-          <div class="reveal reveal-delay-1" id="lcStats" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:center">
-              <div><div style="font-size:2rem;font-weight:800;font-family:var(--font-mono);background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent" id="lcSolved">—</div><div style="font-size:.8rem;color:var(--text-muted);margin-top:4px">Problems Solved</div></div>
-              <div><div style="font-size:2rem;font-weight:800;font-family:var(--font-mono);background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent" id="lcRating">—</div><div style="font-size:.8rem;color:var(--text-muted);margin-top:4px">Global Rank</div></div>
-              <div><div style="font-size:2rem;font-weight:800;font-family:var(--font-mono);background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent" id="lcEasy">—</div><div style="font-size:.8rem;color:var(--text-muted);margin-top:4px">Easy</div></div>
-              <div><div style="font-size:2rem;font-weight:800;font-family:var(--font-mono);background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent" id="lcMed">—</div><div style="font-size:.8rem;color:var(--text-muted);margin-top:4px">Medium</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ─── Blog ─── -->
-  <div class="section-wrap alt">
-    <div class="edge-line left"></div>
-    <div class="edge-line right"></div>
-    <section id="blog">
-      <div class="container">
-        <div class="reveal">
-          <div class="section-label">// writing</div>
-          <h2 class="section-title">Thoughts &amp; Ideas</h2>
-          <p class="section-sub">Sometimes I write about what I'm building and learning.</p>
-        </div>
-        <div class="blog-grid">
-          <div class="blog-card reveal">
-            <div class="blog-tag">AI</div>
-            <h4>Building a Multi-Agent Research Pipeline with LangGraph</h4>
-            <p>How I built Orchestra — a production-grade research orchestration system with 5 specialized agents working in concert.</p>
-            <a href="#">Read more →</a>
-          </div>
-          <div class="blog-card reveal reveal-delay-1">
-            <div class="blog-tag">Infrastructure</div>
-            <h4>DeepOps: An Autonomous SRE Platform</h4>
-            <p>Designing a cloud operations platform that deploys, monitors, and heals itself — inspired by how humans reason about incidents.</p>
-            <a href="#">Read more →</a>
-          </div>
-          <div class="blog-card reveal reveal-delay-2">
-            <div class="blog-tag">Embedded</div>
-            <h4>Computer Vision on ESP32-CAM: A Practical Guide</h4>
-            <p>Real-time HSV tracking, MJPG streaming, and ML dataset collection on constrained hardware. What I learned building the Vision Suite.</p>
-            <a href="#">Read more →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ─── Contact ─── -->
-  <div class="section-wrap alt-2">
-    <section id="contact">
-      <div class="container">
-        <div class="reveal" id="contact-section">
-          <div class="section-label center">// contact</div>
-          <h2 class="section-title" style="text-align:center">Let's Build Something</h2>
-          <p class="section-sub center">
-            I'm always open to interesting collaborations, research discussions, or just a good conversation about AI.
-          </p>
-          <a href="mailto:snehsinha30@gmail.com" class="contact-email">snehsinha30@gmail.com</a>
-          <div class="contact-socials">
-            <a href="https://github.com/Sneh30" target="_blank" aria-label="GitHub">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            </a>
-            <a href="https://linkedin.com/in/sneh-not-sneha" target="_blank" aria-label="LinkedIn">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="https://x.com/Sneh30" target="_blank" aria-label="X">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16zM4 20l6.768 -6.768M19 4l-6.768 6.768"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <footer>
-    Built with <span class="heart">♥</span> by Sneh Sinha &middot; 2026
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollSmoother.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
