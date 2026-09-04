@@ -45,7 +45,6 @@ function initNav() {
     onLeaveBack: () => n.classList.remove("has-bg"),
   });
 
-  add("#experience");
   add("#github");
   add("#leetcode");
   add("#blog");
