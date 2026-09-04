@@ -308,10 +308,10 @@ body {
   font-family: var(--mono); font-size: .7rem; color: var(--text-muted);
 }
 .pr-card a {
-  color: var(--text-muted); text-decoration: none; font-size: .78rem;
+  color: rgba(255,255,255,.4) !important; text-decoration: none; font-size: .78rem;
   font-weight: 500; transition: color .2s;
 }
-.pr-card a:hover { color: #fff; }
+.pr-card a:hover { color: rgba(255,255,255,.8) !important; }
 
 .lc-layout {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -373,6 +373,11 @@ body {
 .st-line:last-child { margin-bottom: 0; }
 .st-num { font-family: var(--mono); font-size: .65rem; color: #555; flex-shrink: 0; }
 .st-line p { font-size: .85rem; color: rgba(255,255,255,.5); line-height: 1.6; }
+.st-link {
+  color: rgba(255,255,255,.4); text-decoration: none; font-size: .85rem;
+  font-weight: 500; transition: color .2s;
+}
+.st-link:hover { color: rgba(255,255,255,.8); }
 
 /* ─── CREDITS ─── */
 .credits {
