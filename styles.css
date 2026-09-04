@@ -193,6 +193,43 @@ body {
 
 /* ─── SKILLS ─── */
 #skills { --act-bg: #101214; --act-c: #7a9eb1; }
+
+/* ─── EXPERIENCE ─── */
+#experience { --act-bg: #12100e; --act-c: #d4a373; }
+.exp-list {
+  display: flex; flex-direction: column; gap: 0;
+}
+.exp-item {
+  display: grid; grid-template-columns: 180px 1fr; gap: 40px;
+  padding: 32px 0; border-bottom: 1px solid var(--border);
+}
+.exp-item:first-child { padding-top: 0; }
+.exp-item:last-child { border-bottom: none; }
+.exp-date-col {
+  display: flex; flex-direction: column; gap: 4px;
+  padding-top: 4px;
+}
+.exp-date {
+  font-family: var(--mono); font-size: .75rem; color: rgba(255,255,255,.5);
+}
+.exp-duration {
+  font-family: var(--mono); font-size: .65rem; color: var(--text-muted);
+}
+.exp-content h3 {
+  font-size: 1.05rem; font-weight: 600; margin-bottom: 4px;
+}
+.exp-type {
+  display: block; font-size: .78rem; color: #d4a373; margin-bottom: 12px;
+}
+.exp-content p {
+  font-size: .82rem; color: var(--text-muted); line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .exp-item {
+    grid-template-columns: 1fr; gap: 12px; padding: 24px 0;
+  }
+}
 .skills-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; margin-bottom: 60px; }
 .skills-list { display: flex; flex-direction: column; gap: 24px; }
 .skill-cat h4 { font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.25); margin-bottom: 10px; font-weight: 600; }
