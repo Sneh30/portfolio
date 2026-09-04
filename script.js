@@ -179,7 +179,7 @@ function initReveals() {
   try {
     const res = await fetch("https://github.com/users/Sneh30/contributions");
     const html = await res.text();
-    const m = html.match(/(\d[\d,]*)\s+contributions/);
+    const m = html.match(/([\d,]+)\s+contributions\s+in/);
     if (m) document.getElementById("ghContribs").textContent = m[1].replace(/,/g, "") + "+";
   } catch {}
 })();
