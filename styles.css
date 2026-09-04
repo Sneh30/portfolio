@@ -267,6 +267,52 @@ body {
 .gh-cell.l4 { background: rgba(155,142,196,.85); }
 .gh-cell:hover { background: rgba(155,142,196,1) !important; }
 
+/* ─── PR HIGHLIGHT ─── */
+.pr-highlight {
+  margin-bottom: 32px;
+}
+.pr-label {
+  font-size: .7rem; font-weight: 600; color: var(--text-muted);
+  margin-bottom: 16px; text-transform: uppercase; letter-spacing: .06em;
+}
+.pr-card {
+  background: var(--bg-card); border: 1px solid rgba(90,158,122,.3);
+  border-radius: 8px; padding: 24px;
+  position: relative;
+}
+.pr-status {
+  display: inline-block; font-size: .6rem; text-transform: uppercase;
+  letter-spacing: .08em; color: #5a9a7a;
+  border: 1px solid rgba(90,158,122,.3); padding: 3px 10px;
+  border-radius: 4px; margin-bottom: 12px;
+  background: rgba(90,158,122,.1);
+}
+.pr-card h4 {
+  font-size: .95rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4;
+}
+.pr-card p {
+  font-size: .78rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;
+}
+.pr-card code {
+  font-family: var(--mono); font-size: .72rem;
+  background: rgba(255,255,255,.06); padding: 1px 5px;
+  border-radius: 3px; color: #9b8ec4;
+}
+.pr-meta {
+  display: flex; gap: 16px; margin-bottom: 12px;
+}
+.pr-repo {
+  font-family: var(--mono); font-size: .7rem; color: #9b8ec4;
+}
+.pr-date {
+  font-family: var(--mono); font-size: .7rem; color: var(--text-muted);
+}
+.pr-card a {
+  color: var(--text-muted); text-decoration: none; font-size: .78rem;
+  font-weight: 500; transition: color .2s;
+}
+.pr-card a:hover { color: #fff; }
+
 .lc-layout {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 24px; margin-bottom: 40px; align-items: start;
@@ -317,6 +363,9 @@ body {
 }
 .blog-card h4 { font-size: .88rem; font-weight: 600; margin-bottom: 10px; line-height: 1.4; }
 .blog-card p { color: var(--text-muted); font-size: .75rem; line-height: 1.5; margin-bottom: 14px; }
+.blog-date {
+  font-family: var(--mono); font-size: .65rem; color: rgba(255,255,255,.2);
+}
 
 /* ─── STATEMENT ─── */
 .statement { border-top: 1px solid var(--border); padding-top: 36px; }
