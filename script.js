@@ -175,15 +175,6 @@ function initReveals() {
   } catch { document.querySelectorAll("#ghStats .stat-num span").forEach(s => s.textContent = "—"); }
 })();
 
-(async () => {
-  try {
-    const res = await fetch("https://github.com/users/Sneh30/contributions");
-    const html = await res.text();
-    const m = html.match(/([\d,]+)\s+contributions\s+in/);
-    if (m) document.getElementById("ghContribs").textContent = m[1].replace(/,/g, "") + "+";
-  } catch {}
-})();
-
 /* ─── LEETCODE API ─── */
 (async () => {
   try {
