@@ -1,4 +1,4 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; cursor: none !important; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
   --bg: #0a0a0a;
@@ -20,7 +20,11 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  cursor: none;
+}
+
+@media (min-width: 993px) {
+  *, *::before, *::after { cursor: none !important; }
+  body { cursor: none; }
 }
 
 ::selection { background: rgba(212, 163, 115, 0.25); color: #fff; }
@@ -104,38 +108,40 @@ body {
 }
 @keyframes hFloat { 0%,100%{transform:translateX(-50%)} 50%{transform:translateX(-50%) translateY(-6px)} }
 
-/* ─── CURSOR ─── */
-.cursor-overlay {
-  position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+/* ─── CURSOR (Desktop only) ─── */
+@media (min-width: 993px) {
+  .cursor-overlay {
+    position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+  }
+  #clH {
+    position: absolute; left: 0; right: 0; height: 0;
+    border-top: .5px solid rgba(220,220,230,.5); top: 0;
+  }
+  #clV {
+    position: absolute; top: 0; bottom: 0; width: 0;
+    border-left: .5px solid rgba(220,220,230,.5); left: 0;
+  }
+  #clDot {
+    position: absolute; width: 4px; height: 4px; margin-left: -2px; margin-top: -2px;
+    background: rgba(220,220,230,.6); border-radius: 50%;
+  }
+  #clTrail {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+  }
+  .cl-coords {
+    position: fixed; bottom: 24px; right: 28px;
+    font-family: 'JetBrains Mono', monospace; font-size: .5rem;
+    color: rgba(220,220,230,.45); letter-spacing: .06em;
+    pointer-events: none;
+  }
+  .cl-click {
+    position: fixed; bottom: 24px; left: 28px;
+    font-family: 'JetBrains Mono', monospace; font-size: .5rem;
+    color: rgba(220,220,230,.4); letter-spacing: .06em;
+    pointer-events: none;
+  }
+  .cl-click::before { content: "◆ "; }
 }
-#clH {
-  position: absolute; left: 0; right: 0; height: 0;
-  border-top: .5px solid rgba(220,220,230,.5); top: 0;
-}
-#clV {
-  position: absolute; top: 0; bottom: 0; width: 0;
-  border-left: .5px solid rgba(220,220,230,.5); left: 0;
-}
-#clDot {
-  position: absolute; width: 4px; height: 4px; margin-left: -2px; margin-top: -2px;
-  background: rgba(220,220,230,.6); border-radius: 50%;
-}
-#clTrail {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-}
-.cl-coords {
-  position: fixed; bottom: 24px; right: 28px;
-  font-family: 'JetBrains Mono', monospace; font-size: .5rem;
-  color: rgba(220,220,230,.45); letter-spacing: .06em;
-  pointer-events: none;
-}
-.cl-click {
-  position: fixed; bottom: 24px; left: 28px;
-  font-family: 'JetBrains Mono', monospace; font-size: .5rem;
-  color: rgba(220,220,230,.4); letter-spacing: .06em;
-  pointer-events: none;
-}
-.cl-click::before { content: "◆ "; }
 
 /* ─── ANNOTATIONS ─── */
 .annotations { position: fixed; inset: 0; pointer-events: none; z-index: 9998; }
@@ -398,21 +404,48 @@ body {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .exp-grid { grid-template-columns: 1fr; gap: 32px; }
   .skills-layout { grid-template-columns: 1fr; gap: 32px; }
-}@media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
   .container { padding: 0 20px; }
   .sec-content { padding: 80px 0; }
   .about { padding: 80px 0; }
   .nav-links { display: none; }
-  .proj-card { width: 280px; padding: 24px; }
+  .nav-inner { padding: 0 20px; }
+
+  .proj-track-wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 20px 0;
+  }
+  .proj-track {
+    width: max-content;
+    padding: 0 20px;
+  }
+  .proj-card {
+    width: calc(100vw - 48px);
+    min-width: 280px;
+    max-width: 340px;
+    scroll-snap-align: start;
+    padding: 24px;
+  }
+
   .credits { padding: 60px 0 32px; }
+  .credits-row { flex-direction: column; gap: 8px; }
   .credits-row a { font-size: .9rem; }
   .credits-status { flex-direction: column; gap: 12px; }
   .credits-status span, .credits-badge { font-size: .85rem; }
+
+  .lc-layout { grid-template-columns: 1fr; gap: 20px; }
+  .blog-grid { grid-template-columns: 1fr; }
 }
+
 @media (max-width: 480px) {
   .hero-line { font-size: 2.5rem; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
-  .proj-card { width: 260px; }
+  .sec-content { padding: 60px 0; }
+  .about { padding: 60px 0; }
 }

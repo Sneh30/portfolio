@@ -2,12 +2,13 @@ gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
 
 const BP = 992;
 const desk = () => window.innerWidth >= BP;
+const isMobile = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
 let sm = ScrollSmoother.create({
   wrapper: "#wrapper",
   content: "#content",
   smooth: desk() ? 1 : 0,
-  smoothTouch: 2,
+  smoothTouch: 0,
   paused: true,
 });
 
@@ -15,12 +16,12 @@ window.onload = () => {
   sm.paused(false);
   initNav();
   initHero();
-  curtainExp();
   curtainSkills();
   if (desk()) {
     initHScroll();
     initReveals();
   } else {
+    initMobileScroll();
     initSimple();
   }
   ScrollTrigger.refresh();
@@ -75,37 +76,10 @@ function initHero() {
   new Terrain();
 }
 
-/* ─── CURTAIN: Experience ─── */
-function curtainExp() {
-  const w = document.getElementById("curtainExp");
-  const p = w.querySelector(".curtain-panel");
-  const cards = w.querySelectorAll(".c-card");
-  const inners = w.querySelectorAll(".c-card-inner");
-
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: w, start: "top top",
-      end: () => `+=${w.offsetHeight}`,
-      pin: true, pinSpacing: false, scrub: 1, anticipatePin: 1,
-    },
-  })
-  .to(cards[0], { xPercent: -150, duration: 1, ease: "expo.inOut" }, 0)
-  .to(cards[2], { xPercent: 150, duration: 1, ease: "expo.inOut" }, 0)
-  .to(inners, { rotateY: 180, duration: 1, ease: "expo.inOut", stagger: .2 }, .8)
-  .to(p, { yPercent: -100, duration: 1, ease: "none" }, 1.8)
-  .to(w, { autoAlpha: 0, pointerEvents: "none", duration: .1 }, 2.8);
-
-  gsap.utils.toArray(".exp-item").forEach((el, i) => {
-    gsap.from(el, { y: 36, opacity: 0, duration: .8, ease: "power4.out", scrollTrigger: { trigger: el, start: "top bottom-=60" } });
-  });
-
-  stReveal("#experience .st-line");
-  titleReveal("#experience .sec-title");
-}
-
 /* ─── CURTAIN: Skills ─── */
 function curtainSkills() {
   const w = document.getElementById("curtainSkills");
+  if (!w) return;
   const p = w.querySelector(".curtain-panel");
   const rects = w.querySelectorAll(".g-rect");
   const c = w.querySelector(".g-center");
@@ -130,7 +104,7 @@ function curtainSkills() {
   titleReveal("#skills .sec-title");
 }
 
-/* ─── HORIZONTAL SCROLL ─── */
+/* ─── HORIZONTAL SCROLL (Desktop) ─── */
 function initHScroll() {
   const t = document.getElementById("projTrack");
   if (!t) return;
@@ -143,6 +117,27 @@ function initHScroll() {
       end: "+=" + d, pin: true, pinSpacing: true, scrub: 1,
       invalidateOnRefresh: true,
     },
+  });
+
+  stReveal("#projects .st-line");
+  titleReveal("#projects .sec-title");
+}
+
+/* ─── MOBILE SCROLL (Swipeable cards) ─── */
+function initMobileScroll() {
+  const track = document.getElementById("projTrack");
+  if (!track) return;
+
+  track.style.overflowX = "auto";
+  track.style.scrollSnapType = "x mandatory";
+  track.style.webkitOverflowScrolling = "touch";
+  track.style.width = "100%";
+  track.style.padding = "0 20px";
+
+  track.querySelectorAll(".proj-card").forEach(card => {
+    card.style.scrollSnapAlign = "start";
+    card.style.minWidth = "calc(100vw - 40px)";
+    card.style.flexShrink = "0";
   });
 
   stReveal("#projects .st-line");
@@ -187,7 +182,7 @@ function initReveals() {
 }
 
 function initSimple() {
-  gsap.utils.toArray(".exp-item, .skill-cat, .proj-card, .stat, .blog-card").forEach(el => {
+  gsap.utils.toArray(".skill-cat, .proj-card, .stat, .blog-card").forEach(el => {
     gsap.from(el, { y: 30, opacity: 0, duration: .7, ease: "power4.out", scrollTrigger: { trigger: el, start: "top bottom-=30" } });
   });
 }
@@ -355,14 +350,49 @@ const Terrain = (() => {
         if (this.ripples.length > 6) this.ripples.shift();
         this.log('RIP', String(this.ripples.length).padStart(5, ' '));
       };
+
+      // Touch events for mobile
+      const onTouchMove = (e) => {
+        if (e.touches.length === 1) {
+          const touch = e.touches[0];
+          this.mouse.x = touch.clientX;
+          this.mouse.y = touch.clientY;
+          this.mouse.active = true;
+        }
+      };
+      const onTouchEnd = () => { this.mouse.active = false; };
+      const onTouchStart = (e) => {
+        if (e.touches.length === 1) {
+          const touch = e.touches[0];
+          this.mouse.x = touch.clientX;
+          this.mouse.y = touch.clientY;
+          this.mouse.active = true;
+          // Create ripple on touch
+          const g = Math.min(this.W, this.H);
+          this.ripples.push({
+            cx: (touch.clientX / this.W - 0.5) * 2 * g,
+            cz: (touch.clientY / this.H - 0.5) * 2 * g * 0.8,
+            t0: this.time,
+          });
+          if (this.ripples.length > 6) this.ripples.shift();
+          this.log('RIP', String(this.ripples.length).padStart(5, ' '));
+        }
+      };
+
       window.addEventListener('mousemove', onMove);
       window.addEventListener('mouseleave', onLeave);
       window.addEventListener('click', onClick);
+      window.addEventListener('touchmove', onTouchMove, { passive: true });
+      window.addEventListener('touchend', onTouchEnd);
+      window.addEventListener('touchstart', onTouchStart, { passive: true });
       window.addEventListener('resize', () => this.resize());
       this._clean = () => {
         window.removeEventListener('mousemove', onMove);
         window.removeEventListener('mouseleave', onLeave);
         window.removeEventListener('click', onClick);
+        window.removeEventListener('touchmove', onTouchMove);
+        window.removeEventListener('touchend', onTouchEnd);
+        window.removeEventListener('touchstart', onTouchStart);
       };
     }
 
@@ -486,92 +516,94 @@ const Terrain = (() => {
   };
 })();
 
-/* ─── CURSOR ─── */
-(() => {
-  const clH = document.getElementById('clH');
-  const clV = document.getElementById('clV');
-  const clDot = document.getElementById('clDot');
-  const clTrail = document.getElementById('clTrail');
-  const clCoords = document.getElementById('clCoords');
-  const clClick = document.getElementById('clClick');
-  if (!clH || !clV) return;
+/* ─── CURSOR (Desktop only) ─── */
+if (!isMobile()) {
+  (() => {
+    const clH = document.getElementById('clH');
+    const clV = document.getElementById('clV');
+    const clDot = document.getElementById('clDot');
+    const clTrail = document.getElementById('clTrail');
+    const clCoords = document.getElementById('clCoords');
+    const clClick = document.getElementById('clClick');
+    if (!clH || !clV) return;
 
-  let clickCount = 0;
-  const trail = [];
-  let trailAnim = null;
-  let trailCtx = null;
+    let clickCount = 0;
+    const trail = [];
+    let trailAnim = null;
+    let trailCtx = null;
 
-  if (clTrail) {
-    clTrail.width = window.innerWidth;
-    clTrail.height = window.innerHeight;
-    trailCtx = clTrail.getContext('2d');
-    window.addEventListener('resize', () => {
+    if (clTrail) {
       clTrail.width = window.innerWidth;
       clTrail.height = window.innerHeight;
-    });
-  }
+      trailCtx = clTrail.getContext('2d');
+      window.addEventListener('resize', () => {
+        clTrail.width = window.innerWidth;
+        clTrail.height = window.innerHeight;
+      });
+    }
 
-  const drawTrail = () => {
-    if (!trailCtx) return;
-    trailCtx.clearRect(0, 0, clTrail.width, clTrail.height);
-    if (trail.length < 2) return;
-    trailCtx.beginPath();
-    trailCtx.strokeStyle = 'rgba(220,220,230,.25)';
-    trailCtx.lineWidth = .6;
-    trailCtx.setLineDash([2, 5]);
-    trailCtx.moveTo(trail[0].x, trail[0].y);
-    for (let i = 1; i < trail.length; i++) trailCtx.lineTo(trail[i].x, trail[i].y);
-    trailCtx.stroke();
-  };
-
-  const update = (x, y) => {
-    clH.style.top = y + 'px';
-    clV.style.left = x + 'px';
-    clDot.style.left = x + 'px';
-    clDot.style.top = y + 'px';
-    clCoords.textContent =
-      String(x).padStart(4, '0') + ', ' + String(y).padStart(4, '0');
-
-    trail.push({ x, y });
-    if (trail.length > 40) trail.shift();
-    drawTrail();
-  };
-
-  const onClick = (e) => {
-    clickCount++;
-    if (clClick) clClick.textContent = String(clickCount).padStart(4, '0');
-
-    const x = e.clientX, y = e.clientY;
-    clDot.style.width = '12px';
-    clDot.style.height = '12px';
-    clDot.style.marginLeft = '-6px';
-    clDot.style.marginTop = '-6px';
-    clDot.style.background = 'rgba(220,220,230,.8)';
-
-    if (trailAnim) cancelAnimationFrame(trailAnim);
-    const start = performance.now();
-    const fade = (t) => {
-      const p = (t - start) / 400;
-      if (p < 1) {
-        const s = 4 + 8 * (1 - p);
-        clDot.style.width = s + 'px';
-        clDot.style.height = s + 'px';
-        clDot.style.marginLeft = -(s / 2) + 'px';
-        clDot.style.marginTop = -(s / 2) + 'px';
-        clDot.style.background = `rgba(220,220,230,${0.8 * (1 - p)})`;
-        trailAnim = requestAnimationFrame(fade);
-      } else {
-        clDot.style.width = '4px';
-        clDot.style.height = '4px';
-        clDot.style.marginLeft = '-2px';
-        clDot.style.marginTop = '-2px';
-        clDot.style.background = 'rgba(220,220,230,.6)';
-        trailAnim = null;
-      }
+    const drawTrail = () => {
+      if (!trailCtx) return;
+      trailCtx.clearRect(0, 0, clTrail.width, clTrail.height);
+      if (trail.length < 2) return;
+      trailCtx.beginPath();
+      trailCtx.strokeStyle = 'rgba(220,220,230,.25)';
+      trailCtx.lineWidth = .6;
+      trailCtx.setLineDash([2, 5]);
+      trailCtx.moveTo(trail[0].x, trail[0].y);
+      for (let i = 1; i < trail.length; i++) trailCtx.lineTo(trail[i].x, trail[i].y);
+      trailCtx.stroke();
     };
-    trailAnim = requestAnimationFrame(fade);
-  };
 
-  window.addEventListener('mousemove', (e) => update(e.clientX, e.clientY));
-  window.addEventListener('click', onClick);
-})();
+    const update = (x, y) => {
+      clH.style.top = y + 'px';
+      clV.style.left = x + 'px';
+      clDot.style.left = x + 'px';
+      clDot.style.top = y + 'px';
+      clCoords.textContent =
+        String(x).padStart(4, '0') + ', ' + String(y).padStart(4, '0');
+
+      trail.push({ x, y });
+      if (trail.length > 40) trail.shift();
+      drawTrail();
+    };
+
+    const onClick = (e) => {
+      clickCount++;
+      if (clClick) clClick.textContent = String(clickCount).padStart(4, '0');
+
+      const x = e.clientX, y = e.clientY;
+      clDot.style.width = '12px';
+      clDot.style.height = '12px';
+      clDot.style.marginLeft = '-6px';
+      clDot.style.marginTop = '-6px';
+      clDot.style.background = 'rgba(220,220,230,.8)';
+
+      if (trailAnim) cancelAnimationFrame(trailAnim);
+      const start = performance.now();
+      const fade = (t) => {
+        const p = (t - start) / 400;
+        if (p < 1) {
+          const s = 4 + 8 * (1 - p);
+          clDot.style.width = s + 'px';
+          clDot.style.height = s + 'px';
+          clDot.style.marginLeft = -(s / 2) + 'px';
+          clDot.style.marginTop = -(s / 2) + 'px';
+          clDot.style.background = `rgba(220,220,230,${0.8 * (1 - p)})`;
+          trailAnim = requestAnimationFrame(fade);
+        } else {
+          clDot.style.width = '4px';
+          clDot.style.height = '4px';
+          clDot.style.marginLeft = '-2px';
+          clDot.style.marginTop = '-2px';
+          clDot.style.background = 'rgba(220,220,230,.6)';
+          trailAnim = null;
+        }
+      };
+      trailAnim = requestAnimationFrame(fade);
+    };
+
+    window.addEventListener('mousemove', (e) => update(e.clientX, e.clientY));
+    window.addEventListener('click', onClick);
+  })();
+}
