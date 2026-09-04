@@ -207,7 +207,7 @@ function initReveals() {
       if (!el) return;
       let c = 0;
       const st = Math.ceil(v / 50);
-      const iv = setInterval(() => { c += st; if (c >= v) { c = v; clearInterval(iv); } el.textContent = c; if (bar) document(bar).style.width = Math.min((c / max) * 100, 100) + "%"; }, 20);
+      const iv = setInterval(() => { c += st; if (c >= v) { c = v; clearInterval(iv); } el.textContent = c; if (bar) document.getElementById(bar).style.width = Math.min((c / max) * 100, 100) + "%"; }, 20);
     });
   } catch { document.querySelectorAll("#lcStats [id]").forEach(el => { if (el.id.startsWith("lc")) el.textContent = "—"; }); }
 })();
