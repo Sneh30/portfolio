@@ -1,0 +1,276 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-30",
+  "candidate": "Sneh Sinha",
+  "description": "Evidence graph for the Agent Mode dossier. Each record walks the chain: claim → capability → project/experience → implementation → result → verification, so an evaluator can trace any statement back to its source.",
+  "chains": [
+    {
+      "claim": "Builds AI agents",
+      "capability": "capability-agents",
+      "capability_name": "AI Agents & Computer Use",
+      "project": "project-opencode-cua",
+      "project_name": "OpenCode CUA Platform",
+      "implementation": "Computer-use agent driving desktop GUI and browser through MCP servers using screen capture, macOS Accessibility APIs and browser automation, with verification and recovery engines",
+      "result": "An agent that can confirm its own actions and recover from failure; no usage metric published",
+      "evidence": "OpenCode CUA Platform",
+      "verification": {
+        "status": [
+          "public_repo"
+        ],
+        "source": "https://github.com/Sneh30/opencode-cua-platform",
+        "last_verified": "2026-09-30",
+        "note": "live repository, authored by Sneh30 (checked 2026-09-30)"
+      }
+    },
+    {
+      "claim": "Works with multi-agent systems",
+      "capability": "capability-multagent",
+      "capability_name": "Multi-Agent Orchestration",
+      "project": "project-orchestra",
+      "project_name": "Orchestra",
+      "implementation": "Five specialised LangGraph agents (search, extract, verify, synthesize, critique) with confidence scoring, PostgreSQL persistence, Prometheus instrumentation, deterministic CI mode, Docker Compose deployment",
+      "result": "Verified reports produced by a cooperating agent pipeline; one-command deployment",
+      "evidence": "Orchestra",
+      "verification": {
+        "status": [
+          "public_repo"
+        ],
+        "source": "https://github.com/Sneh30/Orchestra",
+        "last_verified": "2026-09-30",
+        "note": "live repository + résumé entry (checked 2026-09-30)"
+      }
+    },
+    {
+      "claim": "Builds AI that operates infrastructure",
+      "capability": "capability-ai-infra",
+      "capability_name": "AI Infrastructure & Autonomous Operations",
+      "project": "project-deepops",
+      "project_name": "DeepOps",
+      "implementation": "Multi-agent pipeline: natural-language commands → incident interpretation → root-cause analysis → remediation plans with cost-optimisation logic",
+      "result": "Core pipeline complete; in hardware integration and testing toward end-to-end automated resolution without human intervention",
+      "evidence": "DeepOps",
+      "verification": {
+        "status": [
+          "public_repo",
+          "experimental"
+        ],
+        "source": "https://github.com/Sneh30/deepops",
+        "last_verified": "2026-09-30",
+        "note": "live repository + résumé entry; experimental, not claimed as production"
+      }
+    },
+    {
+      "claim": "Has real-world infrastructure engineering experience",
+      "capability": "capability-ops",
+      "capability_name": "Real-World Infrastructure Operations",
+      "project": null,
+      "project_name": "Infrastructure Engineer — Independent Engagement (Aug 2026)",
+      "implementation": "One-month on-site engagement strengthening operations on a 400+ node exam-facility network",
+      "result": "~40% reduction in infrastructure incidents and average recovery time versus the prior comparable period (site notes a prior period of over 5 days)",
+      "evidence": "Infrastructure Engineer — Independent Engagement (Aug 2026)",
+      "verification": {
+        "status": [
+          "documented_experience",
+          "self_reported"
+        ],
+        "source": "https://sneh30.github.io/portfolio/#experience",
+        "last_verified": "2026-09-30",
+        "note": "self-published; employer name and raw dataset not published. The portfolio does not currently provide sufficient evidence to verify this claim beyond the candidate's own statement."
+      }
+    },
+    {
+      "claim": "Reduces LLM cost through engineering",
+      "capability": "capability-llm",
+      "capability_name": "LLM Systems & Cost/Latency Engineering",
+      "project": "project-promptos",
+      "project_name": "PromptOS",
+      "implementation": "Rust compiler core (custom lexer, parser, AST), ten optimisation passes across four compilation modes, WASM plugins, local Llama.cpp inference on Metal, SwiftUI shell",
+      "result": "Up to 80–85% lower inference cost in Economy mode via multi-pass token compression, tested against frontier LLM pricing",
+      "evidence": "PromptOS",
+      "verification": {
+        "status": [
+          "public_repo",
+          "self_reported"
+        ],
+        "source": "https://github.com/Sneh30/promptos",
+        "last_verified": "2026-09-30",
+        "note": "live repository; performance figure sourced from the résumé PDF, not independently measured"
+      }
+    },
+    {
+      "claim": "Does computer vision on constrained hardware",
+      "capability": "capability-embedded",
+      "capability_name": "Embedded Systems & Edge Computer Vision",
+      "project": "project-esp32",
+      "project_name": "ESP32-CAM Vision Suite",
+      "implementation": "Three ESP32-CAM projects using HSV quantisation and centroid tracking instead of neural inference, on-device colour conversion, L298N motor control, MJPEG streaming server",
+      "result": "3 projects, 60 FPS streaming, 15+ camera board variants, all within 512 KB RAM",
+      "evidence": "ESP32-CAM Vision Suite",
+      "verification": {
+        "status": [
+          "public_repo"
+        ],
+        "source": "https://github.com/Sneh30/esp32-cam-vision",
+        "last_verified": "2026-09-30",
+        "note": "live repository + résumé entry (checked 2026-09-30)"
+      }
+    },
+    {
+      "claim": "Has safety-critical engineering experience",
+      "capability": "capability-safety",
+      "capability_name": "Safety-Critical Systems Engineering",
+      "project": null,
+      "project_name": "Team Stratos — Software & Electronics Lead (Jul 2025 – May 2026)",
+      "implementation": "Developed and deployed ABS (Anti-lock Braking System) firmware — the most safety-critical subsystem — and owned software/electronics integration for a 50-member team's competition vehicle",
+      "result": "Validated through track testing, SAE India scrutineering and competition over an 11-month tenure",
+      "evidence": "Team Stratos — Software & Electronics Lead (Jul 2025 – May 2026)",
+      "verification": {
+        "status": [
+          "documented_experience"
+        ],
+        "source": "https://sneh30.github.io/portfolio/#experience",
+        "last_verified": "2026-09-30",
+        "note": "team project, self-published; code not released and no team reference published"
+      }
+    },
+    {
+      "claim": "Writes code that passes external review",
+      "capability": "capability-oss",
+      "capability_name": "Software Engineering & Open-Source Contribution",
+      "project": "project-webcmd",
+      "project_name": "webcmd — merged PR #190",
+      "implementation": "Unified -f/--format parsing into a single source of truth across builtin commands, fixed 15+ commands, added 16 tests, updated documentation",
+      "result": "PR merged 2026-08-13 with 16 commits authored by Sneh30 into a project with 2,620 stars",
+      "evidence": "webcmd — merged PR #190",
+      "verification": {
+        "status": [
+          "external_validation"
+        ],
+        "source": "https://github.com/agentrhq/webcmd/pull/190",
+        "last_verified": "2026-09-30",
+        "note": "merged pull request, verified via GitHub API (2026-09-30)"
+      }
+    },
+    {
+      "claim": "Ships new stacks in quick succession",
+      "capability": null,
+      "capability_name": "Learning cadence (inferred from breadth and cadence)",
+      "project": null,
+      "project_name": "Timeline: Team Stratos (Jul 2025) → Orchestra/DeepOps/PromptOS (2025–2026) → OpenCode CUA (Aug 2026) → infrastructure engagement (Aug 2026)",
+      "implementation": "Successive projects crossing embedded C, Rust, Swift, Python, TypeScript, multi-agent frameworks and production infrastructure operations, each ending in a shipped artifact",
+      "result": "Six distinct stacks shipped within roughly thirteen months, documented across the portfolio and résumé",
+      "evidence": "Timeline: Team Stratos (Jul 2025) → Orchestra/DeepOps/PromptOS (2025–2026) → OpenCode CUA (Aug 2026) → infrastructure engagement (Aug 2026)",
+      "verification": {
+        "status": [
+          "documented_experience"
+        ],
+        "source": "https://sneh30.github.io/portfolio/#experience",
+        "last_verified": "2026-09-30",
+        "note": "supported by documented project timeline; no formal learning-speed benchmark exists. The portfolio does not currently provide sufficient evidence to verify this claim as a measured rate."
+      }
+    },
+    {
+      "claim": "Is an agent operating system architect",
+      "capability": "capability-agents",
+      "capability_name": "AI Agents & Computer Use",
+      "project": "project-agentos",
+      "project_name": "AgentOS",
+      "implementation": "Per portfolio: six composable layers (Interface, Model Router, Simulation Engine, Memory Graph, Guard Layer, Execution Plane) with 250+ app integrations",
+      "result": "6 layers · 250+ integrations (portfolio claim only)",
+      "evidence": "AgentOS",
+      "verification": {
+        "status": [
+          "repository_unavailable"
+        ],
+        "source": "https://github.com/Sneh30/AgentOS",
+        "last_verified": "2026-09-30",
+        "note": "repository link returns 404 (2026-09-30). The portfolio does not currently provide sufficient evidence to verify this claim."
+      }
+    },
+    {
+      "claim": "Has GUI-automation agent experience beyond coursework",
+      "capability": "capability-agents",
+      "capability_name": "AI Agents & Computer Use",
+      "project": "project-agentic-hinge",
+      "project_name": "Agentic-hinge",
+      "implementation": "Per portfolio: macOS GUI agent using computer vision and GUI automation over iPhone Mirroring",
+      "result": "No numeric metric published",
+      "evidence": "Agentic-hinge",
+      "verification": {
+        "status": [
+          "repository_unavailable"
+        ],
+        "source": "https://github.com/Sneh30/Agentic-hinge",
+        "last_verified": "2026-09-30",
+        "note": "repository link returns 404 (2026-09-30). The portfolio does not currently provide sufficient evidence to verify this claim."
+      }
+    },
+    {
+      "claim": "Combines cloud backends with embedded firmware",
+      "capability": "capability-embedded",
+      "capability_name": "Embedded Systems & Edge Computer Vision",
+      "project": "project-pocket-typist",
+      "project_name": "Pocket Typist",
+      "implementation": "Per portfolio: ESP32 BLE HID keyboard firmware plus Cloudflare Workers backend pushing text to the device",
+      "result": "No numeric metric published",
+      "evidence": "Pocket Typist",
+      "verification": {
+        "status": [
+          "repository_unavailable"
+        ],
+        "source": "https://github.com/Sneh30/pocket-typist",
+        "last_verified": "2026-09-30",
+        "note": "repository link returns 404 (2026-09-30). The portfolio does not currently provide sufficient evidence to verify this claim."
+      }
+    }
+  ],
+  "external_sources": [
+    {
+      "name": "GitHub API — user and repositories",
+      "url": "https://api.github.com/users/Sneh30",
+      "checked": "2026-09-30",
+      "facts": "13 public repositories; 3 followers; location Bangalore, Karnataka"
+    },
+    {
+      "name": "GitHub API — agentrhq/webcmd",
+      "url": "https://api.github.com/repos/agentrhq/webcmd",
+      "checked": "2026-09-30",
+      "facts": "2,620 stars"
+    },
+    {
+      "name": "GitHub API — PR #190 commits",
+      "url": "https://api.github.com/repos/agentrhq/webcmd/pulls/190/commits",
+      "checked": "2026-09-30",
+      "facts": "16 commits; merged 2026-08-13; author Sneh30"
+    },
+    {
+      "name": "LeetCode API — user stats",
+      "url": "https://leetcode.com/u/sneh_sinha3/",
+      "checked": "2026-09-30",
+      "facts": "35 solved (32 easy / 3 medium / 0 hard); ranking 3,387,548"
+    },
+    {
+      "name": "Résumé PDF published with this portfolio",
+      "url": "https://sneh30.github.io/portfolio/assets/Sneh_Raj_Sinha_Resume.pdf",
+      "checked": "2026-09-30",
+      "facts": "Education, PromptOS 80–85% figure, 512 KB RAM constraint, 15+ board variants, DeepOps status"
+    },
+    {
+      "name": "Human Mode portfolio",
+      "url": "https://sneh30.github.io/portfolio/",
+      "checked": "2026-09-30",
+      "facts": "Skills, projects, experience, contact details, contribution count"
+    }
+  ],
+  "evidence_labels": {
+    "note": "Qualitative labels only — no numeric evidence scores, fit percentages, or rankings are computed.",
+    "values": [
+      "public_repo",
+      "external_validation",
+      "documented_experience",
+      "self_reported",
+      "experimental",
+      "repository_unavailable"
+    ]
+  }
+}

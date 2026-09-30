@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-30",
+  "candidate": "Sneh Sinha",
+  "note": "Each capability points to the evidence that supports it. Skills referenced are exactly those shown in Human Mode; no capability asserts expertise beyond what the portfolio documents. Evidence carries qualitative status labels (public repo · external validation · documented experience · self-reported · experimental · repository unavailable); no numeric scores are assigned.",
+  "capabilities": [
+    {
+      "id": "capability-agents",
+      "name": "AI Agents & Computer Use",
+      "claim": "Builds agents that operate real software, including failure handling rather than only happy paths.",
+      "strength": "primary",
+      "skills_used": [
+        "LangGraph",
+        "OpenCode",
+        "LLM Inference",
+        "Multi-Agent Systems"
+      ],
+      "evidence": [
+        {
+          "project": "project-opencode-cua",
+          "implementation": "MCP servers, screen capture, macOS Accessibility APIs, browser automation, verification and recovery engines",
+          "result": "End-to-end computer-use loop with explicit verification and recovery stages; no usage metric published",
+          "verification": "https://github.com/Sneh30/opencode-cua-platform",
+          "verification_status": "live"
+        }
+      ],
+      "related_experience": []
+    },
+    {
+      "id": "capability-multagent",
+      "name": "Multi-Agent Orchestration",
+      "claim": "Designs multi-agent systems with separation of concerns, verification stages, persistence and observability.",
+      "strength": "primary",
+      "skills_used": [
+        "LangGraph",
+        "FastAPI",
+        "PostgreSQL",
+        "Prometheus",
+        "Multi-Agent Systems"
+      ],
+      "evidence": [
+        {
+          "project": "project-orchestra",
+          "implementation": "5 specialised LangGraph agents (search, extract, verify, synthesize, critique), confidence scoring, Prometheus instrumentation, deterministic CI mode, Docker Compose packaging",
+          "result": "5 cooperating agents, verified reports, one-command deployment",
+          "verification": "https://github.com/Sneh30/Orchestra",
+          "verification_status": "live"
+        }
+      ],
+      "related_experience": []
+    },
+    {
+      "id": "capability-ai-infra",
+      "name": "AI Infrastructure & Autonomous Operations",
+      "claim": "Builds AI that operates infrastructure, and has operated real infrastructure.",
+      "strength": "primary",
+      "skills_used": [
+        "LangGraph",
+        "FastAPI",
+        "Observability",
+        "Incident Response",
+        "Prometheus",
+        "AWS",
+        "Docker",
+        "Linux"
+      ],
+      "evidence": [
+        {
+          "project": "project-deepops",
+          "implementation": "Natural-language incident interpretation → root-cause analysis → remediation planning with cost optimisation",
+          "result": "Core pipeline complete; in testing toward end-to-end automated resolution (not claimed as production)",
+          "verification": "https://github.com/Sneh30/deepops",
+          "verification_status": "live"
+        }
+      ],
+      "related_experience": [
+        "experience-infrastructure"
+      ]
+    },
+    {
+      "id": "capability-llm",
+      "name": "LLM Systems & Cost/Latency Engineering",
+      "claim": "Treats prompts and inference as an engineering problem with measurable cost outcomes.",
+      "strength": "primary",
+      "skills_used": [
+        "Llama.cpp",
+        "LLM Inference",
+        "Prompt Engineering",
+        "WASM",
+        "Metal (GPU)"
+      ],
+      "evidence": [
+        {
+          "project": "project-promptos",
+          "implementation": "Rust lexer/parser/AST, ten optimisation passes, four compilation modes, WASM plugins, local Llama.cpp inference on Metal, SwiftUI shell",
+          "result": "Up to 80–85% lower inference cost in Economy mode (résumé PDF)",
+          "verification": "https://github.com/Sneh30/promptos",
+          "verification_status": "live"
+        }
+      ],
+      "related_experience": []
+    },
+    {
+      "id": "capability-ops",
+      "name": "Real-World Infrastructure Operations",
+      "claim": "Has improved reliability of a live, scaled environment with a measured outcome.",
+      "strength": "primary",
+      "skills_used": [
+        "Observability",
+        "Incident Response",
+        "Linux",
+        "AWS",
+        "Docker",
+        "Prometheus"
+      ],
+      "evidence": [
+        {
+          "project": null,
+          "implementation": "One-month on-site engagement strengthening operations on a 400+ node exam-facility network",
+          "result": "~40% reduction in incidents and average recovery time versus the prior comparable period",
+          "verification": "https://sneh30.github.io/portfolio/#experience",
+          "verification_status": "self-published (employer and raw data not disclosed)"
+        }
+      ],
+      "related_experience": [
+        "experience-infrastructure"
+      ]
+    },
+    {
+      "id": "capability-embedded",
+      "name": "Embedded Systems & Edge Computer Vision",
+      "claim": "Ships computer vision and firmware on constrained hardware, choosing algorithms to fit the resource budget.",
+      "strength": "primary",
+      "skills_used": [
+        "ESP32",
+        "Edge Impulse",
+        "Raspberry Pi",
+        "Edge AI"
+      ],
+      "evidence": [
+        {
+          "project": "project-esp32",
+          "implementation": "HSV quantisation and centroid tracking, on-device RGB565→RGB888→HSV conversion, L298N motor control, MJPEG streaming across 15+ board variants",
+          "result": "3 projects, 60 FPS streaming, 15+ board variants, 512 KB RAM ceiling",
+          "verification": "https://github.com/Sneh30/esp32-cam-vision",
+          "verification_status": "live"
+        }
+      ],
+      "related_experience": [
+        "experience-team-stratos"
+      ]
+    },
+    {
+      "id": "capability-safety",
+      "name": "Safety-Critical Systems Engineering",
+      "claim": "Has owned a safety-critical embedded subsystem through physical validation.",
+      "strength": "supported",
+      "skills_used": [
+        "ESP32",
+        "Edge Impulse"
+      ],
+      "evidence": [
+        {
+          "project": null,
+          "implementation": "ABS (Anti-lock Braking System) firmware for a 50-member team's competition vehicle; software and electronics integration lead",
+          "result": "Validated through track testing, SAE India scrutineering and competition; 11-month tenure",
+          "verification": "https://sneh30.github.io/portfolio/#experience",
+          "verification_status": "team project, self-published (code not released)"
+        }
+      ],
+      "related_experience": [
+        "experience-team-stratos"
+      ]
+    },
+    {
+      "id": "capability-oss",
+      "name": "Software Engineering & Open-Source Contribution",
+      "claim": "Has landed reviewed, tested code in an externally maintained project.",
+      "strength": "primary",
+      "skills_used": [
+        "Git",
+        "GitHub Actions",
+        "CI/CD"
+      ],
+      "evidence": [
+        {
+          "project": "project-webcmd",
+          "implementation": "Single source of truth for -f/--format parsing across builtin commands; 16 tests added; docs updated",
+          "result": "PR #190 merged 2026-08-13 with 16 commits; 15+ commands fixed; upstream 2,620 stars",
+          "verification": "https://github.com/agentrhq/webcmd/pull/190",
+          "verification_status": "merged PR (GitHub API verified 2026-09-30)"
+        }
+      ],
+      "related_experience": []
+    },
+    {
+      "id": "capability-backend",
+      "name": "Backend & Full-Stack Delivery",
+      "claim": "Delivers complete applications with persistence, APIs and integrations.",
+      "strength": "supported",
+      "skills_used": [
+        "Python",
+        "Java",
+        "SQL",
+        "FastAPI",
+        "PostgreSQL",
+        "REST APIs"
+      ],
+      "evidence": [
+        {
+          "project": "project-catalyst",
+          "implementation": "Resume audit, job scraping, ATS resume generation, weekly tracker backed by SQLite",
+          "result": "Working end-to-end product flow; no usage metrics published",
+          "verification": "https://github.com/Sneh30/Catalyst",
+          "verification_status": "live"
+        },
+        {
+          "project": "project-portfolio",
+          "implementation": "Canvas rendering, GSAP scroll choreography, live GitHub and LeetCode API integration, Agent Mode dossier",
+          "result": "Publicly deployed site",
+          "verification": "https://github.com/Sneh30/portfolio",
+          "verification_status": "live"
+        }
+      ],
+      "related_experience": []
+    }
+  ],
+  "explicit_non_claims": [
+    "No claim of published research or peer-reviewed papers.",
+    "No claim of model training, fine-tuning, or MLOps at scale.",
+    "No claim of employer-scale production deployment of DeepOps or Orchestra.",
+    "No claim of maintainership, funding, or stars on the candidate's own repositories.",
+    "No claim of Kubernetes experience (Kubernetes is not listed in the Human Mode skills section).",
+    "No certifications, awards, or rankings are claimed."
+  ]
+}

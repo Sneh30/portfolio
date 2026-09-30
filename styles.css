@@ -34,6 +34,14 @@ body {
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 
+/* ─── SKIP LINK ─── */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 300;
+  background: #d4a373; color: #0a0a0a; padding: 10px 16px;
+  font-size: .85rem; font-weight: 600; text-decoration: none;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
 /* ─── NAV ─── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -232,7 +240,7 @@ body {
 }
 .skills-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; margin-bottom: 60px; }
 .skills-list { display: flex; flex-direction: column; gap: 24px; }
-.skill-cat h4 { font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.25); margin-bottom: 10px; font-weight: 600; }
+.skill-cat h4, .skill-cat .cat-h { font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.25); margin-bottom: 10px; font-weight: 600; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .skill-tags span {
   padding: 4px 10px; border-radius: 4px; font-size: .72rem;
@@ -330,7 +338,7 @@ body {
 .pr-info {
   flex: 1; padding: 24px;
 }
-.pr-info h4 {
+.pr-info h4, .pr-info h3 {
   font-size: .95rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4;
 }
 .pr-info p {
@@ -427,7 +435,7 @@ body {
   border: 1px solid rgba(255,255,255,.08); padding: 2px 8px;
   border-radius: 3px; margin-bottom: 14px;
 }
-.blog-card h4 { font-size: .88rem; font-weight: 600; margin-bottom: 10px; line-height: 1.4; }
+.blog-card h4, .blog-card h3 { font-size: .88rem; font-weight: 600; margin-bottom: 10px; line-height: 1.4; }
 .blog-card p { color: var(--text-muted); font-size: .75rem; line-height: 1.5; margin-bottom: 14px; }
 .blog-date {
   font-family: var(--mono); font-size: .65rem; color: rgba(255,255,255,.2);
@@ -489,7 +497,7 @@ body {
 }
 
 /* ─── FOOTER ─── */
-.footer { padding: 4px 0 32px; background: var(--bg); }
+.footer { padding: 4px 0 76px; background: var(--bg); }
 .footer-inner { text-align: center; }
 .footer-tagline { font-size: .6rem; color: rgba(255,255,255,.08); max-width: 360px; margin: 0 auto; line-height: 1.5; }
 
@@ -536,8 +544,104 @@ body {
 }
 
 @media (max-width: 480px) {
-  .hero-line { font-size: 2.5rem; }
+  .hero-line, .hero-mask { font-size: 2.5rem; }
   .stats-grid { grid-template-columns: repeat(3, 1fr); }
   .section-block { padding: 60px 0; }
   .about { padding: 60px 0; }
+}
+
+/* ─── MODE DOCK (bottom-center, sliding thumb, names only) ─── */
+.nav-tools { display: flex; align-items: center; gap: 18px; }
+.mode-dock {
+  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
+  z-index: 90; display: inline-flex; padding: 2px;
+  border: 1px solid var(--border); border-radius: 999px;
+  background: rgba(13,13,13,.94); backdrop-filter: blur(12px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.45);
+}
+.mode-dock .dock-thumb {
+  position: absolute; top: 2px; left: 2px; height: calc(100% - 4px);
+  width: calc(50% - 2px); border-radius: 999px;
+  background: rgba(212,163,115,.16); border: 1px solid rgba(212,163,115,.45);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.mode-dock.is-agent .dock-thumb { transform: translateX(100%); }
+.mode-dock .dock-opt {
+  position: relative; z-index: 1; display: inline-flex;
+  align-items: center; justify-content: center;
+  min-width: 96px; padding: 8px 20px; border-radius: 999px;
+  font-family: var(--mono); font-size: .66rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--text-muted); text-decoration: none;
+  transition: color .3s;
+}
+.mode-dock .dock-opt:hover { color: var(--text); text-decoration: none; }
+.mode-dock .dock-opt.is-on { color: #d4a373; cursor: default; }
+.mode-dock a:focus-visible { outline: 2px solid #d4a373; outline-offset: -2px; }
+@media (max-width: 480px) {
+  .mode-dock .dock-opt { min-width: 78px; padding: 7px 14px; font-size: .6rem; }
+}
+
+/* ─── HERO: single h1 + positioning line ─── */
+.hero-title { display: block; margin: 0; font-weight: 900; }
+.hero-mask {
+  display: block; overflow: hidden;
+  font-size: clamp(3rem, 12vw, 8rem);
+  padding-bottom: .16em; margin-bottom: -.16em;
+}
+.hero-line { display: block; }
+.hero-sub {
+  max-width: 640px; margin: 0 auto 26px;
+  font-size: clamp(.9rem, 1.4vw, 1.05rem); line-height: 1.6;
+  color: rgba(255,255,255,.55); font-weight: 400;
+}
+
+/* ─── FOCUS STRIP (recruiter scan anchors) ─── */
+.focus-strip {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--border);
+}
+.fs-lbl {
+  font-family: var(--mono); font-size: .6rem; text-transform: uppercase;
+  letter-spacing: .12em; color: rgba(255,255,255,.28); margin-right: 6px;
+}
+.fs-item {
+  font-size: .68rem; font-family: var(--mono); letter-spacing: .03em;
+  padding: 5px 10px; border-radius: 4px; color: #999;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+}
+
+/* ─── EXPERIENCE: outcome chips near the title ─── */
+.exp-metrics { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.exp-chip {
+  font-family: var(--mono); font-size: .6rem; letter-spacing: .04em;
+  padding: 4px 9px; border-radius: 4px; text-transform: uppercase;
+  color: #999; background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+}
+.exp-chip.accent {
+  color: #d4a373; background: rgba(212,163,115,.08);
+  border-color: rgba(212,163,115,.28);
+}
+
+/* ─── PROJECTS: hierarchy + evidence chips + honest link states ─── */
+.proj-card.featured {
+  background: rgba(212,163,115,.035);
+  border-color: rgba(212,163,115,.28);
+}
+.proj-card.featured h3 { color: #fff; }
+.proj-card.featured .proj-num { color: #d4a373; }
+.proj-metrics { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+.proj-metrics .pm {
+  font-family: var(--mono); font-size: .58rem; letter-spacing: .03em;
+  padding: 3px 7px; border-radius: 3px; text-transform: uppercase;
+  color: #d4a373; background: rgba(212,163,115,.08);
+  border: 1px solid rgba(212,163,115,.22);
+}
+.proj-aux {
+  font-family: var(--mono); font-size: .68rem; color: #666;
+  letter-spacing: .02em; font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .nav-tools { gap: 10px; }
 }

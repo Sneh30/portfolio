@@ -1,0 +1,37 @@
+# Crawler policy for https://sneh30.github.io/portfolio/
+# Human Mode and Agent Mode present the same candidate with the same facts.
+# Nothing here is hidden from legitimate search, recruiting, or analysis crawlers.
+
+User-agent: *
+Allow: /
+
+# Explicitly permissive for AI / recruiting / analysis crawlers.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Agent Mode is a first-class page, not a cloaked variant.
+# Canonical Agent Mode URL: /portfolio/agent/
+# Machine-readable summary:  /portfolio/llms.txt
+
+Sitemap: https://sneh30.github.io/portfolio/sitemap.xml

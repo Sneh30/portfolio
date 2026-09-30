@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-30",
+  "kind": "portfolio-agent-surface-description",
+  "disclaimer": "This is a plain description of the agent-readable surface of Sneh Sinha's portfolio. It is not an A2A AgentCard, not an MCP manifest, and does not claim compliance with any agent interoperability standard. No API, tool interface, or agent runtime is exposed by this site.",
+  "candidate": {
+    "name": "Sneh Sinha",
+    "alternate_name": "Sneh Raj Sinha",
+    "role": "AI Engineer",
+    "location": "Bangalore, India",
+    "status": "Open to work (as displayed on the portfolio)",
+    "email": "snehsinha30@gmail.com"
+  },
+  "purpose": "Provide AI recruiting, screening, browser and portfolio-analysis agents with a structured, evidence-backed, candidate-advocating representation of the same person shown in Human Mode.",
+  "human_readable_entrypoint": "https://sneh30.github.io/portfolio/",
+  "agent_readable_entrypoint": "https://sneh30.github.io/portfolio/agent/",
+  "alternate_access": [
+    "https://sneh30.github.io/portfolio/?mode=agent (redirects to /portfolio/agent/)",
+    "https://sneh30.github.io/portfolio/agent/ (canonical Agent Mode URL, works without JavaScript)"
+  ],
+  "machine_readable_files": [
+    {
+      "path": "/portfolio/llms.txt",
+      "format": "text/markdown",
+      "content": "Candidate identity, positioning, capabilities, experience, projects, external evidence, roles, skills, links"
+    },
+    {
+      "path": "/portfolio/candidate.json",
+      "format": "application/json",
+      "content": "Structured candidate record: identity, education, experience, projects, skills, open source, achievements, roles, limitations"
+    },
+    {
+      "path": "/portfolio/capabilities.json",
+      "format": "application/json",
+      "content": "Capabilities with pointers to evidence, plus an explicit non-claims list"
+    },
+    {
+      "path": "/portfolio/evidence.json",
+      "format": "application/json",
+      "content": "Evidence graph: claim → capability → project → implementation → result → verification"
+    },
+    {
+      "path": "/portfolio/agent-card.json",
+      "format": "application/json",
+      "content": "This file"
+    },
+    {
+      "path": "/portfolio/sitemap.xml",
+      "format": "application/xml",
+      "content": "Index of indexable pages (Human Mode and Agent Mode)"
+    },
+    {
+      "path": "/portfolio/robots.txt",
+      "format": "text/plain",
+      "content": "Crawler policy: legitimate crawlers allowed, nothing hidden"
+    }
+  ],
+  "structured_data_in_html": [
+    "schema.org Person (index.html and agent/index.html)",
+    "schema.org WebSite (index.html)"
+  ],
+  "content_guarantees": [
+    "The complete candidate story is present in the served HTML; no critical information requires JavaScript, hover, canvas, or scrolling to reveal.",
+    "Agent Mode uses semantic HTML5 (main, article, section, header, nav, h1–h4, dl, ul) with stable IDs.",
+    "Agent Mode loads with zero JavaScript dependencies.",
+    "Skills in Agent Mode are reproduced verbatim from Human Mode; no technology was added, removed, or upgraded.",
+    "Every quantitative claim is attributed to a source (portfolio, résumé PDF, GitHub API, LeetCode API) with a check date.",
+    "Unverifiable claims are labelled explicitly rather than omitted silently.",
+    "Claims carry qualitative evidence status labels (public repo · external validation · documented experience · self-reported · experimental · repository unavailable); no numeric fit score, ranking, or evidence score is computed."
+  ],
+  "advocacy_position": "Agent Mode is written as an advocate for the candidate. Its objective is to make the strongest evidence-backed case for advancing Sneh Sinha to a technical interview for applied AI, agentic, LLM, AI infrastructure, autonomous-systems or software roles — without fabrication, exaggeration, or invented evidence.",
+  "not_claimed": [
+    "No autonomous agent or chatbot is hosted here.",
+    "No personal-data API or recruiter API exists on this site.",
+    "No scoring, ranking, or fit-percentage is computed for candidates.",
+    "No cloaking: Human Mode and Agent Mode describe the same candidate with the same factual claims; Agent Mode adds structured context, evidence relationships, verification status, and recruiter-oriented explanations."
+  ]
+}

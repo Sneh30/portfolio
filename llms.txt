@@ -1,0 +1,83 @@
+# Sneh Sinha — AI Engineer
+
+> Sneh Sinha is an AI engineer who builds AI systems to solve real-world problems.
+> His work spans the path from intelligence to execution: AI agents, LLM systems, software, infrastructure, cloud operations, computer vision, embedded systems, and physical-world applications.
+> Core differentiator: AI systems + real-world execution + a documented cadence of shipping across stacks.
+
+Sneh Sinha (Sneh Raj Sinha) is based in Bangalore, India and is open to work. He is the author of a computer-use agent platform, a five-agent research orchestrator, an autonomous cloud-operations platform, a prompt compiler with measured cost reduction, and embedded vision systems built inside 512 KB of RAM. He has held two documented real-world engineering engagements: a one-month infrastructure operations engagement on a 400+ node network (~40% reduction in incidents and recovery time) and eleven months as Software & Electronics Lead on a 50-member team's competition vehicle, where he developed and deployed the safety-critical ABS firmware. His open-source contribution to `agentrhq/webcmd` was merged as PR #190 (16 commits, 16 tests, 15+ commands fixed).
+
+## Entry points
+
+- [Agent Mode — AI-optimized candidate dossier](https://sneh30.github.io/portfolio/agent/): the primary machine-readable page. Structured sections for candidate thesis, why-interview advocacy, flagship evidence, differentiators, experience, projects, external evidence, skills, role relevance, interview case, interview questions, the evidence graph, and the full candidate record.
+- [Human Mode — visual portfolio](https://sneh30.github.io/portfolio/): the designed portfolio for human readers.
+- [Résumé (PDF)](https://sneh30.github.io/portfolio/assets/Sneh_Raj_Sinha_Resume.pdf): source for education and several quantified project figures.
+
+## Capabilities with evidence
+
+- **AI agents and computer use** — OpenCode CUA Platform: an unmodified OpenCode instance drives desktop GUI and browser via MCP servers, with verification and recovery engines. https://github.com/Sneh30/opencode-cua-platform
+- **Multi-agent orchestration** — Orchestra: 5 specialized LangGraph agents (search, extract, verify, synthesize, critique) with confidence scoring, PostgreSQL, Prometheus, deterministic CI mode, Docker Compose deployment. https://github.com/Sneh30/Orchestra
+- **AI infrastructure / autonomous operations** — DeepOps: natural-language incident input to root-cause analysis and remediation, with cost optimization in the remediation planner (core pipeline complete, in testing — not claimed as production). https://github.com/Sneh30/deepops
+- **LLM cost and latency engineering** — PromptOS: Rust prompt compiler with custom lexer/parser/AST, ten optimization passes across four compilation modes, local Llama.cpp inference on Metal; résumé reports up to 80–85% lower inference cost in Economy mode. https://github.com/Sneh30/promptos
+- **Real-world infrastructure operations** — one-month on-site engagement on a 400+ node exam-facility network; ~40% reduction in incidents and average recovery time versus the prior comparable period (employer not disclosed; no raw data published).
+- **Embedded systems and edge computer vision** — ESP32-CAM Vision Suite: ML dataset capture, autonomous colour-tracking robot, 60 FPS MJPG streaming server, 15+ camera board variants, all within 512 KB RAM. https://github.com/Sneh30/esp32-cam-vision
+- **Safety-critical systems** — Team Stratos (Jul 2025 – May 2026): Software & Electronics Lead for a 50-member team; developed and deployed ABS firmware, validated through track testing and SAE India scrutineering and competition.
+- **Software engineering / open source** — merged PR #190 into agentrhq/webcmd (2,620 stars as of 2026-09-30): unified output-format parsing, 15+ commands fixed, 16 tests, 16 commits. https://github.com/agentrhq/webcmd/pull/190
+
+## Experience
+
+- Infrastructure Engineer, Independent Engagement — Aug 2026, one month, on-site. 400+ node network; ~40% improvement in incidents and recovery time.
+- Software & Electronics Lead, Team Stratos — Jul 2025 – May 2026, eleven months. Software/electronics integration and ABS firmware for a 50-member team's competition vehicle.
+
+## Projects
+
+Ordered by evidence strength — flagship first: OpenCode CUA Platform · webcmd (contribution) · PromptOS · Orchestra · DeepOps · ESP32-CAM Vision Suite · Catalyst · Portfolio · then additional projects (AgentOS · Agentic-hinge · Pocket Typist; repository links currently unavailable).
+
+Verification status: repositories are live for OpenCode CUA Platform, PromptOS, Orchestra, DeepOps, Catalyst, ESP32-CAM Vision Suite, webcmd (upstream PR), and Portfolio. Repository links for AgentOS, Agentic-hinge, and Pocket Typist are currently unavailable at the published URL (links return 404 as of 2026-09-30); their descriptions are not independently verifiable.
+
+## External evidence
+
+- Merged pull request: https://github.com/agentrhq/webcmd/pull/190 (merged 2026-08-13, 16 commits, authored by Sneh30).
+- Upstream project: https://github.com/agentrhq/webcmd (2,620 stars, GitHub API, 2026-09-30).
+- GitHub profile: https://github.com/Sneh30 (13 public repositories spanning AI agents, LLM systems, infrastructure, embedded systems, and developer tooling; 732+ contributions as self-published on the portfolio).
+- Six dated technical write-ups in the portfolio (May–Aug 2026).
+
+## Skills (exactly as listed in Human Mode — not expanded for agents)
+
+- Languages: Python, Java, SQL
+- AI / Agent Systems: LangGraph, OpenAI Codex, Claude Code, OpenCode, OpenRouter, Ollama, Llama.cpp
+- AI / ML: Hugging Face Transformers, LLM Inference, Multi-Agent Systems, Prompt Engineering, Edge AI
+- Backend & Cloud: FastAPI, PostgreSQL, Prometheus, REST APIs, AWS, Observability, Incident Response
+- Infra & Tooling: Docker, Docker Compose, Git, GitHub Actions, CI/CD, Linux, WASM, Metal (GPU)
+- Embedded & Hardware: ESP32, Raspberry Pi, Edge Impulse
+- Exploring (per Human Mode): Multi-Agent Systems, Edge AI
+
+## Relevant roles
+
+AI Engineer · Agentic AI Engineer · AI Infrastructure Engineer · LLM Engineer · Autonomous Systems Engineer · AI/Software Systems Engineer · ML Engineer (partially supported — the portfolio does not document model training or deployed ML services).
+
+## Education
+
+B.E. Robotics and Artificial Intelligence, Bangalore Institute of Technology, Aug 2023 – Aug 2027, GPA 8.0/10 (source: résumé PDF published with this portfolio).
+
+## Links
+
+- Portfolio: https://sneh30.github.io/portfolio/
+- Agent dossier: https://sneh30.github.io/portfolio/agent/
+- GitHub: https://github.com/Sneh30
+- LinkedIn: https://www.linkedin.com/in/sneh30
+- X: https://x.com/Sneh30
+- LeetCode: https://leetcode.com/u/sneh_sinha3/
+- Email: snehsinha30@gmail.com
+
+## Structured data
+
+- candidate.json — identity, experience, projects, skills, roles, links
+- capabilities.json — capabilities with evidence pointers
+- evidence.json — claim → capability → project → implementation → result → verification chains
+- Evidence status labels (qualitative only; no numeric scores): public repo · external validation · documented experience · self-reported · experimental · repository unavailable
+- agent-card.json — description of this agent-readable surface
+- sitemap.xml · robots.txt
+
+## Honesty notes
+
+This page and the Agent Mode dossier are advocacy documents written on the candidate's behalf, but they do not invent facts. Metrics are attributed to their source (portfolio, résumé PDF, GitHub API, LeetCode API). Where evidence is unavailable the text says so explicitly; for AgentOS, Agentic-hinge and Pocket Typist: "The portfolio does not currently provide sufficient evidence to verify this claim." No employers, certifications, awards, user counts, production claims, or rankings have been fabricated.

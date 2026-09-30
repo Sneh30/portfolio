@@ -3,16 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sneh Sinha — AI Engineer</title>
-  <meta name="description" content="AI engineer building multimodal AI, autonomous cloud infrastructure, and embedded intelligence." />
+  <title>Sneh Sinha — AI Engineer | Agents, LLM Infrastructure & Embedded AI</title>
+  <meta name="description" content="AI engineer building intelligent systems that solve real-world problems — autonomous agents, LLM infrastructure, cloud operations, computer vision, and embedded AI. Evidence-backed portfolio." />
+  <link rel="canonical" href="https://sneh30.github.io/portfolio/" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sneh Sinha — Portfolio" />
+  <meta property="og:title" content="Sneh Sinha — AI Engineer | Agents, LLM Infrastructure & Embedded AI" />
+  <meta property="og:description" content="AI engineer building intelligent systems that solve real-world problems — autonomous agents, LLM infrastructure, cloud operations, computer vision, and embedded AI." />
+  <meta property="og:url" content="https://sneh30.github.io/portfolio/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sneh Sinha — AI Engineer" />
+  <meta name="twitter:description" content="AI engineer building intelligent systems that solve real-world problems — agents, LLM infrastructure, cloud operations, computer vision, embedded AI." />
+  <link rel="alternate" href="llms.txt" type="text/plain" title="Machine-readable candidate summary (llms.txt)" />
+  <link rel="alternate" href="agent/" title="Agent Mode — AI-optimized candidate dossier" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d4a373'/%3E%3Cstop offset='100%25' stop-color='%237a9eb1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%230a0a0a'/%3E%3Ctext x='16' y='22.5' font-family='Inter,sans-serif' font-size='20' font-weight='800' fill='url(%23g)' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* Direct access: /portfolio/?mode=agent → Agent Mode dossier at /portfolio/agent/ */
+    (function () {
+      try {
+        if (/(?:^\?|&)mode=agent(?:&|$)/.test(location.search)) location.replace('agent/' + location.hash);
+      } catch (e) {}
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sneh Sinha",
+    "alternateName": "Sneh Raj Sinha",
+    "jobTitle": "AI Engineer",
+    "email": "mailto:snehsinha30@gmail.com",
+    "url": "https://sneh30.github.io/portfolio/",
+    "address": { "@type": "PostalAddress", "addressLocality": "Bangalore", "addressRegion": "Karnataka", "addressCountry": "IN" },
+    "sameAs": [
+      "https://github.com/Sneh30",
+      "https://www.linkedin.com/in/sneh30",
+      "https://x.com/Sneh30",
+      "https://leetcode.com/u/sneh_sinha3/"
+    ],
+    "knowsAbout": ["AI agents", "computer-use agents", "multi-agent systems", "LLM inference", "prompt optimization", "AI infrastructure", "observability", "incident response", "computer vision", "embedded systems", "robotics"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Sneh Sinha — Portfolio",
+    "url": "https://sneh30.github.io/portfolio/",
+    "inLanguage": "en",
+    "description": "Portfolio of Sneh Sinha, AI engineer building agents, LLM infrastructure, cloud operations, computer vision and embedded AI.",
+    "publisher": { "@type": "Person", "name": "Sneh Sinha" }
+  }
+  </script>
 </head>
 <body>
 
-  <nav class="nav" id="nav">
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <nav class="nav" id="nav" aria-label="Primary">
     <div class="nav-inner">
       <span class="nav-logo">S.</span>
       <div class="nav-links">
@@ -23,7 +75,9 @@
         <a href="#contact">Contact</a>
         <a href="assets/Sneh_Raj_Sinha_Resume.pdf" target="_blank">Résumé</a>
       </div>
-      <span class="nav-year">2026</span>
+      <div class="nav-tools">
+        <span class="nav-year">2026</span>
+      </div>
     </div>
   </nav>
 
@@ -37,9 +91,12 @@
         <div class="hero-inner">
           <div class="hero-label">AI Engineer — Bangalore, India</div>
           <div class="hero-title-block">
-            <div class="hero-mask"><h1 class="hero-line">Hi, I'm</h1></div>
-            <div class="hero-mask"><h1 class="hero-line hero-name">Sneh Sinha</h1></div>
+            <h1 class="hero-title">
+              <span class="hero-mask"><span class="hero-line">Hi, I'm</span></span>
+              <span class="hero-mask"><span class="hero-line hero-name">Sneh Sinha</span></span>
+            </h1>
           </div>
+          <p class="hero-sub">I build intelligent AI systems that solve real-world problems — autonomous agents, LLM infrastructure, cloud operations, computer vision, and embedded AI.</p>
           <div class="hero-tags">
             <span>Multimodal AI</span>
             <span>Autonomous Infrastructure</span>
@@ -72,6 +129,16 @@
             <p>Currently exploring multimodal AI agents, computer vision on edge hardware, and autonomous cloud operations. I work with Python, Java, and SQL, plus whatever else gets the job done — Rust, C++, or TypeScript.</p>
             <p>When I'm not shipping code, you'll find me tinkering with ESP32-CAM modules, optimizing LLM inference pipelines, or reading about distributed systems.</p>
           </div>
+          <div class="focus-strip" aria-label="Areas of focus">
+            <span class="fs-lbl">Focus</span>
+            <span class="fs-item">AI Agents</span>
+            <span class="fs-item">LLM Systems</span>
+            <span class="fs-item">AI Infrastructure</span>
+            <span class="fs-item">Computer Vision</span>
+            <span class="fs-item">Embedded AI</span>
+            <span class="fs-item">Open Source</span>
+            <span class="fs-item">Real-World Engineering</span>
+          </div>
         </div>
       </section>
 
@@ -92,6 +159,10 @@
               <div class="exp-content">
                 <h3>Infrastructure Engineer</h3>
                 <span class="exp-type">Independent Engagement</span>
+                <div class="exp-metrics">
+                  <span class="exp-chip">400+ nodes</span>
+                  <span class="exp-chip accent">~40% incident &amp; recovery improvement</span>
+                </div>
                 <p>Recruited for a one-month on-site engagement to strengthen infrastructure operations for a 400+ node exam-facility network; cut infrastructure incidents and average recovery time by ~40% vs. the prior comparable period of over 5 days.</p>
               </div>
             </div>
@@ -101,8 +172,13 @@
                 <span class="exp-duration">11 months</span>
               </div>
               <div class="exp-content">
-                <h3>Software & Electronics Lead</h3>
+                <h3>Software &amp; Electronics Lead</h3>
                 <span class="exp-type">Team Stratos</span>
+                <div class="exp-metrics">
+                  <span class="exp-chip">50-member team</span>
+                  <span class="exp-chip accent">Safety-critical ABS firmware</span>
+                  <span class="exp-chip">SAE India validated</span>
+                </div>
                 <p>Own software and electronics integration for a 50-member team's competition vehicle; developed and deployed its ABS (Anti-lock Braking System) firmware, the most safety-critical subsystem, validated through track testing and SAE India scrutineering and competition.</p>
               </div>
             </div>
@@ -121,37 +197,37 @@
           <div class="skills-layout">
             <div class="skills-list">
               <div class="skill-cat">
-                <h4>Languages</h4>
+                <h3 class="cat-h">Languages</h3>
                 <div class="skill-tags">
                   <span>Python</span><span>Java</span><span>SQL</span>
                 </div>
               </div>
               <div class="skill-cat">
-                <h4>AI / Agent Systems</h4>
+                <h3 class="cat-h">AI / Agent Systems</h3>
                 <div class="skill-tags">
                   <span>LangGraph</span><span>OpenAI Codex</span><span>Claude Code</span><span>OpenCode</span><span>OpenRouter</span><span>Ollama</span><span>Llama.cpp</span>
                 </div>
               </div>
               <div class="skill-cat">
-                <h4>AI / ML</h4>
+                <h3 class="cat-h">AI / ML</h3>
                 <div class="skill-tags">
                   <span>Hugging Face Transformers</span><span>LLM Inference</span><span>Multi-Agent Systems</span><span>Prompt Engineering</span><span>Edge AI</span>
                 </div>
               </div>
               <div class="skill-cat">
-                <h4>Backend & Cloud</h4>
+                <h3 class="cat-h">Backend & Cloud</h3>
                 <div class="skill-tags">
                   <span>FastAPI</span><span>PostgreSQL</span><span>Prometheus</span><span>REST APIs</span><span>AWS</span><span>Observability</span><span>Incident Response</span>
                 </div>
               </div>
               <div class="skill-cat">
-                <h4>Infra & Tooling</h4>
+                <h3 class="cat-h">Infra & Tooling</h3>
                 <div class="skill-tags">
                   <span>Docker</span><span>Docker Compose</span><span>Git</span><span>GitHub Actions</span><span>CI/CD</span><span>Linux</span><span>WASM</span><span>Metal (GPU)</span>
                 </div>
               </div>
               <div class="skill-cat">
-                <h4>Embedded & Hardware</h4>
+                <h3 class="cat-h">Embedded & Hardware</h3>
                 <div class="skill-tags">
                   <span>ESP32</span><span>Raspberry Pi</span><span>Edge Impulse</span>
                 </div>
@@ -182,34 +258,38 @@
           </div>
           <div class="proj-track-wrap">
             <div class="proj-track" id="projTrack">
-              <div class="proj-card">
+              <div class="proj-card featured">
                 <span class="proj-num">(01)</span>
                 <span class="proj-icon">🖥</span>
                 <h3>OpenCode CUA Platform</h3>
+                <div class="proj-metrics"><span class="pm">Desktop + browser control</span><span class="pm">Verification &amp; recovery engines</span></div>
                 <p>A Computer-Use Agent platform that lets an unmodified OpenCode instance control your desktop GUI and browser through MCP servers. Uses screen capture, macOS Accessibility APIs, and browser automation with verification and recovery engines.</p>
                 <div class="proj-tags"><span>Python</span><span>MCP</span><span>macOS</span><span>React</span></div>
                 <a href="https://github.com/Sneh30/opencode-cua-platform" target="_blank">GitHub →</a>
               </div>
-              <div class="proj-card">
+              <div class="proj-card featured">
                 <span class="proj-num">(02)</span>
                 <span class="proj-icon">⚡</span>
                 <h3>PromptOS</h3>
+                <div class="proj-metrics"><span class="pm">10-pass compiler</span><span class="pm">up to 80–85% cost reduction</span></div>
                 <p>macOS desktop app that treats prompts as source code — compiles through a multi-pass optimization pipeline with WASM plugins, local LLM inference via Metal GPU, and cloud provider support.</p>
                 <div class="proj-tags"><span>Rust</span><span>Swift</span><span>Llama.cpp</span><span>WASM</span><span>Metal GPU</span></div>
                 <a href="https://github.com/Sneh30/promptos" target="_blank">GitHub →</a>
               </div>
-              <div class="proj-card">
+              <div class="proj-card featured">
                 <span class="proj-num">(03)</span>
                 <span class="proj-icon">🔬</span>
                 <h3>Orchestra</h3>
-                <p>Production-grade AI research orchestration with 5 specialized LangGraph agents — search, extract, verify, synthesize, critique — producing verified reports with confidence scoring.</p>
+                <div class="proj-metrics"><span class="pm">5 specialized agents</span><span class="pm">CI + observability</span></div>
+                <p>Production-oriented AI research orchestration with 5 specialized LangGraph agents — search, extract, verify, synthesize, critique — producing verified reports with confidence scoring.</p>
                 <div class="proj-tags"><span>Python</span><span>LangGraph</span><span>FastAPI</span><span>PostgreSQL</span><span>Prometheus</span></div>
                 <a href="https://github.com/Sneh30/Orchestra" target="_blank">GitHub →</a>
               </div>
-              <div class="proj-card">
+              <div class="proj-card featured">
                 <span class="proj-num">(04)</span>
                 <span class="proj-icon">☁</span>
                 <h3>DeepOps</h3>
+                <div class="proj-metrics"><span class="pm">NL → root cause → remediation</span><span class="pm">Cost-aware repair</span></div>
                 <p>AI-powered autonomous cloud operations platform that behaves like an experienced SRE team. Interprets natural language commands, performs root cause analysis, and auto-remediates infrastructure issues.</p>
                 <div class="proj-tags"><span>Python</span><span>LangGraph</span><span>FastAPI</span></div>
                 <a href="https://github.com/Sneh30/deepops" target="_blank">GitHub →</a>
@@ -220,15 +300,16 @@
                 <h3>Agentic-hinge</h3>
                 <p>A macOS GUI agent that automates personalized Hinge dating app interactions via iPhone Mirroring. Uses computer vision and GUI automation to generate personalized reply suggestions.</p>
                 <div class="proj-tags"><span>Swift</span><span>Computer Vision</span><span>GUI Automation</span></div>
-                <a href="https://github.com/Sneh30/Agentic-hinge" target="_blank">GitHub →</a>
+                <span class="proj-aux">Repository currently unavailable at the published URL</span>
               </div>
               <div class="proj-card">
                 <span class="proj-num">(06)</span>
                 <span class="proj-icon">🧠</span>
                 <h3>AgentOS</h3>
+                <div class="proj-metrics"><span class="pm">6 composable layers</span><span class="pm">250+ app integrations</span></div>
                 <p>A personal agent operating system with 6 composable layers: Interface, Model Router, Simulation Engine, Memory Graph, Guard Layer, and Execution Plane with 250+ app integrations.</p>
                 <div class="proj-tags"><span>TypeScript</span><span>Next.js</span><span>Supabase</span><span>Composio</span></div>
-                <a href="https://github.com/Sneh30/AgentOS" target="_blank">GitHub →</a>
+                <span class="proj-aux">Repository currently unavailable at the published URL</span>
               </div>
               <div class="proj-card">
                 <span class="proj-num">(07)</span>
@@ -242,6 +323,7 @@
                 <span class="proj-num">(08)</span>
                 <span class="proj-icon">📷</span>
                 <h3>ESP32-CAM Vision Suite</h3>
+                <div class="proj-metrics"><span class="pm">3 projects</span><span class="pm">60 FPS</span><span class="pm">512 KB RAM</span></div>
                 <p>Three ESP32-CAM projects: web-based image capture for ML datasets, real-time color tracking robot, and full-featured MJPG video streaming server at 60 FPS.</p>
                 <div class="proj-tags"><span>C</span><span>ESP32</span><span>Computer Vision</span><span>HSV</span></div>
                 <a href="https://github.com/Sneh30/esp32-cam-vision" target="_blank">GitHub →</a>
@@ -252,15 +334,16 @@
                 <h3>Pocket Typist</h3>
                 <p>ESP32-CAM BLE HID keyboard firmware with a cloud backend. Paste text from any device anywhere in the world — pushed to ESP32 via Cloudflare Workers and typed instantly over Bluetooth.</p>
                 <div class="proj-tags"><span>C++</span><span>ESP32</span><span>BLE</span><span>Cloudflare</span></div>
-                <a href="https://github.com/Sneh30/pocket-typist" target="_blank">GitHub →</a>
+                <span class="proj-aux">Repository currently unavailable at the published URL</span>
               </div>
               <div class="proj-card">
                 <span class="proj-num">(10)</span>
                 <span class="proj-icon">🌐</span>
                 <h3>webcmd</h3>
-                <p>Contributed to this 1.6k-star open source project. Unified output-format parsing across all builtin commands, created a single source of truth, added 16 tests, and updated docs.</p>
+                <div class="proj-metrics"><span class="pm">2.6k★ upstream</span><span class="pm">PR #190 merged</span><span class="pm">16 tests</span></div>
+                <p>Contributed to this 2.6k-star open source project. Unified output-format parsing across all builtin commands, created a single source of truth, added 16 tests, and updated docs.</p>
                 <div class="proj-tags"><span>JavaScript</span><span>Open Source</span><span>CLI</span></div>
-                <a href="https://github.com/Sneh30/webcmd" target="_blank">GitHub →</a>
+                <a href="https://github.com/agentrhq/webcmd/pull/190" target="_blank">Merged PR #190 →</a>
               </div>
               <div class="proj-card">
                 <span class="proj-num">(11)</span>
@@ -304,7 +387,7 @@
                 <div class="pr-card-inner">
                   <div class="pr-status">Merged</div>
                   <div class="pr-info">
-                    <h4>Normalize output-format parsing across builtin commands</h4>
+                    <h3>Normalize output-format parsing across builtin commands</h3>
                     <p>Unified <code>-f/--format</code> parsing so every builtin command in webcmd accepts the same output formats — table, plain, json, yaml, md, csv. Created a single source of truth, fixed 15+ commands, added 16 tests.</p>
                     <div class="pr-meta">
                       <span class="pr-repo">agentrhq/webcmd</span>
@@ -379,37 +462,37 @@
             <div class="blog-grid">
               <article class="blog-card">
                 <span class="blog-tag">AI Agents</span>
-                <h4>Why I Built a Computer-Use Agent from Scratch</h4>
+                <h3>Why I Built a Computer-Use Agent from Scratch</h3>
                 <p>Building opencode-cua-platform taught me that the hardest part of AI agents isn't the model — it's verification and recovery when actions fail.</p>
                 <div class="blog-date">Aug 2026</div>
               </article>
               <article class="blog-card">
                 <span class="blog-tag">Open Source</span>
-                <h4>What I Learned Contributing to a 1.6k-Star Project</h4>
+                <h3>What I Learned Contributing to a 2.6k-Star Project</h3>
                 <p>Merging PR #190 into webcmd — unifying output format parsing across 15+ commands — showed me how production codebases handle scale.</p>
                 <div class="blog-date">Aug 2026</div>
               </article>
               <article class="blog-card">
                 <span class="blog-tag">Rust</span>
-                <h4>Treating Prompts as Source Code with PromptOS</h4>
+                <h3>Treating Prompts as Source Code with PromptOS</h3>
                 <p>A multi-pass compiler for prompts: why I built a 10-pass optimization pipeline and what it taught me about prompt engineering at scale.</p>
                 <div class="blog-date">Jul 2026</div>
               </article>
               <article class="blog-card">
                 <span class="blog-tag">Embedded</span>
-                <h4>ESP32-CAM: From ML Dataset to Autonomous Robot</h4>
+                <h3>ESP32-CAM: From ML Dataset to Autonomous Robot</h3>
                 <p>Three projects, one chip. How I went from capturing training images to building a color-tracking robot that drives itself.</p>
                 <div class="blog-date">Jul 2026</div>
               </article>
               <article class="blog-card">
                 <span class="blog-tag">Swift</span>
-                <h4>Automating Dating with Computer Vision</h4>
+                <h3>Automating Dating with Computer Vision</h3>
                 <p>Building Agentic-hinge — a macOS agent that reads Hinge profiles and crafts personalized replies by combining GUI automation with vision models.</p>
                 <div class="blog-date">Jun 2026</div>
               </article>
               <article class="blog-card">
                 <span class="blog-tag">Infrastructure</span>
-                <h4>DeepOps: Teaching Infrastructure to Think</h4>
+                <h3>DeepOps: Teaching Infrastructure to Think</h3>
                 <p>What happens when you give an LLM the keys to your cloud? Root cause analysis through causal chains, not just pattern matching.</p>
                 <div class="blog-date">May 2026</div>
               </article>
@@ -437,6 +520,14 @@
             <div class="credits-row">
               <span class="credits-key">Résumé</span>
               <a href="assets/Sneh_Raj_Sinha_Resume.pdf" target="_blank">View PDF →</a>
+            </div>
+            <div class="credits-row">
+              <span class="credits-key">Agent Mode</span>
+              <a href="agent/">AI-optimized candidate dossier →</a>
+            </div>
+            <div class="credits-row">
+              <span class="credits-key">llms.txt</span>
+              <a href="llms.txt" target="_blank">Machine-readable summary →</a>
             </div>
             <div class="credits-row">
               <span class="credits-key">X</span>
@@ -483,6 +574,13 @@
       </div>
     </div>
   </footer>
+
+  <!-- ─── MODE DOCK (bottom-center, sliding thumb, names only) ─── -->
+  <div class="mode-dock" role="group" aria-label="Portfolio mode">
+    <span class="dock-thumb" aria-hidden="true"></span>
+    <span class="dock-opt is-on" aria-current="page">Human</span>
+    <a class="dock-opt" href="agent/" aria-label="Switch to Agent Mode — AI-optimized candidate dossier">Agent</a>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
