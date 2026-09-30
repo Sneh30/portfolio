@@ -69,6 +69,7 @@
     "Skills in Agent Mode are reproduced verbatim from Human Mode; no technology was added, removed, or upgraded.",
     "Every quantitative claim is attributed to a source (portfolio, résumé PDF, GitHub API, LeetCode API) with a check date.",
     "Unverifiable claims are labelled explicitly rather than omitted silently.",
+    "Agent Mode includes two recruiter-oriented sections rendered as plain evidence summaries: \"Why Interview\" (evidence areas, no verdicts) and \"Where This Evidence Applies\" (role → relevant capabilities → evidence, no scores or rankings).",
     "Claims carry qualitative evidence status labels (public repo · external validation · documented experience · self-reported · experimental · repository unavailable); no numeric fit score, ranking, or evidence score is computed."
   ],
   "mode_position": "Agent Mode is a neutral structured record of the same facts shown in Human Mode: identity, capabilities, experience, projects, evidence, and verification status — without fabrication, exaggeration, invented evidence, rankings, or preference language.",

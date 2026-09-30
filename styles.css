@@ -553,7 +553,7 @@ body {
 /* ─── MODE DOCK (bottom-center, sliding thumb, names only) ─── */
 .nav-tools { display: flex; align-items: center; gap: 18px; }
 .mode-dock {
-  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
+  position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
   z-index: 90; display: inline-flex; padding: 2px;
   border: 1px solid var(--border); border-radius: 999px;
   background: rgba(13,13,13,.94); backdrop-filter: blur(12px);
@@ -571,10 +571,12 @@ body {
   align-items: center; justify-content: center;
   min-width: 96px; padding: 8px 20px; border-radius: 999px;
   font-family: var(--mono); font-size: .66rem; letter-spacing: .08em;
+  line-height: 1.4;
   text-transform: uppercase; color: var(--text-muted); text-decoration: none;
+  border-bottom: none;
   transition: color .3s;
 }
-.mode-dock .dock-opt:hover { color: var(--text); text-decoration: none; }
+.mode-dock .dock-opt:hover { color: #fff; text-decoration: none; }
 .mode-dock .dock-opt.is-on { color: #d4a373; cursor: default; }
 .mode-dock a:focus-visible { outline: 2px solid #d4a373; outline-offset: -2px; }
 @media (max-width: 480px) {

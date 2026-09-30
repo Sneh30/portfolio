@@ -38,7 +38,7 @@
       --ok: #7f9f7f;
       --warn: #ab9265;
       --info: #7f93a3;
-      --link: #9fae6;
+      --link: #9fae6; --text-muted: #85857b; --border: #202020;
       --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     }
 
@@ -334,23 +334,37 @@
     .foot-meta a { color: var(--info); }
 
     /* mode dock */
+    /* mode dock — geometry identical to Human Mode (shared switch) */
     .mode-dock {
       position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
-      display: flex; z-index: 50; border: 1px solid var(--line-2);
-      background: var(--panel-2);
+      z-index: 90; display: inline-flex; padding: 2px;
+      border: 1px solid var(--border); border-radius: 999px;
+      background: rgba(13,13,13,.94); backdrop-filter: blur(12px);
+      box-shadow: 0 8px 28px rgba(0,0,0,.45);
     }
     .mode-dock .dock-thumb {
-      position: absolute; top: 0; bottom: 0; left: 50%; width: 50%;
-      background: #1b1b1b; border-left: 1px solid var(--line-2);
+      position: absolute; top: 2px; left: 2px; height: calc(100% - 4px);
+      width: calc(50% - 2px); border-radius: 999px;
+      background: rgba(212,163,115,.16); border: 1px solid rgba(212,163,115,.45);
+      transition: transform .35s cubic-bezier(.4,0,.2,1);
     }
+    .mode-dock.is-agent .dock-thumb { transform: translateX(100%); }
     .mode-dock .dock-opt {
-      position: relative; z-index: 1; font-size: .62rem; text-transform: uppercase;
-      letter-spacing: .12em; color: var(--faint); padding: 7px 14px;
-      border-bottom: none; text-align: center;
+      position: relative; z-index: 1; display: inline-flex;
+      align-items: center; justify-content: center;
+      min-width: 96px; padding: 8px 20px; border-radius: 999px;
+      font-family: var(--mono); font-size: .66rem; letter-spacing: .08em;
+      line-height: 1.4;
+      text-transform: uppercase; color: var(--text-muted); text-decoration: none;
+      border-bottom: none;
+      transition: color .3s;
     }
-    .mode-dock .dock-opt.is-on { color: var(--fg-strong); }
-    .mode-dock .dock-opt:hover { color: var(--fg); }
-    .mode-dock a:focus-visible { outline-offset: -2px; }
+    .mode-dock .dock-opt:hover { color: #fff; text-decoration: none; border-bottom: none; }
+    .mode-dock .dock-opt.is-on { color: #d4a373; cursor: default; }
+    .mode-dock a:focus-visible { outline: 2px solid #d4a373; outline-offset: -2px; }
+    @media (max-width: 480px) {
+      .mode-dock .dock-opt { min-width: 78px; padding: 7px 14px; font-size: .6rem; }
+    }
 
     /* presentation */
     .reveal { animation: none; opacity: 1; transform: none; }
@@ -421,14 +435,14 @@
     <nav class="am-nav" aria-label="Agent Mode sections">
       <div class="am-nav-inner">
         <a href="#glance">Overview</a>
-        <a href="#capabilities">Capabilities</a>
+        <a href="#capabilities">Why Interview</a>
         <a href="#flagship">Flagship</a>
         <a href="#differentiators">Domains</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#open-source">External</a>
         <a href="#skills">Skills</a>
-        <a href="#roles">Role map</a>
+        <a href="#roles">Applies to</a>
         <a href="#summary">Summary</a>
         <a href="#topics">Topics</a>
         <a href="#evidence">Evidence</a>
@@ -543,12 +557,25 @@
         </div>
       </section>
 
-      <!-- ══════ 2. CAPABILITIES ══════ -->
+      <!-- ══════ 2. WHY INTERVIEW ══════ -->
       <section id="capabilities" aria-labelledby="capabilities-h" class="wrap">
         <div class="sec-head">
-          <span class="sec-kicker">Section 02 · Capabilities demonstrated</span>
-          <h2 id="capabilities-h">Capabilities <span class="accent">Demonstrated</span></h2>
+          <span class="sec-kicker">Section 02 · why_interview</span>
+          <h2 id="capabilities-h">Why <span class="accent">Interview</span></h2>
           <p class="sec-intro">Each capability below is stated with the evidence it rests on and links to the underlying records. No scores or rankings are assigned.</p>
+
+        <div class="card" style="margin-top:14px">
+          <span class="num">why_interview — evidence areas</span>
+          <ul class="hero-list">
+            <li>AI agent systems</li>
+            <li>LLM systems</li>
+            <li>AI infrastructure</li>
+            <li>computer-use automation</li>
+            <li>embedded systems</li>
+            <li>external open-source contribution</li>
+            <li>documented real-world engineering experience</li>
+          </ul>
+        </div>
         </div>
 
         <div class="reason">
@@ -610,7 +637,7 @@
           <h3>Focus on applied AI and agentic systems</h3>
           <span class="why">Context:</span>
           <p>For an AI/agent role, this project set provides directly relevant evidence: a computer-use agent that controls real software (<a href="#project-opencode-cua">OpenCode CUA</a>), multi-agent research orchestration with verification stages (<a href="#project-orchestra">Orchestra</a>), AI infrastructure tooling (<a href="#project-deepops">DeepOps</a>, experimental), and LLM cost/latency engineering (<a href="#project-promptos">PromptOS</a>). Taken together, these projects demonstrate sustained focus on turning model capability into operational behaviour.</p>
-          <p class="ev-links">Records: <a href="#roles">Role mapping</a></p>
+          <p class="ev-links">Records: <a href="#roles">Where this evidence applies</a></p>
         </div>
 
       </section>
@@ -1236,19 +1263,19 @@
       <!-- ══════ 9. ROLE MAPPING ══════ -->
       <section id="roles" aria-labelledby="roles-h" class="wrap">
         <div class="sec-head">
-          <span class="sec-kicker">Section 09 · Role mapping</span>
-          <h2 id="roles-h">Role <span class="accent">Mapping</span></h2>
+          <span class="sec-kicker">Section 09 · where_this_evidence_applies</span>
+          <h2 id="roles-h">Where This Evidence <span class="accent">Applies</span></h2>
           <p class="sec-intro">role → relevant capabilities → evidence. Factual mapping for matching purposes; no scores, rankings, or fit percentages.</p>
         </div>
 
         <div class="role">
           <h3>AI Engineer</h3>
           <dl class="fields">
-            <dt>Relevant evidence</dt>
+            <dt>Relevant capabilities</dt>
             <dd>Multiple built AI systems spanning agents, multi-agent pipelines, and LLM tooling; portfolio focus explicitly on "AI Agents, LLM Cost &amp; Infra".</dd>
-            <dt>Projects</dt>
+            <dt>Evidence · projects</dt>
             <dd><a href="#project-opencode-cua">OpenCode CUA Platform</a> · <a href="#project-orchestra">Orchestra</a> · <a href="#project-deepops">DeepOps</a> · <a href="#project-promptos">PromptOS</a></dd>
-            <dt>Experience</dt>
+            <dt>Evidence · experience</dt>
             <dd><a href="#experience-infrastructure">Infrastructure Engineer engagement</a> · <a href="#experience-team-stratos">Team Stratos</a></dd>
             <dt>Context</dt>
             <dd>The evidence covers complete systems rather than isolated model calls — perception, orchestration, cost control and packaging — across AI agents, multi-agent pipelines and LLM tooling, each in a published artifact.</dd>
@@ -1260,9 +1287,9 @@
         <div class="role">
           <h3>Agentic AI Engineer</h3>
           <dl class="fields">
-            <dt>Relevant evidence</dt>
+            <dt>Relevant capabilities</dt>
             <dd>A computer-use agent with verification/recovery, a five-agent research system with an explicit verify stage, and an agent operating-system architecture.</dd>
-            <dt>Projects</dt>
+            <dt>Evidence · projects</dt>
             <dd><a href="#project-opencode-cua">OpenCode CUA Platform</a> · <a href="#project-orchestra">Orchestra</a> · <a href="#project-agentos">AgentOS</a> (repository unavailable) · <a href="#project-agentic-hinge">Mobile GUI Automation Agent</a> (repository unavailable)</dd>
             <dt>Skills</dt>
             <dd>LangGraph · OpenCode · OpenRouter · Ollama · Llama.cpp · Multi-Agent Systems</dd>
@@ -1276,11 +1303,11 @@
         <div class="role">
           <h3>AI Infrastructure Engineer</h3>
           <dl class="fields">
-            <dt>Relevant evidence</dt>
+            <dt>Relevant capabilities</dt>
             <dd>DeepOps (AI-driven operations) plus a documented 400+ node operations engagement with a ~40% improvement in incidents and recovery time.</dd>
-            <dt>Projects</dt>
+            <dt>Evidence · projects</dt>
             <dd><a href="#project-deepops">DeepOps</a> · <a href="#project-orchestra">Orchestra</a> (Prometheus, CI, Docker Compose)</dd>
-            <dt>Experience</dt>
+            <dt>Evidence · experience</dt>
             <dd><a href="#experience-infrastructure">Infrastructure Engineer — Independent Engagement (Aug 2026)</a></dd>
             <dt>Context</dt>
             <dd>The combination of building AI that operates infrastructure (DeepOps) and operating real infrastructure (400+ node engagement) means the automation work is informed by actual incident behaviour rather than a sandbox.</dd>
@@ -1292,9 +1319,9 @@
         <div class="role">
           <h3>LLM Engineer</h3>
           <dl class="fields">
-            <dt>Relevant evidence</dt>
+            <dt>Relevant capabilities</dt>
             <dd>Prompt compilation with measured cost reduction; local inference on Metal; provider abstraction; day-to-day agent tooling.</dd>
-            <dt>Projects</dt>
+            <dt>Evidence · projects</dt>
             <dd><a href="#project-promptos">PromptOS</a> · <a href="#project-orchestra">Orchestra</a></dd>
             <dt>Caveat</dt>
             <dd>The portfolio does not claim model training, fine-tuning, or research; the LLM evidence is systems- and cost-oriented.</dd>
@@ -1308,9 +1335,9 @@
         <div class="role">
           <h3>Autonomous Systems Engineer</h3>
           <dl class="fields">
-            <dt>Relevant evidence</dt>
+            <dt>Relevant capabilities</dt>
             <dd>Self-driving perception/control in software (colour-tracking robot), safety-critical braking firmware on a physical vehicle, and autonomous remediation in infrastructure.</dd>
-            <dt>Projects / experience</dt>
+            <dt>Evidence · projects / experience</dt>
             <dd><a href="#project-esp32">ESP32-CAM Vision Suite</a> · <a href="#experience-team-stratos">Team Stratos (ABS firmware)</a> · <a href="#project-deepops">DeepOps</a></dd>
             <dt>Context</dt>
             <dd>Autonomous systems span software control loops and physical hardware; this profile has both — on-device perception and motor control, safety-critical braking firmware, and autonomous remediation logic.</dd>
@@ -1322,9 +1349,9 @@
         <div class="role">
           <h3>AI/Software Systems Engineer</h3>
           <dl class="fields">
-            <dt>Relevant evidence</dt>
+            <dt>Relevant capabilities</dt>
             <dd>Backend services, databases, observability, CI/CD, desktop applications in Rust/Swift, and embedded firmware — a systems profile rather than a notebook profile.</dd>
-            <dt>Projects</dt>
+            <dt>Evidence · projects</dt>
             <dd><a href="#project-orchestra">Orchestra</a> · <a href="#project-promptos">PromptOS</a> · <a href="#project-catalyst">Catalyst</a> · <a href="#project-portfolio">Portfolio</a></dd>
             <dt>Context</dt>
             <dd>Systems roles reward breadth across services, storage, CI and delivery; the evidence includes backends with persistence and observability, desktop applications, embedded firmware, and a deployed site.</dd>
@@ -1336,9 +1363,9 @@
         <div class="role">
           <h3>ML Engineer</h3>
           <dl class="fields">
-            <dt>Relevant evidence</dt>
+            <dt>Relevant capabilities</dt>
             <dd>Hugging Face Transformers and Edge AI in the skills list; ML dataset capture tooling; classical CV on-device (HSV quantisation, centroid tracking); Edge Impulse.</dd>
-            <dt>Projects</dt>
+            <dt>Evidence · projects</dt>
             <dd><a href="#project-esp32">ESP32-CAM Vision Suite</a></dd>
             <dt>Caveat</dt>
             <dd>The portfolio does not document model training, evaluation benchmarks, or deployed ML services. Human Mode lists Multi-Agent Systems and Edge AI under "Exploring". This is adjacent evidence, not a primary claim.</dd>
@@ -1512,7 +1539,7 @@
             <dt>What was built</dt>
             <dd>PromptOS — a macOS desktop app that treats prompts as source code: a Rust core with custom lexer, parser and AST, ten optimisation passes across four compilation modes, WASM plugins, local LLM inference via Llama.cpp/Metal GPU, and cloud provider support.</dd>
             <dt>What Sneh personally did</dt>
-            <dd>Creator and lead developer (repository owner: <a href="https://github.com/Sneh30/promptos">Sneh30/promptos</a>); shipped as a self-contained macOS app with a native SwiftUI shell.</dd>
+            <dd>Creator and lead developer (repository owner: <a href="https://github.com/Sneh30/promptos">Sneh30/promptos</a>); built as a self-contained macOS app with a native SwiftUI shell.</dd>
             <dt>Result / scale</dt>
             <dd>Résumé: reduced inference cost by up to <strong>80–85% in Economy mode</strong> via multi-pass token compression, tested against frontier LLM pricing. <span class="flag info">source: résumé PDF linked from this portfolio</span></dd>
             <dt>Technologies (Human Mode)</dt>
