@@ -53,7 +53,7 @@ body {
   display: flex; align-items: center; justify-content: space-between;
 }
 .nav-logo { font-weight: 800; font-size: 1.2rem; color: var(--text); }
-.nav-links { display: flex; gap: 24px; }
+.nav-links { display: flex; gap: 18px; }
 .nav-links a {
   color: var(--text-muted); text-decoration: none;
   font-size: .75rem; font-weight: 500; text-transform: uppercase;
@@ -753,6 +753,11 @@ body {
 }
 .proj-divider h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; color: #fff; }
 .proj-divider p { font-size: .74rem; color: var(--text-muted); line-height: 1.65; }
+.proj-grid {
+  display: flex; flex-wrap: wrap; gap: 24px;
+  padding: 40px 32px 8px; justify-content: center;
+}
+@media (max-width: 768px) { .proj-grid { padding: 32px 20px 8px; } }
 .proj-card code {
   font-family: var(--mono); font-size: .7rem;
   background: rgba(255,255,255,.06); padding: 1px 5px;

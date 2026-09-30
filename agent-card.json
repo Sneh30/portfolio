@@ -5,10 +5,11 @@
   "canonical_url": "https://sneh30.github.io/portfolio/",
   "canonical_note": "The root URL is the single submission entry point. It contains the complete candidate profile in semantic HTML for both human readers and recruiting/crawling agents — no click, toggle, JavaScript, or secondary route is required. The dedicated Agent Mode page is an additional structured rendering of the same facts.",
   "human_readable_entrypoint": "https://sneh30.github.io/portfolio/",
-  "agent_readable_entrypoint": "https://sneh30.github.io/portfolio/agent/",
+  "agent_readable_entrypoint": "https://sneh30.github.io/portfolio/",
+  "dedicated_agent_mode_url": "https://sneh30.github.io/portfolio/agent/",
   "alternate_access": [
     "https://sneh30.github.io/portfolio/?mode=agent (redirects to /portfolio/agent/)",
-    "https://sneh30.github.io/portfolio/agent/ (canonical Agent Mode URL, works without JavaScript)"
+    "https://sneh30.github.io/portfolio/agent/ (dedicated Agent Mode rendering of the same facts, works without JavaScript)"
   ],
   "disclaimer": "This is a plain description of the agent-readable surface of Sneh Sinha's portfolio. It is not an A2A AgentCard, not an MCP manifest, and does not claim compliance with any agent interoperability standard. No API, tool interface, or agent runtime is exposed by this site.",
   "candidate": {

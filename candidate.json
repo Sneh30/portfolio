@@ -2,6 +2,11 @@
   "schema_version": "1.0",
   "generated_at": "2026-09-30",
   "generated_by": "Human-edited record published with Sneh Sinha's portfolio (Agent Mode). Not produced by an automated extractor.",
+  "name": "Sneh Sinha",
+  "headline": "AI Engineer",
+  "canonical_url": "https://sneh30.github.io/portfolio/",
+  "agent_profile_url": "https://sneh30.github.io/portfolio/",
+  "dedicated_agent_mode_url": "https://sneh30.github.io/portfolio/agent/",
   "source_of_truth": [
     "https://sneh30.github.io/portfolio/",
     "https://sneh30.github.io/portfolio/agent/",
@@ -14,7 +19,8 @@
     "alternate_name": "Sneh Raj Sinha",
     "role": "AI Engineer",
     "canonical_url": "https://sneh30.github.io/portfolio/",
-    "agent_profile_url": "https://sneh30.github.io/portfolio/agent/",
+    "agent_profile_url": "https://sneh30.github.io/portfolio/",
+    "dedicated_agent_mode_url": "https://sneh30.github.io/portfolio/agent/",
     "focus": [
       "AI Agents",
       "LLM Systems",

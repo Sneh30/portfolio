@@ -263,7 +263,7 @@ const Terrain = (() => {
 
     resize() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const w = (this.W = window.innerWidth);
+      const w = (this.W = document.documentElement.clientWidth || window.innerWidth);
       const h = (this.H = window.innerHeight);
       this.canvas.width = Math.floor(w * dpr);
       this.canvas.height = Math.floor(h * dpr);
@@ -506,11 +506,11 @@ function initCursor() {
   let trailCtx = null;
 
   if (clTrail) {
-    clTrail.width = window.innerWidth;
+    clTrail.width = document.documentElement.clientWidth || window.innerWidth;
     clTrail.height = window.innerHeight;
     trailCtx = clTrail.getContext('2d');
     window.addEventListener('resize', () => {
-      clTrail.width = window.innerWidth;
+      clTrail.width = document.documentElement.clientWidth || window.innerWidth;
       clTrail.height = window.innerHeight;
     });
   }
