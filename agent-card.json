@@ -2,6 +2,14 @@
   "schema_version": "1.0",
   "generated_at": "2026-09-30",
   "kind": "portfolio-agent-surface-description",
+  "canonical_url": "https://sneh30.github.io/portfolio/",
+  "canonical_note": "The root URL is the single submission entry point. It contains the complete candidate profile in semantic HTML for both human readers and recruiting/crawling agents — no click, toggle, JavaScript, or secondary route is required. The dedicated Agent Mode page is an additional structured rendering of the same facts.",
+  "human_readable_entrypoint": "https://sneh30.github.io/portfolio/",
+  "agent_readable_entrypoint": "https://sneh30.github.io/portfolio/agent/",
+  "alternate_access": [
+    "https://sneh30.github.io/portfolio/?mode=agent (redirects to /portfolio/agent/)",
+    "https://sneh30.github.io/portfolio/agent/ (canonical Agent Mode URL, works without JavaScript)"
+  ],
   "disclaimer": "This is a plain description of the agent-readable surface of Sneh Sinha's portfolio. It is not an A2A AgentCard, not an MCP manifest, and does not claim compliance with any agent interoperability standard. No API, tool interface, or agent runtime is exposed by this site.",
   "candidate": {
     "name": "Sneh Sinha",
@@ -12,12 +20,6 @@
     "email": "snehsinha30@gmail.com"
   },
   "purpose": "Provide AI recruiting, screening, browser and portfolio-analysis agents with a structured, evidence-backed, candidate-advocating representation of the same person shown in Human Mode.",
-  "human_readable_entrypoint": "https://sneh30.github.io/portfolio/",
-  "agent_readable_entrypoint": "https://sneh30.github.io/portfolio/agent/",
-  "alternate_access": [
-    "https://sneh30.github.io/portfolio/?mode=agent (redirects to /portfolio/agent/)",
-    "https://sneh30.github.io/portfolio/agent/ (canonical Agent Mode URL, works without JavaScript)"
-  ],
   "machine_readable_files": [
     {
       "path": "/portfolio/llms.txt",
@@ -74,5 +76,179 @@
     "No personal-data API or recruiter API exists on this site.",
     "No scoring, ranking, or fit-percentage is computed for candidates.",
     "No cloaking: Human Mode and Agent Mode describe the same candidate with the same factual claims; Agent Mode adds structured context, evidence relationships, verification status, and recruiter-oriented explanations."
+  ],
+  "core_capabilities": [
+    {
+      "capability": "AI agents and computer use",
+      "evidence": [
+        "OpenCode CUA Platform"
+      ]
+    },
+    {
+      "capability": "Multi-agent orchestration",
+      "evidence": [
+        "Orchestra"
+      ]
+    },
+    {
+      "capability": "LLM cost and latency engineering",
+      "evidence": [
+        "PromptOS"
+      ]
+    },
+    {
+      "capability": "AI infrastructure and autonomous operations (experimental)",
+      "evidence": [
+        "DeepOps",
+        "Infrastructure Engineer engagement"
+      ]
+    },
+    {
+      "capability": "Embedded systems and edge computer vision",
+      "evidence": [
+        "ESP32-CAM Vision Suite",
+        "Team Stratos ABS firmware"
+      ]
+    },
+    {
+      "capability": "Software engineering and open source",
+      "evidence": [
+        "agentrhq/webcmd PR #190"
+      ]
+    }
+  ],
+  "flagship_evidence": [
+    {
+      "project": "OpenCode CUA Platform",
+      "status": "public_repo",
+      "link": "https://github.com/Sneh30/opencode-cua-platform"
+    },
+    {
+      "project": "webcmd — merged PR #190",
+      "status": "external_validation",
+      "link": "https://github.com/agentrhq/webcmd/pull/190"
+    },
+    {
+      "project": "PromptOS",
+      "status": "public_repo (metric self-reported)",
+      "link": "https://github.com/Sneh30/promptos"
+    },
+    {
+      "project": "Orchestra",
+      "status": "public_repo",
+      "link": "https://github.com/Sneh30/Orchestra"
+    },
+    {
+      "project": "DeepOps",
+      "status": "public_repo, experimental",
+      "link": "https://github.com/Sneh30/deepops"
+    }
+  ],
+  "external_validation": {
+    "pull_request": "https://github.com/agentrhq/webcmd/pull/190",
+    "upstream_repository": "https://github.com/agentrhq/webcmd",
+    "merged": "2026-08-13",
+    "commits": 16,
+    "tests_added": 16,
+    "commands_fixed": "15+",
+    "upstream_stars": 2620,
+    "stars_checked": "2026-09-30",
+    "verification": "GitHub API and PR page, checked 2026-09-30"
+  },
+  "experience": [
+    {
+      "title": "Infrastructure Engineer — Independent Engagement",
+      "period": "Aug 2026, 1 month, on-site",
+      "evidence": "400+ node network; reported ~40% improvement in incidents and recovery time (self-reported)",
+      "status": "documented_experience / self_reported"
+    },
+    {
+      "title": "Software & Electronics Lead — Team Stratos",
+      "period": "Jul 2025 – May 2026, 11 months",
+      "evidence": "50-member team; ABS firmware developed, deployed and validated via track testing and SAE India scrutineering",
+      "status": "documented_experience"
+    }
+  ],
+  "target_roles": [
+    "AI Engineer",
+    "Agentic AI Engineer",
+    "AI Infrastructure Engineer",
+    "LLM Engineer",
+    "Autonomous Systems Engineer",
+    "AI/Software Systems Engineer",
+    "ML Engineer (partially supported)"
+  ],
+  "project_links": [
+    {
+      "name": "OpenCode CUA Platform",
+      "url": "https://github.com/Sneh30/opencode-cua-platform",
+      "status": "public_repo"
+    },
+    {
+      "name": "webcmd PR #190",
+      "url": "https://github.com/agentrhq/webcmd/pull/190",
+      "status": "external_validation"
+    },
+    {
+      "name": "PromptOS",
+      "url": "https://github.com/Sneh30/promptos",
+      "status": "public_repo"
+    },
+    {
+      "name": "Orchestra",
+      "url": "https://github.com/Sneh30/Orchestra",
+      "status": "public_repo"
+    },
+    {
+      "name": "DeepOps",
+      "url": "https://github.com/Sneh30/deepops",
+      "status": "public_repo_experimental"
+    },
+    {
+      "name": "ESP32-CAM Vision Suite",
+      "url": "https://github.com/Sneh30/esp32-cam-vision",
+      "status": "public_repo"
+    },
+    {
+      "name": "Catalyst",
+      "url": "https://github.com/Sneh30/Catalyst",
+      "status": "public_repo"
+    },
+    {
+      "name": "Portfolio",
+      "url": "https://github.com/Sneh30/portfolio",
+      "status": "public_repo"
+    },
+    {
+      "name": "AgentOS",
+      "url": "https://github.com/Sneh30/AgentOS",
+      "status": "repository_unavailable"
+    },
+    {
+      "name": "Mobile GUI Automation Agent",
+      "url": "https://github.com/Sneh30/Agentic-hinge",
+      "status": "repository_unavailable"
+    },
+    {
+      "name": "Pocket Typist",
+      "url": "https://github.com/Sneh30/pocket-typist",
+      "status": "repository_unavailable"
+    }
+  ],
+  "verification_states": [
+    "public_repo",
+    "external_validation",
+    "documented_experience",
+    "self_reported",
+    "experimental",
+    "repository_unavailable"
+  ],
+  "limitations": [
+    "No published research, peer-reviewed papers, certifications, awards, or employer-scale production deployments are claimed.",
+    "Model training, fine-tuning, evaluation benchmarks and MLOps are not claimed.",
+    "ML Engineer relevance is partial: no documented model training or deployed ML services.",
+    "AgentOS, Mobile GUI Automation Agent (Agentic-hinge) and Pocket Typist repository links return 404 as of 2026-09-30; those descriptions rest on portfolio text only.",
+    "The ~40% infrastructure improvement and the PromptOS 80–85% cost figure are self-reported; no raw data is published.",
+    "Dynamic statistics (GitHub, LeetCode) were last verified 2026-09-30 and may change."
   ]
 }

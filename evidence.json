@@ -157,8 +157,8 @@
       "capability_name": "Learning cadence (inferred from breadth and cadence)",
       "project": null,
       "project_name": "Timeline: Team Stratos (Jul 2025) → Orchestra/DeepOps/PromptOS (2025–2026) → OpenCode CUA (Aug 2026) → infrastructure engagement (Aug 2026)",
-      "implementation": "Successive projects crossing embedded C, Rust, Swift, Python, TypeScript, multi-agent frameworks and production infrastructure operations, each ending in a shipped artifact",
-      "result": "Six distinct stacks shipped within roughly thirteen months, documented across the portfolio and résumé",
+      "implementation": "Successive projects crossing embedded C, Rust, Swift, Python, TypeScript, multi-agent frameworks and live infrastructure operations, each ending in a published artifact",
+      "result": "Six distinct stacks built within roughly thirteen months, documented across the portfolio and résumé",
       "evidence": "Timeline: Team Stratos (Jul 2025) → Orchestra/DeepOps/PromptOS (2025–2026) → OpenCode CUA (Aug 2026) → infrastructure engagement (Aug 2026)",
       "verification": {
         "status": [
@@ -192,10 +192,10 @@
       "capability": "capability-agents",
       "capability_name": "AI Agents & Computer Use",
       "project": "project-agentic-hinge",
-      "project_name": "Agentic-hinge",
+      "project_name": "Mobile GUI Automation Agent",
       "implementation": "Per portfolio: macOS GUI agent using computer vision and GUI automation over iPhone Mirroring",
       "result": "No numeric metric published",
-      "evidence": "Agentic-hinge",
+      "evidence": "Mobile GUI Automation Agent (original prototype: Agentic-hinge)",
       "verification": {
         "status": [
           "repository_unavailable"
@@ -247,7 +247,7 @@
       "name": "LeetCode API — user stats",
       "url": "https://leetcode.com/u/sneh_sinha3/",
       "checked": "2026-09-30",
-      "facts": "35 solved (32 easy / 3 medium / 0 hard); ranking 3,387,548"
+      "facts": "37 solved (32 easy / 5 medium / 0 hard); ranking 3,387,548"
     },
     {
       "name": "Résumé PDF published with this portfolio",

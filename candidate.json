@@ -13,12 +13,22 @@
     "name": "Sneh Sinha",
     "alternate_name": "Sneh Raj Sinha",
     "role": "AI Engineer",
+    "canonical_url": "https://sneh30.github.io/portfolio/",
+    "agent_profile_url": "https://sneh30.github.io/portfolio/agent/",
+    "focus": [
+      "AI Agents",
+      "LLM Systems",
+      "AI Infrastructure",
+      "Computer Use",
+      "Embedded AI",
+      "Computer Vision"
+    ],
     "positioning": "An AI engineer who builds AI systems to solve real-world problems.",
     "positioning_secondary": "His work spans the path from intelligence to execution — AI agents, LLM systems, software, infrastructure, cloud operations, computer vision, embedded systems, and physical-world applications.",
     "core_differentiator": "AI systems + real-world execution + a documented cadence of shipping across stacks: repeatedly turning AI capabilities into systems that actually do something, across abstraction levels from cloud APIs down to embedded firmware.",
     "location": "Bangalore, India",
     "status": "Open to work (as displayed on the portfolio)",
-    "summary": "Builds agents, multi-agent systems, LLM tooling and autonomous infrastructure, and has shipped embedded and safety-critical software alongside two real-world engineering engagements."
+    "summary": "Builds agents, multi-agent systems, LLM tooling and autonomous infrastructure, and has built embedded and safety-critical software alongside two real-world engineering engagements."
   },
   "contact": {
     "email": "snehsinha30@gmail.com",
@@ -41,7 +51,7 @@
       "expected_completion": "2027-08",
       "gpa": "8.0/10",
       "source": "résumé PDF published with this portfolio",
-      "note": "Education details are not displayed in Human Mode; they appear only in the résumé PDF."
+      "note": "Education is displayed in Human Mode (About section) and in the résumé PDF."
     }
   ],
   "experience": [
@@ -57,8 +67,19 @@
       "responsibility": "Strengthen infrastructure operations end-to-end during a one-month on-site engagement, working independently.",
       "engineering_challenge": "Reducing both incident frequency and mean time to recovery in a live, deadline-driven environment.",
       "outcome": "Infrastructure incidents and average recovery time cut by ~40% versus the prior comparable period (site notes a prior period of over 5 days).",
-      "scale": { "nodes": "400+", "tenure": "1 month", "mode": "on-site" },
-      "skills_applied": ["Observability", "Incident Response", "Prometheus", "Linux", "AWS", "Docker"],
+      "scale": {
+        "nodes": "400+",
+        "tenure": "1 month",
+        "mode": "on-site"
+      },
+      "skills_applied": [
+        "Observability",
+        "Incident Response",
+        "Prometheus",
+        "Linux",
+        "AWS",
+        "Docker"
+      ],
       "verification": {
         "status": "self_reported",
         "sources": [
@@ -67,7 +88,7 @@
         ],
         "limitation": "The portfolio does not currently provide sufficient evidence to verify this claim beyond the candidate's own statement: no employer name, raw before/after dataset, or third-party reference is published."
       },
-      "relevance_to_hiring": "Demonstrates the ability to enter a third-party production environment and produce a measured reliability improvement — the core of AI/infrastructure engineering roles."
+      "relevance_to_hiring": "Demonstrates the ability to work independently in a live operational environment and deliver a reported reliability improvement during a short engagement (400+ nodes, ~40% incident and recovery improvement, one month, on-site)."
     },
     {
       "id": "experience-team-stratos",
@@ -81,8 +102,15 @@
       "responsibility": "Own software and electronics integration for the vehicle.",
       "engineering_challenge": "Developing and deploying ABS (Anti-lock Braking System) firmware — the most safety-critical subsystem — where incorrect behaviour is a physical-safety risk.",
       "outcome": "ABS firmware developed, deployed and validated through track testing, SAE India scrutineering and competition.",
-      "scale": { "team_size": "50", "tenure": "11 months" },
-      "skills_applied": ["Embedded systems", "C/C++", "Vehicle electronics integration"],
+      "scale": {
+        "team_size": "50",
+        "tenure": "11 months"
+      },
+      "skills_applied": [
+        "Embedded systems",
+        "C/C++",
+        "Vehicle electronics integration"
+      ],
       "verification": {
         "status": "documented_experience",
         "sources": [
@@ -102,11 +130,25 @@
       "problem": "AI agents are normally confined to a terminal; driving real desktop and browser software requires perception, action, and recovery when actions fail.",
       "built": "Screen capture, macOS Accessibility APIs and browser automation behind MCP servers, plus verification and recovery engines.",
       "documented_result": "No numeric usage metric published; the documented result is an end-to-end computer-use loop with explicit verification and recovery stages.",
-      "technologies_in_human_mode": ["Python", "MCP", "macOS", "React"],
-      "categories": ["Agentic AI", "Computer Use", "Computer Vision / Perception"],
-      "demonstrates": ["capability-agents"],
+      "technologies_in_human_mode": [
+        "Python",
+        "MCP",
+        "macOS",
+        "React"
+      ],
+      "categories": [
+        "Agentic AI",
+        "Computer Use",
+        "Computer Vision / Perception"
+      ],
+      "demonstrates": [
+        "capability-agents"
+      ],
       "repository": "https://github.com/Sneh30/opencode-cua-platform",
-      "verification": { "status": "public_repo", "checked": "2026-09-30" }
+      "verification": {
+        "status": "public_repo",
+        "checked": "2026-09-30"
+      }
     },
     {
       "id": "project-webcmd",
@@ -115,12 +157,23 @@
       "problem": "Every builtin command handled -f/--format differently, an inconsistency that grows with each new command.",
       "built": "A single source of truth for output-format parsing applied across builtin commands, with 16 new tests and documentation updates.",
       "documented_result": "PR #190 merged 2026-08-13 with 16 commits; 15+ commands fixed; upstream project 2,620 stars (GitHub API, 2026-09-30).",
-      "technologies_in_human_mode": ["JavaScript", "Open Source", "CLI"],
-      "categories": ["Developer / Open Source"],
-      "demonstrates": ["capability-oss"],
+      "technologies_in_human_mode": [
+        "JavaScript",
+        "Open Source",
+        "CLI"
+      ],
+      "categories": [
+        "Developer / Open Source"
+      ],
+      "demonstrates": [
+        "capability-oss"
+      ],
       "repository": "https://github.com/Sneh30/webcmd",
       "pull_request": "https://github.com/agentrhq/webcmd/pull/190",
-      "verification": { "status": "external_validation", "checked": "2026-09-30" }
+      "verification": {
+        "status": "external_validation",
+        "checked": "2026-09-30"
+      }
     },
     {
       "id": "project-promptos",
@@ -129,11 +182,25 @@
       "problem": "Raw prompts are expensive and inconsistent; they should be rewritten and compressed before reaching the model.",
       "built": "Rust core with custom lexer, parser and AST, ten optimisation passes across four compilation modes, WASM plugin support, Llama.cpp local inference on Metal GPU, native SwiftUI shell.",
       "documented_result": "Résumé: up to 80–85% lower inference cost in Economy mode via multi-pass token compression, tested against frontier LLM pricing.",
-      "technologies_in_human_mode": ["Rust", "Swift", "Llama.cpp", "WASM", "Metal GPU"],
-      "categories": ["LLM / AI Infrastructure"],
-      "demonstrates": ["capability-llm"],
+      "technologies_in_human_mode": [
+        "Rust",
+        "Swift",
+        "Llama.cpp",
+        "WASM",
+        "Metal GPU"
+      ],
+      "categories": [
+        "LLM / AI Infrastructure"
+      ],
+      "demonstrates": [
+        "capability-llm"
+      ],
       "repository": "https://github.com/Sneh30/promptos",
-      "verification": { "status": "public_repo", "checked": "2026-09-30", "metric_source": "résumé PDF" }
+      "verification": {
+        "status": "public_repo",
+        "checked": "2026-09-30",
+        "metric_source": "résumé PDF"
+      }
     },
     {
       "id": "project-orchestra",
@@ -142,24 +209,54 @@
       "problem": "Automated research must be checkable, not confidently hallucinated.",
       "built": "Five-agent LangGraph pipeline (search, extract, verify, synthesize, critique), FastAPI services, PostgreSQL persistence, Prometheus instrumentation, test suite with deterministic CI mode, Docker Compose packaging.",
       "documented_result": "5 cooperating agents; verified reports with confidence scoring; one-command deployment. No traffic metric published.",
-      "technologies_in_human_mode": ["Python", "LangGraph", "FastAPI", "PostgreSQL", "Prometheus"],
-      "categories": ["Agentic AI", "LLM / AI Infrastructure", "Autonomous Operations"],
-      "demonstrates": ["capability-multagent", "capability-backend"],
+      "technologies_in_human_mode": [
+        "Python",
+        "LangGraph",
+        "FastAPI",
+        "PostgreSQL",
+        "Prometheus"
+      ],
+      "categories": [
+        "Agentic AI",
+        "LLM / AI Infrastructure",
+        "Autonomous Operations"
+      ],
+      "demonstrates": [
+        "capability-multagent",
+        "capability-backend"
+      ],
       "repository": "https://github.com/Sneh30/Orchestra",
-      "verification": { "status": "public_repo", "checked": "2026-09-30", "source": "repository + résumé entry" }
+      "verification": {
+        "status": "public_repo",
+        "checked": "2026-09-30",
+        "source": "repository + résumé entry"
+      }
     },
     {
       "id": "project-deepops",
       "name": "DeepOps",
-      "one_line": "AI-powered autonomous cloud operations platform that behaves like an experienced SRE team.",
+      "one_line": "Experimental autonomous SRE platform — active development.",
       "problem": "Infrastructure incident handling depends on people reading signals under pressure.",
       "built": "Multi-agent operations pipeline (LangGraph, FastAPI): natural-language incident interpretation, root-cause analysis, remediation planning with cost-optimisation logic.",
       "documented_result": "Résumé status: core pipeline complete; in hardware integration and testing toward end-to-end automated resolution without human intervention.",
-      "technologies_in_human_mode": ["Python", "LangGraph", "FastAPI"],
-      "categories": ["AI Infrastructure", "Autonomous Operations"],
-      "demonstrates": ["capability-ai-infra"],
+      "technologies_in_human_mode": [
+        "Python",
+        "LangGraph",
+        "FastAPI"
+      ],
+      "categories": [
+        "AI Infrastructure",
+        "Autonomous Operations"
+      ],
+      "demonstrates": [
+        "capability-ai-infra"
+      ],
       "repository": "https://github.com/Sneh30/deepops",
-      "verification": { "status": "public_repo", "checked": "2026-09-30", "caveat": "Experimental; not presented as a production system." }
+      "verification": {
+        "status": "public_repo",
+        "checked": "2026-09-30",
+        "caveat": "Experimental; not presented as a production system."
+      }
     },
     {
       "id": "project-esp32",
@@ -168,11 +265,25 @@
       "problem": "Useful computer vision on hardware with 512 KB RAM and no GPU.",
       "built": "Web-based ML dataset image capture; autonomous colour-tracking robot with on-device RGB565→RGB888→HSV conversion and L298N motor control; MJPEG streaming server supporting 15+ camera board variants.",
       "documented_result": "3 projects · 60 FPS streaming · 15+ board variants · 512 KB RAM ceiling.",
-      "technologies_in_human_mode": ["C", "ESP32", "Computer Vision", "HSV"],
-      "categories": ["Computer Vision / Edge AI", "Embedded / Physical Systems"],
-      "demonstrates": ["capability-embedded"],
+      "technologies_in_human_mode": [
+        "C",
+        "ESP32",
+        "Computer Vision",
+        "HSV"
+      ],
+      "categories": [
+        "Computer Vision / Edge AI",
+        "Embedded / Physical Systems"
+      ],
+      "demonstrates": [
+        "capability-embedded"
+      ],
       "repository": "https://github.com/Sneh30/esp32-cam-vision",
-      "verification": { "status": "public_repo", "checked": "2026-09-30", "source": "repository + résumé entry" }
+      "verification": {
+        "status": "public_repo",
+        "checked": "2026-09-30",
+        "source": "repository + résumé entry"
+      }
     },
     {
       "id": "project-catalyst",
@@ -181,11 +292,23 @@
       "problem": "Job-search work is fragmented across tools.",
       "built": "Backend and application logic (Python/FastAPI), resume-audit and ATS-generation flows, job scraping, SQLite-backed tracker.",
       "documented_result": "No usage metrics published.",
-      "technologies_in_human_mode": ["Python", "FastAPI", "JavaScript", "SQLite"],
-      "categories": ["Developer / Full-stack"],
-      "demonstrates": ["capability-backend"],
+      "technologies_in_human_mode": [
+        "Python",
+        "FastAPI",
+        "JavaScript",
+        "SQLite"
+      ],
+      "categories": [
+        "Developer / Full-stack"
+      ],
+      "demonstrates": [
+        "capability-backend"
+      ],
       "repository": "https://github.com/Sneh30/Catalyst",
-      "verification": { "status": "public_repo", "checked": "2026-09-30" }
+      "verification": {
+        "status": "public_repo",
+        "checked": "2026-09-30"
+      }
     },
     {
       "id": "project-portfolio",
@@ -194,11 +317,23 @@
       "problem": "Present engineering work credibly to both humans and machines.",
       "built": "Front-end, canvas terrain renderer, GSAP scroll choreography, GitHub/LeetCode API integration, Agent Mode dossier and machine-readable files.",
       "documented_result": "Publicly deployed at https://sneh30.github.io/portfolio/.",
-      "technologies_in_human_mode": ["HTML", "CSS", "JavaScript", "Vercel"],
-      "categories": ["Developer / Open Source"],
-      "demonstrates": ["capability-backend"],
+      "technologies_in_human_mode": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "GitHub Pages"
+      ],
+      "categories": [
+        "Developer / Open Source"
+      ],
+      "demonstrates": [
+        "capability-backend"
+      ],
       "repository": "https://github.com/Sneh30/portfolio",
-      "verification": { "status": "public_repo", "checked": "2026-09-30" }
+      "verification": {
+        "status": "public_repo",
+        "checked": "2026-09-30"
+      }
     },
     {
       "id": "project-agentos",
@@ -207,9 +342,18 @@
       "problem": "Personal AI tooling is fragmented across interfaces, models and tools.",
       "built": "Per portfolio: Interface, Model Router, Simulation Engine, Memory Graph, Guard Layer and Execution Plane wired to 250+ app integrations via Composio.",
       "documented_result": "6 layers · 250+ app integrations (portfolio claim).",
-      "technologies_in_human_mode": ["TypeScript", "Next.js", "Supabase", "Composio"],
-      "categories": ["Agentic AI"],
-      "demonstrates": ["capability-agents"],
+      "technologies_in_human_mode": [
+        "TypeScript",
+        "Next.js",
+        "Supabase",
+        "Composio"
+      ],
+      "categories": [
+        "Agentic AI"
+      ],
+      "demonstrates": [
+        "capability-agents"
+      ],
       "repository": null,
       "repository_link_in_portfolio": "https://github.com/Sneh30/AgentOS",
       "verification": {
@@ -220,32 +364,52 @@
     },
     {
       "id": "project-agentic-hinge",
-      "name": "Agentic-hinge",
-      "one_line": "macOS GUI agent that automates app interactions via iPhone Mirroring using computer vision and GUI automation.",
+      "name": "Mobile GUI Automation Agent",
+      "one_line": "Computer-use automation over iPhone Mirroring combining screen perception, computer vision, and GUI automation.",
       "problem": "Automating a mobile-only interface from the desktop requires bridging mirroring, screen perception and GUI control.",
-      "built": "Per portfolio: a macOS agent combining computer vision with GUI automation over iPhone Mirroring.",
+      "built": "Per portfolio: a macOS agent combining computer vision with GUI automation over iPhone Mirroring; the original prototype drove a dating app (Hinge) interface to generate reply suggestions.",
       "documented_result": "No numeric metric published.",
-      "technologies_in_human_mode": ["Swift", "Computer Vision", "GUI Automation"],
-      "categories": ["Computer Use", "Computer Vision / Edge AI", "Agentic AI"],
-      "demonstrates": ["capability-agents"],
+      "technologies_in_human_mode": [
+        "Swift",
+        "Computer Vision",
+        "GUI Automation"
+      ],
+      "categories": [
+        "Computer Use",
+        "Computer Vision / Edge AI",
+        "Agentic AI"
+      ],
+      "demonstrates": [
+        "capability-agents"
+      ],
       "repository": null,
       "repository_link_in_portfolio": "https://github.com/Sneh30/Agentic-hinge",
       "verification": {
         "status": "repository_unavailable",
         "checked": "2026-09-30",
         "note": "Repository currently unavailable at the published URL (link returns 404 as of 2026-09-30). The portfolio does not currently provide sufficient evidence to verify this claim."
-      }
+      },
+      "aka": "Agentic-hinge (original prototype)"
     },
     {
       "id": "project-pocket-typist",
       "name": "Pocket Typist",
-      "one_line": "ESP32-CAM BLE HID keyboard firmware with a cloud backend.",
+      "one_line": "ESP32 BLE HID firmware with a Cloudflare Workers relay for remote text-input experiments.",
       "problem": "Getting text from any device onto any machine without installing software.",
-      "built": "Per portfolio: ESP32 BLE HID keyboard firmware plus a Cloudflare Workers backend that pushes text to the device.",
+      "built": "Per portfolio: ESP32 BLE HID keyboard firmware plus a Cloudflare Workers relay that pushes text to the device.",
       "documented_result": "No numeric metric published.",
-      "technologies_in_human_mode": ["C++", "ESP32", "BLE", "Cloudflare"],
-      "categories": ["Embedded / Physical Systems"],
-      "demonstrates": ["capability-embedded"],
+      "technologies_in_human_mode": [
+        "C++",
+        "ESP32",
+        "BLE",
+        "Cloudflare"
+      ],
+      "categories": [
+        "Embedded / Physical Systems"
+      ],
+      "demonstrates": [
+        "capability-embedded"
+      ],
       "repository": null,
       "repository_link_in_portfolio": "https://github.com/Sneh30/pocket-typist",
       "verification": {
@@ -257,13 +421,55 @@
   ],
   "skills": {
     "note": "Reproduced exactly as displayed in Human Mode. Not expanded, upgraded, or reinterpreted for Agent Mode.",
-    "languages": ["Python", "Java", "SQL"],
-    "ai_agent_systems": ["LangGraph", "OpenAI Codex", "Claude Code", "OpenCode", "OpenRouter", "Ollama", "Llama.cpp"],
-    "ai_ml": ["Hugging Face Transformers", "LLM Inference", "Multi-Agent Systems", "Prompt Engineering", "Edge AI"],
-    "backend_cloud": ["FastAPI", "PostgreSQL", "Prometheus", "REST APIs", "AWS", "Observability", "Incident Response"],
-    "infra_tooling": ["Docker", "Docker Compose", "Git", "GitHub Actions", "CI/CD", "Linux", "WASM", "Metal (GPU)"],
-    "embedded_hardware": ["ESP32", "Raspberry Pi", "Edge Impulse"],
-    "exploring": ["Multi-Agent Systems", "Edge AI"]
+    "languages": [
+      "Python",
+      "Java",
+      "SQL"
+    ],
+    "ai_agent_systems": [
+      "LangGraph",
+      "OpenAI Codex",
+      "Claude Code",
+      "OpenCode",
+      "OpenRouter",
+      "Ollama",
+      "Llama.cpp"
+    ],
+    "ai_ml": [
+      "Hugging Face Transformers",
+      "LLM Inference",
+      "Multi-Agent Systems",
+      "Prompt Engineering",
+      "Edge AI"
+    ],
+    "backend_cloud": [
+      "FastAPI",
+      "PostgreSQL",
+      "Prometheus",
+      "REST APIs",
+      "AWS",
+      "Observability",
+      "Incident Response"
+    ],
+    "infra_tooling": [
+      "Docker",
+      "Docker Compose",
+      "Git",
+      "GitHub Actions",
+      "CI/CD",
+      "Linux",
+      "WASM",
+      "Metal (GPU)"
+    ],
+    "embedded_hardware": [
+      "ESP32",
+      "Raspberry Pi",
+      "Edge Impulse"
+    ],
+    "exploring": [
+      "Multi-Agent Systems",
+      "Edge AI"
+    ]
   },
   "open_source": [
     {
@@ -291,13 +497,103 @@
     "GPA 8.0/10, B.E. Robotics and Artificial Intelligence (per résumé)"
   ],
   "roles": [
-    { "role": "AI Engineer", "support": "strongly supported", "evidence": ["capability-agents", "capability-multagent", "capability-llm"], "projects": ["project-opencode-cua", "project-orchestra", "project-deepops", "project-promptos"] },
-    { "role": "Agentic AI Engineer", "support": "strongly supported", "evidence": ["capability-agents", "capability-multagent"], "projects": ["project-opencode-cua", "project-orchestra", "project-agentos", "project-agentic-hinge"] },
-    { "role": "AI Infrastructure Engineer", "support": "supported by project + engagement", "evidence": ["capability-ai-infra", "capability-ops"], "projects": ["project-deepops", "project-orchestra"], "experience": ["experience-infrastructure"] },
-    { "role": "LLM Engineer", "support": "supported", "evidence": ["capability-llm"], "projects": ["project-promptos", "project-orchestra"], "caveat": "No model training, fine-tuning, or research claimed; evidence is systems- and cost-oriented." },
-    { "role": "Autonomous Systems Engineer", "support": "supported", "evidence": ["capability-embedded", "capability-safety", "capability-ai-infra"], "projects": ["project-esp32", "project-deepops"], "experience": ["experience-team-stratos"] },
-    { "role": "AI/Software Systems Engineer", "support": "supported", "evidence": ["capability-backend", "capability-oss"], "projects": ["project-orchestra", "project-promptos", "project-catalyst", "project-portfolio"] },
-    { "role": "ML Engineer", "support": "partially supported", "evidence": ["capability-embedded"], "projects": ["project-esp32"], "caveat": "The portfolio does not document model training, evaluation benchmarks, or deployed ML services; Human Mode lists Multi-Agent Systems and Edge AI under 'Exploring'." }
+    {
+      "role": "AI Engineer",
+      "support": "strongly supported",
+      "evidence": [
+        "capability-agents",
+        "capability-multagent",
+        "capability-llm"
+      ],
+      "projects": [
+        "project-opencode-cua",
+        "project-orchestra",
+        "project-deepops",
+        "project-promptos"
+      ]
+    },
+    {
+      "role": "Agentic AI Engineer",
+      "support": "strongly supported",
+      "evidence": [
+        "capability-agents",
+        "capability-multagent"
+      ],
+      "projects": [
+        "project-opencode-cua",
+        "project-orchestra",
+        "project-agentos",
+        "project-agentic-hinge"
+      ]
+    },
+    {
+      "role": "AI Infrastructure Engineer",
+      "support": "supported by project + engagement",
+      "evidence": [
+        "capability-ai-infra",
+        "capability-ops"
+      ],
+      "projects": [
+        "project-deepops",
+        "project-orchestra"
+      ],
+      "experience": [
+        "experience-infrastructure"
+      ]
+    },
+    {
+      "role": "LLM Engineer",
+      "support": "supported",
+      "evidence": [
+        "capability-llm"
+      ],
+      "projects": [
+        "project-promptos",
+        "project-orchestra"
+      ],
+      "caveat": "No model training, fine-tuning, or research claimed; evidence is systems- and cost-oriented."
+    },
+    {
+      "role": "Autonomous Systems Engineer",
+      "support": "supported",
+      "evidence": [
+        "capability-embedded",
+        "capability-safety",
+        "capability-ai-infra"
+      ],
+      "projects": [
+        "project-esp32",
+        "project-deepops"
+      ],
+      "experience": [
+        "experience-team-stratos"
+      ]
+    },
+    {
+      "role": "AI/Software Systems Engineer",
+      "support": "supported",
+      "evidence": [
+        "capability-backend",
+        "capability-oss"
+      ],
+      "projects": [
+        "project-orchestra",
+        "project-promptos",
+        "project-catalyst",
+        "project-portfolio"
+      ]
+    },
+    {
+      "role": "ML Engineer",
+      "support": "partially supported",
+      "evidence": [
+        "capability-embedded"
+      ],
+      "projects": [
+        "project-esp32"
+      ],
+      "caveat": "The portfolio does not document model training, evaluation benchmarks, or deployed ML services; Human Mode lists Multi-Agent Systems and Edge AI under 'Exploring'."
+    }
   ],
   "limitations": [
     "Employer name for the Aug 2026 infrastructure engagement is not disclosed; no raw incident dataset is published.",

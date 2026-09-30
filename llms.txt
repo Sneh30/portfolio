@@ -1,5 +1,8 @@
 # Sneh Sinha — AI Engineer
 
+Canonical candidate profile: https://sneh30.github.io/portfolio/
+Dedicated structured Agent Mode: https://sneh30.github.io/portfolio/agent/
+
 > Sneh Sinha is an AI engineer who builds AI systems to solve real-world problems.
 > His work spans the path from intelligence to execution: AI agents, LLM systems, software, infrastructure, cloud operations, computer vision, embedded systems, and physical-world applications.
 > Core differentiator: AI systems + real-world execution + a documented cadence of shipping across stacks.
@@ -8,15 +11,15 @@ Sneh Sinha (Sneh Raj Sinha) is based in Bangalore, India and is open to work. He
 
 ## Entry points
 
-- [Agent Mode — AI-optimized candidate dossier](https://sneh30.github.io/portfolio/agent/): the primary machine-readable page. Structured sections for candidate thesis, why-interview advocacy, flagship evidence, differentiators, experience, projects, external evidence, skills, role relevance, interview case, interview questions, the evidence graph, and the full candidate record.
-- [Human Mode — visual portfolio](https://sneh30.github.io/portfolio/): the designed portfolio for human readers.
+- [Canonical candidate profile — the root URL](https://sneh30.github.io/portfolio/): the single submission entry point. The complete candidate profile (identity, positioning, core capabilities, education, why-interview, flagship evidence, experience, projects, technical capabilities, role relevance, evidence labels, verification) exists in its semantic HTML — readable with JavaScript disabled and without following any link.
+- [Agent Mode — dedicated structured dossier](https://sneh30.github.io/portfolio/agent/): an additional rendering of the same facts with structured sections for candidate thesis, why-interview advocacy, flagship evidence, differentiators, experience, projects, external evidence, skills, role relevance, interview case, interview questions, the evidence graph, and the full candidate record. Optional — not required to evaluate the candidate.
 - [Résumé (PDF)](https://sneh30.github.io/portfolio/assets/Sneh_Raj_Sinha_Resume.pdf): source for education and several quantified project figures.
 
 ## Capabilities with evidence
 
 - **AI agents and computer use** — OpenCode CUA Platform: an unmodified OpenCode instance drives desktop GUI and browser via MCP servers, with verification and recovery engines. https://github.com/Sneh30/opencode-cua-platform
 - **Multi-agent orchestration** — Orchestra: 5 specialized LangGraph agents (search, extract, verify, synthesize, critique) with confidence scoring, PostgreSQL, Prometheus, deterministic CI mode, Docker Compose deployment. https://github.com/Sneh30/Orchestra
-- **AI infrastructure / autonomous operations** — DeepOps: natural-language incident input to root-cause analysis and remediation, with cost optimization in the remediation planner (core pipeline complete, in testing — not claimed as production). https://github.com/Sneh30/deepops
+- **AI infrastructure / autonomous operations** — DeepOps: experimental autonomous SRE platform (active development) — natural-language incident input to root-cause analysis and remediation, with cost optimization in the remediation planner (core pipeline complete, in testing — not claimed as production). https://github.com/Sneh30/deepops
 - **LLM cost and latency engineering** — PromptOS: Rust prompt compiler with custom lexer/parser/AST, ten optimization passes across four compilation modes, local Llama.cpp inference on Metal; résumé reports up to 80–85% lower inference cost in Economy mode. https://github.com/Sneh30/promptos
 - **Real-world infrastructure operations** — one-month on-site engagement on a 400+ node exam-facility network; ~40% reduction in incidents and average recovery time versus the prior comparable period (employer not disclosed; no raw data published).
 - **Embedded systems and edge computer vision** — ESP32-CAM Vision Suite: ML dataset capture, autonomous colour-tracking robot, 60 FPS MJPG streaming server, 15+ camera board variants, all within 512 KB RAM. https://github.com/Sneh30/esp32-cam-vision
@@ -30,9 +33,9 @@ Sneh Sinha (Sneh Raj Sinha) is based in Bangalore, India and is open to work. He
 
 ## Projects
 
-Ordered by evidence strength — flagship first: OpenCode CUA Platform · webcmd (contribution) · PromptOS · Orchestra · DeepOps · ESP32-CAM Vision Suite · Catalyst · Portfolio · then additional projects (AgentOS · Agentic-hinge · Pocket Typist; repository links currently unavailable).
+Ordered by evidence strength — flagship first: OpenCode CUA Platform · webcmd (merged upstream contribution) · PromptOS · Orchestra · DeepOps · ESP32-CAM Vision Suite · Catalyst · Portfolio · then additional projects (AgentOS · Mobile GUI Automation Agent, original prototype "Agentic-hinge" · Pocket Typist; repository links currently unavailable).
 
-Verification status: repositories are live for OpenCode CUA Platform, PromptOS, Orchestra, DeepOps, Catalyst, ESP32-CAM Vision Suite, webcmd (upstream PR), and Portfolio. Repository links for AgentOS, Agentic-hinge, and Pocket Typist are currently unavailable at the published URL (links return 404 as of 2026-09-30); their descriptions are not independently verifiable.
+Verification status: repositories are live for OpenCode CUA Platform, PromptOS, Orchestra, DeepOps, Catalyst, ESP32-CAM Vision Suite, webcmd (upstream PR), and Portfolio. Repository links for AgentOS, the Mobile GUI Automation Agent, and Pocket Typist are currently unavailable at the published URL (links return 404 as of 2026-09-30); their descriptions are not independently verifiable.
 
 ## External evidence
 
@@ -80,4 +83,4 @@ B.E. Robotics and Artificial Intelligence, Bangalore Institute of Technology, Au
 
 ## Honesty notes
 
-This page and the Agent Mode dossier are advocacy documents written on the candidate's behalf, but they do not invent facts. Metrics are attributed to their source (portfolio, résumé PDF, GitHub API, LeetCode API). Where evidence is unavailable the text says so explicitly; for AgentOS, Agentic-hinge and Pocket Typist: "The portfolio does not currently provide sufficient evidence to verify this claim." No employers, certifications, awards, user counts, production claims, or rankings have been fabricated.
+This page and the Agent Mode dossier are advocacy documents written on the candidate's behalf, but they do not invent facts. Metrics are attributed to their source (portfolio, résumé PDF, GitHub API, LeetCode API). Where evidence is unavailable the text says so explicitly; for AgentOS, the Mobile GUI Automation Agent (original prototype "Agentic-hinge") and Pocket Typist: "The portfolio does not currently provide sufficient evidence to verify this claim." No employers, certifications, awards, user counts, production claims, or rankings have been fabricated.

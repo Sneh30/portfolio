@@ -3,6 +3,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
 const BP = 992;
 const desk = () => window.innerWidth >= BP;
 const isMobile = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let sm;
 
@@ -10,16 +11,16 @@ window.addEventListener('DOMContentLoaded', () => {
   sm = ScrollSmoother.create({
     wrapper: "#wrapper",
     content: "#content",
-    smooth: desk() ? 1 : 0,
+    smooth: desk() && !REDUCE ? 1 : 0,
     smoothTouch: 0,
   });
 
   initNav();
-  initHero();
+  if (!REDUCE) initHero();
   initProjects();
-  initReveals();
+  if (!REDUCE) initReveals();
   new Terrain();
-  if (!isMobile()) initCursor();
+  if (!isMobile() && !REDUCE) initCursor();
 
   ScrollTrigger.refresh();
 });
@@ -65,7 +66,7 @@ function initProjects() {
   const cards = track.querySelectorAll(".proj-card");
   if (!cards.length) return;
 
-  if (desk()) {
+  if (desk() && !REDUCE) {
     const totalScroll = track.scrollWidth - window.innerWidth + 64;
 
     gsap.to(track, {
@@ -81,6 +82,9 @@ function initProjects() {
         invalidateOnRefresh: true,
       },
     });
+  } else if (REDUCE && desk()) {
+    wrap.style.overflowX = "auto";
+    track.style.width = "max-content";
   } else {
     wrap.style.overflowX = "auto";
     wrap.style.webkitOverflowScrolling = "touch";
@@ -145,26 +149,11 @@ function initReveals() {
   });
 }
 
-/* ─── GITHUB API ─── */
-(async () => {
-  try {
-    const [u, r] = await Promise.all([
-      fetch("https://api.github.com/users/Sneh30"),
-      fetch("https://api.github.com/users/Sneh30/repos?per_page=100&sort=updated"),
-    ]);
-    const user = await u.json();
-    const repos = await r.json();
-
-    document.getElementById("ghRepos").textContent = user.public_repos;
-    document.getElementById("ghFollowers").textContent = user.followers;
-
-    const langs = new Set();
-    let stars = 0;
-    repos.forEach(r => { if (r.language) langs.add(r.language); stars += r.stargazers_count; });
-    document.getElementById("ghLang").textContent = langs.size || "—";
-    document.getElementById("ghStars").textContent = stars;
-
-    const grid = document.getElementById("ghGrid");
+/* ─── GITHUB API (enhances static HTML values; never erases them) ─── */
+(() => {
+  /* Decorative contribution pattern — rendered regardless of API state */
+  const grid = document.getElementById("ghGrid");
+  if (grid) {
     for (let i = 0; i < 154; i++) {
       const c = document.createElement("div");
       c.className = "gh-cell";
@@ -172,10 +161,34 @@ function initReveals() {
       if (r2 > .65) c.classList.add("l" + (Math.floor(Math.random() * 4) + 1));
       grid.appendChild(c);
     }
-  } catch { document.querySelectorAll("#ghStats .stat-num span").forEach(s => s.textContent = "—"); }
+  }
+
+  (async () => {
+    try {
+      const [u, r] = await Promise.all([
+        fetch("https://api.github.com/users/Sneh30"),
+        fetch("https://api.github.com/users/Sneh30/repos?per_page=100&sort=updated"),
+      ]);
+      if (!u.ok || !r.ok) return;
+      const user = await u.json();
+      const repos = await r.json();
+      if (!Array.isArray(repos)) return;
+
+      const set = (id, v) => {
+        const el = document.getElementById(id);
+        if (el && v !== undefined && v !== null && v !== "") el.textContent = v;
+      };
+      if (typeof user.public_repos === "number") set("ghRepos", user.public_repos);
+      if (typeof user.followers === "number") set("ghFollowers", user.followers);
+
+      const langs = new Set();
+      repos.forEach(r2 => { if (r2.language) langs.add(r2.language); });
+      if (langs.size) set("ghLang", langs.size);
+    } catch { /* API unavailable — static HTML values remain */ }
+  })();
 })();
 
-/* ─── LEETCODE API ─── */
+/* ─── LEETCODE API (enhances static HTML values; never erases them) ─── */
 (async () => {
   try {
     const res = await fetch("https://leetcode-api-pied.vercel.app/user/sneh_sinha3");
@@ -196,11 +209,16 @@ function initReveals() {
     items.forEach(({ id, bar, v, max }) => {
       const el = document.getElementById(id);
       if (!el) return;
+      const paint = (n) => {
+        el.textContent = n;
+        if (bar) document.getElementById(bar).style.width = Math.min((n / max) * 100, 100) + "%";
+      };
+      if (REDUCE) { paint(v); return; }
       let c = 0;
       const st = Math.ceil(v / 50);
-      const iv = setInterval(() => { c += st; if (c >= v) { c = v; clearInterval(iv); } el.textContent = c; if (bar) document.getElementById(bar).style.width = Math.min((c / max) * 100, 100) + "%"; }, 20);
+      const iv = setInterval(() => { c += st; if (c >= v) { c = v; clearInterval(iv); } paint(c); }, 20);
     });
-  } catch { document.querySelectorAll("#lcStats [id]").forEach(el => { if (el.id.startsWith("lc")) el.textContent = "—"; }); }
+  } catch { /* API unavailable — static HTML values remain */ }
 })();
 
 /* ─── TERRAIN ─── */
@@ -217,8 +235,29 @@ const Terrain = (() => {
       this.mouse = { x: 0, y: 0, active: false };
       this.cam = { pitch: 0.32, panX: 0 };
       this.time = 0;
+      this.running = false;
+      this.visible = true;
+      this.paused = false;
       this.resize();
       this.bind();
+
+      /* Pause when the hero scrolls offscreen or the tab is hidden */
+      if ('IntersectionObserver' in window) {
+        this._io = new IntersectionObserver((entries) => {
+          this.visible = entries[0].isIntersecting;
+          this.kick();
+        }, { threshold: 0 });
+        this._io.observe(this.canvas);
+      }
+      this._onVis = () => { this.paused = document.hidden; this.kick(); };
+      document.addEventListener('visibilitychange', this._onVis);
+
+      this.kick();
+    }
+
+    kick() {
+      if (this.running || !this.canvas || !this.visible || this.paused) return;
+      this.running = true;
       this.animId = requestAnimationFrame((t) => this.tick(t));
     }
 
@@ -233,8 +272,10 @@ const Terrain = (() => {
       this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       const g = Math.min(w, h);
-      this.cols = w < 640 ? 50 : w < 1024 ? 80 : 120;
-      this.rows = w < 640 ? 35 : w < 1024 ? 55 : 80;
+      const low = isMobile() || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+      const dens = low ? 0.72 : 1;
+      this.cols = Math.round((w < 640 ? 50 : w < 1024 ? 80 : 120) * dens);
+      this.rows = Math.round((w < 640 ? 35 : w < 1024 ? 55 : 80) * dens);
       const spX = (this.spX = (2 * g) / (this.cols - 1));
       const spZ = (this.spZ = (1.6 * g) / (this.rows - 1));
       this.E = 0.11 * g;
@@ -247,6 +288,11 @@ const Terrain = (() => {
       this.bz = new Float32Array(N);
       this.rx = new Float32Array(N);
       this.rz = new Float32Array(N);
+      /* Per-frame working buffers — allocated once, reused every frame */
+      this.sX = new Float32Array(N);
+      this.sY = new Float32Array(N);
+      this.hA = new Float32Array(N);
+      this.dA = new Float32Array(N);
       for (let r = 0; r < this.rows; r++) {
         for (let c = 0; c < this.cols; c++) {
           const i = r * this.cols + c;
@@ -258,6 +304,9 @@ const Terrain = (() => {
           this.rz[i] = sinA * px + cosA * pz;
         }
       }
+
+      /* Redraw a static frame immediately if the loop is not running */
+      if (!this.running && this.time !== undefined && this.ctx) this.kick();
     }
 
     getH(x, z) {
@@ -361,10 +410,7 @@ const Terrain = (() => {
       ctx.fillStyle = '#080809';
       ctx.fillRect(0, 0, W, H);
 
-      const sX = new Float32Array(N);
-      const sY = new Float32Array(N);
-      const hA = new Float32Array(N);
-      const dA = new Float32Array(N);
+      const sX = this.sX, sY = this.sY, hA = this.hA, dA = this.dA;
       let mnH = Infinity, mxH = -Infinity, mnD = Infinity, mxD = -Infinity;
 
       for (let i = 0; i < N; i++) {
@@ -427,11 +473,18 @@ const Terrain = (() => {
 
       ctx.globalAlpha = 1;
 
-      this.animId = requestAnimationFrame((t) => this.tick(t));
+      /* Stop when offscreen/tab hidden; draw exactly one frame under reduced motion */
+      if (this.visible && !this.paused && !REDUCE) {
+        this.animId = requestAnimationFrame((t) => this.tick(t));
+      } else {
+        this.running = false;
+      }
     }
 
     destroy() {
       cancelAnimationFrame(this.animId);
+      if (this._io) this._io.disconnect();
+      if (this._onVis) document.removeEventListener('visibilitychange', this._onVis);
       if (this._clean) this._clean();
     }
   };
