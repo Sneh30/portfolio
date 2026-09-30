@@ -553,8 +553,8 @@ body {
 /* ─── MODE DOCK (bottom-center, sliding thumb, names only) ─── */
 .nav-tools { display: flex; align-items: center; gap: 18px; }
 .mode-dock {
-  position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
-  z-index: 90; display: inline-flex; padding: 2px;
+  position: fixed; left: 50%; bottom: 40px; transform: translateX(-50%);
+  z-index: 10000; display: inline-flex; padding: 2px;
   border: 1px solid var(--border); border-radius: 999px;
   background: rgba(13,13,13,.94); backdrop-filter: blur(12px);
   box-shadow: 0 8px 28px rgba(0,0,0,.45);
@@ -580,6 +580,7 @@ body {
 .mode-dock .dock-opt.is-on { color: #d4a373; cursor: default; }
 .mode-dock a:focus-visible { outline: 2px solid #d4a373; outline-offset: -2px; }
 @media (max-width: 480px) {
+  .mode-dock { bottom: 32px; }
   .mode-dock .dock-opt { min-width: 78px; padding: 7px 14px; font-size: .6rem; }
 }
 
@@ -743,7 +744,8 @@ body {
 }
 
 /* Evidence & verification */
-#evidence { --act-bg: #0c1010; --act-c: #5a9a7a; }
+/* Evidence section kept in DOM for crawlers; hidden from Human Mode presentation */
+#evidence { --act-bg: #0c1010; --act-c: #5a9a7a; display: none; }
 .ev-labels {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 14px; margin-bottom: 34px;
