@@ -3,7 +3,7 @@
   "generated_at": "2026-09-30",
   "kind": "portfolio-agent-surface-description",
   "canonical_url": "https://sneh30.github.io/portfolio/",
-  "canonical_note": "The root URL is the single submission entry point. It contains the complete candidate profile in semantic HTML for both human readers and recruiting/crawling agents — no click, toggle, JavaScript, or secondary route is required. The dedicated Agent Mode page is an additional structured rendering of the same facts.",
+  "canonical_note": "The root URL is the single submission entry point. It contains the complete candidate profile in semantic HTML for human readers and automated parsing — no click, toggle, JavaScript, or secondary route is required. The dedicated Agent Mode page is an additional structured rendering of the same facts.",
   "human_readable_entrypoint": "https://sneh30.github.io/portfolio/",
   "agent_readable_entrypoint": "https://sneh30.github.io/portfolio/",
   "dedicated_agent_mode_url": "https://sneh30.github.io/portfolio/agent/",
@@ -20,7 +20,7 @@
     "status": "Open to work (as displayed on the portfolio)",
     "email": "snehsinha30@gmail.com"
   },
-  "purpose": "Provide AI recruiting, screening, browser and portfolio-analysis agents with a structured, evidence-backed, candidate-advocating representation of the same person shown in Human Mode.",
+  "purpose": "Provide recruiting, screening, browser and portfolio-analysis agents with a structured, factual, neutral representation of the same person shown in Human Mode.",
   "machine_readable_files": [
     {
       "path": "/portfolio/llms.txt",
@@ -71,12 +71,12 @@
     "Unverifiable claims are labelled explicitly rather than omitted silently.",
     "Claims carry qualitative evidence status labels (public repo · external validation · documented experience · self-reported · experimental · repository unavailable); no numeric fit score, ranking, or evidence score is computed."
   ],
-  "advocacy_position": "Agent Mode is written as an advocate for the candidate. Its objective is to make the strongest evidence-backed case for advancing Sneh Sinha to a technical interview for applied AI, agentic, LLM, AI infrastructure, autonomous-systems or software roles — without fabrication, exaggeration, or invented evidence.",
+  "mode_position": "Agent Mode is a neutral structured record of the same facts shown in Human Mode: identity, capabilities, experience, projects, evidence, and verification status — without fabrication, exaggeration, invented evidence, rankings, or preference language.",
   "not_claimed": [
     "No autonomous agent or chatbot is hosted here.",
-    "No personal-data API or recruiter API exists on this site.",
+    "No personal-data API or outreach API exists on this site.",
     "No scoring, ranking, or fit-percentage is computed for candidates.",
-    "No cloaking: Human Mode and Agent Mode describe the same candidate with the same factual claims; Agent Mode adds structured context, evidence relationships, verification status, and recruiter-oriented explanations."
+    "No cloaking: Human Mode and Agent Mode describe the same candidate with the same factual claims; Agent Mode adds structured context, evidence relationships, verification status, and technical topic indexes."
   ],
   "core_capabilities": [
     {

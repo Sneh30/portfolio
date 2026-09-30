@@ -216,7 +216,7 @@
         },
         {
           "project": "project-portfolio",
-          "implementation": "Canvas rendering, GSAP scroll choreography, live GitHub and LeetCode API integration, Agent Mode dossier",
+          "implementation": "Canvas rendering, GSAP scroll choreography, live GitHub and LeetCode API integration, Agent Mode record",
           "result": "Publicly deployed site",
           "verification": "https://github.com/Sneh30/portfolio",
           "verification_status": "live"

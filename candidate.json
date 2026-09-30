@@ -45,7 +45,7 @@
     "x": "https://x.com/Sneh30",
     "leetcode": "https://leetcode.com/u/sneh_sinha3/",
     "portfolio": "https://sneh30.github.io/portfolio/",
-    "agent_dossier": "https://sneh30.github.io/portfolio/agent/",
+    "agent_mode": "https://sneh30.github.io/portfolio/agent/",
     "resume_pdf": "https://sneh30.github.io/portfolio/assets/Sneh_Raj_Sinha_Resume.pdf"
   },
   "education": [
@@ -94,7 +94,7 @@
         ],
         "limitation": "The portfolio does not currently provide sufficient evidence to verify this claim beyond the candidate's own statement: no employer name, raw before/after dataset, or third-party reference is published."
       },
-      "relevance_to_hiring": "Demonstrates the ability to work independently in a live operational environment and deliver a reported reliability improvement during a short engagement (400+ nodes, ~40% incident and recovery improvement, one month, on-site)."
+      "context": "Independent work in a live operational environment with a reported reliability outcome over a one-month engagement (400+ nodes, ~40% incident and recovery improvement, self-reported)."
     },
     {
       "id": "experience-team-stratos",
@@ -125,7 +125,7 @@
         ],
         "limitation": "Team project; the portfolio attributes the ABS firmware to Sneh but does not publish the code or a team reference."
       },
-      "relevance_to_hiring": "Safety-critical embedded work with physical consequences, long-horizon ownership, and cross-disciplinary leadership."
+      "context": "Embedded systems work with physical consequences: 11 months of full-vehicle integration and ABS firmware validated through track testing and SAE India scrutineering."
     }
   ],
   "projects": [
@@ -319,9 +319,9 @@
     {
       "id": "project-portfolio",
       "name": "Portfolio",
-      "one_line": "This site: semantic HTML/CSS/JS with canvas rendering, scroll animation, live API integration and an Agent Mode dossier.",
+      "one_line": "This site: semantic HTML/CSS/JS with canvas rendering, scroll animation, live API integration and an Agent Mode record.",
       "problem": "Present engineering work credibly to both humans and machines.",
-      "built": "Front-end, canvas terrain renderer, GSAP scroll choreography, GitHub/LeetCode API integration, Agent Mode dossier and machine-readable files.",
+      "built": "Front-end, canvas terrain renderer, GSAP scroll choreography, GitHub/LeetCode API integration, Agent Mode record and machine-readable files.",
       "documented_result": "Publicly deployed at https://sneh30.github.io/portfolio/.",
       "technologies_in_human_mode": [
         "HTML",

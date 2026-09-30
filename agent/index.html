@@ -3,427 +3,379 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sneh Sinha — Agent Mode · AI-Optimized Candidate Dossier</title>
-  <meta name="description" content="AI-readable candidate dossier for Sneh Sinha, AI engineer in Bangalore: candidate thesis, evidence-backed capabilities, experience, projects, open-source verification, role relevance, and interview case for applied AI, agentic, LLM, AI infrastructure, and embedded roles." />
+  <title>Sneh Sinha — Candidate Record · Agent Mode</title>
+  <meta name="description" content="Structured candidate record for Sneh Sinha, AI engineer in Bangalore: identity, education, focus, capabilities, experience, projects, open-source verification, skills, evidence chains, and technical topics for applied AI, agentic, LLM, AI infrastructure, and embedded roles." />
   <link rel="canonical" href="https://sneh30.github.io/portfolio/agent/" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <meta property="og:type" content="profile" />
   <meta property="og:site_name" content="Sneh Sinha — Portfolio" />
-  <meta property="og:title" content="Sneh Sinha — Agent Mode · AI-Optimized Candidate Dossier" />
-  <meta property="og:description" content="Structured, evidence-backed candidate record for AI recruiting and screening agents: capabilities, projects, experience, external evidence, role relevance, and interview case." />
+  <meta property="og:title" content="Sneh Sinha — Candidate Record · Agent Mode" />
+  <meta property="og:description" content="Structured, factual candidate record for automated parsing: identity, capabilities, experience, projects, evidence, verification, and links." />
   <meta property="og:url" content="https://sneh30.github.io/portfolio/agent/" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sneh Sinha — Agent Mode · AI-Optimized Candidate Dossier" />
-  <meta name="twitter:description" content="Structured, evidence-backed candidate record for AI recruiting and screening agents." />
+  <meta name="twitter:title" content="Sneh Sinha — Candidate Record · Agent Mode" />
+  <meta name="twitter:description" content="Structured, factual candidate record for automated parsing." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d4a373'/%3E%3Cstop offset='100%25' stop-color='%237a9eb1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%230a0a0a'/%3E%3Ctext x='16' y='22.5' font-family='Inter,sans-serif' font-size='20' font-weight='800' fill='url(%23g)' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="alternate" href="../llms.txt" type="text/plain" title="Machine-readable candidate summary (llms.txt)" />
   <style>
+    /* ── agent record: bland record theme ─────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0a0a;
-      --bg-alt: #101010;
-      --bg-card: #141414;
-      --bg-card-2: #17171a;
-      --border: #242424;
-      --border-soft: #1d1d1d;
-      --text: #e9e9e9;
-      --text-2: #b9b9b9;
-      --muted: #8a8a8a;
-      --faint: #5f5f5f;
-      --warm: #d4a373;
-      --cool: #7a9eb1;
-      --green: #5a9a7a;
-      --violet: #9b8ec4;
-      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
-      --maxw: 1020px;
-      --nav-h: 60px;
+      --bg: #0b0b0b;
+      --panel: #101010;
+      --panel-2: #141414;
+      --line: #202020;
+      --line-2: #2c2c2c;
+      --fg: #c7c7bd;
+      --fg-strong: #e4e4da;
+      --dim: #85857b;
+      --faint: #5c5c55;
+      --accent: #a08a6a;
+      --ok: #7f9f7f;
+      --warn: #ab9265;
+      --info: #7f93a3;
+      --link: #9fae6;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 132px; }
+    html { background: var(--bg); }
     body {
-      font-family: var(--font);
+      font-family: var(--mono);
       background: var(--bg);
-      color: var(--text);
+      color: var(--fg);
+      font-size: 14px;
       line-height: 1.65;
+      font-variant-ligatures: none;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
-    ::selection { background: rgba(212,163,115,.28); color: #fff; }
-    a { color: var(--cool); text-decoration: none; }
-    a:hover { text-decoration: underline; text-underline-offset: 3px; }
-    :focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; border-radius: 3px; }
-    ul, ol { padding-left: 1.15rem; }
-    li { margin-bottom: .4rem; }
-    strong { color: #fff; font-weight: 600; }
-    code {
-      font-family: var(--mono); font-size: .85em;
-      background: rgba(255,255,255,.06); padding: 1px 5px; border-radius: 3px;
-      color: #c9b8e8;
-    }
+    ::selection { background: #2a2a24; color: var(--fg-strong); }
+    :focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
 
-    /* ─── SKIP LINK ─── */
+    a { color: var(--info); text-decoration: none; border-bottom: 1px solid #26303a; }
+    a:hover { color: var(--fg-strong); border-bottom-color: var(--dim); }
+    strong { color: var(--fg-strong); font-weight: 600; }
+    em { color: var(--fg); font-style: normal; border-bottom: 1px dotted var(--line-2); }
+    code { font-family: var(--mono); font-size: .92em; color: var(--fg-strong); background: var(--panel-2); padding: 0 4px; border: 1px solid var(--line); }
+    h2 { font-size: 1.06rem; font-weight: 600; color: var(--fg-strong); letter-spacing: .01em; }
+    h2 .accent { color: var(--accent); }
+    h3 { font-size: .88rem; font-weight: 600; color: var(--fg-strong); }
+    h4 { font-size: .72rem; font-weight: 600; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; }
+    p:last-child { margin-bottom: 0; }
+    ul, ol { list-style: none; }
+    li { position: relative; }
+    main, section { display: block; }
+
     .skip {
-      position: absolute; left: -9999px; top: 0; z-index: 200;
-      background: var(--warm); color: #0a0a0a; padding: 10px 16px;
-      font-weight: 600; font-size: .85rem;
+      position: absolute; left: -9999px; top: 0; z-index: 99;
+      background: var(--panel); color: var(--fg-strong);
+      border: 1px solid var(--line-2); padding: 8px 14px; font-size: .72rem;
     }
     .skip:focus { left: 8px; top: 8px; }
 
-    /* ─── HEADER ─── */
+    /* header */
     .am-header {
-      position: sticky; top: 0; z-index: 60;
-      background: rgba(10,10,10,.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 40;
+      background: var(--bg); border-bottom: 1px solid var(--line);
     }
     .am-bar {
-      max-width: var(--maxw); margin: 0 auto; padding: 12px 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 1040px; margin: 0 auto; padding: 10px 20px 0;
+      display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
     }
-    .am-brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
-    .am-mark {
-      font-weight: 900; font-size: .95rem; letter-spacing: -.02em;
-      background: linear-gradient(120deg, var(--warm), var(--cool));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-      white-space: nowrap;
-    }
-    .am-brand-sub {
-      font-family: var(--mono); font-size: .62rem; color: var(--faint);
-      text-transform: uppercase; letter-spacing: .1em; white-space: nowrap;
-    }
-
-    .mode-toggle a:focus-visible, .mode-toggle span:focus-visible { outline-offset: -2px; }
-
-    .am-nav {
-      border-top: 1px solid var(--border-soft);
-      background: rgba(10,10,10,.94);
-    }
-    .am-nav-inner {
-      max-width: var(--maxw); margin: 0 auto; padding: 8px 24px;
-      display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center;
-    }
+    .am-brand { display: flex; align-items: baseline; gap: 12px; min-width: 0; }
+    .am-mark { font-size: .72rem; letter-spacing: .22em; color: var(--fg-strong); font-weight: 600; }
+    .am-brand-sub { font-size: .64rem; color: var(--faint); letter-spacing: .06em; white-space: nowrap; }
+    .am-nav { max-width: 1040px; margin: 0 auto; padding: 6px 20px 8px; }
+    .am-nav-inner { display: flex; flex-wrap: wrap; gap: 2px 14px; }
     .am-nav-inner a {
-      font-family: var(--mono); font-size: .64rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: .06em;
-      padding: 3px 0; text-decoration: none;
-      border-bottom: 1px solid transparent;
+      font-size: .64rem; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--faint); border-bottom: none; padding: 2px 0;
     }
-    .am-nav-inner a:hover { color: var(--warm); border-bottom-color: rgba(212,163,115,.5); text-decoration: none; }
+    .am-nav-inner a:hover { color: var(--fg-strong); border-bottom: none; }
 
-    /* ─── LAYOUT ─── */
-    main { display: block; }
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-
-    /* ─── HERO ─── */
-    .am-hero { padding-top: 64px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
-    .eyebrow {
-      font-family: var(--mono); font-size: .68rem; color: var(--warm);
-      text-transform: uppercase; letter-spacing: .16em; margin-bottom: 14px;
-    }
-    .am-hero h1 {
-      font-size: clamp(1.9rem, 4.4vw, 3rem); font-weight: 900;
-      letter-spacing: -.03em; line-height: 1.08; margin-bottom: 16px; color: #fff;
-    }
-    .am-hero h1 .thin { display: block; font-size: .48em; font-weight: 500; color: var(--muted); letter-spacing: -.01em; margin-top: 10px; }
-    .lede { font-size: 1.02rem; color: var(--text-2); max-width: 780px; margin-bottom: 22px; }
-    .lede + .lede { margin-top: -8px; }
-    .hero-controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 30px; }
-    .btn-back {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--mono); font-size: .7rem; text-transform: uppercase;
-      letter-spacing: .08em; color: var(--text); background: #141414;
-      border: 1px solid var(--border); border-radius: 6px; padding: 9px 15px;
-      transition: border-color .2s, color .2s;
-    }
-    .btn-back:hover { border-color: var(--warm); color: var(--warm); text-decoration: none; }
-    .disclosure {
-      font-size: .74rem; color: var(--faint); max-width: 720px; margin-bottom: 30px;
-      border-left: 2px solid rgba(212,163,115,.35); padding-left: 14px;
-    }
-
-    /* quick facts */
-    .facts {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1px; background: var(--border); border: 1px solid var(--border);
-      border-radius: 10px; overflow: hidden;
-    }
-    .fact { background: var(--bg-card); padding: 16px 18px; }
-    .fact dt {
-      font-family: var(--mono); font-size: .6rem; color: var(--faint);
-      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px;
-    }
-    .fact dd { font-size: .88rem; color: var(--text); line-height: 1.5; }
-    .fact dd a { color: var(--cool); }
-
-    /* ─── SECTIONS ─── */
-    section { padding: 56px 0; border-bottom: 1px solid var(--border-soft); }
-    section:last-of-type { border-bottom: none; }
-    .sec-head { margin-bottom: 30px; }
+    /* layout */
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 26px 20px; border-top: 1px solid var(--line); }
+    section:last-of-type { border-bottom: 1px solid var(--line); }
+    .sec-head { margin-bottom: 18px; }
     .sec-kicker {
-      font-family: var(--mono); font-size: .64rem; color: var(--faint);
-      text-transform: uppercase; letter-spacing: .14em; margin-bottom: 10px;
-      display: block;
+      display: block; font-size: .62rem; text-transform: uppercase;
+      letter-spacing: .16em; color: var(--faint); margin-bottom: 8px;
     }
-    h2 {
-      font-size: clamp(1.5rem, 3.2vw, 2.1rem); font-weight: 800;
-      letter-spacing: -.025em; line-height: 1.15; color: #fff;
-    }
-    h2 .accent { color: var(--warm); }
-    .sec-intro { color: var(--text-2); font-size: .95rem; max-width: 780px; margin-top: 14px; }
-    h3 { font-size: 1.06rem; font-weight: 700; color: #fff; letter-spacing: -.01em; margin-bottom: 10px; }
-    h4 { font-size: .98rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    p { margin-bottom: 14px; color: var(--text-2); font-size: .93rem; }
-    p:last-child { margin-bottom: 0; }
+    .sec-intro { font-size: .78rem; color: var(--dim); margin-top: 8px; max-width: 860px; }
 
-    /* cards */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+
+    /* hero record */
+    .am-hero {
+      max-width: 1040px; margin: 18px auto 0; padding: 20px;
+      border: 1px solid var(--line); background: var(--panel);
+    }
+    .eyebrow {
+      font-size: .62rem; text-transform: uppercase; letter-spacing: .18em;
+      color: var(--faint); margin-bottom: 12px;
+    }
+    .am-hero h1 { font-size: 1.1rem; font-weight: 600; color: var(--fg-strong); line-height: 1.4; }
+    .am-hero h1 .thin { display: block; font-size: .8rem; font-weight: 400; color: var(--dim); margin-top: 6px; }
+    .lede { font-size: .78rem; color: var(--dim); margin-top: 12px; max-width: 900px; }
+
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+    .hero-box { border: 1px solid var(--line); background: var(--bg); padding: 12px 14px; }
+    .hero-box-h {
+      font-size: .64rem; text-transform: uppercase; letter-spacing: .14em;
+      color: var(--faint); margin-bottom: 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-list li { font-size: .76rem; color: var(--fg); padding: 3px 0 3px 14px; }
+    .hero-list li::before { content: "- "; position: absolute; left: 0; color: var(--faint); }
+    .hero-list li:last-child { padding-bottom: 0; }
+
+    .hero-controls { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+    .btn-back {
+      font-size: .66rem; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--dim); border: 1px solid var(--line-2); padding: 6px 12px;
+      border-bottom: 1px solid var(--line-2);
+    }
+    .btn-back:hover { color: var(--fg-strong); border-color: var(--dim); }
+
+    .disclosure {
+      margin-top: 16px; padding: 10px 12px;
+      border: 1px solid var(--line); border-left: 2px solid var(--line-2);
+      font-size: .72rem; color: var(--dim); background: var(--bg);
+    }
+    .disclosure strong { color: var(--fg); }
+
+    /* facts: line-numbered key/value record */
+    .facts {
+      margin-top: 16px; border-top: 1px solid var(--line);
+      counter-reset: fact;
+    }
+    .fact {
+      display: grid; grid-template-columns: 34px 150px 1fr; align-items: baseline;
+      border-bottom: 1px solid var(--line); padding: 7px 0; counter-increment: fact;
+    }
+    .fact::before {
+      content: counter(fact, decimal-leading-zero);
+      font-size: .62rem; color: var(--faint);
+    }
+    .fact dt {
+      font-size: .64rem; text-transform: uppercase; letter-spacing: .1em; color: var(--faint);
+    }
+    .fact dd { font-size: .78rem; color: var(--fg); }
+    .fact dd a { border-bottom-color: #26303a; }
+
+    /* cards & chips */
     .card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 22px 24px;
+      border: 1px solid var(--line); background: var(--bg); padding: 14px;
+      transition: border-color .15s;
     }
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
-
+    .card:hover { border-color: var(--line-2); }
     .num {
-      font-family: var(--mono); font-size: .62rem; color: var(--warm);
-      display: block; margin-bottom: 8px; letter-spacing: .08em;
+      display: block; font-size: .62rem; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--faint); margin-bottom: 8px;
     }
+    .card h3 { margin-bottom: 6px; }
+    .card p { font-size: .77rem; color: var(--dim); }
+    .card p + p { margin-top: 8px; }
 
-    /* thesis / callout */
-    .thesis {
-      background: linear-gradient(180deg, rgba(212,163,115,.06), rgba(122,158,177,.03));
-      border: 1px solid rgba(212,163,115,.28);
-      border-radius: 12px; padding: 28px;
-    }
-    .thesis p { font-size: 1.02rem; color: var(--text); }
-    .thesis p + p { margin-top: 12px; }
-    .thesis .lead { font-size: 1.16rem; font-weight: 600; color: #fff; line-height: 1.5; }
-
-    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-    .pill {
-      font-family: var(--mono); font-size: .64rem; letter-spacing: .04em;
-      padding: 5px 10px; border-radius: 4px; color: var(--text-2);
-      background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.08);
-      text-transform: uppercase;
-    }
-    .pill.warm { color: var(--warm); border-color: rgba(212,163,115,.3); background: rgba(212,163,115,.08); }
-    .pill.cool { color: var(--cool); border-color: rgba(122,158,177,.3); background: rgba(122,158,177,.08); }
-    .pill.green { color: var(--green); border-color: rgba(90,158,122,.3); background: rgba(90,158,122,.08); }
-
-    /* advocacy reasons */
-    .reason { border-left: 2px solid rgba(212,163,115,.4); padding: 4px 0 4px 20px; margin-bottom: 28px; }
-    .reason:last-of-type { margin-bottom: 0; }
-    .reason h3 { margin-bottom: 8px; }
-    .reason .why {
-      font-size: .84rem; color: var(--warm); font-family: var(--mono);
-      letter-spacing: .02em; margin-bottom: 10px; display: block;
-    }
-    .ev-links { font-size: .84rem; color: var(--muted); margin-top: 8px; }
-    .ev-links a { color: var(--cool); }
-
-    .conclusion {
-      margin-top: 34px; padding: 24px 26px; border-radius: 10px;
-      background: #12140f; border: 1px solid rgba(90,158,122,.35);
-    }
-    .conclusion h3 { color: var(--green); }
-    .conclusion p { color: var(--text); font-size: .95rem; }
-
-    /* evidence dl */
-    dl.fields { display: grid; grid-template-columns: 210px 1fr; gap: 0; margin-top: 14px; }
-    dl.fields dt {
-      font-family: var(--mono); font-size: .64rem; text-transform: uppercase;
-      letter-spacing: .08em; color: var(--faint); padding: 10px 14px 10px 0;
-      border-top: 1px solid var(--border-soft);
-    }
-    dl.fields dd {
-      font-size: .88rem; color: var(--text-2); padding: 10px 0;
-      border-top: 1px solid var(--border-soft);
-    }
-    dl.fields dd a { color: var(--cool); word-break: break-word; }
-    .ev-block { margin-bottom: 26px; }
-    .ev-block > h3 { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-    .ev-block .tag {
-      font-family: var(--mono); font-size: .6rem; font-weight: 500;
-      color: var(--faint); text-transform: uppercase; letter-spacing: .08em;
-    }
-    .ev-block .summary { font-size: .9rem; color: var(--text-2); }
-
-    /* status flags */
     .flag {
-      display: inline-block; font-family: var(--mono); font-size: .6rem;
-      text-transform: uppercase; letter-spacing: .08em; padding: 2px 7px;
-      border-radius: 3px; vertical-align: middle;
+      display: inline-block; font-size: .58rem; text-transform: uppercase;
+      letter-spacing: .08em; padding: 1px 6px; margin-left: 4px;
+      border: 1px solid var(--line-2); color: var(--dim); vertical-align: middle;
     }
-    .flag.ok { color: var(--green); background: rgba(90,158,122,.1); border: 1px solid rgba(90,158,122,.3); }
-    .flag.warn { color: var(--warm); background: rgba(212,163,115,.08); border: 1px solid rgba(212,163,115,.28); }
-    .flag.info { color: var(--cool); background: rgba(122,158,177,.08); border: 1px solid rgba(122,158,177,.28); }
+    .flag.ok { color: var(--ok); border-color: #2c3a2c; }
+    .flag.warn { color: var(--warn); border-color: #3a3426; }
+    .flag.info { color: var(--info); border-color: #26323c; }
+    .flag.green { color: var(--ok); border-color: #2c3a2c; }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .pill {
+      font-size: .64rem; color: var(--dim); border: 1px solid var(--line-2);
+      padding: 2px 8px; letter-spacing: .04em;
+    }
+    .pill.warm { color: var(--accent); border-color: #352e24; }
+    .pill.cool { color: var(--info); border-color: #26323c; }
+    .pill.green { color: var(--ok); border-color: #2c3a2c; }
 
     .note {
-      font-size: .8rem; color: var(--muted); background: rgba(255,255,255,.025);
-      border: 1px dashed var(--border); border-radius: 8px; padding: 12px 14px;
-      margin-top: 12px;
+      margin-top: 14px; border: 1px solid var(--line); padding: 10px 12px;
+      font-size: .73rem; color: var(--dim); background: var(--panel);
     }
-    .note strong { color: var(--warm); font-weight: 600; }
+    .note strong { color: var(--fg); }
 
-    /* project / experience entries */
+    /* thesis */
+    .thesis { border-left: 2px solid var(--line-2); padding-left: 14px; }
+    .thesis .lead { font-size: .9rem; color: var(--fg-strong); margin-bottom: 8px; }
+    .thesis p { font-size: .78rem; color: var(--dim); }
+    .thesis p + p { margin-top: 8px; }
+
+    /* reasons (capabilities) */
+    .reason {
+      border-left: 1px solid var(--line-2); padding: 2px 0 2px 14px;
+      margin-bottom: 18px;
+    }
+    .reason:last-of-type { margin-bottom: 0; }
+    .reason h3 { margin-bottom: 6px; }
+    .reason p, .reason li { font-size: .78rem; color: var(--dim); }
+    .reason p + p { margin-top: 8px; }
+    .reason ul { margin-top: 8px; }
+    .reason li { padding: 3px 0 3px 14px; }
+    .reason li::before { content: "-"; position: absolute; left: 0; color: var(--faint); }
+    .reason .why {
+      display: block; font-size: .62rem; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--faint); margin-bottom: 6px;
+    }
+
+    /* case / summary parts */
+    .case-part { margin-bottom: 20px; }
+    .case-part h3 { color: var(--fg-strong); margin-bottom: 8px; }
+    .case-part p, .case-part li { font-size: .78rem; color: var(--dim); }
+    .case-part ul li { padding: 4px 0 4px 14px; }
+    .case-part ul li::before { content: "-"; position: absolute; left: 0; color: var(--faint); }
+
+    /* experience entries */
     .entry {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 24px; margin-bottom: 18px;
-      scroll-margin-top: 132px;
+      border: 1px solid var(--line); padding: 16px; margin-top: 12px; background: var(--bg);
     }
-    .entry-head { display: flex; justify-content: space-between; gap: 14px; align-items: flex-start; flex-wrap: wrap; }
-    .entry-head h3, .entry-head h4 { font-size: 1.05rem; margin-bottom: 4px; font-weight: 700; }
+    .entry-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .entry-head h3, .entry-head h4 { font-size: .9rem; margin-top: 4px; }
     .entry-kicker {
-      font-family: var(--mono); font-size: .6rem; color: var(--faint);
-      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; display: block;
+      display: block; font-size: .62rem; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--faint);
     }
-    .entry-purpose { font-size: .9rem; color: var(--text-2); margin-bottom: 4px; }
-    .entry a.repo {
-      font-family: var(--mono); font-size: .7rem; color: var(--cool);
-      border: 1px solid var(--border); border-radius: 5px; padding: 5px 10px;
-      white-space: nowrap;
-    }
-    .entry a.repo:hover { border-color: var(--cool); text-decoration: none; }
+    .entry-purpose { font-size: .8rem; color: var(--dim); margin-top: 8px; }
+    .entry a.repo { font-size: .7rem; border-bottom-color: #26303a; }
+    .addl-head { margin-top: 22px; font-size: .82rem; color: var(--fg-strong); }
+    .addl-note { font-size: .74rem; color: var(--dim); margin-top: 6px; }
 
-    /* category index */
-    .cat-index { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-bottom: 30px; }
-    .cat {
-      background: var(--bg-card-2); border: 1px solid var(--border);
-      border-radius: 8px; padding: 16px 18px;
+    /* key/value field lists */
+    dl.fields { display: grid; grid-template-columns: 170px 1fr; margin-top: 10px; }
+    dl.fields dt {
+      font-size: .64rem; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--faint); padding: 7px 12px 7px 0; border-top: 1px solid var(--line);
     }
-    .cat h3 { font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; color: var(--warm); margin-bottom: 10px; font-family: var(--mono); font-weight: 600; }
-    .cat ul { list-style: none; padding: 0; margin: 0; }
-    .cat li { margin-bottom: 6px; font-size: .82rem; }
-    .cat li a { color: var(--text-2); }
-    .cat li a:hover { color: var(--warm); }
+    dl.fields dd {
+      font-size: .78rem; color: var(--fg); padding: 7px 0;
+      border-top: 1px solid var(--line);
+    }
+    dl.fields dd a { border-bottom-color: #26303a; }
 
     /* roles */
-    .role { border-top: 1px solid var(--border-soft); padding-top: 18px; margin-bottom: 22px; }
+    .role { border: 1px solid var(--line); padding: 14px; margin-bottom: 12px; }
     .role:last-child { margin-bottom: 0; }
-    .role h3 { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
-    .role .fit {
-      font-family: var(--mono); font-size: .58rem; text-transform: uppercase;
-      letter-spacing: .08em; color: var(--faint);
+    .role h3 { margin-bottom: 4px; }
+
+    /* evidence blocks */
+    .ev-block { border: 1px solid var(--line); padding: 14px; margin-top: 12px; }
+    .ev-block > h3 { margin-bottom: 6px; }
+    .ev-block .summary { font-size: .78rem; color: var(--dim); }
+    .ev-block .tag {
+      font-size: .58rem; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--faint); border: 1px solid var(--line); padding: 1px 6px; margin-left: 6px;
+    }
+    .ev-links { font-size: .7rem; color: var(--faint); margin-top: 8px; }
+    .ev-links a { color: var(--info); }
+
+    /* projects index */
+    .cat-index { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+    .cat { border: 1px solid var(--line); padding: 10px 12px; min-width: 180px; flex: 1; }
+    .cat h3 { font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-bottom: 6px; }
+    .cat li { font-size: .74rem; padding: 2px 0; }
+    .cat li a { color: var(--fg); border-bottom-color: transparent; }
+    .cat li a:hover { color: var(--fg-strong); border-bottom-color: var(--dim); }
+
+    /* skills */
+    .skill-group { border: 1px solid var(--line); padding: 12px 14px; }
+    .skill-group h3, .skill-group h4 { margin-bottom: 8px; }
+    .skill-group ul { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    /* topics (qgroup) */
+    .qgroup h3 { margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+    .qgroup ol { counter-reset: q; }
+    .qgroup ol li {
+      counter-increment: q; font-size: .75rem; color: var(--dim);
+      padding: 4px 0 4px 26px; border-bottom: 1px dotted #191919;
+    }
+    .qgroup ol li:last-child { border-bottom: none; }
+    .qgroup ol li::before {
+      content: counter(q) "."; position: absolute; left: 0; color: var(--faint);
     }
 
-    /* questions */
-    .qgroup { margin-bottom: 24px; }
-    .qgroup h3 { color: var(--warm); font-size: .92rem; }
-    .qgroup ol { color: var(--text-2); font-size: .9rem; }
-    .qgroup ol li { margin-bottom: 8px; }
-
-    /* record tables */
-    .rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    /* structured record blocks */
+    .rec-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .rec { border: 1px solid var(--line); background: var(--panel); padding: 14px; }
     .rec h3 {
-      font-family: var(--mono); font-size: .68rem; text-transform: uppercase;
-      letter-spacing: .1em; color: var(--warm); margin-bottom: 12px;
-      padding-bottom: 8px; border-bottom: 1px solid var(--border);
+      font-size: .66rem; text-transform: uppercase; letter-spacing: .12em;
+      color: var(--accent); border-bottom: 1px solid var(--line);
+      padding-bottom: 6px; margin-bottom: 8px;
     }
-    .rec ul { list-style: none; padding: 0; }
-    .rec li { font-size: .85rem; color: var(--text-2); margin-bottom: 7px; }
-    .rec li b { color: var(--text); font-weight: 600; }
-    .skill-group { margin-bottom: 14px; }
-    .skill-group h3, .skill-group h4 {
-      font-family: var(--mono); font-size: .62rem; text-transform: uppercase;
-      letter-spacing: .1em; color: var(--faint); margin-bottom: 7px; font-weight: 600;
-    }
-    .skill-group ul { display: flex; flex-wrap: wrap; gap: 6px; }
-
-    /* interview case */
-    .case-part { margin-bottom: 24px; }
-    .case-part h3 { color: var(--warm); }
-    .case-final {
-      background: linear-gradient(180deg, rgba(90,158,122,.08), rgba(90,158,122,.02));
-      border: 1px solid rgba(90,158,122,.4); border-radius: 12px; padding: 26px;
-    }
-    .case-final p { color: var(--text); font-size: .98rem; }
+    .rec li { font-size: .74rem; color: var(--dim); padding: 3px 0 3px 12px; }
+    .rec li::before { content: ":"; position: absolute; left: 0; color: var(--faint); }
+    .rec li b { color: var(--fg-strong); font-weight: 600; }
+    .rec .pill { margin: 2px 0; }
+    .rec .skill-group { border: none; padding: 8px 0 0; }
 
     /* footer */
-    .am-footer { border-top: 1px solid var(--border); padding: 40px 0 60px; background: #080808; }
-    .am-footer h3 { font-size: .68rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--faint); margin-bottom: 14px; }
-    .file-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
-    .file-list li a {
-      font-family: var(--mono); font-size: .72rem; color: var(--text-2);
-      border: 1px solid var(--border); border-radius: 5px; padding: 7px 12px; display: inline-block;
+    .am-footer { border-top: 1px solid var(--line); margin-top: 8px; padding: 22px 0 90px; }
+    .am-footer h3 {
+      font-size: .66rem; text-transform: uppercase; letter-spacing: .12em;
+      color: var(--faint); margin-bottom: 10px;
     }
-    .file-list li a:hover { border-color: var(--cool); color: var(--cool); text-decoration: none; }
-    .foot-meta { font-size: .78rem; color: var(--faint); }
-    .foot-meta a { color: var(--muted); }
+    .file-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .file-list li a {
+      font-size: .68rem; color: var(--dim); border: 1px solid var(--line);
+      padding: 3px 8px; border-bottom: 1px solid var(--line);
+    }
+    .file-list li a:hover { color: var(--fg-strong); border-color: var(--line-2); }
+    .foot-meta { font-size: .7rem; color: var(--faint); margin-top: 12px; max-width: 900px; }
+    .foot-meta a { color: var(--info); }
 
-    /* ─── MODE DOCK (bottom-center, sliding thumb, names only) ─── */
+    /* mode dock */
     .mode-dock {
-      position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
-      z-index: 90; display: inline-flex; padding: 2px;
-      border: 1px solid var(--border); border-radius: 999px;
-      background: rgba(13,13,13,.94); backdrop-filter: blur(12px);
-      box-shadow: 0 8px 28px rgba(0,0,0,.45);
+      position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
+      display: flex; z-index: 50; border: 1px solid var(--line-2);
+      background: var(--panel-2);
     }
     .mode-dock .dock-thumb {
-      position: absolute; top: 2px; left: 2px; height: calc(100% - 4px);
-      width: calc(50% - 2px); border-radius: 999px;
-      background: rgba(212,163,115,.16); border: 1px solid rgba(212,163,115,.45);
-      transition: transform .35s cubic-bezier(.4,0,.2,1);
+      position: absolute; top: 0; bottom: 0; left: 50%; width: 50%;
+      background: #1b1b1b; border-left: 1px solid var(--line-2);
     }
-    .mode-dock.is-agent .dock-thumb { transform: translateX(100%); }
     .mode-dock .dock-opt {
-      position: relative; z-index: 1; display: inline-flex;
-      align-items: center; justify-content: center;
-      min-width: 96px; padding: 8px 20px; border-radius: 999px;
-      font-family: var(--mono); font-size: .66rem; letter-spacing: .08em;
-      text-transform: uppercase; color: var(--muted); text-decoration: none;
-      transition: color .3s;
+      position: relative; z-index: 1; font-size: .62rem; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--faint); padding: 7px 14px;
+      border-bottom: none; text-align: center;
     }
-    .mode-dock .dock-opt:hover { color: var(--text); text-decoration: none; }
-    .mode-dock .dock-opt.is-on { color: var(--warm); cursor: default; }
+    .mode-dock .dock-opt.is-on { color: var(--fg-strong); }
+    .mode-dock .dock-opt:hover { color: var(--fg); }
     .mode-dock a:focus-visible { outline-offset: -2px; }
 
-    /* hero: core areas + why interview */
-    .hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; margin-bottom: 26px; }
-    .hero-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
-    .hero-box-h {
-      font-family: var(--mono); font-size: .66rem; text-transform: uppercase;
-      letter-spacing: .12em; color: var(--warm); margin-bottom: 12px; font-weight: 600;
-    }
-    .hero-list { list-style: none; padding: 0; margin: 0; }
-    .hero-list li {
-      font-size: .87rem; color: var(--text-2); padding-left: 16px;
-      position: relative; margin-bottom: 9px; line-height: 1.55;
-    }
-    .hero-list li:last-child { margin-bottom: 0; }
-    .hero-list li::before { content: "\2014"; position: absolute; left: 0; color: var(--faint); }
-
-    /* flag variants */
-    .flag.green { color: var(--green); background: rgba(90,158,122,.1); border: 1px solid rgba(90,158,122,.3); }
-
-    /* additional projects group */
-    .addl-head { margin: 30px 0 4px; }
-    .addl-note { font-size: .88rem; color: var(--muted); margin-bottom: 16px; }
-
-    /* motion (subtle, CSS only, disabled for reduced motion) */
-    .reveal { animation: rise .5s ease both; }
-    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .reveal { animation: none; }
-    }
+    /* presentation */
+    .reveal { animation: none; opacity: 1; transform: none; }
 
     @media (max-width: 760px) {
-      dl.fields { grid-template-columns: 1fr; gap: 0; }
-      dl.fields dt { border-top: 1px solid var(--border-soft); padding-bottom: 0; }
-      dl.fields dd { border-top: none; padding-top: 4px; }
-      .am-brand-sub { display: none; }
-      html { scroll-padding-top: 150px; }
+      .hero-grid, .grid-2, .grid-3, .rec-grid { grid-template-columns: 1fr; }
+      .fact { grid-template-columns: 26px 1fr; }
+      .fact dt { grid-column: 2; }
+      .fact dd { grid-column: 2; }
+      dl.fields { grid-template-columns: 1fr; }
+      dl.fields dd { border-top: none; padding-top: 0; padding-bottom: 10px; }
+      dl.fields dt { padding-bottom: 2px; }
+      .am-bar { flex-direction: column; gap: 2px; }
+      .entry-head { flex-direction: column; }
+      .cat { min-width: 100%; }
     }
     @media (max-width: 480px) {
-      .am-nav-inner { gap: 4px 10px; }
-      .am-nav-inner a { font-size: .58rem; }
+      body { font-size: 13px; }
+      .wrap { padding: 20px 14px; }
+      .am-hero { margin: 12px 14px 0; padding: 14px; }
     }
-  </style>
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -457,30 +409,30 @@
 </head>
 <body data-mode="agent">
 
-  <a class="skip" href="#main">Skip to candidate dossier</a>
+  <a class="skip" href="#main">Skip to record</a>
 
   <header class="am-header">
     <div class="am-bar">
       <div class="am-brand">
         <span class="am-mark">SNEH SINHA</span>
-        <span class="am-brand-sub">Candidate dossier · v2</span>
+        <span class="am-brand-sub">candidate record · v2</span>
       </div>
     </div>
     <nav class="am-nav" aria-label="Agent Mode sections">
       <div class="am-nav-inner">
-        <a href="#glance">At a glance</a>
-        <a href="#advocacy">Why interview</a>
+        <a href="#glance">Overview</a>
+        <a href="#capabilities">Capabilities</a>
         <a href="#flagship">Flagship</a>
-        <a href="#differentiators">Distinctive</a>
+        <a href="#differentiators">Domains</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#open-source">External evidence</a>
+        <a href="#open-source">External</a>
         <a href="#skills">Skills</a>
-        <a href="#roles">Roles</a>
-        <a href="#interview-case">Interview case</a>
-        <a href="#interview-questions">Questions</a>
-        <a href="#evidence">Evidence map</a>
-        <a href="#candidate">Candidate record</a>
+        <a href="#roles">Role map</a>
+        <a href="#summary">Summary</a>
+        <a href="#topics">Topics</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#candidate">Record</a>
       </div>
     </nav>
   </header>
@@ -490,7 +442,7 @@
 
       <!-- ══════ HEADER ══════ -->
       <div class="am-hero wrap reveal">
-        <p class="eyebrow">Agent Mode — AI-readable candidate dossier</p>
+        <p class="eyebrow">Agent Mode — structured candidate record</p>
         <h1>
           Sneh Sinha — AI Engineer
           <span class="thin">Builds AI systems that solve real-world problems.</span>
@@ -510,13 +462,12 @@
             </ul>
           </div>
           <div class="hero-box">
-            <h2 class="hero-box-h">Why interview</h2>
+            <h2 class="hero-box-h">Evidence status</h2>
             <ul class="hero-list">
-              <li>Built AI systems with failure handling built in: a computer-use agent with verification and recovery engines, a five-agent pipeline with an explicit verify stage, and a Rust prompt compiler.</li>
-              <li>Two documented real-world engineering engagements: a one-month, 400+ node operations engagement with a stated ~40% reduction in incidents and recovery time (self-reported), and eleven months leading software/electronics including safety-critical ABS firmware on a 50-member team's vehicle.</li>
-              <li>Externally validated code: merged PR #190 (16 commits, 16 tests, 15+ commands) into agentrhq/webcmd, a project with 2,620 stars — verified via GitHub API on 2026-09-30.</li>
-              <li>Works across abstraction levels: Rust and Swift desktop applications, Python/LangGraph backends, and C firmware constrained to 512 KB of RAM.</li>
-              <li>Documented learning cadence: six distinct stacks built in roughly thirteen months, each ending in a published artifact.</li>
+              <li>13 owned public repositories (GitHub API, 2026-09-30)</li>
+              <li>1 merged upstream pull request — agentrhq/webcmd #190</li>
+              <li>2 documented engagements — 1-month operations · 11-month vehicle lead</li>
+              <li>3 repository links currently unavailable (404 as of 2026-09-30)</li>
             </ul>
           </div>
         </div>
@@ -525,7 +476,7 @@
           <a class="btn-back" href="../assets/Sneh_Raj_Sinha_Resume.pdf">Résumé (PDF)</a>
           <a class="btn-back" href="https://github.com/Sneh30">GitHub</a>
         </div>
-        <p class="disclosure"><strong>About this page:</strong> this is an advocacy document written on the candidate's behalf. Every substantive claim below is tied to a project, an engagement, an external repository, or the résumé published with this portfolio. Where evidence is missing, that is stated explicitly rather than papered over. No experience, metric, employer, project, or technology has been invented for this page.</p>
+        <p class="disclosure"><strong>About this page:</strong> a structured candidate record built from the same sources as the rest of the portfolio (portfolio HTML, résumé PDF, GitHub API, LeetCode API). Every substantive claim below is tied to a project, an engagement, an external repository, or the résumé published with this portfolio. Where evidence is missing, that is stated explicitly. No experience, metric, employer, project, or technology has been invented for this page.</p>
 
         <dl class="facts">
           <div class="fact"><dt>Candidate</dt><dd>Sneh Sinha (Sneh Raj Sinha)</dd></div>
@@ -534,7 +485,7 @@
           <div class="fact"><dt>Status</dt><dd>Open to work (per portfolio)</dd></div>
           <div class="fact"><dt>Education</dt><dd>B.E. Robotics &amp; Artificial Intelligence, Bangalore Institute of Technology, 2023–2027 <span class="flag info">résumé</span></dd></div>
           <div class="fact"><dt>Experience</dt><dd>Infrastructure Engineer (1-month engagement, 2026) · Software &amp; Electronics Lead, Team Stratos (11 months, 2025–2026)</dd></div>
-          <div class="fact"><dt>Core differentiator</dt><dd>AI systems + real-world execution + a documented cadence of shipping across stacks</dd></div>
+          <div class="fact"><dt>Positioning</dt><dd>AI systems + real-world execution + a documented cadence of shipping across stacks</dd></div>
           <div class="fact"><dt>Contact</dt><dd><a href="mailto:snehsinha30@gmail.com">snehsinha30@gmail.com</a> · <a href="https://github.com/Sneh30">github.com/Sneh30</a> · <a href="https://www.linkedin.com/in/sneh30">linkedin.com/in/sneh30</a></dd></div>
         </dl>
       </div>
@@ -555,22 +506,22 @@
         <div class="grid-2" style="margin-top:22px">
           <div class="card">
             <span class="num">(01)</span>
-            <h3>He builds systems, not just models</h3>
-            <p>Documented artifacts include verification-and-recovery engines for failed agent actions, multi-agent orchestration with Prometheus observability and a deterministic CI mode, and a Rust prompt compiler with a custom lexer, parser, AST and ten optimization passes. These are engineering artifacts, not notebook demos.</p>
+            <h3>Systems, not only models</h3>
+            <p>Documented artifacts include verification-and-recovery engines for failed agent actions, multi-agent orchestration with Prometheus observability and a deterministic CI mode, and a Rust prompt compiler with a custom lexer, parser, AST and ten optimization passes. Each is a published engineering artifact.</p>
           </div>
           <div class="card">
             <span class="num">(02)</span>
-            <h3>He works across abstraction levels</h3>
+            <h3>Work across abstraction levels</h3>
             <p>The same portfolio contains macOS applications in Rust and Swift, C firmware for ESP32-CAM hardware constrained to 512&nbsp;KB RAM, FastAPI/PostgreSQL/Prometheus backends, and operational responsibility for a 400+ node infrastructure environment.</p>
           </div>
           <div class="card">
             <span class="num">(03)</span>
-            <h3>Evidence beyond coursework</h3>
-            <p>Two documented real-world engagements (a one-month infrastructure operations engagement and an eleven-month safety-critical vehicle software lead role), a merged pull request into an externally maintained open-source project, and thirteen public GitHub repositories.</p>
+            <h3>Engagements beyond coursework</h3>
+            <p>Two documented real-world engagements (a one-month infrastructure operations engagement and an eleven-month safety-critical vehicle software lead role), a merged pull request into an externally maintained open-source project, and thirteen owned public GitHub repositories.</p>
           </div>
           <div class="card">
             <span class="num">(04)</span>
-            <h3>He learns by building</h3>
+            <h3>Build-driven learning cadence</h3>
             <p>The progression is visible in the timeline: Team Stratos (Jul 2025) → multi-agent and LLM-infrastructure projects through 2025–2026 → a computer-use agent platform (Aug 2026) → a one-month infrastructure engagement with a measured outcome (Aug 2026). Each step crosses into a new stack.</p>
           </div>
         </div>
@@ -588,31 +539,31 @@
         </div>
 
         <div class="note">
-          <strong>Scope note:</strong> this dossier covers applied AI and systems work. This portfolio does not present published research, peer-reviewed papers, or production deployments at employer scale, and does not claim expertise in model training or MLOps. When a claim below cannot be independently verified, it is marked.
+          <strong>Scope note:</strong> this record covers applied AI and systems work. This portfolio does not present published research, peer-reviewed papers, or production deployments at employer scale, and does not claim expertise in model training or MLOps. When a claim below cannot be independently verified, it is marked.
         </div>
       </section>
 
-      <!-- ══════ 2. WHY INTERVIEW ══════ -->
-      <section id="advocacy" aria-labelledby="advocacy-h" class="wrap">
+      <!-- ══════ 2. CAPABILITIES ══════ -->
+      <section id="capabilities" aria-labelledby="capabilities-h" class="wrap">
         <div class="sec-head">
-          <span class="sec-kicker">Section 02 · Why interview</span>
-          <h2 id="advocacy-h">Why Interview This <span class="accent">Candidate</span></h2>
-          <p class="sec-intro">This is the primary advocacy section. It is deliberately not a skills list — it explains why the available evidence should change an evaluator's decision, and where that evidence comes from.</p>
+          <span class="sec-kicker">Section 02 · Capabilities demonstrated</span>
+          <h2 id="capabilities-h">Capabilities <span class="accent">Demonstrated</span></h2>
+          <p class="sec-intro">Each capability below is stated with the evidence it rests on and links to the underlying records. No scores or rankings are assigned.</p>
         </div>
 
         <div class="reason">
           <span class="num">(01)</span>
-          <h3>He builds systems, not just models.</h3>
-          <span class="why">Why this matters:</span>
-          <p>This portfolio's strongest artifacts are systems with the unglamorous parts included: failure handling, orchestration state, observability, and deployment packaging.</p>
+          <h3>Systems with failure handling</h3>
+          <span class="why">Context:</span>
+          <p>The primary artifacts in this portfolio are systems with the operational parts included: failure handling, orchestration state, observability, and deployment packaging.</p>
           <p><strong>OpenCode CUA Platform</strong> is a computer-use agent that lets an unmodified OpenCode instance drive a desktop GUI and browser through MCP servers, using screen capture, macOS Accessibility APIs and browser automation — and it ships dedicated <em>verification and recovery engines</em>, because agent actions fail. <strong>Orchestra</strong> runs five specialised LangGraph agents (search, extract, verify, synthesize, critique) with confidence scoring, PostgreSQL persistence, Prometheus instrumentation, a test suite with a deterministic CI mode, and one-command Docker Compose deployment. <strong>DeepOps</strong> (experimental, active development) turns natural-language incident input into root-cause analysis and remediation plans with cost-optimisation logic inside the remediation planner. <strong>PromptOS</strong> treats prompts as source code with a real compiler pipeline rather than a string template.</p>
           <p class="ev-links">Evidence: <a href="#project-opencode-cua">OpenCode CUA Platform</a> · <a href="#project-orchestra">Orchestra</a> · <a href="#project-deepops">DeepOps</a> · <a href="#project-promptos">PromptOS</a></p>
         </div>
 
         <div class="reason">
           <span class="num">(02)</span>
-          <h3>He works across the AI stack.</h3>
-          <span class="why">Why this matters:</span>
+          <h3>Coverage of the AI stack</h3>
+          <span class="why">Context:</span>
           <p>This profile has documented work at every layer between the model and the metal: <strong>AI → agents → LLMs → backend → infrastructure → edge → hardware</strong>.</p>
           <ul>
             <li><strong>Agents / computer use:</strong> OpenCode CUA Platform (MCP servers, Accessibility APIs, browser automation).</li>
@@ -626,8 +577,8 @@
 
         <div class="reason">
           <span class="num">(03)</span>
-          <h3>His learning cadence is documented, not asserted.</h3>
-          <span class="why">Why this matters:</span>
+          <h3>Build cadence across stacks</h3>
+          <span class="why">Context:</span>
           <p>The claim is supported by breadth and cadence rather than by an assertion. Within roughly thirteen months the portfolio shows: safety-critical embedded firmware for a competition vehicle (Jul 2025 – May 2026); a multi-agent research orchestrator and an autonomous cloud-operations platform (2025); a Rust/Swift macOS prompt compiler; a computer-use agent platform (Aug 2026); and a one-month infrastructure engagement with a measured operational outcome (Aug 2026).</p>
           <p>That is movement between embedded C, Rust, Swift, Python, TypeScript, multi-agent frameworks, and live infrastructure operations — each ending in a published artifact rather than a tutorial. <em>The portfolio does not provide a formal benchmark of learning speed; the evidence offered is the number of distinct stacks built, and the short interval between them.</em></p>
           <p class="ev-links">Evidence: <a href="#experience">experience timeline</a> · <a href="#projects">project timeline and grouping</a></p>
@@ -635,9 +586,9 @@
 
         <div class="reason">
           <span class="num">(04)</span>
-          <h3>He has experience with real-world engineering constraints.</h3>
-          <span class="why">Why this matters:</span>
-          <p>Three documented constraint sets, none of them simulated:</p>
+          <h3>Real-world engineering constraints</h3>
+          <span class="why">Context:</span>
+          <p>Three documented engineering constraint sets spanning operational infrastructure, safety-critical hardware, and resource-constrained embedded systems:</p>
           <ul>
             <li><strong>Operational scale:</strong> a one-month on-site engagement on a 400+ node exam-facility network, with a documented reduction of infrastructure incidents and average recovery time by ~40% versus the prior comparable period.</li>
             <li><strong>Safety criticality:</strong> eleven months as Software &amp; Electronics Lead on a 50-member team's vehicle, owning the ABS (Anti-lock Braking System) firmware — the most safety-critical subsystem — validated through track testing and SAE India scrutineering and competition.</li>
@@ -648,25 +599,20 @@
 
         <div class="reason">
           <span class="num">(05)</span>
-          <h3>His projects demonstrate initiative beyond coursework.</h3>
-          <span class="why">Why this matters:</span>
+          <h3>Self-directed projects and external code</h3>
+          <span class="why">Context:</span>
           <p>The portfolio contains independent, self-directed systems (Orchestra, DeepOps, PromptOS, OpenCode CUA, Catalyst, ESP32-CAM Vision Suite), public build-in-the-open writing across six dated technical posts, and — most importantly — <strong>externally accepted code</strong>: PR&nbsp;#190 merged into <code>agentrhq/webcmd</code>, a project with 2,620 stars, touching output-format parsing across 15+ commands with 16 tests and 16 commits.</p>
-          <p>This is the difference between "I say I can code" and "here is code that was reviewed and merged into a project I do not own."</p>
           <p class="ev-links">Evidence: <a href="#open-source">External Evidence</a> · <a href="#project-webcmd">webcmd contribution</a></p>
         </div>
 
         <div class="reason">
           <span class="num">(06)</span>
-          <h3>His profile is particularly relevant to applied AI and agentic systems.</h3>
-          <span class="why">Why this matters:</span>
+          <h3>Focus on applied AI and agentic systems</h3>
+          <span class="why">Context:</span>
           <p>For an AI/agent role, this project set provides directly relevant evidence: a computer-use agent that controls real software (<a href="#project-opencode-cua">OpenCode CUA</a>), multi-agent research orchestration with verification stages (<a href="#project-orchestra">Orchestra</a>), AI infrastructure tooling (<a href="#project-deepops">DeepOps</a>, experimental), and LLM cost/latency engineering (<a href="#project-promptos">PromptOS</a>). Taken together, these projects demonstrate sustained focus on turning model capability into operational behaviour.</p>
-          <p class="ev-links">Evidence: <a href="#roles">Where this candidate is most relevant</a></p>
+          <p class="ev-links">Records: <a href="#roles">Role mapping</a></p>
         </div>
 
-        <div class="conclusion">
-          <h3>Interview-oriented conclusion</h3>
-          <p>The combination of demonstrated AI systems work, infrastructure experience, software engineering, embedded systems exposure, and rapid learning makes Sneh's profile particularly worth exploring in an interview for roles involving applied AI, agents, LLM systems, AI infrastructure, or autonomous systems.</p>
-        </div>
       </section>
 
       <!-- ══════ 3. FLAGSHIP EVIDENCE ══════ -->
@@ -674,7 +620,7 @@
         <div class="sec-head">
           <span class="sec-kicker">Section 03 · Flagship evidence</span>
           <h2 id="flagship-h">Flagship <span class="accent">Evidence</span></h2>
-          <p class="sec-intro">The five artifacts that carry the strongest verifiable evidence: what was built, the documented result, and the verification status of each. Full detail lives in <a href="#projects">Projects</a>; claim-level chains live in the <a href="#evidence">evidence graph</a>.</p>
+          <p class="sec-intro">The five artifacts that carry the primary verifiable evidence: what was built, the documented result, and the verification status of each. Full detail lives in <a href="#projects">Projects</a>; claim-level chains live in the <a href="#evidence">evidence graph</a>.</p>
         </div>
 
         <div class="grid-2">
@@ -719,9 +665,9 @@
       <!-- ══════ 4. DIFFERENTIATORS ══════ -->
       <section id="differentiators" aria-labelledby="diff-h" class="wrap">
         <div class="sec-head">
-          <span class="sec-kicker">Section 04 · Differentiators</span>
-          <h2 id="diff-h">What Makes This Profile <span class="accent">Distinctive</span></h2>
-          <p class="sec-intro">Not a skills list. Each item below is an unusual <em>combination</em> already present in the portfolio, and each links to the project or engagement that demonstrates it.</p>
+          <span class="sec-kicker">Section 04 · Capabilities by domain</span>
+          <h2 id="diff-h">Capabilities by <span class="accent">Domain</span></h2>
+          <p class="sec-intro">Capability combinations present in the portfolio, each linked to the project or engagement record that demonstrates it.</p>
         </div>
 
         <div class="grid-2">
@@ -769,7 +715,7 @@
         <div class="sec-head">
           <span class="sec-kicker">Section 05 · Experience</span>
           <h2 id="exp-h">Professional / Real-World <span class="accent">Experience</span></h2>
-          <p class="sec-intro">Reframed around problem, responsibility, engineering challenge, personal contribution, scale, outcome, and relevance to hiring — not copied from the Human Mode timeline.</p>
+          <p class="sec-intro">Structured as problem → responsibility → personal contribution → scale → outcome, with verification status on each entry.</p>
         </div>
 
         <article class="entry" id="experience-infrastructure" data-evidence-level="documented_experience" data-evidence-status="self_reported">
@@ -794,8 +740,8 @@
             <dd>400+ nodes · one month · on-site.</dd>
             <dt>Measurable outcome</dt>
             <dd>Infrastructure incidents and average recovery time reduced by <strong>~40%</strong> versus the prior comparable period.</dd>
-            <dt>Relevance to hiring</dt>
-            <dd>Demonstrates that he can enter a third-party live environment and produce a measured reliability improvement — a core requirement of AI/infrastructure engineering roles.</dd>
+            <dt>Context</dt>
+            <dd>Independent work in a live operational environment with a measured reliability outcome over a one-month engagement.</dd>
             <dt>Evidence</dt>
             <dd><a href="../#experience">Portfolio · Experience</a> · <a href="../assets/Sneh_Raj_Sinha_Resume.pdf">Résumé (PDF)</a> <span class="flag warn">no employer name or raw data published</span></dd>
           </dl>
@@ -823,8 +769,8 @@
             <dd>50-member team · 11 months · full vehicle integration.</dd>
             <dt>Measurable outcome</dt>
             <dd>Validated through track testing, SAE India scrutineering and competition. No numeric performance gain is published.</dd>
-            <dt>Relevance to hiring</dt>
-            <dd>Evidence of embedded systems work with physical consequences, long-horizon ownership, and cross-disciplinary leadership — relevant to autonomous systems, edge AI, and safety-conscious engineering roles.</dd>
+            <dt>Context</dt>
+            <dd>Embedded systems work with physical consequences: 11 months of full-vehicle integration and ABS firmware validated through track testing and SAE India scrutineering.</dd>
             <dt>Evidence</dt>
             <dd><a href="../#experience">Portfolio · Experience</a> · <a href="../assets/Sneh_Raj_Sinha_Resume.pdf">Résumé (PDF)</a> <span class="flag warn">team project; individual code not separately published</span></dd>
           </dl>
@@ -839,8 +785,8 @@
       <section id="projects" aria-labelledby="proj-h" class="wrap">
         <div class="sec-head">
           <span class="sec-kicker">Section 06 · Projects</span>
-          <h2 id="proj-h">Projects That Demonstrate <span class="accent">Engineering Ability</span></h2>
-          <p class="sec-intro">Ordered by evidence strength: flagship systems first, then supporting projects, then <a href="#additional-projects">additional projects</a> whose repository links are currently unavailable. Each project appears in full once, with cross-category tags at the top of its entry and an evidence status label attached to the record.</p>
+          <h2 id="proj-h">Projects</h2>
+          <p class="sec-intro">Ordered by evidence status: flagship records first, then supporting projects, then <a href="#additional-projects">additional projects</a> whose repository links are currently unavailable. Each project appears in full once, with cross-category tags at the top of its entry and an evidence status label attached to the record.</p>
         </div>
 
         <div class="cat-index">
@@ -917,7 +863,7 @@
             <dd>AI agents are normally confined to a terminal; driving real desktop and browser software requires perception, action and — critically — recovery when an action fails.</dd>
             <dt>What Sneh built</dt>
             <dd>A platform combining screen capture, macOS Accessibility APIs and browser automation behind MCP servers, plus dedicated verification and recovery engines so the agent can confirm and repair failed actions.</dd>
-            <dt>Strongest technical evidence</dt>
+            <dt>Primary technical evidence</dt>
             <dd>Architecture described in the portfolio and in his writing ("the hardest part of AI agents isn't the model — it's verification and recovery when actions fail"); repository authored by Sneh30.</dd>
             <dt>Documented result</dt>
             <dd>No usage metric published. Note: this is the same codebase family as the site's "OpenCode" skill entry.</dd>
@@ -944,7 +890,7 @@
             <dd>Every builtin command handled <code>-f/--format</code> differently — an inconsistency that grows with every new command.</dd>
             <dt>What Sneh built</dt>
             <dd>A single source of truth for output-format parsing, applied across the builtin commands (15+ fixed), with 16 new tests and documentation updates.</dd>
-            <dt>Strongest technical evidence</dt>
+            <dt>Primary technical evidence</dt>
             <dd>A merged pull request in a codebase he does not own — reviewed, tested and accepted upstream.</dd>
             <dt>Documented result</dt>
             <dd>PR #190 merged 2026-08-13 with 16 commits; upstream project 2,620 stars (GitHub API, 2026-09-30).</dd>
@@ -971,7 +917,7 @@
             <dd>Raw prompts are expensive and inconsistent; PromptOS rewrites and compresses them before they reach the model, locally or via cloud providers.</dd>
             <dt>What Sneh built</dt>
             <dd>A Rust core with custom lexer, parser and AST and ten optimisation passes across four compilation modes; WASM plugin support; local inference via Llama.cpp on Metal GPU; a native SwiftUI shell.</dd>
-            <dt>Strongest technical evidence</dt>
+            <dt>Primary technical evidence</dt>
             <dd>Compiler-style architecture (not string templating), self-contained desktop distribution, and local-accelerated inference.</dd>
             <dt>Documented result</dt>
             <dd>Résumé: up to <strong>80–85% lower inference cost in Economy mode</strong> via multi-pass token compression, tested against frontier LLM pricing. <span class="flag info">source: résumé PDF</span></dd>
@@ -998,7 +944,7 @@
             <dd>Automated research that is trustworthy: search, extract, verify, synthesize and critique must be separated so claims can be checked rather than confidently hallucinated.</dd>
             <dt>What Sneh built</dt>
             <dd>The five-agent LangGraph pipeline, FastAPI services, PostgreSQL persistence, Prometheus instrumentation, a test suite with a deterministic CI mode, and Docker Compose packaging for one-command deployment.</dd>
-            <dt>Strongest technical evidence</dt>
+            <dt>Primary technical evidence</dt>
             <dd>Agent decomposition with a verification stage, confidence scoring, observability, and CI-reproducible behaviour — the parts that separate a demo from a system.</dd>
             <dt>Documented result</dt>
             <dd>5 cooperating agents · verified reports with confidence scoring · one-command deployment. No traffic metric published.</dd>
@@ -1025,7 +971,7 @@
             <dd>Infrastructure incident handling depends on people reading signals under pressure; DeepOps interprets natural-language commands, performs root-cause analysis and proposes/executes remediation.</dd>
             <dt>What Sneh built</dt>
             <dd>The multi-agent operations pipeline (LangGraph, FastAPI), including cost-optimisation logic inside the remediation planner.</dd>
-            <dt>Strongest technical evidence</dt>
+            <dt>Primary technical evidence</dt>
             <dd>Natural language → incident interpretation → root-cause analysis → remediation plan, with cost considered as a first-class constraint.</dd>
             <dt>Documented result</dt>
             <dd>Résumé status: core pipeline complete; currently in hardware integration and testing toward end-to-end automated resolution without human intervention. <span class="flag warn">experimental — not a claimed production system</span></dd>
@@ -1052,7 +998,7 @@
             <dd>Doing useful computer vision on hardware with 512 KB RAM, without assuming a GPU or a large model.</dd>
             <dt>What Sneh built</dt>
             <dd>Web-based image capture for ML datasets; an autonomous colour-tracking robot with on-device RGB565→RGB888→HSV conversion and L298N motor control; an MJPEG streaming server supporting 15+ camera board variants.</dd>
-            <dt>Strongest technical evidence</dt>
+            <dt>Primary technical evidence</dt>
             <dd>Math-driven perception (HSV quantisation, centroid tracking) chosen deliberately instead of neural inference to fit the constraint.</dd>
             <dt>Documented result</dt>
             <dd>3 projects · 60 FPS streaming · 15+ board variants · 512 KB RAM ceiling.</dd>
@@ -1077,7 +1023,7 @@
           <dl class="fields">
             <dt>Problem solved</dt><dd>Job-search work is fragmented across tools; Catalyst keeps audit → scrape → generate → track in one SQLite-backed system.</dd>
             <dt>What Sneh built</dt><dd>Backend and application logic (FastAPI/Python), the resume-audit and ATS-generation flows, job scraping, and the tracker.</dd>
-            <dt>Strongest technical evidence</dt><dd>End-to-end product flow with persistence, per the repository description ("resume audit, job scraping, ATS resume generation, content engine, weekly tracker").</dd>
+            <dt>Primary technical evidence</dt><dd>End-to-end product flow with persistence, per the repository description ("resume audit, job scraping, ATS resume generation, content engine, weekly tracker").</dd>
             <dt>Documented result</dt><dd>No usage metrics published.</dd>
             <dt>Technologies (Human Mode)</dt><dd>Python · FastAPI · JavaScript · SQLite</dd>
             <dt>Verification</dt><dd><a href="https://github.com/Sneh30/Catalyst">Repository</a> <span class="flag ok">live</span> (created 2026-07-30)</dd>
@@ -1095,9 +1041,9 @@
           </div>
           <p class="entry-purpose">The site you are reading: semantic HTML/CSS/JS with canvas rendering, scroll-driven animation, and live GitHub/LeetCode API integration.</p>
           <dl class="fields">
-            <dt>Problem solved</dt><dd>Present engineering work credibly, in two modes: a designed experience for humans and a structured dossier for agents.</dd>
-            <dt>What Sneh built</dt><dd>Front-end, canvas terrain renderer, GSAP scroll choreography, live API integrations, and this Agent Mode dossier.</dd>
-            <dt>Strongest technical evidence</dt><dd>Open repository with full history; no framework dependency for the agent-facing layer.</dd>
+            <dt>Problem solved</dt><dd>Present engineering work credibly, in two modes: a designed experience for humans and a structured record for automated parsing.</dd>
+            <dt>What Sneh built</dt><dd>Front-end, canvas terrain renderer, GSAP scroll choreography, live API integrations, and this Agent Mode record.</dd>
+            <dt>Primary technical evidence</dt><dd>Open repository with full history; no framework dependency for the agent-facing layer.</dd>
             <dt>Documented result</dt><dd>Publicly deployed at <a href="https://sneh30.github.io/portfolio/">sneh30.github.io/portfolio</a>.</dd>
             <dt>Technologies (Human Mode)</dt><dd>HTML · CSS · JavaScript</dd>
             <dt>Verification</dt><dd><a href="https://github.com/Sneh30/portfolio">Repository</a> <span class="flag ok">live</span></dd>
@@ -1119,7 +1065,7 @@
           <dl class="fields">
             <dt>Problem solved</dt><dd>Personal AI tooling is fragmented; AgentOS proposes one layered runtime (Interface, Model Router, Simulation Engine, Memory Graph, Guard Layer, Execution Plane).</dd>
             <dt>What Sneh built</dt><dd>Per the portfolio: the six-layer architecture with model routing, memory, guardrails and an execution plane wired to 250+ app integrations via Composio.</dd>
-            <dt>Strongest technical evidence</dt><dd>Architecture description only; the repository is currently unavailable at the published URL (the link returns 404 as of 2026-09-30).</dd>
+            <dt>Primary technical evidence</dt><dd>Architecture description only; the repository is currently unavailable at the published URL (the link returns 404 as of 2026-09-30).</dd>
             <dt>Documented result</dt><dd>6 layers · 250+ app integrations (portfolio claim, not independently verifiable while the repository is unavailable).</dd>
             <dt>Technologies (Human Mode)</dt><dd>TypeScript · Next.js · Supabase · Composio</dd>
             <dt>Verification</dt><dd><span class="flag warn">The portfolio does not currently provide sufficient evidence to verify this claim.</span> The repository link returns 404 (2026-09-30); a public <code>composio</code> repository exists under the same account, but it is not identified in the portfolio as this project.</dd>
@@ -1139,7 +1085,7 @@
           <dl class="fields">
             <dt>Problem solved</dt><dd>Automating a mobile-only interface from the desktop requires bridging mirroring, screen perception and GUI control.</dd>
             <dt>What Sneh built</dt><dd>Per the portfolio: a macOS agent combining computer vision with GUI automation over iPhone Mirroring.</dd>
-            <dt>Strongest technical evidence</dt><dd>Project description and a related technical write-up listed in the portfolio's Writing section; the repository is currently unavailable at the published URL (the link returns 404 as of 2026-09-30).</dd>
+            <dt>Primary technical evidence</dt><dd>Project description and a related technical write-up listed in the portfolio's Writing section; the repository is currently unavailable at the published URL (the link returns 404 as of 2026-09-30).</dd>
             <dt>Documented result</dt><dd>No numeric metric published.</dd>
             <dt>Technologies (Human Mode)</dt><dd>Swift · Computer Vision · GUI Automation</dd>
             <dt>Verification</dt><dd><span class="flag warn">The portfolio does not currently provide sufficient evidence to verify this claim.</span> Repository link returns 404 (2026-09-30).</dd>
@@ -1159,7 +1105,7 @@
           <dl class="fields">
             <dt>Problem solved</dt><dd>Getting text from any device onto any machine without installing software — solved in firmware rather than in an app.</dd>
             <dt>What Sneh built</dt><dd>Per the portfolio: ESP32 BLE HID keyboard firmware plus a Cloudflare Workers backend that pushes text to the device.</dd>
-            <dt>Strongest technical evidence</dt><dd>Project description only; the repository is currently unavailable at the published URL (the link returns 404 as of 2026-09-30).</dd>
+            <dt>Primary technical evidence</dt><dd>Project description only; the repository is currently unavailable at the published URL (the link returns 404 as of 2026-09-30).</dd>
             <dt>Documented result</dt><dd>No numeric metric published.</dd>
             <dt>Technologies (Human Mode)</dt><dd>C++ · ESP32 · BLE · Cloudflare</dd>
             <dt>Verification</dt><dd><span class="flag warn">The portfolio does not currently provide sufficient evidence to verify this claim.</span> Repository link returns 404 (2026-09-30).</dd>
@@ -1195,7 +1141,7 @@
         <div class="sec-head">
           <span class="sec-kicker">Section 07 · External validation</span>
           <h2 id="oss-h">External <span class="accent">Evidence</span></h2>
-          <p class="sec-intro">This section exists to separate "I say I can code" from "here is externally verifiable code that was accepted into an existing project."</p>
+          <p class="sec-intro">Externally verifiable contributions: code reviewed and merged into a project the candidate does not own, plus public activity records.</p>
         </div>
 
         <article class="entry" id="evidence-webcmd-pr">
@@ -1215,7 +1161,7 @@
             <dd>15+ commands fixed, 16 tests added, documentation updated.</dd>
             <dt>Scale / status</dt>
             <dd>Merged <strong>2026-08-13</strong>, containing <strong>16 commits</strong> authored by Sneh30 (verified via GitHub API, 2026-09-30).</dd>
-            <dt>Why it matters</dt>
+            <dt>Context</dt>
             <dd>It shows the ability to enter an unfamiliar, popular codebase, make a cross-cutting refactor safely (single source of truth + tests), and land it through review — the exact behaviour expected of a professional engineer on day one.</dd>
             <dt>Related evidence</dt>
             <dd>Personal fork <a href="https://github.com/Sneh30/webcmd">Sneh30/webcmd</a> · portfolio write-up "What I Learned Contributing to a 2.6k-Star Project" (Aug 2026) · <a href="https://github.com/agentrhq/webcmd">upstream repository</a>.</dd>
@@ -1287,16 +1233,16 @@
         </div>
       </section>
 
-      <!-- ══════ 9. ROLE RELEVANCE ══════ -->
+      <!-- ══════ 9. ROLE MAPPING ══════ -->
       <section id="roles" aria-labelledby="roles-h" class="wrap">
         <div class="sec-head">
-          <span class="sec-kicker">Section 09 · Role relevance</span>
-          <h2 id="roles-h">Role <span class="accent">Relevance</span></h2>
-          <p class="sec-intro">Role → relevant evidence → projects → experience. No scores, no fit percentages — just enough structure for an evaluator to see relevance quickly.</p>
+          <span class="sec-kicker">Section 09 · Role mapping</span>
+          <h2 id="roles-h">Role <span class="accent">Mapping</span></h2>
+          <p class="sec-intro">role → relevant capabilities → evidence. Factual mapping for matching purposes; no scores, rankings, or fit percentages.</p>
         </div>
 
         <div class="role">
-          <h3>AI Engineer <span class="fit">strongly supported</span></h3>
+          <h3>AI Engineer</h3>
           <dl class="fields">
             <dt>Relevant evidence</dt>
             <dd>Multiple built AI systems spanning agents, multi-agent pipelines, and LLM tooling; portfolio focus explicitly on "AI Agents, LLM Cost &amp; Infra".</dd>
@@ -1304,15 +1250,15 @@
             <dd><a href="#project-opencode-cua">OpenCode CUA Platform</a> · <a href="#project-orchestra">Orchestra</a> · <a href="#project-deepops">DeepOps</a> · <a href="#project-promptos">PromptOS</a></dd>
             <dt>Experience</dt>
             <dd><a href="#experience-infrastructure">Infrastructure Engineer engagement</a> · <a href="#experience-team-stratos">Team Stratos</a></dd>
-            <dt>Why it matters</dt>
+            <dt>Context</dt>
             <dd>The evidence covers complete systems rather than isolated model calls — perception, orchestration, cost control and packaging — across AI agents, multi-agent pipelines and LLM tooling, each in a published artifact.</dd>
-            <dt>Interview topics</dt>
+            <dt>Technical topics</dt>
             <dd>Verification and recovery in the computer-use agent; Orchestra's verify stage and deterministic CI mode; how PromptOS measures its cost savings.</dd>
           </dl>
         </div>
 
         <div class="role">
-          <h3>Agentic AI Engineer <span class="fit">strongly supported</span></h3>
+          <h3>Agentic AI Engineer</h3>
           <dl class="fields">
             <dt>Relevant evidence</dt>
             <dd>A computer-use agent with verification/recovery, a five-agent research system with an explicit verify stage, and an agent operating-system architecture.</dd>
@@ -1320,15 +1266,15 @@
             <dd><a href="#project-opencode-cua">OpenCode CUA Platform</a> · <a href="#project-orchestra">Orchestra</a> · <a href="#project-agentos">AgentOS</a> (repository unavailable) · <a href="#project-agentic-hinge">Mobile GUI Automation Agent</a> (repository unavailable)</dd>
             <dt>Skills</dt>
             <dd>LangGraph · OpenCode · OpenRouter · Ollama · Llama.cpp · Multi-Agent Systems</dd>
-            <dt>Why it matters</dt>
+            <dt>Context</dt>
             <dd>Agentic products fail on reliability rather than on model choice. The evidence here centres on failure handling, explicit verification stages and tool integration — the parts that decide whether an agent works outside a demo.</dd>
-            <dt>Interview topics</dt>
+            <dt>Technical topics</dt>
             <dd>MCP server design trade-offs; confidence scoring and disagreement handling between agents; guardrails and execution boundaries.</dd>
           </dl>
         </div>
 
         <div class="role">
-          <h3>AI Infrastructure Engineer <span class="fit">supported by project + engagement</span></h3>
+          <h3>AI Infrastructure Engineer</h3>
           <dl class="fields">
             <dt>Relevant evidence</dt>
             <dd>DeepOps (AI-driven operations) plus a documented 400+ node operations engagement with a ~40% improvement in incidents and recovery time.</dd>
@@ -1336,15 +1282,15 @@
             <dd><a href="#project-deepops">DeepOps</a> · <a href="#project-orchestra">Orchestra</a> (Prometheus, CI, Docker Compose)</dd>
             <dt>Experience</dt>
             <dd><a href="#experience-infrastructure">Infrastructure Engineer — Independent Engagement (Aug 2026)</a></dd>
-            <dt>Why it matters</dt>
+            <dt>Context</dt>
             <dd>The combination of building AI that operates infrastructure (DeepOps) and operating real infrastructure (400+ node engagement) means the automation work is informed by actual incident behaviour rather than a sandbox.</dd>
-            <dt>Interview topics</dt>
+            <dt>Technical topics</dt>
             <dd>What changed to produce the ~40% improvement and how it was measured; DeepOps remediation-planner design; what unattended operation would require.</dd>
           </dl>
         </div>
 
         <div class="role">
-          <h3>LLM Engineer <span class="fit">supported</span></h3>
+          <h3>LLM Engineer</h3>
           <dl class="fields">
             <dt>Relevant evidence</dt>
             <dd>Prompt compilation with measured cost reduction; local inference on Metal; provider abstraction; day-to-day agent tooling.</dd>
@@ -1352,110 +1298,88 @@
             <dd><a href="#project-promptos">PromptOS</a> · <a href="#project-orchestra">Orchestra</a></dd>
             <dt>Caveat</dt>
             <dd>The portfolio does not claim model training, fine-tuning, or research; the LLM evidence is systems- and cost-oriented.</dd>
-            <dt>Why it matters</dt>
-            <dd>PromptOS is a systems answer to cost and latency discipline: a compiler pipeline plus a résumé-reported cost figure that an interview can interrogate.</dd>
-            <dt>Interview topics</dt>
+            <dt>Context</dt>
+            <dd>PromptOS is a systems answer to cost and latency discipline: a compiler pipeline plus a résumé-reported cost figure (up to 80–85% in Economy mode, self-reported).</dd>
+            <dt>Technical topics</dt>
             <dd>The ten optimisation passes and which contributes most; guarding output quality under compression; how the 80–85% figure was measured.</dd>
           </dl>
         </div>
 
         <div class="role">
-          <h3>Autonomous Systems Engineer <span class="fit">supported</span></h3>
+          <h3>Autonomous Systems Engineer</h3>
           <dl class="fields">
             <dt>Relevant evidence</dt>
             <dd>Self-driving perception/control in software (colour-tracking robot), safety-critical braking firmware on a physical vehicle, and autonomous remediation in infrastructure.</dd>
             <dt>Projects / experience</dt>
             <dd><a href="#project-esp32">ESP32-CAM Vision Suite</a> · <a href="#experience-team-stratos">Team Stratos (ABS firmware)</a> · <a href="#project-deepops">DeepOps</a></dd>
-            <dt>Why it matters</dt>
+            <dt>Context</dt>
             <dd>Autonomous systems span software control loops and physical hardware; this profile has both — on-device perception and motor control, safety-critical braking firmware, and autonomous remediation logic.</dd>
-            <dt>Interview topics</dt>
+            <dt>Technical topics</dt>
             <dd>ABS control logic and track-test debugging; the colour-tracking robot's control loop; failure handling in DeepOps remediation.</dd>
           </dl>
         </div>
 
         <div class="role">
-          <h3>AI/Software Systems Engineer <span class="fit">supported</span></h3>
+          <h3>AI/Software Systems Engineer</h3>
           <dl class="fields">
             <dt>Relevant evidence</dt>
             <dd>Backend services, databases, observability, CI/CD, desktop applications in Rust/Swift, and embedded firmware — a systems profile rather than a notebook profile.</dd>
             <dt>Projects</dt>
             <dd><a href="#project-orchestra">Orchestra</a> · <a href="#project-promptos">PromptOS</a> · <a href="#project-catalyst">Catalyst</a> · <a href="#project-portfolio">Portfolio</a></dd>
-            <dt>Why it matters</dt>
+            <dt>Context</dt>
             <dd>Systems roles reward breadth across services, storage, CI and delivery; the evidence includes backends with persistence and observability, desktop applications, embedded firmware, and a deployed site.</dd>
-            <dt>Interview topics</dt>
+            <dt>Technical topics</dt>
             <dd>PostgreSQL and Prometheus choices in Orchestra; PromptOS packaging and distribution; the test strategy behind the webcmd refactor.</dd>
           </dl>
         </div>
 
         <div class="role">
-          <h3>ML Engineer <span class="fit">partially supported — probe in interview</span></h3>
+          <h3>ML Engineer</h3>
           <dl class="fields">
             <dt>Relevant evidence</dt>
             <dd>Hugging Face Transformers and Edge AI in the skills list; ML dataset capture tooling; classical CV on-device (HSV quantisation, centroid tracking); Edge Impulse.</dd>
             <dt>Projects</dt>
             <dd><a href="#project-esp32">ESP32-CAM Vision Suite</a></dd>
             <dt>Caveat</dt>
-            <dd>The portfolio does not document model training, evaluation benchmarks, or deployed ML services. Human Mode lists Multi-Agent Systems and Edge AI under "Exploring". An evaluator should treat this as adjacent evidence, not a primary claim.</dd>
-            <dt>Why it matters</dt>
+            <dd>The portfolio does not document model training, evaluation benchmarks, or deployed ML services. Human Mode lists Multi-Agent Systems and Edge AI under "Exploring". This is adjacent evidence, not a primary claim.</dd>
+            <dt>Context</dt>
             <dd>Adjacent evidence only: on-device classical CV, dataset-capture tooling and Edge Impulse appear in the portfolio, but model training and evaluation are not documented.</dd>
-            <dt>Interview topics</dt>
+            <dt>Technical topics</dt>
             <dd>The dataset-capture workflow; when classical CV beats a model on-device; what an Edge Impulse deployment would look like here.</dd>
           </dl>
         </div>
       </section>
 
-      <!-- ══════ 10. INTERVIEW CASE ══════ -->
-      <section id="interview-case" aria-labelledby="case-h" class="wrap">
+      <!-- ══════ 10. SUMMARY ══════ -->
+      <section id="summary" aria-labelledby="case-h" class="wrap">
         <div class="sec-head">
-          <span class="sec-kicker">Section 10 · Final synthesis</span>
-          <h2 id="case-h">The Case for an <span class="accent">Interview</span></h2>
+          <span class="sec-kicker">Section 10 · Summary</span>
+          <h2 id="case-h">Record <span class="accent">Summary</span></h2>
         </div>
 
         <div class="case-part">
-          <h3>What the candidate demonstrates</h3>
+          <h3>Recorded work</h3>
           <p>Built systems and prototypes across AI agents, LLM systems, infrastructure, and embedded/physical-world computing: a computer-use agent (OpenCode CUA), multi-agent research orchestration with verification (Orchestra), experimental infrastructure-operations AI (DeepOps), prompt compilation with a candidate-reported cost reduction (PromptOS), embedded vision inside 512 KB RAM (ESP32-CAM Vision Suite), and safety-critical vehicle firmware (Team Stratos ABS).</p>
         </div>
 
         <div class="case-part">
-          <h3>What makes the evidence credible</h3>
+          <h3>Verification basis</h3>
           <ul>
             <li><strong>Externally verifiable code:</strong> a merged 16-commit PR into a 2.6k-star repository he does not own, plus live repositories for eight of the eleven listed projects.</li>
-            <li><strong>Real-world constraints, not tutorials:</strong> a 400+ node network with a stated ~40% improvement, a 50-member team, safety-critical braking firmware, and a 512 KB memory ceiling.</li>
-            <li><strong>Consistency across sources:</strong> the Human Mode portfolio, the résumé PDF, the GitHub account, and this dossier tell the same story with the same numbers.</li>
+            <li><strong>Documented constraint sets:</strong> a 400+ node network with a stated ~40% improvement, a 50-member team, safety-critical braking firmware, and a 512 KB memory ceiling.</li>
+            <li><strong>Consistency across sources:</strong> the Human Mode portfolio, the résumé PDF, the GitHub account, and this record carry the same facts and numbers.</li>
             <li><strong>Documented limitations:</strong> where evidence is missing (unavailable repositories, undisclosed employer, self-published contribution counts), this page says so instead of implying more.</li>
           </ul>
         </div>
 
-        <div class="case-part">
-          <h3>What an interviewer should explore</h3>
-          <ul>
-            <li>Architecture and failure modes of the computer-use agent's verification/recovery engines.</li>
-            <li>How Orchestra's five agents coordinate, how confidence scoring is computed, and what the deterministic CI mode actually pins down.</li>
-            <li>What changed in the 400+ node environment to produce the ~40% improvement, and how it was measured.</li>
-            <li>The ABS firmware: control logic, testing approach, and what happened when something failed on track.</li>
-            <li>PromptOS internals: the ten passes, how compression quality is guarded, and how the 80–85% figure was measured.</li>
-            <li>What he would change about DeepOps if it had to run unattended in production tomorrow.</li>
-          </ul>
-          <p class="ev-links">Full question list: <a href="#interview-questions">What an interviewer can explore</a></p>
-        </div>
-
-        <div class="case-part">
-          <h3>Why the profile is worth a technical conversation</h3>
-          <p>This is a candidate whose portfolio answers the two questions that matter for applied AI hiring: <em>can you build the system?</em> (four AI systems, one merged external PR, two embedded projects) and <em>can you operate under real constraints?</em> (400+ nodes, safety-critical firmware, memory and cost budgets). The gaps are the normal gaps of an early-career engineer — no published research, no employer-scale production deployments — and they are the right things to test in a technical conversation rather than to filter on beforehand.</p>
-        </div>
-
-        <div class="case-final">
-          <h3>Recommendation</h3>
-          <p>The evidence presented here provides a strong basis for moving from resume screening to a technical conversation. Specifically: demonstrated AI systems work (agents, multi-agent orchestration, LLM cost engineering), infrastructure experience with a measured outcome, software engineering validated by an externally merged pull request, embedded and safety-critical systems exposure, and a fast, self-directed learning record — this combination makes Sneh Sinha's profile particularly worth advancing to an interview for roles involving applied AI, agents, LLM systems, AI infrastructure, or autonomous systems.</p>
-        </div>
       </section>
 
-      <!-- ══════ 11. INTERVIEWER QUESTIONS ══════ -->
-      <section id="interview-questions" aria-labelledby="q-h" class="wrap">
+      <!-- ══════ 11. TECHNICAL TOPICS ══════ -->
+      <section id="topics" aria-labelledby="q-h" class="wrap">
         <div class="sec-head">
-          <span class="sec-kicker">Section 11 · Interview preparation</span>
-          <h2 id="q-h">What an Interviewer Can <span class="accent">Explore</span></h2>
-          <p class="sec-intro">Questions generated directly from demonstrated work. They are published deliberately: a portfolio that surfaces its own limits is an engineering portfolio, not a marketing page.</p>
+          <span class="sec-kicker">Section 11 · Technical topics</span>
+          <h2 id="q-h">Technical <span class="accent">Topics</span></h2>
+          <p class="sec-intro">Topic index derived from the published work — discussion areas that follow from it, listed for reference.</p>
         </div>
 
         <div class="grid-2">
@@ -1521,12 +1445,12 @@
         <div class="sec-head">
           <span class="sec-kicker">Section 12 · Evidence graph</span>
           <h2 id="evidence-h">Evidence of <span class="accent">Capability</span></h2>
-          <p class="sec-intro">Every major claim follows the same chain: <strong>capability → what was built → what Sneh personally did → result/scale → technologies already present in Human Mode → verification link.</strong> This is the evidence graph a recruiting agent should be able to walk in either direction. Each block carries a qualitative evidence status label (public repo · external validation · documented experience · self-reported · experimental); no numeric scores are assigned.</p>
+          <p class="sec-intro">Every major claim follows the same chain: <strong>capability → what was built → what Sneh personally did → result/scale → technologies already present in Human Mode → verification link.</strong> This is the evidence graph, walkable in either direction by a human reader or an automated parser. Each block carries a qualitative evidence status label (public repo · external validation · documented experience · self-reported · experimental); no numeric scores are assigned.</p>
         </div>
 
         <div class="ev-block" id="capability-agents" data-evidence-level="public_repo">
           <h3>AI Agents &amp; Computer Use <span class="tag">capability 01</span> <span class="flag ok">public repo</span></h3>
-          <p class="summary">Strongest evidence: a platform that lets an AI agent operate a real desktop and browser, including failure handling.</p>
+          <p class="summary">Primary evidence: a platform that lets an AI agent operate a real desktop and browser, including failure handling.</p>
           <dl class="fields">
             <dt>What was built</dt>
             <dd>OpenCode CUA Platform — a Computer-Use Agent platform that lets an unmodified OpenCode instance control the desktop GUI and browser through MCP servers.</dd>
@@ -1545,7 +1469,7 @@
 
         <div class="ev-block" id="capability-multagent" data-evidence-level="public_repo">
           <h3>Multi-Agent Orchestration <span class="tag">capability 02</span> <span class="flag ok">public repo</span></h3>
-          <p class="summary">Strongest evidence: five specialised agents with verification, persistence, observability and CI.</p>
+          <p class="summary">Primary evidence: five specialised agents with verification, persistence, observability and CI.</p>
           <dl class="fields">
             <dt>What was built</dt>
             <dd>Orchestra — production-oriented AI research orchestration with 5 specialised LangGraph agents (search, extract, verify, synthesize, critique) producing verified reports with confidence scoring.</dd>
@@ -1564,7 +1488,7 @@
 
         <div class="ev-block" id="capability-ai-infra" data-evidence-level="public_repo">
           <h3>AI Infrastructure &amp; Autonomous Operations <span class="tag">capability 03</span> <span class="flag ok">public repo</span> <span class="flag warn">experimental</span></h3>
-          <p class="summary">Strongest evidence: AI that takes natural-language incidents to root cause and remediation — plus real operations work on 400+ nodes.</p>
+          <p class="summary">Primary evidence: AI that takes natural-language incidents to root cause and remediation — plus real operations work on 400+ nodes.</p>
           <dl class="fields">
             <dt>What was built</dt>
             <dd>DeepOps — experimental autonomous SRE platform, active development: natural-language infrastructure commands, anomaly/root-cause analysis and proposed remediation.</dd>
@@ -1583,7 +1507,7 @@
 
         <div class="ev-block" id="capability-llm" data-evidence-level="public_repo">
           <h3>LLM Systems &amp; Cost/Latency Engineering <span class="tag">capability 04</span> <span class="flag ok">public repo</span> <span class="flag info">self-reported metric</span></h3>
-          <p class="summary">Strongest evidence: a real compiler pipeline for prompts, with local inference and measured cost reduction.</p>
+          <p class="summary">Primary evidence: a real compiler pipeline for prompts, with local inference and measured cost reduction.</p>
           <dl class="fields">
             <dt>What was built</dt>
             <dd>PromptOS — a macOS desktop app that treats prompts as source code: a Rust core with custom lexer, parser and AST, ten optimisation passes across four compilation modes, WASM plugins, local LLM inference via Llama.cpp/Metal GPU, and cloud provider support.</dd>
@@ -1602,7 +1526,7 @@
 
         <div class="ev-block" id="capability-ops" data-evidence-level="documented_experience">
           <h3>Real-World Infrastructure Operations <span class="tag">capability 05</span> <span class="flag info">documented experience</span> <span class="flag warn">self-reported</span></h3>
-          <p class="summary">Strongest evidence: an on-site, time-boxed engagement with a documented operational outcome.</p>
+          <p class="summary">Primary evidence: an on-site, time-boxed engagement with a documented operational outcome.</p>
           <dl class="fields">
             <dt>What was built / done</dt>
             <dd>Strengthened infrastructure operations for a <strong>400+ node exam-facility network</strong> during a one-month on-site engagement (Aug 2026).</dd>
@@ -1617,12 +1541,12 @@
             <dt>Demonstrates</dt>
             <dd>Live operations · Incident response · Measurable reliability improvement.</dd>
           </dl>
-          <div class="note"><strong>Verification limit:</strong> the portfolio does not currently provide sufficient evidence to verify this claim beyond the candidate's own published statement — no employer name, ticket data, or third-party reference is published. An interviewer should ask for the before/after incident dataset.</div>
+          <div class="note"><strong>Verification limit:</strong> the portfolio does not currently provide sufficient evidence to verify this claim beyond the candidate's own published statement — no employer name, ticket data, or third-party reference is published. The before/after incident dataset is not published.</div>
         </div>
 
         <div class="ev-block" id="capability-embedded" data-evidence-level="public_repo">
           <h3>Embedded Systems &amp; Edge Computer Vision <span class="tag">capability 06</span> <span class="flag ok">public repo</span></h3>
-          <p class="summary">Strongest evidence: three working vision systems on constrained hardware, plus safety-critical vehicle firmware.</p>
+          <p class="summary">Primary evidence: three working vision systems on constrained hardware, plus safety-critical vehicle firmware.</p>
           <dl class="fields">
             <dt>What was built</dt>
             <dd>ESP32-CAM Vision Suite — three projects: web-based image capture for ML datasets, a real-time colour-tracking robot, and a full MJPG video streaming server at 60 FPS.</dd>
@@ -1641,7 +1565,7 @@
 
         <div class="ev-block" id="capability-safety" data-evidence-level="documented_experience">
           <h3>Safety-Critical Systems Engineering <span class="tag">capability 07</span> <span class="flag info">documented experience</span> <span class="flag warn">team project</span></h3>
-          <p class="summary">Strongest evidence: ownership of the most safety-critical subsystem on a real competition vehicle.</p>
+          <p class="summary">Primary evidence: ownership of the most safety-critical subsystem on a real competition vehicle.</p>
           <dl class="fields">
             <dt>What was built / done</dt>
             <dd>Developed and deployed the ABS (Anti-lock Braking System) firmware for a 50-member team's competition vehicle — described in the portfolio as the most safety-critical subsystem.</dd>
@@ -1660,7 +1584,7 @@
 
         <div class="ev-block" id="capability-oss" data-evidence-level="external_validation">
           <h3>Software Engineering &amp; Open-Source Contribution <span class="tag">capability 08</span> <span class="flag ok">external validation</span></h3>
-          <p class="summary">Strongest evidence: code reviewed and merged into a project he does not own.</p>
+          <p class="summary">Primary evidence: code reviewed and merged into a project he does not own.</p>
           <dl class="fields">
             <dt>What was built / done</dt>
             <dd>Merged PR #190 into <code>agentrhq/webcmd</code>: unified <code>-f/--format</code> parsing so every builtin command accepts the same output formats (table, plain, json, yaml, md, csv), created a single source of truth, fixed 15+ commands, added 16 tests, updated docs.</dd>
@@ -1719,7 +1643,7 @@
               <li><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/sneh30">linkedin.com/in/sneh30</a></li>
               <li><b>X:</b> <a href="https://x.com/Sneh30">@Sneh30</a></li>
               <li><b>Portfolio:</b> <a href="https://sneh30.github.io/portfolio/">sneh30.github.io/portfolio</a></li>
-              <li><b>Agent dossier:</b> <a href="https://sneh30.github.io/portfolio/agent/">sneh30.github.io/portfolio/agent</a></li>
+              <li><b>Agent Mode record:</b> <a href="https://sneh30.github.io/portfolio/agent/">sneh30.github.io/portfolio/agent</a></li>
               <li><b>Résumé:</b> <a href="../assets/Sneh_Raj_Sinha_Resume.pdf">assets/Sneh_Raj_Sinha_Resume.pdf</a></li>
               <li><b>LeetCode:</b> <a href="https://leetcode.com/u/sneh_sinha3/">sneh_sinha3</a></li>
             </ul>
@@ -1730,14 +1654,14 @@
             <ul>
               <li><b>B.E. Robotics and Artificial Intelligence</b> — Bangalore Institute of Technology, Bangalore, Karnataka</li>
               <li>Aug 2023 – Aug 2027 (graduating 2027) · GPA 8.0/10</li>
-              <li class="flag info">Source: résumé PDF published with this portfolio. The Human Mode page does not display education details.</li>
+              <li class="flag info">Source: résumé PDF published with this portfolio; also displayed in Human Mode.</li>
             </ul>
             <h3 style="margin-top:18px">Documented highlights</h3>
             <ul>
               <li>Merged PR #190 into agentrhq/webcmd (16 commits, 2026-08-13)</li>
               <li>~40% reduction in infrastructure incidents and recovery time across a 400+ node network</li>
               <li>ABS firmware developed, deployed and validated through SAE India scrutineering and competition</li>
-              <li>732+ GitHub contributions (portfolio figure) · 13 public repositories</li>
+              <li>732+ GitHub contributions (portfolio figure) · 13 owned public repositories</li>
               <li>Up to 80–85% LLM inference cost reduction in PromptOS Economy mode (résumé)</li>
             </ul>
           </div>
@@ -1821,7 +1745,7 @@
         <li><a href="../robots.txt">robots.txt</a></li>
       </ul>
       <p class="foot-meta">
-        <strong>Agent Mode</strong> of <a href="https://sneh30.github.io/portfolio/">sneh30.github.io/portfolio</a> — the AI-optimized mode of the same portfolio. Agent Mode preserves the factual claims of Human Mode while adding structured context, evidence relationships, verification status, and recruiter-oriented explanations.
+        <strong>Agent Mode</strong> of <a href="https://sneh30.github.io/portfolio/">sneh30.github.io/portfolio</a> — the structured-record view of the same portfolio. Agent Mode carries the same facts as Human Mode and adds structured context, evidence relationships, verification status, and technical topic indexes.
         <a href="../">Return to Human Mode</a> · use the mode switcher at the bottom of the page
       </p>
       <p class="foot-meta" style="margin-top:14px">© 2026 Sneh Sinha · Bangalore, India · <a href="mailto:snehsinha30@gmail.com">snehsinha30@gmail.com</a></p>

@@ -1,6 +1,6 @@
 # Crawler policy for https://sneh30.github.io/portfolio/
 # The root URL is the canonical candidate profile and contains the full
-# candidate dossier in semantic HTML. /portfolio/agent/ is an additional
+# candidate profile in semantic HTML. /portfolio/agent/ is an additional
 # structured rendering of the same facts.
 # Nothing here is hidden from legitimate search, recruiting, or analysis crawlers.
 

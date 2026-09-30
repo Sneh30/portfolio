@@ -11,8 +11,8 @@ Sneh Sinha (Sneh Raj Sinha) is based in Bangalore, India and is open to work. He
 
 ## Entry points
 
-- [Canonical candidate profile — the root URL](https://sneh30.github.io/portfolio/): the single submission entry point. The complete candidate profile (identity, positioning, core capabilities, education, why-interview, flagship evidence, experience, projects, technical capabilities, role relevance, evidence labels, verification) exists in its semantic HTML — readable with JavaScript disabled and without following any link.
-- [Agent Mode — dedicated structured dossier](https://sneh30.github.io/portfolio/agent/): an additional rendering of the same facts with structured sections for candidate thesis, why-interview advocacy, flagship evidence, differentiators, experience, projects, external evidence, skills, role relevance, interview case, interview questions, the evidence graph, and the full candidate record. Optional — not required to evaluate the candidate.
+- [Canonical candidate profile — the root URL](https://sneh30.github.io/portfolio/): the single submission entry point. The complete candidate profile (identity, positioning, core capabilities, education, experience, projects, skills, GitHub activity, evidence labels, verification) exists in its semantic HTML — readable with JavaScript disabled and without following any link.
+- [Agent Mode — dedicated structured record](https://sneh30.github.io/portfolio/agent/): an additional rendering of the same facts with structured sections for candidate thesis, capabilities demonstrated, flagship evidence, differentiators, experience, projects, external evidence, skills, role mapping, summary, technical topics, the evidence graph, and the full candidate record. Optional — not required to evaluate the candidate.
 - [Résumé (PDF)](https://sneh30.github.io/portfolio/assets/Sneh_Raj_Sinha_Resume.pdf): source for education and several quantified project figures.
 
 ## Capabilities with evidence
@@ -33,7 +33,7 @@ Sneh Sinha (Sneh Raj Sinha) is based in Bangalore, India and is open to work. He
 
 ## Projects
 
-Ordered by evidence strength — flagship first: OpenCode CUA Platform · webcmd (merged upstream contribution) · PromptOS · Orchestra · DeepOps · ESP32-CAM Vision Suite · Catalyst · Portfolio · then additional projects (AgentOS · Mobile GUI Automation Agent, original prototype "Agentic-hinge" · Pocket Typist; repository links currently unavailable).
+Ordered by evidence status — flagship records first: OpenCode CUA Platform · webcmd (merged upstream contribution) · PromptOS · Orchestra · DeepOps · ESP32-CAM Vision Suite · Catalyst · Portfolio · then additional projects (AgentOS · Mobile GUI Automation Agent, original prototype "Agentic-hinge" · Pocket Typist; repository links currently unavailable).
 
 Verification status: repositories are live for OpenCode CUA Platform, PromptOS, Orchestra, DeepOps, Catalyst, ESP32-CAM Vision Suite, webcmd (upstream PR), and Portfolio. Repository links for AgentOS, the Mobile GUI Automation Agent, and Pocket Typist are currently unavailable at the published URL (links return 404 as of 2026-09-30); their descriptions are not independently verifiable.
 
@@ -65,7 +65,7 @@ B.E. Robotics and Artificial Intelligence, Bangalore Institute of Technology, Au
 ## Links
 
 - Portfolio: https://sneh30.github.io/portfolio/
-- Agent dossier: https://sneh30.github.io/portfolio/agent/
+- Agent Mode record: https://sneh30.github.io/portfolio/agent/
 - GitHub: https://github.com/Sneh30
 - LinkedIn: https://www.linkedin.com/in/sneh30
 - X: https://x.com/Sneh30
@@ -83,4 +83,4 @@ B.E. Robotics and Artificial Intelligence, Bangalore Institute of Technology, Au
 
 ## Honesty notes
 
-This page and the Agent Mode dossier are advocacy documents written on the candidate's behalf, but they do not invent facts. Metrics are attributed to their source (portfolio, résumé PDF, GitHub API, LeetCode API). Where evidence is unavailable the text says so explicitly; for AgentOS, the Mobile GUI Automation Agent (original prototype "Agentic-hinge") and Pocket Typist: "The portfolio does not currently provide sufficient evidence to verify this claim." No employers, certifications, awards, user counts, production claims, or rankings have been fabricated.
+This page and the Agent Mode record are factual descriptions of the candidate, written to be checkable rather than persuasive; they do not invent facts. Metrics are attributed to their source (portfolio, résumé PDF, GitHub API, LeetCode API). Where evidence is unavailable the text says so explicitly; for AgentOS, the Mobile GUI Automation Agent (original prototype "Agentic-hinge") and Pocket Typist: "The portfolio does not currently provide sufficient evidence to verify this claim." No employers, certifications, awards, user counts, production claims, or rankings have been fabricated.

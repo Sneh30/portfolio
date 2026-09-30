@@ -22,6 +22,6 @@ Personal portfolio website for [Sneh Sinha](https://github.com/Sneh30) — AI En
 
 ## Sections
 
-Hero · About · Education · Why Interview · Experience · Projects · Skills · Role Relevance · GitHub Pulse · Evidence & Verification · LeetCode · Engineering Notes · Contact
+Hero · About · Experience · Projects · Skills · GitHub Pulse · Evidence & Verification · LeetCode · Engineering Notes · Contact
 
-Deployed on GitHub Pages at https://sneh30.github.io/portfolio/ (the canonical single URL for both human visitors and AI recruiting agents; a structured Agent Mode dossier lives at /portfolio/agent/).
+Deployed on GitHub Pages at https://sneh30.github.io/portfolio/ (the canonical single URL for both human visitors and AI recruiting agents; a structured Agent Mode record lives at /portfolio/agent/).

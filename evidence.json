@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "generated_at": "2026-09-30",
   "candidate": "Sneh Sinha",
-  "description": "Evidence graph for the Agent Mode dossier. Each record walks the chain: claim → capability → project/experience → implementation → result → verification, so an evaluator can trace any statement back to its source.",
+  "description": "Evidence graph for the Agent Mode record. Each record walks the chain: claim → capability → project/experience → implementation → result → verification, so any statement can be traced back to its source.",
   "chains": [
     {
       "claim": "Builds AI agents",

@@ -595,7 +595,7 @@ body {
   color: rgba(255,255,255,.55); font-weight: 400;
 }
 
-/* ─── FOCUS STRIP (recruiter scan anchors) ─── */
+/* ─── FOCUS STRIP (section anchors) ─── */
 .focus-strip {
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
   margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--border);
@@ -673,38 +673,14 @@ body {
   display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px;
   margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--border);
 }
-.edu-block, .profile-note {
+.edu-block {
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: 8px; padding: 20px 22px;
 }
-.edu-block p, .profile-note p {
+.edu-block p {
   font-size: .8rem; color: var(--text-muted); line-height: 1.7;
 }
 .edu-block strong { color: var(--text); font-weight: 600; }
-.profile-note a {
-  color: #d4a373; text-decoration: none;
-  border-bottom: 1px solid rgba(212,163,115,.3);
-}
-.profile-note a:hover { border-bottom-color: #d4a373; }
-
-/* Why Interview */
-#why { --act-bg: #100f0d; --act-c: #d4a373; }
-.why-list {
-  list-style: none; counter-reset: why;
-  display: flex; flex-direction: column; gap: 0;
-  margin-bottom: 56px; max-width: 900px;
-}
-.why-list li {
-  counter-increment: why; position: relative;
-  padding: 22px 0 22px 64px; border-bottom: 1px solid var(--border);
-  font-size: .87rem; color: var(--text-muted); line-height: 1.75;
-}
-.why-list li:first-child { border-top: 1px solid var(--border); }
-.why-list li::before {
-  content: "(0" counter(why) ")"; position: absolute; left: 0; top: 24px;
-  font-family: var(--mono); font-size: .68rem; color: #d4a373;
-}
-.why-list strong { color: var(--text); font-weight: 600; }
 
 /* Flagship index */
 .flagship-index {
@@ -764,33 +740,6 @@ body {
   border-radius: 3px; color: #d4a373;
 }
 
-/* Role relevance */
-#roles { --act-bg: #0e1013; --act-c: #7a9eb1; }
-.roles-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 16px;
-}
-.role-card {
-  background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 10px; padding: 26px;
-}
-.role-card h3 {
-  font-size: .98rem; font-weight: 700; margin-bottom: 14px; color: #fff;
-}
-.role-caveat {
-  display: inline-block; font-family: var(--mono); font-size: .55rem;
-  text-transform: uppercase; letter-spacing: .05em; font-weight: 400;
-  color: #c4a88a; border: 1px solid rgba(196,168,138,.3);
-  padding: 2px 7px; border-radius: 3px; vertical-align: middle;
-}
-.role-card p {
-  font-size: .78rem; color: var(--text-muted); line-height: 1.65;
-  margin-bottom: 10px;
-}
-.role-card p:last-child { margin-bottom: 0; }
-.role-card strong { color: rgba(255,255,255,.75); font-weight: 600; }
-.role-card .proj-status { margin: 0; }
-
 /* Evidence & verification */
 #evidence { --act-bg: #0c1010; --act-c: #5a9a7a; }
 .ev-labels {
@@ -818,10 +767,8 @@ body {
 @media (max-width: 900px) {
   .about-meta { grid-template-columns: 1fr; }
   .fi-list li { grid-template-columns: 1fr; gap: 4px; }
-  .roles-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
-  .why-list li { padding-left: 44px; }
   .ev-labels { grid-template-columns: 1fr; }
   .proj-divider { width: calc(100vw - 48px); max-width: 340px; }
 }

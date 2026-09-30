@@ -197,7 +197,7 @@ function initReveals() {
     const s = d?.submitStats?.acSubmissionNum;
     const r = d?.profile?.ranking;
     if (!s) throw Error();
-    if (r) document.getElementById("lcRating").textContent = r.toLocaleString();
+    if (r) { const el = document.getElementById("lcRating"); if (el) el.textContent = r.toLocaleString(); }
 
     const items = [
       { id: "lcSolved", bar: null, v: s[0]?.count || 0, max: s[0]?.count || 1 },
