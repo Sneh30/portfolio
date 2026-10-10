@@ -60,6 +60,17 @@ body {
   letter-spacing: .08em; transition: color .2s;
 }
 .nav-links a:hover { color: var(--text); }
+/* Nav copy of the Agent Mode link — same attention treatment as the dock tab. */
+.nav-links a.nav-agent {
+  color: #f2d3a8;
+  padding: 5px 11px; border: 1px solid rgba(212,163,115,.45); border-radius: 999px;
+  animation: agent-glow 1.9s ease-in-out infinite;
+}
+.nav-links a.nav-agent:hover {
+  color: #fff; text-shadow: 0 0 12px rgba(255,190,120,.95);
+  animation-play-state: paused;
+}
+@media (max-width: 860px) { .nav-links a.nav-agent { display: none; } }
 .nav-year { font-size: .7rem; color: var(--text-muted); font-family: var(--mono); }
 .nav.scrolled {
   background: rgba(10,10,10,.88); backdrop-filter: blur(20px);
@@ -579,9 +590,52 @@ body {
 .mode-dock .dock-opt:hover { color: #fff; text-decoration: none; }
 .mode-dock .dock-opt.is-on { color: #d4a373; cursor: default; }
 .mode-dock a:focus-visible { outline: 2px solid #d4a373; outline-offset: -2px; }
+
+/* ─── AGENT MODE TAB: deliberate attention magnet ─── */
+.mode-dock a.dock-opt[href="agent"] {
+  color: #f2d3a8;
+  animation: agent-glow 1.9s ease-in-out infinite, agent-nudge 3.6s ease-in-out infinite;
+}
+.mode-dock a.dock-opt[href="agent"]:hover,
+.mode-dock a.dock-opt[href="agent"]:focus-visible {
+  color: #fff;
+  text-shadow: 0 0 12px rgba(255,190,120,.95);
+  animation-play-state: paused;
+}
+@keyframes agent-glow {
+  0%, 100% {
+    box-shadow: 0 0 6px 0 rgba(212,163,115,.45),
+                0 0 18px 2px rgba(212,163,115,.28);
+    background: rgba(212,163,115,.06);
+  }
+  50% {
+    box-shadow: 0 0 16px 3px rgba(232,175,110,.85),
+                0 0 42px 8px rgba(212,163,115,.55),
+                0 0 70px 14px rgba(212,163,115,.22);
+    background: rgba(212,163,115,.18);
+  }
+}
+@keyframes agent-nudge {
+  0%, 78%, 100% { transform: translateX(0); }
+  82%           { transform: translateX(1px); }
+  86%           { transform: translateX(-1px); }
+  90%           { transform: translateX(2px); }
+  94%           { transform: translateX(0); }
+}
+.mode-dock a.dock-opt[href="agent"] .agent-dot {
+  display: inline-block; width: 5px; height: 5px; margin-left: 6px;
+  border-radius: 50%; background: #7CFFB2; vertical-align: middle;
+  animation: agent-blink 1.4s steps(1, end) infinite;
+}
+@keyframes agent-blink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: .25; } }
+
 @media (max-width: 480px) {
   .mode-dock { bottom: 32px; }
   .mode-dock .dock-opt { min-width: 78px; padding: 7px 14px; font-size: .6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mode-dock a.dock-opt[href="agent"] { animation: agent-glow 3s ease-in-out infinite; }
+  .mode-dock a.dock-opt[href="agent"] .agent-dot { animation: none; }
 }
 
 /* ─── HERO: single h1 + positioning line ─── */
