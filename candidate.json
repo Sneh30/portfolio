@@ -244,7 +244,7 @@
       "one_line": "Experimental autonomous SRE platform — active development.",
       "problem": "Infrastructure incident handling depends on people reading signals under pressure.",
       "built": "Multi-agent operations pipeline (LangGraph, FastAPI): natural-language incident interpretation, root-cause analysis, remediation planning with cost-optimisation logic.",
-      "documented_result": "Résumé status: core pipeline complete; in hardware integration and testing toward end-to-end automated resolution without human intervention.",
+      "documented_result": "Résumé status: early prototype — the incident-interpretation and remediation-planning modules exist, but the end-to-end pipeline is not yet wired together; not claimed as production.",
       "technologies_in_human_mode": [
         "Python",
         "LangGraph",
@@ -606,7 +606,7 @@
     "AgentOS, Agentic-hinge and Pocket Typist repository links return 404 as of 2026-09-30.",
     "The 732+ contributions figure is self-published on the portfolio and was not independently verified.",
     "PromptOS 80–85% and ESP32 512 KB / 15+ board figures come from the résumé PDF, not independent measurement.",
-    "DeepOps is described as a core pipeline in testing; it is not presented as a production system.",
+    "DeepOps is described as an early prototype (modules exist, end-to-end pipeline not yet connected); it is not presented as a production system.",
     "Team Stratos is a team project; the code is not published.",
     "No published research, peer-reviewed papers, certifications, awards, or employer-scale production deployments are claimed.",
     "The candidate's own GitHub repositories currently show 0 stars; the 2.6k star figure belongs to the upstream webcmd project."

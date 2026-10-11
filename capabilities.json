@@ -68,7 +68,7 @@
         {
           "project": "project-deepops",
           "implementation": "Natural-language incident interpretation → root-cause analysis → remediation planning with cost optimisation",
-          "result": "Core pipeline complete; in testing toward end-to-end automated resolution (not claimed as production)",
+          "result": "Early prototype: the incident-interpretation and remediation-planning modules exist, but the end-to-end pipeline is not yet wired together (not claimed as production)",
           "verification": "https://github.com/Sneh30/deepops",
           "verification_status": "live"
         }

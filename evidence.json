@@ -47,7 +47,7 @@
       "project": "project-deepops",
       "project_name": "DeepOps",
       "implementation": "Multi-agent pipeline: natural-language commands → incident interpretation → root-cause analysis → remediation plans with cost-optimisation logic",
-      "result": "Core pipeline complete; in hardware integration and testing toward end-to-end automated resolution without human intervention",
+      "result": "Early prototype: the incident-interpretation and remediation-planning modules exist, but the end-to-end pipeline is not yet wired together; not claimed as production",
       "evidence": "DeepOps",
       "verification": {
         "status": [
