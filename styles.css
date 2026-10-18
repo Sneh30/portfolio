@@ -1029,6 +1029,23 @@ body {
 }
 .vm-nudge-pill:hover { border-color: rgba(212,163,115,.9); background: rgba(16,14,11,.88); }
 .vm-nudge-icon { font-size: .8rem; line-height: 1; }
+/* blink for the whole time it's on screen so the eye catches it */
+@keyframes vmNudgeBlink {
+  0%, 100% {
+    opacity: 1;
+    border-color: rgba(212,163,115,.5);
+    box-shadow: 0 14px 34px rgba(0,0,0,.55);
+  }
+  50% {
+    opacity: .3;
+    border-color: rgba(212,163,115,1);
+    box-shadow: 0 14px 34px rgba(0,0,0,.55), 0 0 22px rgba(212,163,115,.65);
+  }
+}
+.vm-nudge-pill.is-blinking { animation: vmNudgeBlink 1.1s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .vm-nudge-pill.is-blinking { animation: none; }
+}
 @media (max-width: 768px) {
   .vm-nudge-pill { font-size: .58rem; padding: 8px 13px; letter-spacing: .03em; }
 }

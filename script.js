@@ -246,6 +246,7 @@ function showNudge() {
   if (!vm.nudge) return;
   clearTimeout(vm.nudgeTimer);
   gsap.killTweensOf(vm.nudge);
+  if (vm.nudgePill) vm.nudgePill.classList.add("is-blinking");
   /* lands after the expand finishes and the chrome row has arrived */
   gsap.fromTo(vm.nudge, { opacity: 0, y: -10 }, {
     opacity: 1, y: 0, duration: REDUCE ? 0.01 : 0.4, delay: REDUCE ? 0 : 1.1, ease: "power3.out",
@@ -257,6 +258,7 @@ function hideNudge() {
   if (!vm.nudge) return;
   clearTimeout(vm.nudgeTimer);
   gsap.killTweensOf(vm.nudge);
+  if (vm.nudgePill) vm.nudgePill.classList.remove("is-blinking");
   gsap.to(vm.nudge, { opacity: 0, y: -10, duration: REDUCE ? 0.01 : 0.35, ease: "power2.in" });
 }
 
@@ -335,6 +337,7 @@ function closeVideoModal() {
     if (!vm.closing) return;
     vm.closing = false;
     clearTimeout(vm.nudgeTimer);
+    if (vm.nudgePill) vm.nudgePill.classList.remove("is-blinking");
     vm.video.pause();
     vm.video.removeAttribute("src");
     try { vm.video.load(); } catch (e) {}
