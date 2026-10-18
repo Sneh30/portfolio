@@ -1029,20 +1029,27 @@ body {
 }
 .vm-nudge-pill:hover { border-color: rgba(212,163,115,.9); background: rgba(16,14,11,.88); }
 .vm-nudge-icon { font-size: .8rem; line-height: 1; }
-/* blink for the whole time it's on screen so the eye catches it */
+/* blink for the whole time it's on screen so the eye catches it —
+   glow pattern copied from the Human/Agent dock slider (@keyframes dock-glow) */
 @keyframes vmNudgeBlink {
   0%, 100% {
-    opacity: 1;
+    opacity: .3;
     border-color: rgba(212,163,115,.5);
-    box-shadow: 0 14px 34px rgba(0,0,0,.55);
+    background: rgba(10,10,10,.8);
+    box-shadow: 0 0 6px 0 rgba(212,163,115,.45),
+                0 0 18px 2px rgba(212,163,115,.28);
   }
   50% {
-    opacity: .3;
-    border-color: rgba(212,163,115,1);
-    box-shadow: 0 14px 34px rgba(0,0,0,.55), 0 0 22px rgba(212,163,115,.65);
+    opacity: 1;
+    border-color: rgba(232,175,110,1);
+    background: rgba(64,46,30,.92);
+    transform: scale(1.035);
+    box-shadow: 0 0 16px 3px rgba(232,175,110,.85),
+                0 0 42px 8px rgba(212,163,115,.55),
+                0 0 70px 14px rgba(212,163,115,.22);
   }
 }
-.vm-nudge-pill.is-blinking { animation: vmNudgeBlink 1.1s ease-in-out infinite; }
+.vm-nudge-pill.is-blinking { animation: vmNudgeBlink 1.4s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
   .vm-nudge-pill.is-blinking { animation: none; }
 }

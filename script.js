@@ -251,7 +251,8 @@ function showNudge() {
   gsap.fromTo(vm.nudge, { opacity: 0, y: -10 }, {
     opacity: 1, y: 0, duration: REDUCE ? 0.01 : 0.4, delay: REDUCE ? 0 : 1.1, ease: "power3.out",
   });
-  vm.nudgeTimer = window.setTimeout(hideNudge, REDUCE ? 3500 : 4600);
+  /* stays a full 5 seconds once it lands (1.1s entrance + 5s on screen) */
+  vm.nudgeTimer = window.setTimeout(hideNudge, REDUCE ? 5000 : 6100);
 }
 
 function hideNudge() {
