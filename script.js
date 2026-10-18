@@ -63,6 +63,7 @@ const vm = {
   el: null, backdrop: null, wrap: null, video: null, chrome: null,
   title: null, vol: null, volBtn: null, volRange: null, volTxt: null,
   closeBtn: null, seek: null, seekRow: null, time: null, dur: null,
+  nudge: null, nudgePill: null, nudgeTimer: null,
   source: null, open: false, closing: false, _finish: null, seeking: false,
 };
 
@@ -143,19 +144,25 @@ function initVideoModal() {
   vm.seekRow = document.getElementById("vmSeekRow");
   vm.time = document.getElementById("vmTime");
   vm.dur = document.getElementById("vmDur");
+  vm.nudge = document.getElementById("vmNudge");
+  vm.nudgePill = document.getElementById("vmNudgePill");
   resetSeek();
 
   vm.closeBtn.addEventListener("click", closeVideoModal);
   vm.backdrop.addEventListener("click", closeVideoModal);
+  /* tapping the nudge dismisses it early — so does touching the volume controls */
+  if (vm.nudgePill) vm.nudgePill.addEventListener("click", hideNudge);
   vm.volBtn.addEventListener("click", () => {
     vm.video.muted = !vm.video.muted;
     if (!vm.video.muted && vm.video.volume === 0) { vm.video.volume = 1; vm.volRange.value = 100; }
     syncVol();
+    hideNudge();
   });
   vm.volRange.addEventListener("input", () => {
     vm.video.volume = Number(vm.volRange.value) / 100;
     vm.video.muted = vm.video.volume === 0;
     syncVol();
+    hideNudge();
   });
   document.addEventListener("keydown", (e) => {
     if ((e.key === "Escape" || e.key === "Esc") && vm.open) { closeVideoModal(); return; }
@@ -234,18 +241,37 @@ function syncVol() {
   if (!muted) vm.volRange.value = pct;
 }
 
+/* ─── nudge prompt: reminds the visitor to turn their volume up ─── */
+function showNudge() {
+  if (!vm.nudge) return;
+  clearTimeout(vm.nudgeTimer);
+  gsap.killTweensOf(vm.nudge);
+  /* lands after the expand finishes and the chrome row has arrived */
+  gsap.fromTo(vm.nudge, { opacity: 0, y: -10 }, {
+    opacity: 1, y: 0, duration: REDUCE ? 0.01 : 0.4, delay: REDUCE ? 0 : 1.1, ease: "power3.out",
+  });
+  vm.nudgeTimer = window.setTimeout(hideNudge, REDUCE ? 3500 : 4600);
+}
+
+function hideNudge() {
+  if (!vm.nudge) return;
+  clearTimeout(vm.nudgeTimer);
+  gsap.killTweensOf(vm.nudge);
+  gsap.to(vm.nudge, { opacity: 0, y: -10, duration: REDUCE ? 0.01 : 0.35, ease: "power2.in" });
+}
+
 function openVideoModal(thumbEl) {
   if (!vm.el || !thumbEl || !thumbEl._vid || vm.open) return;
   /* a close may still be animating — finish it first so nothing overlaps */
   if (vm.closing && vm._finish) {
-    gsap.killTweensOf([vm.wrap, vm.backdrop, vm.chrome, vm.seekRow, vm.video]);
+    gsap.killTweensOf([vm.wrap, vm.backdrop, vm.chrome, vm.seekRow, vm.nudge, vm.video]);
     vm._finish();
   }
   const srcVideo = thumbEl._vid;
 
   vm.open = true;
   vm.source = thumbEl;
-  gsap.killTweensOf([vm.video, vm.seekRow, vm.chrome]);
+  gsap.killTweensOf([vm.video, vm.seekRow, vm.chrome, vm.nudge]);
 
   const card = thumbEl.closest(".proj-card");
   const h3 = card && card.querySelector("h3");
@@ -289,6 +315,9 @@ function openVideoModal(thumbEl) {
   vm.vol.classList.add("is-arriving");
   syncVol();
 
+  /* nudge: tell them to turn their volume up while the sound plays */
+  showNudge();
+
   /* voice at full volume — inside the click gesture, so autoplay-with-sound is allowed */
   const p = vm.video.play();
   if (p && p.catch) p.catch(() => { vm.video.muted = true; syncVol(); });
@@ -305,6 +334,7 @@ function closeVideoModal() {
   const finish = () => {
     if (!vm.closing) return;
     vm.closing = false;
+    clearTimeout(vm.nudgeTimer);
     vm.video.pause();
     vm.video.removeAttribute("src");
     try { vm.video.load(); } catch (e) {}
@@ -313,7 +343,7 @@ function closeVideoModal() {
     document.body.classList.remove("vm-open");
     resetSeek();
     gsap.set(vm.wrap, { clearProps: "all" });
-    gsap.set([vm.backdrop, vm.chrome, vm.seekRow], { clearProps: "all" });
+    gsap.set([vm.backdrop, vm.chrome, vm.seekRow, vm.nudge], { clearProps: "all" });
     /* let the muted grid videos resume wherever they are visible */
     if (!REDUCE) {
       (vm.thumbs || []).forEach(t => {
@@ -333,7 +363,7 @@ function closeVideoModal() {
 
   if (!thumb || !document.contains(thumb)) {
     gsap.to(vm.backdrop, { opacity: 0, duration: 0.25, onComplete: finish });
-    gsap.to([vm.chrome, vm.seekRow], { opacity: 0, duration: 0.2 });
+    gsap.to([vm.chrome, vm.seekRow, vm.nudge], { opacity: 0, duration: 0.2 });
     return;
   }
 
@@ -343,7 +373,7 @@ function closeVideoModal() {
   const dur = REDUCE ? 0.01 : 0.55;
 
   gsap.to(vm.video, { volume: 0, duration: dur * 0.7, ease: "power1.in" });
-  gsap.to([vm.chrome, vm.seekRow], { opacity: 0, y: 12, duration: REDUCE ? 0.01 : 0.3, ease: "power2.in" });
+  gsap.to([vm.chrome, vm.seekRow, vm.nudge], { opacity: 0, y: 12, duration: REDUCE ? 0.01 : 0.3, ease: "power2.in" });
   gsap.to(vm.backdrop, { opacity: 0, duration: REDUCE ? 0.01 : 0.45, ease: "power2.out" });
 
   if (!visible || REDUCE) {
