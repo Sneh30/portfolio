@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initNav();
   if (!REDUCE) initHero();
   initProjects();
+  initVideoModal();
   if (!REDUCE) initReveals();
   new Terrain();
   if (!isMobile() && !REDUCE) initCursor();
@@ -57,47 +58,255 @@ function initHero() {
   gsap.to(".hero-scroll", { opacity: 1, duration: .6, ease: "sine.inOut", delay: 1 });
 }
 
-/* ─── PROJECTS ─── */
+/* ─── PROJECTS: grid thumbnails (muted, running) + explainer-video modal ─── */
+const vm = {
+  el: null, backdrop: null, wrap: null, video: null, chrome: null,
+  title: null, vol: null, volBtn: null, volRange: null, volTxt: null,
+  closeBtn: null, source: null, open: false, closing: false, _finish: null,
+};
+
 function initProjects() {
-  const track = document.getElementById("projTrack");
-  const wrap = document.querySelector(".proj-track-wrap");
-  if (!track || !wrap) return;
+  const grid = document.querySelector(".proj-cards-grid");
+  if (!grid) return;
 
-  const cards = track.querySelectorAll(".proj-card");
-  if (!cards.length) return;
+  const thumbs = Array.from(grid.querySelectorAll(".proj-video"));
+  if (!thumbs.length) return;
 
-  if (desk() && !REDUCE) {
-    const totalScroll = track.scrollWidth - window.innerWidth + 64;
+  thumbs.forEach(el => {
+    const v = el.querySelector("video");
+    if (!v) return;
+    el._vid = v;
+    v.muted = true;
+    v.defaultMuted = true;
+    /* show a real first frame instead of a black box before playback */
+    const showFirstFrame = () => {
+      try { if (v.readyState >= 1 && v.currentTime < 0.05) v.currentTime = 0.06; } catch (e) {}
+    };
+    if (v.readyState >= 1) showFirstFrame();
+    else v.addEventListener("loadedmetadata", showFirstFrame, { once: true });
 
-    gsap.to(track, {
-      x: -totalScroll,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#projects",
-        start: "top top",
-        end: "+=" + totalScroll,
-        pin: true,
-        pinSpacing: true,
-        scrub: 1,
-        invalidateOnRefresh: true,
-      },
+    el.addEventListener("click", () => openVideoModal(el));
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        e.preventDefault();
+        openVideoModal(el);
+      }
     });
-  } else if (REDUCE && desk()) {
-    wrap.style.overflowX = "auto";
-    track.style.width = "max-content";
+  });
+
+  const safePlay = (v) => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+
+  /* Run only while the card is on screen — and never behind the open modal */
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        const v = en.target._vid;
+        if (!v) return;
+        if (en.isIntersecting && !vm.open && !REDUCE && !document.hidden) safePlay(v);
+        else v.pause();
+      });
+    }, { threshold: 0.25 });
+    thumbs.forEach(t => io.observe(t));
+    vm.io = io;
+    vm.thumbs = thumbs;
   } else {
-    wrap.style.overflowX = "auto";
-    wrap.style.webkitOverflowScrolling = "touch";
-    wrap.style.scrollSnapType = "x mandatory";
-    track.style.width = "max-content";
-
-    cards.forEach(card => {
-      card.style.scrollSnapAlign = "start";
-      card.style.minWidth = "calc(100vw - 48px)";
-      card.style.maxWidth = "340px";
-      card.style.flexShrink = "0";
-    });
+    thumbs.forEach(t => { if (!REDUCE) safePlay(t._vid); });
+    vm.thumbs = thumbs;
   }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) { thumbs.forEach(t => t._vid.pause()); return; }
+    if (vm.open || REDUCE) return;
+    thumbs.forEach(t => {
+      const r = t.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < window.innerHeight) safePlay(t._vid);
+    });
+  });
+}
+
+/* ─── EXPLAINER VIDEO MODAL: FLIP expand, sound at full volume ─── */
+function initVideoModal() {
+  vm.el = document.getElementById("videoModal");
+  if (!vm.el) return;
+  vm.backdrop = document.getElementById("vmBackdrop");
+  vm.wrap = document.getElementById("vmVideoWrap");
+  vm.video = document.getElementById("vmVideo");
+  vm.chrome = document.getElementById("vmChrome");
+  vm.title = document.getElementById("vmTitle");
+  vm.vol = document.getElementById("vmVol");
+  vm.volBtn = document.getElementById("vmVolToggle");
+  vm.volRange = document.getElementById("vmVolRange");
+  vm.volTxt = document.getElementById("vmVolTxt");
+  vm.closeBtn = document.getElementById("vmCloseBtn");
+
+  vm.closeBtn.addEventListener("click", closeVideoModal);
+  vm.backdrop.addEventListener("click", closeVideoModal);
+  vm.volBtn.addEventListener("click", () => {
+    vm.video.muted = !vm.video.muted;
+    if (!vm.video.muted && vm.video.volume === 0) { vm.video.volume = 1; vm.volRange.value = 100; }
+    syncVol();
+  });
+  vm.volRange.addEventListener("input", () => {
+    vm.video.volume = Number(vm.volRange.value) / 100;
+    vm.video.muted = vm.video.volume === 0;
+    syncVol();
+  });
+  document.addEventListener("keydown", (e) => {
+    if ((e.key === "Escape" || e.key === "Esc") && vm.open) { closeVideoModal(); return; }
+    if (e.key !== "Tab" || !vm.open) return;
+    const f = [...vm.el.querySelectorAll("button, input, [tabindex]:not([tabindex='-1'])")]
+      .filter(el => el.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    else if (!vm.el.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+  });
+  /* the page must stay put behind the modal — but never block the volume slider */
+  vm.el.addEventListener("wheel", (e) => e.preventDefault(), { passive: false });
+  vm.el.addEventListener("touchmove", (e) => {
+    if (e.target && e.target.closest && e.target.closest(".vm-vol")) return;
+    e.preventDefault();
+  }, { passive: false });
+}
+
+function syncVol() {
+  if (!vm.video || !vm.volTxt) return;
+  const muted = vm.video.muted || vm.video.volume === 0;
+  const pct = Math.round(vm.video.volume * 100);
+  vm.volBtn.textContent = muted ? "🔇" : "🔊";
+  vm.volBtn.setAttribute("aria-label", muted ? "Turn the volume up" : "Mute sound");
+  vm.volTxt.textContent = muted ? "Muted · turn volume up" : "Sound on · " + pct + "%";
+  vm.vol.classList.toggle("is-muted", muted);
+  if (!muted) vm.volRange.value = pct;
+}
+
+function openVideoModal(thumbEl) {
+  if (!vm.el || !thumbEl || !thumbEl._vid || vm.open) return;
+  /* a close may still be animating — finish it first so nothing overlaps */
+  if (vm.closing && vm._finish) {
+    gsap.killTweensOf([vm.wrap, vm.backdrop, vm.chrome, vm.video]);
+    vm._finish();
+  }
+  const srcVideo = thumbEl._vid;
+
+  vm.open = true;
+  vm.source = thumbEl;
+  gsap.killTweensOf(vm.video);
+
+  const card = thumbEl.closest(".proj-card");
+  const h3 = card && card.querySelector("h3");
+  vm.title.textContent = h3 ? h3.textContent : "Explainer video";
+
+  vm.video.src = srcVideo.currentSrc || srcVideo.src;
+  vm.video.loop = true;
+  vm.video.volume = 1;
+  vm.video.muted = false;
+  /* resume where the thumbnail was — but only once metadata exists (avoids a pre-metadata seek) */
+  const at = srcVideo.currentTime || 0;
+  const applySeek = () => { try { if (at > 0.1) vm.video.currentTime = at; } catch (e) {} };
+  if (vm.video.readyState >= 1) applySeek();
+  else vm.video.addEventListener("loadedmetadata", applySeek, { once: true });
+
+  const first = thumbEl.getBoundingClientRect();
+
+  vm.el.hidden = false;
+  vm.el.setAttribute("aria-hidden", "false");
+  document.body.classList.add("vm-open");
+  (vm.thumbs || []).forEach(t => t._vid.pause());
+
+  const last = vm.wrap.getBoundingClientRect();
+  const dur = REDUCE ? 0.01 : 0.7;
+
+  gsap.set(vm.wrap, { transformOrigin: "top left" });
+  gsap.fromTo(vm.wrap, {
+    x: first.left - last.left,
+    y: first.top - last.top,
+    scaleX: last.width ? first.width / last.width : 1,
+    scaleY: last.height ? first.height / last.height : 1,
+  }, { x: 0, y: 0, scaleX: 1, scaleY: 1, duration: dur, ease: "power3.inOut" });
+  gsap.fromTo(vm.backdrop, { opacity: 0 }, { opacity: 1, duration: REDUCE ? 0.01 : 0.5, ease: "power2.out" });
+  gsap.fromTo(vm.chrome, { opacity: 0, y: 12 }, {
+    opacity: 1, y: 0, duration: REDUCE ? 0.01 : 0.5, delay: REDUCE ? 0 : 0.45, ease: "power3.out",
+  });
+
+  /* the volume label arrives */
+  vm.vol.classList.remove("is-arriving");
+  void vm.vol.offsetWidth;
+  vm.vol.classList.add("is-arriving");
+  syncVol();
+
+  /* voice at full volume — inside the click gesture, so autoplay-with-sound is allowed */
+  const p = vm.video.play();
+  if (p && p.catch) p.catch(() => { vm.video.muted = true; syncVol(); });
+
+  window.setTimeout(() => { if (vm.open) vm.closeBtn.focus({ preventScroll: true }); }, REDUCE ? 0 : 420);
+}
+
+function closeVideoModal() {
+  if (!vm.open || !vm.el || vm.closing) return;
+  const thumb = vm.source;
+  vm.open = false;
+  vm.closing = true;
+
+  const finish = () => {
+    if (!vm.closing) return;
+    vm.closing = false;
+    vm.video.pause();
+    vm.video.removeAttribute("src");
+    try { vm.video.load(); } catch (e) {}
+    vm.el.hidden = true;
+    vm.el.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("vm-open");
+    gsap.set(vm.wrap, { clearProps: "all" });
+    gsap.set([vm.backdrop, vm.chrome], { clearProps: "all" });
+    /* let the muted grid videos resume wherever they are visible */
+    if (!REDUCE) {
+      (vm.thumbs || []).forEach(t => {
+        const v = t._vid;
+        if (!v) return;
+        const r = t.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight && !document.hidden) {
+          const q = v.play(); if (q && q.catch) q.catch(() => {});
+        } else v.pause();
+      });
+    }
+    if (thumb && document.contains(thumb)) thumb.focus({ preventScroll: true });
+    vm.source = null;
+    vm._finish = null;
+  };
+  vm._finish = finish;
+
+  if (!thumb || !document.contains(thumb)) {
+    gsap.to(vm.backdrop, { opacity: 0, duration: 0.25, onComplete: finish });
+    gsap.to(vm.chrome, { opacity: 0, duration: 0.2 });
+    return;
+  }
+
+  const last = vm.wrap.getBoundingClientRect();
+  const target = thumb.getBoundingClientRect();
+  const visible = target.width > 0 && target.bottom > 0 && target.top < window.innerHeight;
+  const dur = REDUCE ? 0.01 : 0.55;
+
+  gsap.to(vm.video, { volume: 0, duration: dur * 0.7, ease: "power1.in" });
+  gsap.to(vm.chrome, { opacity: 0, y: 12, duration: REDUCE ? 0.01 : 0.3, ease: "power2.in" });
+  gsap.to(vm.backdrop, { opacity: 0, duration: REDUCE ? 0.01 : 0.45, ease: "power2.out" });
+
+  if (!visible || REDUCE) {
+    gsap.to(vm.wrap, { opacity: 0, scale: 0.97, duration: dur, ease: "power2.in", onComplete: finish });
+    return;
+  }
+
+  gsap.set(vm.wrap, { transformOrigin: "top left" });
+  gsap.to(vm.wrap, {
+    x: target.left - last.left,
+    y: target.top - last.top,
+    scaleX: last.width ? target.width / last.width : 1,
+    scaleY: last.height ? target.height / last.height : 1,
+    duration: dur,
+    ease: "power3.inOut",
+    onComplete: finish,
+  });
 }
 
 /* ─── REVEALS ─── */
