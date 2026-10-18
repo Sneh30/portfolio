@@ -62,7 +62,8 @@ function initHero() {
 const vm = {
   el: null, backdrop: null, wrap: null, video: null, chrome: null,
   title: null, vol: null, volBtn: null, volRange: null, volTxt: null,
-  closeBtn: null, source: null, open: false, closing: false, _finish: null,
+  closeBtn: null, seek: null, seekRow: null, time: null, dur: null,
+  source: null, open: false, closing: false, _finish: null, seeking: false,
 };
 
 function initProjects() {
@@ -138,6 +139,11 @@ function initVideoModal() {
   vm.volRange = document.getElementById("vmVolRange");
   vm.volTxt = document.getElementById("vmVolTxt");
   vm.closeBtn = document.getElementById("vmCloseBtn");
+  vm.seek = document.getElementById("vmSeek");
+  vm.seekRow = document.getElementById("vmSeekRow");
+  vm.time = document.getElementById("vmTime");
+  vm.dur = document.getElementById("vmDur");
+  resetSeek();
 
   vm.closeBtn.addEventListener("click", closeVideoModal);
   vm.backdrop.addEventListener("click", closeVideoModal);
@@ -168,6 +174,53 @@ function initVideoModal() {
     if (e.target && e.target.closest && e.target.closest(".vm-vol")) return;
     e.preventDefault();
   }, { passive: false });
+
+  /* rewind / scrub slider */
+  vm.video.addEventListener("loadedmetadata", () => {
+    const d = isFinite(vm.video.duration) && vm.video.duration > 0 ? vm.video.duration : 0;
+    vm.seek.max = String(d);
+    vm.seek.disabled = d <= 0;
+    paintSeek();
+  });
+  vm.video.addEventListener("timeupdate", () => { if (!vm.seeking) paintSeek(); });
+  vm.video.addEventListener("seeked", paintSeek);
+  vm.seek.addEventListener("pointerdown", () => { vm.seeking = true; });
+  ["pointerup", "pointercancel"].forEach(t => window.addEventListener(t, () => {
+    if (!vm.seeking) return;
+    vm.seeking = false;
+    paintSeek();
+  }));
+  vm.seek.addEventListener("input", () => {
+    try { vm.video.currentTime = Number(vm.seek.value); } catch (e) {}
+    paintSeek();
+  });
+  vm.seek.addEventListener("keyup", () => { vm.seeking = false; paintSeek(); });
+}
+
+function fmtTime(s) {
+  s = isFinite(s) && s > 0 ? s : 0;
+  return Math.floor(s / 60) + ":" + String(Math.floor(s % 60)).padStart(2, "0");
+}
+
+function paintSeek() {
+  if (!vm.seek || !vm.video) return;
+  const d = isFinite(vm.video.duration) && vm.video.duration > 0 ? vm.video.duration : 0;
+  const t = vm.seeking ? Number(vm.seek.value) : (isFinite(vm.video.currentTime) ? vm.video.currentTime : 0);
+  if (!vm.seeking) vm.seek.value = String(t);
+  vm.seek.style.setProperty("--p", (d ? Math.min(100, (t / d) * 100) : 0).toFixed(2) + "%");
+  if (vm.time) vm.time.textContent = fmtTime(t);
+  if (vm.dur) vm.dur.textContent = fmtTime(d);
+}
+
+function resetSeek() {
+  if (!vm.seek) return;
+  vm.seeking = false;
+  vm.seek.max = "0";
+  vm.seek.value = "0";
+  vm.seek.disabled = true;
+  vm.seek.style.setProperty("--p", "0%");
+  if (vm.time) vm.time.textContent = "0:00";
+  if (vm.dur) vm.dur.textContent = "0:00";
 }
 
 function syncVol() {
@@ -185,14 +238,14 @@ function openVideoModal(thumbEl) {
   if (!vm.el || !thumbEl || !thumbEl._vid || vm.open) return;
   /* a close may still be animating — finish it first so nothing overlaps */
   if (vm.closing && vm._finish) {
-    gsap.killTweensOf([vm.wrap, vm.backdrop, vm.chrome, vm.video]);
+    gsap.killTweensOf([vm.wrap, vm.backdrop, vm.chrome, vm.seekRow, vm.video]);
     vm._finish();
   }
   const srcVideo = thumbEl._vid;
 
   vm.open = true;
   vm.source = thumbEl;
-  gsap.killTweensOf(vm.video);
+  gsap.killTweensOf([vm.video, vm.seekRow, vm.chrome]);
 
   const card = thumbEl.closest(".proj-card");
   const h3 = card && card.querySelector("h3");
@@ -202,11 +255,11 @@ function openVideoModal(thumbEl) {
   vm.video.loop = true;
   vm.video.volume = 1;
   vm.video.muted = false;
-  /* resume where the thumbnail was — but only once metadata exists (avoids a pre-metadata seek) */
-  const at = srcVideo.currentTime || 0;
-  const applySeek = () => { try { if (at > 0.1) vm.video.currentTime = at; } catch (e) {} };
-  if (vm.video.readyState >= 1) applySeek();
-  else vm.video.addEventListener("loadedmetadata", applySeek, { once: true });
+  /* every open starts from the very beginning */
+  const restart = () => { try { if (vm.video.currentTime !== 0) vm.video.currentTime = 0; } catch (e) {} };
+  if (vm.video.readyState >= 1) restart();
+  else vm.video.addEventListener("loadedmetadata", restart, { once: true });
+  resetSeek();
 
   const first = thumbEl.getBoundingClientRect();
 
@@ -226,7 +279,7 @@ function openVideoModal(thumbEl) {
     scaleY: last.height ? first.height / last.height : 1,
   }, { x: 0, y: 0, scaleX: 1, scaleY: 1, duration: dur, ease: "power3.inOut" });
   gsap.fromTo(vm.backdrop, { opacity: 0 }, { opacity: 1, duration: REDUCE ? 0.01 : 0.5, ease: "power2.out" });
-  gsap.fromTo(vm.chrome, { opacity: 0, y: 12 }, {
+  gsap.fromTo([vm.chrome, vm.seekRow], { opacity: 0, y: 12 }, {
     opacity: 1, y: 0, duration: REDUCE ? 0.01 : 0.5, delay: REDUCE ? 0 : 0.45, ease: "power3.out",
   });
 
@@ -258,8 +311,9 @@ function closeVideoModal() {
     vm.el.hidden = true;
     vm.el.setAttribute("aria-hidden", "true");
     document.body.classList.remove("vm-open");
+    resetSeek();
     gsap.set(vm.wrap, { clearProps: "all" });
-    gsap.set([vm.backdrop, vm.chrome], { clearProps: "all" });
+    gsap.set([vm.backdrop, vm.chrome, vm.seekRow], { clearProps: "all" });
     /* let the muted grid videos resume wherever they are visible */
     if (!REDUCE) {
       (vm.thumbs || []).forEach(t => {
@@ -279,7 +333,7 @@ function closeVideoModal() {
 
   if (!thumb || !document.contains(thumb)) {
     gsap.to(vm.backdrop, { opacity: 0, duration: 0.25, onComplete: finish });
-    gsap.to(vm.chrome, { opacity: 0, duration: 0.2 });
+    gsap.to([vm.chrome, vm.seekRow], { opacity: 0, duration: 0.2 });
     return;
   }
 
@@ -289,7 +343,7 @@ function closeVideoModal() {
   const dur = REDUCE ? 0.01 : 0.55;
 
   gsap.to(vm.video, { volume: 0, duration: dur * 0.7, ease: "power1.in" });
-  gsap.to(vm.chrome, { opacity: 0, y: 12, duration: REDUCE ? 0.01 : 0.3, ease: "power2.in" });
+  gsap.to([vm.chrome, vm.seekRow], { opacity: 0, y: 12, duration: REDUCE ? 0.01 : 0.3, ease: "power2.in" });
   gsap.to(vm.backdrop, { opacity: 0, duration: REDUCE ? 0.01 : 0.45, ease: "power2.out" });
 
   if (!visible || REDUCE) {

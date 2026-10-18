@@ -181,16 +181,6 @@
               </div>
               <div class="proj-card featured">
                 <span class="proj-num">(02)</span>
-                <span class="proj-icon">🌐</span>
-                <h3>webcmd — upstream contribution</h3>
-                <span class="proj-status s-ext">External validation</span>
-                <div class="proj-metrics"><span class="pm">agentrhq/webcmd · 2,620★</span><span class="pm">PR #190 merged</span><span class="pm">16 commits · 15+ commands · 16 tests</span></div>
-                <p>Unified output-format parsing across the builtin commands of an existing open-source codebase: a single source of truth for <code>-f/--format</code>, 15+ commands fixed, 16 tests added, docs updated — reviewed and merged upstream as PR #190 (Aug 13, 2026). Demonstrates understanding an unfamiliar codebase, a non-trivial cross-cutting fix, automated testing, and upstream review.</p>
-                <div class="proj-tags"><span>JavaScript</span><span>Open Source</span><span>CLI</span><span>Testing</span></div>
-                <a href="https://github.com/agentrhq/webcmd/pull/190" target="_blank">Merged PR #190 →</a>
-              </div>
-              <div class="proj-card featured">
-                <span class="proj-num">(03)</span>
                 <span class="proj-icon">⚡</span>
                 <h3>PromptOS</h3>
                 <span class="proj-status s-public">Public repo</span>
@@ -207,7 +197,7 @@
                 <a href="https://github.com/Sneh30/promptos" target="_blank">GitHub →</a>
               </div>
               <div class="proj-card featured">
-                <span class="proj-num">(04)</span>
+                <span class="proj-num">(03)</span>
                 <span class="proj-icon">🔬</span>
                 <h3>Orchestra</h3>
                 <span class="proj-status s-public">Public repo</span>
@@ -223,7 +213,7 @@
                 <a href="https://github.com/Sneh30/Orchestra" target="_blank">GitHub →</a>
               </div>
               <div class="proj-card featured">
-                <span class="proj-num">(05)</span>
+                <span class="proj-num">(04)</span>
                 <span class="proj-icon">☁</span>
                 <h3>DeepOps</h3>
                 <span class="proj-status s-public">Public repo</span>
@@ -240,7 +230,7 @@
                 <a href="https://github.com/Sneh30/deepops" target="_blank">GitHub →</a>
               </div>
               <div class="proj-card">
-                <span class="proj-num">(06)</span>
+                <span class="proj-num">(05)</span>
                 <span class="proj-icon">📷</span>
                 <h3>ESP32-CAM Vision Suite</h3>
                 <span class="proj-status s-public">Public repo</span>
@@ -256,7 +246,7 @@
                 <a href="https://github.com/Sneh30/esp32-cam-vision" target="_blank">GitHub →</a>
               </div>
               <div class="proj-card">
-                <span class="proj-num">(07)</span>
+                <span class="proj-num">(06)</span>
                 <span class="proj-icon">💼</span>
                 <h3>Catalyst</h3>
                 <span class="proj-status s-public">Public repo</span>
@@ -271,13 +261,23 @@
                 <a href="https://github.com/Sneh30/Catalyst" target="_blank">GitHub →</a>
               </div>
               <div class="proj-card">
-                <span class="proj-num">(08)</span>
+                <span class="proj-num">(07)</span>
                 <span class="proj-icon">🎨</span>
                 <h3>Portfolio</h3>
                 <span class="proj-status s-public">Public repo</span>
                 <p>This site: semantic HTML/CSS/JS with a canvas terrain renderer, scroll choreography, live GitHub/LeetCode stats with static fallbacks, and a structured candidate profile. Deployed on GitHub Pages at sneh30.github.io/portfolio/.</p>
                 <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span></div>
                 <a href="https://github.com/Sneh30/portfolio" target="_blank">GitHub →</a>
+              </div>
+              <div class="proj-card featured">
+                <span class="proj-num">(08)</span>
+                <span class="proj-icon">🌐</span>
+                <h3>Merged Upstream Contribution</h3>
+                <span class="proj-status s-ext">External validation</span>
+                <div class="proj-metrics"><span class="pm">agentrhq/webcmd · 2,620★</span><span class="pm">PR #190 merged</span><span class="pm">16 commits · 15+ commands · 16 tests</span></div>
+                <p>Unified output-format parsing across the builtin commands of an existing open-source codebase: a single source of truth for <code>-f/--format</code>, 15+ commands fixed, 16 tests added, docs updated — reviewed and merged upstream as PR #190 into webcmd (Aug 13, 2026). Demonstrates understanding an unfamiliar codebase, a non-trivial cross-cutting fix, automated testing, and upstream review.</p>
+                <div class="proj-tags"><span>JavaScript</span><span>Open Source</span><span>CLI</span><span>Testing</span></div>
+                <a href="https://github.com/agentrhq/webcmd/pull/190" target="_blank">Merged PR #190 →</a>
               </div>
             </div>
             <div class="statement">
@@ -690,6 +690,11 @@
     <div class="vm-backdrop" id="vmBackdrop"></div>
     <div class="vm-video" id="vmVideoWrap">
       <video id="vmVideo" playsinline preload="metadata"></video>
+    </div>
+    <div class="vm-seek" id="vmSeekRow">
+      <span class="vm-time" id="vmTime">0:00</span>
+      <input type="range" class="vm-seek-range" id="vmSeek" min="0" max="100" step="0.1" value="0" aria-label="Seek and rewind the explainer video" disabled />
+      <span class="vm-time right" id="vmDur">0:00</span>
     </div>
     <div class="vm-chrome" id="vmChrome">
       <div class="vm-meta">
