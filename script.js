@@ -31,10 +31,14 @@ function initNav() {
   const n = document.getElementById("nav");
 
   document.querySelectorAll(".nav-links a").forEach(a => {
+    const href = a.getAttribute("href") || "";
+    // Only in-page anchors are intercepted for smooth scrolling. Asset links
+    // (the résumé PDF) and any external href must navigate natively — slicing
+    // their href and looking it up as an id silently ate the click.
+    if (!href.startsWith("#")) return;
     a.addEventListener("click", e => {
       e.preventDefault();
-      const id = a.getAttribute("href").slice(1);
-      const el = document.getElementById(id);
+      const el = document.getElementById(href.slice(1));
       if (el && sm) sm.scrollTo(el, { smooth: true });
     });
   });

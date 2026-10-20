@@ -1,7 +1,15 @@
 {
-  "schema_version": "1.0",
-  "generated_at": "2026-09-30",
+  "schema_version": "2.0",
+  "generated_at": "2026-10-20",
   "generated_by": "Human-edited record published with Sneh Sinha's portfolio (Agent Mode). Not produced by an automated extractor.",
+  "schema": {
+    "status": "exactly one string from evidence_labels.values",
+    "qualifiers": "optional list of further evidence_labels.values",
+    "checked": "ISO date of the last verification, YYYY-MM-DD",
+    "verification_url": "URL that evidences the claim",
+    "ids": "roles use role-* · capabilities capability-* · projects project-* · experience experience-*",
+    "roles_match": "target_roles in agent-card.json must project exactly to candidate.json#roles"
+  },
   "name": "Sneh Sinha",
   "headline": "AI Engineer",
   "canonical_url": "https://sneh30.github.io/portfolio/",
@@ -33,7 +41,7 @@
     "positioning_secondary": "His work spans the path from intelligence to execution — AI agents, LLM systems, software, infrastructure, cloud operations, computer vision, embedded systems, and physical-world applications.",
     "core_differentiator": "AI systems + real-world execution + a documented cadence of shipping across stacks: repeatedly turning AI capabilities into systems that actually do something, across abstraction levels from cloud APIs down to embedded firmware.",
     "location": "Bangalore, India",
-    "status": "Open to work (as displayed on the portfolio)",
+    "availability": "Open to work (as displayed on the portfolio)",
     "summary": "Builds agents, multi-agent systems, LLM tooling and autonomous infrastructure, and has built embedded and safety-critical software alongside two real-world engineering engagements."
   },
   "contact": {
@@ -42,7 +50,7 @@
     "phone_source": "résumé PDF (not displayed in Human Mode)",
     "github": "https://github.com/Sneh30",
     "linkedin": "https://www.linkedin.com/in/sneh30",
-    "x": "https://x.com/Sneh30",
+    "x": "https://x.com/sneh_sinha3",
     "leetcode": "https://leetcode.com/u/sneh_sinha3/",
     "portfolio": "https://sneh30.github.io/portfolio/",
     "agent_mode": "https://sneh30.github.io/portfolio/agent/",
@@ -87,7 +95,11 @@
         "Docker"
       ],
       "verification": {
-        "status": "self_reported",
+        "status": "documented_experience",
+        "qualifiers": [
+          "self_reported"
+        ],
+        "checked": "2026-09-30",
         "sources": [
           "https://sneh30.github.io/portfolio/#experience",
           "https://sneh30.github.io/portfolio/assets/Sneh_Raj_Sinha_Resume.pdf"
@@ -119,6 +131,7 @@
       ],
       "verification": {
         "status": "documented_experience",
+        "checked": "2026-09-30",
         "sources": [
           "https://sneh30.github.io/portfolio/#experience",
           "https://sneh30.github.io/portfolio/assets/Sneh_Raj_Sinha_Resume.pdf"
@@ -153,7 +166,10 @@
       "repository": "https://github.com/Sneh30/opencode-cua-platform",
       "verification": {
         "status": "public_repo",
-        "checked": "2026-09-30"
+        "checked": "2026-09-30",
+        "repository_exists": true,
+        "publicly_verifiable": true,
+        "access": "public"
       }
     },
     {
@@ -178,7 +194,10 @@
       "pull_request": "https://github.com/agentrhq/webcmd/pull/190",
       "verification": {
         "status": "external_validation",
-        "checked": "2026-09-30"
+        "checked": "2026-09-30",
+        "repository_exists": true,
+        "publicly_verifiable": true,
+        "access": "public"
       }
     },
     {
@@ -204,7 +223,13 @@
       "repository": "https://github.com/Sneh30/promptos",
       "verification": {
         "status": "public_repo",
+        "qualifiers": [
+          "self_reported"
+        ],
         "checked": "2026-09-30",
+        "repository_exists": true,
+        "publicly_verifiable": true,
+        "access": "public",
         "metric_source": "résumé PDF"
       }
     },
@@ -235,6 +260,9 @@
       "verification": {
         "status": "public_repo",
         "checked": "2026-09-30",
+        "repository_exists": true,
+        "publicly_verifiable": true,
+        "access": "public",
         "source": "repository + résumé entry"
       }
     },
@@ -260,7 +288,13 @@
       "repository": "https://github.com/Sneh30/deepops",
       "verification": {
         "status": "public_repo",
+        "qualifiers": [
+          "experimental"
+        ],
         "checked": "2026-09-30",
+        "repository_exists": true,
+        "publicly_verifiable": true,
+        "access": "public",
         "caveat": "Experimental; not presented as a production system."
       }
     },
@@ -288,6 +322,9 @@
       "verification": {
         "status": "public_repo",
         "checked": "2026-09-30",
+        "repository_exists": true,
+        "publicly_verifiable": true,
+        "access": "public",
         "source": "repository + résumé entry"
       }
     },
@@ -313,7 +350,10 @@
       "repository": "https://github.com/Sneh30/Catalyst",
       "verification": {
         "status": "public_repo",
-        "checked": "2026-09-30"
+        "checked": "2026-09-30",
+        "repository_exists": true,
+        "publicly_verifiable": true,
+        "access": "public"
       }
     },
     {
@@ -338,7 +378,10 @@
       "repository": "https://github.com/Sneh30/portfolio",
       "verification": {
         "status": "public_repo",
-        "checked": "2026-09-30"
+        "checked": "2026-09-30",
+        "repository_exists": true,
+        "publicly_verifiable": true,
+        "access": "public"
       }
     },
     {
@@ -360,12 +403,14 @@
       "demonstrates": [
         "capability-agents"
       ],
-      "repository": null,
-      "repository_link_in_portfolio": "https://github.com/Sneh30/AgentOS",
+      "repository": "https://github.com/Sneh30/AgentOS",
       "verification": {
-        "status": "repository_unavailable",
-        "checked": "2026-09-30",
-        "note": "Repository currently unavailable at the published URL (link returns 404 as of 2026-09-30). The portfolio does not currently provide sufficient evidence to verify this claim."
+        "status": "public_repo",
+        "checked": "2026-10-20",
+        "repository_exists": true,
+        "publicly_verifiable": true,
+        "access": "public",
+        "note": "Public repository at https://github.com/Sneh30/AgentOS (TypeScript); reachable anonymously (HTTP 200) and its README documents the same six-layer architecture and Composio execution plane (checked 2026-10-20). The 250+ integration figure is the repository’s own count, not independently measured."
       }
     },
     {
@@ -388,12 +433,15 @@
       "demonstrates": [
         "capability-agents"
       ],
-      "repository": null,
-      "repository_link_in_portfolio": "https://github.com/Sneh30/Agentic-hinge",
+      "repository": "https://github.com/Sneh30/Agentic-hinge",
       "verification": {
-        "status": "repository_unavailable",
-        "checked": "2026-09-30",
-        "note": "Repository currently unavailable at the published URL (link returns 404 as of 2026-09-30). The portfolio does not currently provide sufficient evidence to verify this claim."
+        "status": "private_available_on_request",
+        "checked": "2026-10-20",
+        "repository_exists": true,
+        "publicly_verifiable": false,
+        "access": "available_on_request",
+        "access_note": "Private repository at https://github.com/Sneh30/Agentic-hinge. Anonymous visitors receive HTTP 404. The candidate can grant read access to recruiters and screening teams on request; until then the description is the owner's own account and is not independently verifiable.",
+        "note": "Private repository at https://github.com/Sneh30/Agentic-hinge (Swift); its README matches the description (macOS GUI agent over iPhone Mirroring, checked 2026-10-20). Anonymous visitors receive a 404 because the repository is private; access is available on request, so its claims are not publicly verifiable."
       },
       "aka": "Agentic-hinge (original prototype)"
     },
@@ -416,12 +464,15 @@
       "demonstrates": [
         "capability-embedded"
       ],
-      "repository": null,
-      "repository_link_in_portfolio": "https://github.com/Sneh30/pocket-typist",
+      "repository": "https://github.com/Sneh30/pocket-typist",
       "verification": {
-        "status": "repository_unavailable",
-        "checked": "2026-09-30",
-        "note": "Repository currently unavailable at the published URL (link returns 404 as of 2026-09-30). The portfolio does not currently provide sufficient evidence to verify this claim."
+        "status": "private_available_on_request",
+        "checked": "2026-10-20",
+        "repository_exists": true,
+        "publicly_verifiable": false,
+        "access": "available_on_request",
+        "access_note": "Private repository at https://github.com/Sneh30/pocket-typist. Anonymous visitors receive HTTP 404. The candidate can grant read access to recruiters and screening teams on request; until then the description is the owner's own account and is not independently verifiable.",
+        "note": "Private repository at https://github.com/Sneh30/pocket-typist (C++); its README matches the description (ESP32-CAM BLE HID firmware with a Cloudflare Worker relay, checked 2026-10-20). Anonymous visitors receive a 404 because the repository is private; access is available on request, so its claims are not publicly verifiable."
       }
     }
   ],
@@ -482,7 +533,8 @@
       "repository": "https://github.com/agentrhq/webcmd",
       "pull_request": "https://github.com/agentrhq/webcmd/pull/190",
       "title": "Normalize output-format parsing across builtin commands",
-      "status": "merged",
+      "status": "external_validation",
+      "status_note": "Merged upstream pull request; accepted by a maintainer outside this portfolio.",
       "merged_at": "2026-08-13",
       "commits": 16,
       "commits_verified": true,
@@ -504,8 +556,13 @@
   ],
   "roles": [
     {
+      "id": "role-ai-engineer",
       "role": "AI Engineer",
-      "support": "strongly supported",
+      "support": "strongly_supported",
+      "aliases": [
+        "Applied AI Engineer",
+        "AI Software Engineer"
+      ],
       "evidence": [
         "capability-agents",
         "capability-multagent",
@@ -519,8 +576,13 @@
       ]
     },
     {
+      "id": "role-agentic-ai-engineer",
       "role": "Agentic AI Engineer",
-      "support": "strongly supported",
+      "support": "strongly_supported",
+      "aliases": [
+        "Agentic Systems Engineer",
+        "LLM Agent Engineer"
+      ],
       "evidence": [
         "capability-agents",
         "capability-multagent"
@@ -533,8 +595,19 @@
       ]
     },
     {
+      "id": "role-ai-infrastructure-engineer",
       "role": "AI Infrastructure Engineer",
-      "support": "supported by project + engagement",
+      "support": "supported",
+      "basis": {
+        "kinds": [
+          "project",
+          "engagement"
+        ]
+      },
+      "aliases": [
+        "AI Platform Engineer",
+        "AI Systems Engineer"
+      ],
       "evidence": [
         "capability-ai-infra",
         "capability-ops"
@@ -548,8 +621,13 @@
       ]
     },
     {
+      "id": "role-llm-engineer",
       "role": "LLM Engineer",
       "support": "supported",
+      "aliases": [
+        "LLM Applications Engineer",
+        "Inference Engineer"
+      ],
       "evidence": [
         "capability-llm"
       ],
@@ -560,8 +638,12 @@
       "caveat": "No model training, fine-tuning, or research claimed; evidence is systems- and cost-oriented."
     },
     {
+      "id": "role-autonomous-systems-engineer",
       "role": "Autonomous Systems Engineer",
       "support": "supported",
+      "aliases": [
+        "Autonomous Systems Software Engineer"
+      ],
       "evidence": [
         "capability-embedded",
         "capability-safety",
@@ -576,8 +658,12 @@
       ]
     },
     {
+      "id": "role-ai-software-systems-engineer",
       "role": "AI/Software Systems Engineer",
       "support": "supported",
+      "aliases": [
+        "Full-Stack AI Engineer"
+      ],
       "evidence": [
         "capability-backend",
         "capability-oss"
@@ -590,8 +676,9 @@
       ]
     },
     {
+      "id": "role-ml-engineer",
       "role": "ML Engineer",
-      "support": "partially supported",
+      "support": "partially_supported",
       "evidence": [
         "capability-embedded"
       ],
@@ -599,11 +686,220 @@
         "project-esp32"
       ],
       "caveat": "The portfolio does not document model training, evaluation benchmarks, or deployed ML services; Human Mode lists Multi-Agent Systems and Edge AI under 'Exploring'."
+    },
+    {
+      "id": "role-software-engineer",
+      "role": "Software Engineer",
+      "support": "supported",
+      "aliases": [
+        "Software Developer"
+      ],
+      "evidence": [
+        "capability-backend",
+        "capability-oss"
+      ],
+      "projects": [
+        "project-orchestra",
+        "project-catalyst",
+        "project-portfolio",
+        "project-webcmd"
+      ],
+      "experience": [
+        "experience-team-stratos"
+      ]
+    },
+    {
+      "id": "role-backend-engineer",
+      "role": "Backend Engineer",
+      "support": "supported",
+      "aliases": [
+        "Backend Developer",
+        "API Engineer"
+      ],
+      "evidence": [
+        "capability-backend"
+      ],
+      "projects": [
+        "project-orchestra",
+        "project-catalyst"
+      ]
+    },
+    {
+      "id": "role-python-developer",
+      "role": "Python Developer",
+      "support": "supported",
+      "basis": {
+        "note": "Python listed first under Languages in Human Mode; all four projects list Python in Human Mode"
+      },
+      "aliases": [
+        "Python Engineer",
+        "Python Software Engineer"
+      ],
+      "evidence": [
+        "capability-backend",
+        "capability-agents"
+      ],
+      "projects": [
+        "project-opencode-cua",
+        "project-orchestra",
+        "project-deepops",
+        "project-catalyst"
+      ]
+    },
+    {
+      "id": "role-devops-sre-engineer",
+      "role": "DevOps / SRE Engineer",
+      "support": "supported",
+      "basis": {
+        "kinds": [
+          "project",
+          "engagement"
+        ]
+      },
+      "aliases": [
+        "Site Reliability Engineer",
+        "DevOps Engineer"
+      ],
+      "evidence": [
+        "capability-ai-infra",
+        "capability-ops"
+      ],
+      "projects": [
+        "project-deepops",
+        "project-orchestra"
+      ],
+      "experience": [
+        "experience-infrastructure"
+      ],
+      "caveat": "No Kubernetes experience is claimed — Kubernetes is not listed in Human Mode skills. The evidenced tooling is Docker, Docker Compose, GitHub Actions CI/CD, Linux, Prometheus, AWS, and incident response."
+    },
+    {
+      "id": "role-automation-engineer",
+      "role": "Automation Engineer",
+      "support": "supported",
+      "aliases": [
+        "Infrastructure Automation Engineer",
+        "Automation Developer"
+      ],
+      "evidence": [
+        "capability-ai-infra",
+        "capability-agents",
+        "capability-oss"
+      ],
+      "projects": [
+        "project-deepops",
+        "project-webcmd",
+        "project-agentic-hinge"
+      ],
+      "caveat": "The automation evidence is infrastructure remediation, CLI behaviour, and desktop/mobile GUI control. No RPA platform or test-automation framework is claimed."
+    },
+    {
+      "id": "role-embedded-systems-engineer",
+      "role": "Embedded Systems Engineer",
+      "support": "supported",
+      "aliases": [
+        "Embedded Software Engineer",
+        "Firmware Engineer"
+      ],
+      "evidence": [
+        "capability-embedded",
+        "capability-safety"
+      ],
+      "projects": [
+        "project-esp32",
+        "project-pocket-typist"
+      ],
+      "experience": [
+        "experience-team-stratos"
+      ]
+    },
+    {
+      "id": "role-robotics-engineer",
+      "role": "Robotics Engineer",
+      "support": "supported",
+      "aliases": [
+        "Robotics Software Engineer"
+      ],
+      "evidence": [
+        "capability-embedded",
+        "capability-safety"
+      ],
+      "projects": [
+        "project-esp32",
+        "project-pocket-typist"
+      ],
+      "experience": [
+        "experience-team-stratos"
+      ],
+      "caveat": "No ROS, manipulator, or control-system tooling is listed in Human Mode skills. The robotics evidence is ESP32 perception and an autonomous colour-tracking robot, BLE device firmware, and safety-critical vehicle firmware, alongside the B.E. in Robotics and Artificial Intelligence."
+    },
+    {
+      "id": "role-computer-vision-engineer",
+      "role": "Computer Vision Engineer",
+      "support": "supported",
+      "aliases": [
+        "Edge Computer Vision Engineer",
+        "Perception Engineer"
+      ],
+      "evidence": [
+        "capability-embedded"
+      ],
+      "projects": [
+        "project-esp32",
+        "project-agentic-hinge"
+      ],
+      "caveat": "No large-scale dataset, benchmark, or published model weights are claimed; the vision work is edge and screen-perception driven."
     }
   ],
+  "support_levels": {
+    "note": "How directly the published evidence supports the role. No fit scores, percentages, or rankings are computed.",
+    "values": [
+      "strongly_supported",
+      "supported",
+      "partially_supported"
+    ],
+    "definitions": {
+      "strongly_supported": "Several published artefacts in this area, including at least one flagship project with an independently verifiable repository.",
+      "supported": "At least one published artefact or one documented engagement addresses this role directly.",
+      "partially_supported": "Adjacent evidence exists, but a stated part of the role is explicitly not claimed (see `caveat`)."
+    }
+  },
+  "job_search": {
+    "open_to_work": true,
+    "source": "Open to work (as displayed on the portfolio)",
+    "engagement_types": [
+      "internship",
+      "full_time"
+    ],
+    "levels": [
+      "intern",
+      "entry_level"
+    ],
+    "roles_ref": "candidate.json#/roles",
+    "note": "Levels follow current standing (B.E. 2023-2027) and the portfolio's open-to-work status. Every listed role is sought at those levels; no prior internship, prior full-time employment, or qualification beyond the two documented engagements and the published B.E. record is claimed."
+  },
+  "evidence_labels": {
+    "note": "Qualitative labels only — no numeric evidence scores, fit percentages, or rankings are computed. `status` always holds exactly one value from `values`; `qualifiers` holds any additional ones.",
+    "values": [
+      "public_repo",
+      "private_available_on_request",
+      "external_validation",
+      "documented_experience",
+      "self_reported",
+      "experimental"
+    ],
+    "definitions": {
+      "public_repo": "Repository exists and is publicly readable without authentication (HTTP 200 on 2026-10-20), so the claim can be checked by anyone.",
+      "private_available_on_request": "Repository exists but is private: anonymous visitors get HTTP 404. The candidate can provide access to recruiters on request, so the work is real and inspectable on request, but it is not independently verifiable without that access.",
+      "external_validation": "Reviewed and accepted by someone outside this portfolio (for example a merged upstream pull request).",
+      "documented_experience": "Described in the résumé published with this portfolio; not independently verifiable here.",
+      "self_reported": "A metric stated by the candidate (for example the PromptOS cost reduction); no raw data is published.",
+      "experimental": "Early prototype or active development; not a claimed production deployment."
+    }
+  },
   "limitations": [
     "Employer name for the Aug 2026 infrastructure engagement is not disclosed; no raw incident dataset is published.",
-    "AgentOS, Agentic-hinge and Pocket Typist repository links return 404 as of 2026-09-30.",
+    "AgentOS resolves publicly, while Agentic-hinge and Pocket Typist are private repositories (checked 2026-10-20) — anonymous visitors receive a 404 and access is available on request.",
     "The 732+ contributions figure is self-published on the portfolio and was not independently verified.",
     "PromptOS 80–85% and ESP32 512 KB / 15+ board figures come from the résumé PDF, not independent measurement.",
     "DeepOps is described as an early prototype (modules exist, end-to-end pipeline not yet connected); it is not presented as a production system.",

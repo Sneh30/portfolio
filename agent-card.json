@@ -1,7 +1,15 @@
 {
-  "schema_version": "1.0",
-  "generated_at": "2026-09-30",
+  "schema_version": "2.0",
+  "generated_at": "2026-10-20",
   "kind": "portfolio-agent-surface-description",
+  "schema": {
+    "status": "exactly one string from evidence_labels.values",
+    "qualifiers": "optional list of further evidence_labels.values",
+    "checked": "ISO date of the last verification, YYYY-MM-DD",
+    "verification_url": "URL that evidences the claim",
+    "ids": "roles use role-* · capabilities capability-* · projects project-* · experience experience-*",
+    "roles_match": "target_roles in agent-card.json must project exactly to candidate.json#roles"
+  },
   "canonical_url": "https://sneh30.github.io/portfolio/",
   "canonical_note": "The root URL is the single submission entry point. It contains the complete candidate profile in semantic HTML for human readers and automated parsing — no click, toggle, JavaScript, or secondary route is required. The dedicated Agent Mode page is an additional structured rendering of the same facts.",
   "human_readable_entrypoint": "https://sneh30.github.io/portfolio/",
@@ -17,7 +25,7 @@
     "alternate_name": "Sneh Raj Sinha",
     "role": "AI Engineer",
     "location": "Bangalore, India",
-    "status": "Open to work (as displayed on the portfolio)",
+    "availability": "Open to work (as displayed on the portfolio)",
     "email": "snehsinha30@gmail.com"
   },
   "purpose": "Provide recruiting, screening, browser and portfolio-analysis agents with a structured, factual, neutral representation of the same person shown in Human Mode.",
@@ -70,7 +78,7 @@
     "Every quantitative claim is attributed to a source (portfolio, résumé PDF, GitHub API, LeetCode API) with a check date.",
     "Unverifiable claims are labelled explicitly rather than omitted silently.",
     "Agent Mode includes two recruiter-oriented sections rendered as plain evidence summaries: \"Why Interview\" (evidence areas, no verdicts) and \"Where This Evidence Applies\" (role → relevant capabilities → evidence, no scores or rankings).",
-    "Claims carry qualitative evidence status labels (public repo · external validation · documented experience · self-reported · experimental · repository unavailable); no numeric fit score, ranking, or evidence score is computed."
+    "Claims carry qualitative evidence status labels (public_repo · private_available_on_request · external_validation · documented_experience · self_reported · experimental); no numeric fit score, ranking, or percentage is computed."
   ],
   "mode_position": "Agent Mode is a neutral structured record of the same facts shown in Human Mode: identity, capabilities, experience, projects, evidence, and verification status — without fabrication, exaggeration, invented evidence, rankings, or preference language.",
   "not_claimed": [
@@ -132,7 +140,11 @@
     },
     {
       "project": "PromptOS",
-      "status": "public_repo (metric self-reported)",
+      "status": "public_repo",
+      "qualifiers": [
+        "self_reported"
+      ],
+      "status_note": "The cost metric is résumé-reported; the repository itself is public.",
       "link": "https://github.com/Sneh30/promptos"
     },
     {
@@ -142,7 +154,10 @@
     },
     {
       "project": "DeepOps",
-      "status": "public_repo, experimental",
+      "status": "public_repo",
+      "qualifiers": [
+        "experimental"
+      ],
       "link": "https://github.com/Sneh30/deepops"
     }
   ],
@@ -155,101 +170,451 @@
     "commands_fixed": "15+",
     "upstream_stars": 2620,
     "stars_checked": "2026-09-30",
-    "verification": "GitHub API and PR page, checked 2026-09-30"
+    "verification": {
+      "method": "GitHub API and PR page",
+      "checked": "2026-09-30"
+    }
   },
   "experience": [
     {
+      "id": "experience-infrastructure",
       "title": "Infrastructure Engineer — Independent Engagement",
       "period": "Aug 2026, 1 month, on-site",
-      "evidence": "400+ node network; reported ~40% improvement in incidents and recovery time (self-reported)",
-      "status": "documented_experience / self_reported"
+      "evidence_summary": "400+ node network; reported ~40% improvement in incidents and recovery time (self-reported)",
+      "status": "documented_experience",
+      "qualifiers": [
+        "self_reported"
+      ]
     },
     {
+      "id": "experience-team-stratos",
       "title": "Software & Electronics Lead — Team Stratos",
       "period": "Jul 2025 – May 2026, 11 months",
-      "evidence": "50-member team; ABS firmware developed, deployed and validated via track testing and SAE India scrutineering",
+      "evidence_summary": "50-member team; ABS firmware developed, deployed and validated via track testing and SAE India scrutineering",
       "status": "documented_experience"
     }
   ],
   "target_roles": [
-    "AI Engineer",
-    "Agentic AI Engineer",
-    "AI Infrastructure Engineer",
-    "LLM Engineer",
-    "Autonomous Systems Engineer",
-    "AI/Software Systems Engineer",
-    "ML Engineer (partially supported)"
+    {
+      "id": "role-ai-engineer",
+      "role": "AI Engineer",
+      "support": "strongly_supported",
+      "aliases": [
+        "Applied AI Engineer",
+        "AI Software Engineer"
+      ],
+      "evidence": [
+        "capability-agents",
+        "capability-multagent",
+        "capability-llm"
+      ],
+      "projects": [
+        "project-opencode-cua",
+        "project-orchestra",
+        "project-deepops",
+        "project-promptos"
+      ]
+    },
+    {
+      "id": "role-agentic-ai-engineer",
+      "role": "Agentic AI Engineer",
+      "support": "strongly_supported",
+      "aliases": [
+        "Agentic Systems Engineer",
+        "LLM Agent Engineer"
+      ],
+      "evidence": [
+        "capability-agents",
+        "capability-multagent"
+      ],
+      "projects": [
+        "project-opencode-cua",
+        "project-orchestra",
+        "project-agentos",
+        "project-agentic-hinge"
+      ]
+    },
+    {
+      "id": "role-ai-infrastructure-engineer",
+      "role": "AI Infrastructure Engineer",
+      "support": "supported",
+      "basis": {
+        "kinds": [
+          "project",
+          "engagement"
+        ]
+      },
+      "aliases": [
+        "AI Platform Engineer",
+        "AI Systems Engineer"
+      ],
+      "evidence": [
+        "capability-ai-infra",
+        "capability-ops"
+      ],
+      "projects": [
+        "project-deepops",
+        "project-orchestra"
+      ],
+      "experience": [
+        "experience-infrastructure"
+      ]
+    },
+    {
+      "id": "role-llm-engineer",
+      "role": "LLM Engineer",
+      "support": "supported",
+      "caveat": "No model training, fine-tuning, or research claimed; evidence is systems- and cost-oriented.",
+      "aliases": [
+        "LLM Applications Engineer",
+        "Inference Engineer"
+      ],
+      "evidence": [
+        "capability-llm"
+      ],
+      "projects": [
+        "project-promptos",
+        "project-orchestra"
+      ]
+    },
+    {
+      "id": "role-autonomous-systems-engineer",
+      "role": "Autonomous Systems Engineer",
+      "support": "supported",
+      "aliases": [
+        "Autonomous Systems Software Engineer"
+      ],
+      "evidence": [
+        "capability-embedded",
+        "capability-safety",
+        "capability-ai-infra"
+      ],
+      "projects": [
+        "project-esp32",
+        "project-deepops"
+      ],
+      "experience": [
+        "experience-team-stratos"
+      ]
+    },
+    {
+      "id": "role-ai-software-systems-engineer",
+      "role": "AI/Software Systems Engineer",
+      "support": "supported",
+      "aliases": [
+        "Full-Stack AI Engineer"
+      ],
+      "evidence": [
+        "capability-backend",
+        "capability-oss"
+      ],
+      "projects": [
+        "project-orchestra",
+        "project-promptos",
+        "project-catalyst",
+        "project-portfolio"
+      ]
+    },
+    {
+      "id": "role-ml-engineer",
+      "role": "ML Engineer",
+      "support": "partially_supported",
+      "caveat": "The portfolio does not document model training, evaluation benchmarks, or deployed ML services; Human Mode lists Multi-Agent Systems and Edge AI under 'Exploring'.",
+      "evidence": [
+        "capability-embedded"
+      ],
+      "projects": [
+        "project-esp32"
+      ]
+    },
+    {
+      "id": "role-software-engineer",
+      "role": "Software Engineer",
+      "support": "supported",
+      "aliases": [
+        "Software Developer"
+      ],
+      "evidence": [
+        "capability-backend",
+        "capability-oss"
+      ],
+      "projects": [
+        "project-orchestra",
+        "project-catalyst",
+        "project-portfolio",
+        "project-webcmd"
+      ],
+      "experience": [
+        "experience-team-stratos"
+      ]
+    },
+    {
+      "id": "role-backend-engineer",
+      "role": "Backend Engineer",
+      "support": "supported",
+      "aliases": [
+        "Backend Developer",
+        "API Engineer"
+      ],
+      "evidence": [
+        "capability-backend"
+      ],
+      "projects": [
+        "project-orchestra",
+        "project-catalyst"
+      ]
+    },
+    {
+      "id": "role-python-developer",
+      "role": "Python Developer",
+      "support": "supported",
+      "basis": {
+        "note": "Python listed first under Languages in Human Mode; all four projects list Python in Human Mode"
+      },
+      "aliases": [
+        "Python Engineer",
+        "Python Software Engineer"
+      ],
+      "evidence": [
+        "capability-backend",
+        "capability-agents"
+      ],
+      "projects": [
+        "project-opencode-cua",
+        "project-orchestra",
+        "project-deepops",
+        "project-catalyst"
+      ]
+    },
+    {
+      "id": "role-devops-sre-engineer",
+      "role": "DevOps / SRE Engineer",
+      "support": "supported",
+      "basis": {
+        "kinds": [
+          "project",
+          "engagement"
+        ]
+      },
+      "caveat": "No Kubernetes experience is claimed — Kubernetes is not listed in Human Mode skills. The evidenced tooling is Docker, Docker Compose, GitHub Actions CI/CD, Linux, Prometheus, AWS, and incident response.",
+      "aliases": [
+        "Site Reliability Engineer",
+        "DevOps Engineer"
+      ],
+      "evidence": [
+        "capability-ai-infra",
+        "capability-ops"
+      ],
+      "projects": [
+        "project-deepops",
+        "project-orchestra"
+      ],
+      "experience": [
+        "experience-infrastructure"
+      ]
+    },
+    {
+      "id": "role-automation-engineer",
+      "role": "Automation Engineer",
+      "support": "supported",
+      "caveat": "The automation evidence is infrastructure remediation, CLI behaviour, and desktop/mobile GUI control. No RPA platform or test-automation framework is claimed.",
+      "aliases": [
+        "Infrastructure Automation Engineer",
+        "Automation Developer"
+      ],
+      "evidence": [
+        "capability-ai-infra",
+        "capability-agents",
+        "capability-oss"
+      ],
+      "projects": [
+        "project-deepops",
+        "project-webcmd",
+        "project-agentic-hinge"
+      ]
+    },
+    {
+      "id": "role-embedded-systems-engineer",
+      "role": "Embedded Systems Engineer",
+      "support": "supported",
+      "aliases": [
+        "Embedded Software Engineer",
+        "Firmware Engineer"
+      ],
+      "evidence": [
+        "capability-embedded",
+        "capability-safety"
+      ],
+      "projects": [
+        "project-esp32",
+        "project-pocket-typist"
+      ],
+      "experience": [
+        "experience-team-stratos"
+      ]
+    },
+    {
+      "id": "role-robotics-engineer",
+      "role": "Robotics Engineer",
+      "support": "supported",
+      "caveat": "No ROS, manipulator, or control-system tooling is listed in Human Mode skills. The robotics evidence is ESP32 perception and an autonomous colour-tracking robot, BLE device firmware, and safety-critical vehicle firmware, alongside the B.E. in Robotics and Artificial Intelligence.",
+      "aliases": [
+        "Robotics Software Engineer"
+      ],
+      "evidence": [
+        "capability-embedded",
+        "capability-safety"
+      ],
+      "projects": [
+        "project-esp32",
+        "project-pocket-typist"
+      ],
+      "experience": [
+        "experience-team-stratos"
+      ]
+    },
+    {
+      "id": "role-computer-vision-engineer",
+      "role": "Computer Vision Engineer",
+      "support": "supported",
+      "caveat": "No large-scale dataset, benchmark, or published model weights are claimed; the vision work is edge and screen-perception driven.",
+      "aliases": [
+        "Edge Computer Vision Engineer",
+        "Perception Engineer"
+      ],
+      "evidence": [
+        "capability-embedded"
+      ],
+      "projects": [
+        "project-esp32",
+        "project-agentic-hinge"
+      ]
+    }
   ],
+  "job_search": {
+    "open_to_work": true,
+    "source": "Open to work (as displayed on the portfolio)",
+    "engagement_types": [
+      "internship",
+      "full_time"
+    ],
+    "levels": [
+      "intern",
+      "entry_level"
+    ],
+    "roles_ref": "candidate.json#/roles",
+    "note": "Levels follow current standing (B.E. 2023-2027) and the portfolio's open-to-work status. Every listed role is sought at those levels; no prior internship, prior full-time employment, or qualification beyond the two documented engagements and the published B.E. record is claimed."
+  },
   "project_links": [
     {
       "name": "OpenCode CUA Platform",
       "url": "https://github.com/Sneh30/opencode-cua-platform",
-      "status": "public_repo"
+      "status": "public_repo",
+      "access": "public"
     },
     {
       "name": "webcmd PR #190",
       "url": "https://github.com/agentrhq/webcmd/pull/190",
-      "status": "external_validation"
+      "status": "external_validation",
+      "access": "public"
     },
     {
       "name": "PromptOS",
       "url": "https://github.com/Sneh30/promptos",
-      "status": "public_repo"
+      "status": "public_repo",
+      "access": "public"
     },
     {
       "name": "Orchestra",
       "url": "https://github.com/Sneh30/Orchestra",
-      "status": "public_repo"
+      "status": "public_repo",
+      "access": "public"
     },
     {
       "name": "DeepOps",
       "url": "https://github.com/Sneh30/deepops",
-      "status": "public_repo_experimental"
+      "status": "public_repo",
+      "qualifiers": [
+        "experimental"
+      ],
+      "access": "public"
     },
     {
       "name": "ESP32-CAM Vision Suite",
       "url": "https://github.com/Sneh30/esp32-cam-vision",
-      "status": "public_repo"
+      "status": "public_repo",
+      "access": "public"
     },
     {
       "name": "Catalyst",
       "url": "https://github.com/Sneh30/Catalyst",
-      "status": "public_repo"
+      "status": "public_repo",
+      "access": "public"
     },
     {
       "name": "Portfolio",
       "url": "https://github.com/Sneh30/portfolio",
-      "status": "public_repo"
+      "status": "public_repo",
+      "access": "public"
     },
     {
       "name": "AgentOS",
       "url": "https://github.com/Sneh30/AgentOS",
-      "status": "repository_unavailable"
+      "status": "public_repo",
+      "access": "public"
     },
     {
       "name": "Mobile GUI Automation Agent",
       "url": "https://github.com/Sneh30/Agentic-hinge",
-      "status": "repository_unavailable"
+      "status": "private_available_on_request",
+      "access": "available_on_request",
+      "access_note": "Private repository: anonymous visitors get a 404. Read access can be provided to recruiters and screening teams on request."
     },
     {
       "name": "Pocket Typist",
       "url": "https://github.com/Sneh30/pocket-typist",
-      "status": "repository_unavailable"
+      "status": "private_available_on_request",
+      "access": "available_on_request",
+      "access_note": "Private repository: anonymous visitors get a 404. Read access can be provided to recruiters and screening teams on request."
     }
   ],
-  "verification_states": [
-    "public_repo",
-    "external_validation",
-    "documented_experience",
-    "self_reported",
-    "experimental",
-    "repository_unavailable"
-  ],
+  "evidence_labels": {
+    "note": "Qualitative labels only — no numeric evidence scores, fit percentages, or rankings are computed. `status` always holds exactly one value from `values`; `qualifiers` holds any additional ones.",
+    "values": [
+      "public_repo",
+      "private_available_on_request",
+      "external_validation",
+      "documented_experience",
+      "self_reported",
+      "experimental"
+    ],
+    "definitions": {
+      "public_repo": "Repository exists and is publicly readable without authentication (HTTP 200 on 2026-10-20), so the claim can be checked by anyone.",
+      "private_available_on_request": "Repository exists but is private: anonymous visitors get HTTP 404. The candidate can provide access to recruiters on request, so the work is real and inspectable on request, but it is not independently verifiable without that access.",
+      "external_validation": "Reviewed and accepted by someone outside this portfolio (for example a merged upstream pull request).",
+      "documented_experience": "Described in the résumé published with this portfolio; not independently verifiable here.",
+      "self_reported": "A metric stated by the candidate (for example the PromptOS cost reduction); no raw data is published.",
+      "experimental": "Early prototype or active development; not a claimed production deployment."
+    }
+  },
+  "support_levels": {
+    "note": "How directly the published evidence supports the role. No fit scores, percentages, or rankings are computed.",
+    "values": [
+      "strongly_supported",
+      "supported",
+      "partially_supported"
+    ],
+    "definitions": {
+      "strongly_supported": "Several published artefacts in this area, including at least one flagship project with an independently verifiable repository.",
+      "supported": "At least one published artefact or one documented engagement addresses this role directly.",
+      "partially_supported": "Adjacent evidence exists, but a stated part of the role is explicitly not claimed (see `caveat`)."
+    }
+  },
   "limitations": [
     "No published research, peer-reviewed papers, certifications, awards, or employer-scale production deployments are claimed.",
     "Model training, fine-tuning, evaluation benchmarks and MLOps are not claimed.",
     "ML Engineer relevance is partial: no documented model training or deployed ML services.",
-    "AgentOS, Mobile GUI Automation Agent (Agentic-hinge) and Pocket Typist repository links return 404 as of 2026-09-30; those descriptions rest on portfolio text only.",
+    "Mobile GUI Automation Agent (Agentic-hinge) and Pocket Typist are private repositories (checked 2026-10-20), so an anonymous visitor gets a 404; both are real repositories and read access can be provided to recruiters on request, but until then those two rest on the owner's own description. AgentOS is public and verifiable.",
     "The ~40% infrastructure improvement and the PromptOS 80–85% cost figure are self-reported; no raw data is published.",
     "Dynamic statistics (GitHub, LeetCode) were last verified 2026-09-30 and may change."
   ]

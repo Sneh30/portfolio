@@ -1,7 +1,15 @@
 {
-  "schema_version": "1.0",
-  "generated_at": "2026-09-30",
+  "schema_version": "2.0",
+  "generated_at": "2026-10-20",
   "candidate": "Sneh Sinha",
+  "schema": {
+    "status": "exactly one string from evidence_labels.values",
+    "qualifiers": "optional list of further evidence_labels.values",
+    "checked": "ISO date of the last verification, YYYY-MM-DD",
+    "verification_url": "URL that evidences the claim",
+    "ids": "roles use role-* · capabilities capability-* · projects project-* · experience experience-*",
+    "roles_match": "target_roles in agent-card.json must project exactly to candidate.json#roles"
+  },
   "note": "Each capability points to the evidence that supports it. Skills referenced are exactly those shown in Human Mode; no capability asserts expertise beyond what the portfolio documents. Evidence carries qualitative status labels (public repo · external validation · documented experience · self-reported · experimental · repository unavailable); no numeric scores are assigned.",
   "capabilities": [
     {
@@ -20,8 +28,9 @@
           "project": "project-opencode-cua",
           "implementation": "MCP servers, screen capture, macOS Accessibility APIs, browser automation, verification and recovery engines",
           "result": "End-to-end computer-use loop with explicit verification and recovery stages; no usage metric published",
-          "verification": "https://github.com/Sneh30/opencode-cua-platform",
-          "verification_status": "live"
+          "verification_url": "https://github.com/Sneh30/opencode-cua-platform",
+          "status": "public_repo",
+          "checked": "2026-09-30"
         }
       ],
       "related_experience": []
@@ -43,8 +52,9 @@
           "project": "project-orchestra",
           "implementation": "5 specialised LangGraph agents (search, extract, verify, synthesize, critique), confidence scoring, Prometheus instrumentation, deterministic CI mode, Docker Compose packaging",
           "result": "5 cooperating agents, verified reports, one-command deployment",
-          "verification": "https://github.com/Sneh30/Orchestra",
-          "verification_status": "live"
+          "verification_url": "https://github.com/Sneh30/Orchestra",
+          "status": "public_repo",
+          "checked": "2026-09-30"
         }
       ],
       "related_experience": []
@@ -69,8 +79,9 @@
           "project": "project-deepops",
           "implementation": "Natural-language incident interpretation → root-cause analysis → remediation planning with cost optimisation",
           "result": "Early prototype: the incident-interpretation and remediation-planning modules exist, but the end-to-end pipeline is not yet wired together (not claimed as production)",
-          "verification": "https://github.com/Sneh30/deepops",
-          "verification_status": "live"
+          "verification_url": "https://github.com/Sneh30/deepops",
+          "status": "public_repo",
+          "checked": "2026-09-30"
         }
       ],
       "related_experience": [
@@ -94,8 +105,9 @@
           "project": "project-promptos",
           "implementation": "Rust lexer/parser/AST, ten optimisation passes, four compilation modes, WASM plugins, local Llama.cpp inference on Metal, SwiftUI shell",
           "result": "Up to 80–85% lower inference cost in Economy mode (résumé PDF)",
-          "verification": "https://github.com/Sneh30/promptos",
-          "verification_status": "live"
+          "verification_url": "https://github.com/Sneh30/promptos",
+          "status": "public_repo",
+          "checked": "2026-09-30"
         }
       ],
       "related_experience": []
@@ -118,8 +130,10 @@
           "project": null,
           "implementation": "One-month on-site engagement strengthening operations on a 400+ node exam-facility network",
           "result": "~40% reduction in incidents and average recovery time versus the prior comparable period",
-          "verification": "https://sneh30.github.io/portfolio/#experience",
-          "verification_status": "self-published (employer and raw data not disclosed)"
+          "verification_url": "https://sneh30.github.io/portfolio/#experience",
+          "status": "documented_experience",
+          "checked": "2026-09-30",
+          "status_note": "Self-published on the portfolio; employer and raw incident data are not disclosed, so the ~40% figure is the candidate's own account."
         }
       ],
       "related_experience": [
@@ -142,8 +156,9 @@
           "project": "project-esp32",
           "implementation": "HSV quantisation and centroid tracking, on-device RGB565→RGB888→HSV conversion, L298N motor control, MJPEG streaming across 15+ board variants",
           "result": "3 projects, 60 FPS streaming, 15+ board variants, 512 KB RAM ceiling",
-          "verification": "https://github.com/Sneh30/esp32-cam-vision",
-          "verification_status": "live"
+          "verification_url": "https://github.com/Sneh30/esp32-cam-vision",
+          "status": "public_repo",
+          "checked": "2026-09-30"
         }
       ],
       "related_experience": [
@@ -164,8 +179,10 @@
           "project": null,
           "implementation": "ABS (Anti-lock Braking System) firmware for a 50-member team's competition vehicle; software and electronics integration lead",
           "result": "Validated through track testing, SAE India scrutineering and competition; 11-month tenure",
-          "verification": "https://sneh30.github.io/portfolio/#experience",
-          "verification_status": "team project, self-published (code not released)"
+          "verification_url": "https://sneh30.github.io/portfolio/#experience",
+          "status": "documented_experience",
+          "checked": "2026-09-30",
+          "status_note": "Team project; the code is not released, so only the documented outcome can be checked."
         }
       ],
       "related_experience": [
@@ -187,8 +204,10 @@
           "project": "project-webcmd",
           "implementation": "Single source of truth for -f/--format parsing across builtin commands; 16 tests added; docs updated",
           "result": "PR #190 merged 2026-08-13 with 16 commits; 15+ commands fixed; upstream 2,620 stars",
-          "verification": "https://github.com/agentrhq/webcmd/pull/190",
-          "verification_status": "merged PR (GitHub API verified 2026-09-30)"
+          "verification_url": "https://github.com/agentrhq/webcmd/pull/190",
+          "status": "external_validation",
+          "checked": "2026-09-30",
+          "status_note": "Merged upstream pull request, verified against the GitHub API on 2026-09-30."
         }
       ],
       "related_experience": []
@@ -211,15 +230,17 @@
           "project": "project-catalyst",
           "implementation": "Resume audit, job scraping, ATS resume generation, weekly tracker backed by SQLite",
           "result": "Working end-to-end product flow; no usage metrics published",
-          "verification": "https://github.com/Sneh30/Catalyst",
-          "verification_status": "live"
+          "verification_url": "https://github.com/Sneh30/Catalyst",
+          "status": "public_repo",
+          "checked": "2026-09-30"
         },
         {
           "project": "project-portfolio",
           "implementation": "Canvas rendering, GSAP scroll choreography, live GitHub and LeetCode API integration, Agent Mode record",
           "result": "Publicly deployed site",
-          "verification": "https://github.com/Sneh30/portfolio",
-          "verification_status": "live"
+          "verification_url": "https://github.com/Sneh30/portfolio",
+          "status": "public_repo",
+          "checked": "2026-09-30"
         }
       ],
       "related_experience": []
@@ -232,5 +253,24 @@
     "No claim of maintainership, funding, or stars on the candidate's own repositories.",
     "No claim of Kubernetes experience (Kubernetes is not listed in the Human Mode skills section).",
     "No certifications, awards, or rankings are claimed."
-  ]
+  ],
+  "evidence_labels": {
+    "note": "Qualitative labels only — no numeric evidence scores, fit percentages, or rankings are computed. `status` always holds exactly one value from `values`; `qualifiers` holds any additional ones.",
+    "values": [
+      "public_repo",
+      "private_available_on_request",
+      "external_validation",
+      "documented_experience",
+      "self_reported",
+      "experimental"
+    ],
+    "definitions": {
+      "public_repo": "Repository exists and is publicly readable without authentication (HTTP 200 on 2026-10-20), so the claim can be checked by anyone.",
+      "private_available_on_request": "Repository exists but is private: anonymous visitors get HTTP 404. The candidate can provide access to recruiters on request, so the work is real and inspectable on request, but it is not independently verifiable without that access.",
+      "external_validation": "Reviewed and accepted by someone outside this portfolio (for example a merged upstream pull request).",
+      "documented_experience": "Described in the résumé published with this portfolio; not independently verifiable here.",
+      "self_reported": "A metric stated by the candidate (for example the PromptOS cost reduction); no raw data is published.",
+      "experimental": "Early prototype or active development; not a claimed production deployment."
+    }
+  }
 }

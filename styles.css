@@ -402,7 +402,7 @@ body {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 24px; margin-bottom: 40px; align-items: start;
 }
-.stats-compact { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.stats-compact { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
 .lc-bars {
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: 8px; padding: 28px 24px;
@@ -746,6 +746,7 @@ body {
 .s-self   { color: #d4a373; background: rgba(212,163,115,.08); border-color: rgba(212,163,115,.3); }
 .s-exp    { color: #c4a88a; background: rgba(196,168,138,.07); border-color: rgba(196,168,138,.3); }
 .s-unavail{ color: #8a8a8a; background: rgba(138,138,138,.07); border-color: rgba(138,138,138,.35); }
+.s-private{ color: #c98a8a; background: rgba(201,138,138,.08); border-color: rgba(201,138,138,.32); }
 
 /* Projects: divider + code */
 .proj-divider {

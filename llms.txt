@@ -33,9 +33,9 @@ Sneh Sinha (Sneh Raj Sinha) is based in Bangalore, India and is open to work. He
 
 ## Projects
 
-Ordered by evidence status — flagship records first: OpenCode CUA Platform · webcmd (merged upstream contribution) · PromptOS · Orchestra · DeepOps · ESP32-CAM Vision Suite · Catalyst · Portfolio · then additional projects (AgentOS · Mobile GUI Automation Agent, original prototype "Agentic-hinge" · Pocket Typist; repository links currently unavailable).
+Ordered by evidence status — flagship records first: OpenCode CUA Platform · webcmd (merged upstream contribution) · PromptOS · Orchestra · DeepOps · ESP32-CAM Vision Suite · Catalyst · Portfolio · then additional projects (AgentOS · Mobile GUI Automation Agent, original prototype "Agentic-hinge" · Pocket Typist; AgentOS public, the other two private).
 
-Verification status: repositories are live for OpenCode CUA Platform, PromptOS, Orchestra, DeepOps, Catalyst, ESP32-CAM Vision Suite, webcmd (upstream PR), and Portfolio. Repository links for AgentOS, the Mobile GUI Automation Agent, and Pocket Typist are currently unavailable at the published URL (links return 404 as of 2026-09-30); their descriptions are not independently verifiable.
+Verification status: repositories are live for OpenCode CUA Platform, PromptOS, Orchestra, DeepOps, Catalyst, ESP32-CAM Vision Suite, webcmd (upstream PR), and Portfolio. Repository links for AgentOS (https://github.com/Sneh30/AgentOS), the Mobile GUI Automation Agent (https://github.com/Sneh30/Agentic-hinge) and Pocket Typist (https://github.com/Sneh30/pocket-typist) all resolve (checked 2026-10-20). AgentOS is public and independently verifiable (status `public_repo`); the other two are private (status `private_available_on_request`) — anonymous visitors get a 404, so their descriptions are the owner's own account. Both are real repositories, and read access can be provided to recruiters and screening teams on request. Repository existence and independent verifiability are recorded as separate fields (`repository_exists`, `publicly_verifiable`, `access`) in candidate.json.
 
 ## External evidence
 
@@ -56,7 +56,9 @@ Verification status: repositories are live for OpenCode CUA Platform, PromptOS, 
 
 ## Relevant roles
 
-AI Engineer · Agentic AI Engineer · AI Infrastructure Engineer · LLM Engineer · Autonomous Systems Engineer · AI/Software Systems Engineer · ML Engineer (partially supported — the portfolio does not document model training or deployed ML services).
+AI Engineer · Agentic AI Engineer · AI Infrastructure Engineer · LLM Engineer · Autonomous Systems Engineer · AI/Software Systems Engineer · ML Engineer (partially supported — the portfolio does not document model training or deployed ML services) · Software Engineer · Backend Engineer · Python Developer · DevOps / SRE Engineer · Automation Engineer · Embedded Systems Engineer · Robotics Engineer · Computer Vision Engineer
+
+Job search: open to work, seeking an internship or full-time engagement at intern or entry-level (B.E. 2023–2027). Each title maps to capability, project, and engagement IDs in candidate.json#roles with a support level of `strongly_supported`, `supported`, or `partially_supported`; no fit scores, percentages, or rankings are computed. DevOps / SRE carries the caveat that Kubernetes is not claimed, and Robotics carries the caveat that ROS and control-system tooling are not listed in Human Mode skills.
 
 ## Education
 
@@ -68,19 +70,19 @@ B.E. Robotics and Artificial Intelligence, Bangalore Institute of Technology, Au
 - Agent Mode record: https://sneh30.github.io/portfolio/agent/
 - GitHub: https://github.com/Sneh30
 - LinkedIn: https://www.linkedin.com/in/sneh30
-- X: https://x.com/Sneh30
+- X: https://x.com/sneh_sinha3
 - LeetCode: https://leetcode.com/u/sneh_sinha3/
 - Email: snehsinha30@gmail.com
 
 ## Structured data
 
-- candidate.json — identity, experience, projects, skills, roles, links
-- capabilities.json — capabilities with evidence pointers
+- candidate.json — identity, experience, projects, skills, roles, job search, links (schema 2.0)
+- capabilities.json — capabilities with evidence pointers; each entry carries one canonical status and a checked date
 - evidence.json — claim → capability → project → implementation → result → verification chains
-- Evidence status labels (qualitative only; no numeric scores): public repo · external validation · documented experience · self-reported · experimental · repository unavailable
+- Evidence status labels (qualitative only; no numeric scores): public_repo · private_available_on_request · external_validation · documented_experience · self_reported · experimental — the identical set in all four files; `status` always holds exactly one label and `qualifiers` holds any extras
 - agent-card.json — description of this agent-readable surface
-- sitemap.xml · robots.txt
+- sitemap.xml · robots.txt · validate.py (automated cross-file and markup validation)
 
 ## Honesty notes
 
-This page and the Agent Mode record are factual descriptions of the candidate, written to be checkable rather than persuasive; they do not invent facts. Metrics are attributed to their source (portfolio, résumé PDF, GitHub API, LeetCode API). Where evidence is unavailable the text says so explicitly; for AgentOS, the Mobile GUI Automation Agent (original prototype "Agentic-hinge") and Pocket Typist: "The portfolio does not currently provide sufficient evidence to verify this claim." No employers, certifications, awards, user counts, production claims, or rankings have been fabricated.
+This page and the Agent Mode record are factual descriptions of the candidate, written to be checkable rather than persuasive; they do not invent facts. Metrics are attributed to their source (portfolio, résumé PDF, GitHub API, LeetCode API). Where evidence is unavailable the text says so explicitly: for the Mobile GUI Automation Agent (original prototype "Agentic-hinge") and Pocket Typist the repositories are private, so their descriptions are the owner's own account and are not publicly verifiable without access — both repositories exist and read access can be provided to recruiters on request. No employers, certifications, awards, user counts, production claims, or rankings have been fabricated.

@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sneh30.github.io/portfolio/schemas/candidate.schema.json",
+  "title": "candidate.json — canonical structured candidate record",
+  "description": "Schema for the canonical record published at /portfolio/candidate.json. Machine-critical structures are strict; narrative fields stay open strings.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "schema", "name", "headline",
+               "canonical_url", "candidate", "contact", "education",
+               "experience", "projects", "skills", "roles", "support_levels",
+               "job_search", "evidence_labels", "limitations"],
+  "properties": {
+    "schema_version": {"const": "2.0"},
+    "generated_at": {"$ref": "#/$defs/date"},
+    "canonical_url": {"const": "https://sneh30.github.io/portfolio/"},
+    "agent_profile_url": {"type": "string", "format": "uri"},
+    "dedicated_agent_mode_url": {"type": "string", "format": "uri"},
+    "schema": {"$ref": "#/$defs/docblock"},
+    "candidate": {"$ref": "#/$defs/identity"},
+    "contact": {
+      "type": "object",
+      "required": ["email", "github"],
+      "properties": {
+        "email": {"type": "string"},
+        "github": {"type": "string", "format": "uri"}
+      },
+      "additionalProperties": {"type": "string"}
+    },
+    "education": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["institution", "degree", "start"],
+        "properties": {
+          "institution": {"type": "string"},
+          "degree": {"type": "string"},
+          "start": {"type": "string"},
+          "expected_completion": {"type": "string"},
+          "gpa": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "experience": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "organisation", "type", "start", "end",
+                     "duration", "verification"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^experience-[a-z0-9-]+$"},
+          "title": {"type": "string"},
+          "organisation": {"type": "string"},
+          "type": {"type": "string"},
+          "start": {"type": "string"},
+          "end": {"type": "string"},
+          "duration": {"type": "string"},
+          "scale": {"type": "object", "additionalProperties": {"type": "string"}},
+          "skills_applied": {"type": "array", "items": {"type": "string"}},
+          "verification": {"$ref": "#/$defs/experience_verification"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "projects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "one_line", "problem", "built",
+                     "documented_result", "technologies_in_human_mode",
+                     "categories", "demonstrates", "repository", "verification"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^project-[a-z0-9-]+$"},
+          "name": {"type": "string"},
+          "one_line": {"type": "string"},
+          "technologies_in_human_mode": {"type": "array", "items": {"type": "string"}},
+          "categories": {"type": "array", "items": {"type": "string"}},
+          "demonstrates": {
+            "type": "array", "minItems": 1,
+            "items": {"type": "string", "pattern": "^capability-[a-z0-9-]+$"}
+          },
+          "repository": {"type": "string", "format": "uri"},
+          "pull_request": {"type": "string", "format": "uri"},
+          "verification": {"$ref": "#/$defs/project_verification"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "skills": {
+      "type": "object",
+      "properties": {"note": {"type": "string"}},
+      "additionalProperties": {
+        "oneOf": [
+          {"type": "array", "items": {"type": "string"}},
+          {"type": "string"}
+        ]
+      }
+    },
+    "open_source": {"type": "array"},
+    "achievements": {"type": "array", "items": {"type": "string"}},
+    "roles": {
+      "type": "array", "minItems": 1,
+      "items": {"$ref": "#/$defs/role"}
+    },
+    "support_levels": {"$ref": "#/$defs/support_levels"},
+    "job_search": {"$ref": "#/$defs/job_search"},
+    "evidence_labels": {"$ref": "#/$defs/evidence_labels"},
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "label": {
+      "enum": ["public_repo", "private_available_on_request",
+               "external_validation", "documented_experience",
+               "self_reported", "experimental"]
+    },
+    "docblock": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "identity": {
+      "type": "object",
+      "required": ["name", "role", "canonical_url"],
+      "properties": {
+        "name": {"type": "string"},
+        "role": {"type": "string"},
+        "canonical_url": {"const": "https://sneh30.github.io/portfolio/"},
+        "focus": {"type": "array", "items": {"type": "string"}},
+        "availability": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "evidence_labels": {
+      "type": "object",
+      "required": ["note", "values", "definitions"],
+      "properties": {
+        "note": {"type": "string"},
+        "values": {
+          "const": ["public_repo", "private_available_on_request",
+                    "external_validation", "documented_experience",
+                    "self_reported", "experimental"]
+        },
+        "definitions": {
+          "type": "object",
+          "required": ["public_repo", "private_available_on_request",
+                       "external_validation", "documented_experience",
+                       "self_reported", "experimental"],
+          "additionalProperties": {"type": "string"}
+        }
+      }
+    },
+    "support_levels": {
+      "type": "object",
+      "required": ["note", "values", "definitions"],
+      "properties": {
+        "note": {"type": "string"},
+        "values": {
+          "const": ["strongly_supported", "supported", "partially_supported"]
+        },
+        "definitions": {
+          "type": "object",
+          "required": ["strongly_supported", "supported",
+                       "partially_supported"],
+          "additionalProperties": {"type": "string"}
+        }
+      }
+    },
+    "job_search": {
+      "type": "object",
+      "required": ["open_to_work", "source", "engagement_types", "levels",
+                   "roles_ref", "note"],
+      "properties": {
+        "open_to_work": {"const": true},
+        "source": {"type": "string"},
+        "engagement_types": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"enum": ["internship", "full_time"]}
+        },
+        "levels": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"enum": ["intern", "entry_level"]}
+        },
+        "roles_ref": {"const": "candidate.json#/roles"},
+        "note": {"type": "string"}
+      }
+    },
+    "project_verification": {
+      "type": "object",
+      "required": ["status", "checked", "repository_exists",
+                   "publicly_verifiable", "access"],
+      "properties": {
+        "status": {"$ref": "#/$defs/label"},
+        "qualifiers": {
+          "type": "array", "items": {"$ref": "#/$defs/label"}
+        },
+        "checked": {"$ref": "#/$defs/date"},
+        "repository_exists": {"type": "boolean"},
+        "publicly_verifiable": {"type": "boolean"},
+        "access": {"enum": ["public", "available_on_request"]},
+        "access_note": {"type": "string"},
+        "caveat": {"type": "string"},
+        "metric_source": {"type": "string"},
+        "note": {"type": "string"},
+        "source": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "experience_verification": {
+      "type": "object",
+      "required": ["status", "checked", "sources"],
+      "properties": {
+        "status": {"$ref": "#/$defs/label"},
+        "qualifiers": {
+          "type": "array", "items": {"$ref": "#/$defs/label"}
+        },
+        "checked": {"$ref": "#/$defs/date"},
+        "sources": {
+          "type": "array", "minItems": 1,
+          "items": {"type": "string", "format": "uri"}
+        },
+        "limitation": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "basis": {
+      "description": "Typed support basis: a list of evidence kinds and/or a prose note. Never a free-form code string.",
+      "anyOf": [
+        {
+          "type": "object",
+          "required": ["kinds"],
+          "properties": {
+            "kinds": {
+              "type": "array", "minItems": 1, "uniqueItems": true,
+              "items": {"enum": ["project", "engagement"]}
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["note"],
+          "properties": {"note": {"type": "string"}},
+          "additionalProperties": false
+        }
+      ]
+    },
+    "role": {
+      "type": "object",
+      "required": ["id", "role", "support", "evidence"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^role-[a-z0-9-]+$"},
+        "role": {"type": "string"},
+        "support": {"enum": ["strongly_supported", "supported",
+                             "partially_supported"]},
+        "aliases": {"type": "array", "items": {"type": "string"}},
+        "basis": {"$ref": "#/$defs/basis"},
+        "evidence": {
+          "type": "array", "minItems": 1,
+          "items": {"type": "string", "pattern": "^capability-[a-z0-9-]+$"}
+        },
+        "projects": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^project-[a-z0-9-]+$"}
+        },
+        "experience": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^experience-[a-z0-9-]+$"}
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}
